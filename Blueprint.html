@@ -1,0 +1,982 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Master Blueprint — Cindy Lý Thị Nga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15110d;
+    --paper:#f6f1e8;
+    --paper-2:#ede5d4;
+    --gold:#a8895a;
+    --gold-deep:#8a6a3d;
+    --rose:#c47a6e;
+    --rose-deep:#8f4a3d;
+    --line:rgba(21,17,13,.18);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-weight:400;
+    font-size:15px;
+    line-height:1.65;
+  }
+  .serif{font-family:'Cormorant Garamond',serif;font-weight:400}
+  .display{font-family:'Playfair Display',serif}
+  .mono-eyebrow{
+    font-family:'Inter',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:11px;
+    font-weight:600;
+    color:var(--gold-deep);
+  }
+  .container{max-width:1240px;margin:0 auto;padding:0 48px}
+  @media(max-width:720px){.container{padding:0 24px}}
+
+  /* ====== HEADER ====== */
+  header.doc-head{
+    border-bottom:1px solid var(--line);
+    padding:48px 0 36px;
+  }
+  .doc-head .container{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+  .doc-head h1{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;
+    font-size:clamp(40px,6vw,76px);
+    line-height:.95;
+    margin:0;
+    letter-spacing:-.01em;
+  }
+  .doc-head h1 em{font-style:italic;color:var(--gold-deep)}
+  .doc-head .meta{
+    text-align:right;
+    font-size:13px;
+    color:#5a4f40;
+    line-height:1.7;
+  }
+  .doc-head .meta b{display:block;color:var(--ink);font-weight:600;margin-bottom:4px}
+  @media(max-width:720px){
+    .doc-head .container{grid-template-columns:1fr}
+    .doc-head .meta{text-align:left}
+  }
+
+  /* ====== TOC ====== */
+  nav.toc{
+    background:var(--paper-2);
+    padding:36px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .toc ol{
+    list-style:none;padding:0;margin:0;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px 32px;
+    counter-reset:toc;
+  }
+  @media(max-width:900px){.toc ol{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:540px){.toc ol{grid-template-columns:1fr}}
+  .toc li{counter-increment:toc;font-size:14px}
+  .toc li a{
+    color:var(--ink);text-decoration:none;
+    display:flex;align-items:baseline;gap:14px;
+    padding:6px 0;border-bottom:1px dotted transparent;
+  }
+  .toc li a:hover{border-color:var(--gold-deep)}
+  .toc li a::before{
+    content:counter(toc,decimal-leading-zero);
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--gold-deep);
+    font-size:18px;
+    min-width:36px;
+  }
+
+  /* ====== SECTIONS ====== */
+  section.chap{padding:88px 0;border-bottom:1px solid var(--line)}
+  section.chap:last-child{border-bottom:none}
+  .chap-num{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:20px;
+    color:var(--gold-deep);
+    margin-bottom:8px;
+  }
+  .chap h2{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;
+    font-size:clamp(34px,4.6vw,56px);
+    line-height:1.05;
+    margin:0 0 18px;
+    letter-spacing:-.01em;
+  }
+  .chap h2 em{font-style:italic;color:var(--gold-deep)}
+  .chap .lede{
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    line-height:1.5;
+    color:#3a3328;
+    max-width:680px;
+    margin-bottom:48px;
+    font-style:italic;
+    font-weight:300;
+  }
+  .chap h3{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    margin:48px 0 16px;
+    color:var(--gold-deep);
+  }
+  .chap p{max-width:720px;margin:0 0 14px}
+  .chap ul,.chap ol{max-width:720px;padding-left:22px}
+  .chap li{margin-bottom:8px}
+  .chap blockquote{
+    margin:32px 0;padding:0 0 0 32px;
+    border-left:2px solid var(--gold);
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:24px;
+    line-height:1.4;
+    color:var(--ink);
+    max-width:680px;
+  }
+
+  /* ====== CARDS ====== */
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media(max-width:900px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+  .card{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:28px;
+    border-radius:2px;
+  }
+  .card h4{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    font-size:24px;
+    margin:0 0 8px;
+  }
+  .card .vi-sub{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--gold-deep);
+    font-size:15px;
+    margin-bottom:14px;
+  }
+  .card p{font-size:14px;line-height:1.65;color:#3a3328;margin:0}
+
+  /* slogan card */
+  .slogan-card{
+    padding:36px 32px;
+    background:#fff;
+    border:1px solid var(--line);
+    position:relative;
+  }
+  .slogan-card .badge{
+    position:absolute;top:16px;right:18px;
+    font-family:'Inter',sans-serif;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    color:var(--gold-deep);
+    font-weight:600;
+  }
+  .slogan-card .en{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;
+    font-size:30px;
+    line-height:1.15;
+    margin:8px 0 6px;
+  }
+  .slogan-card .vi{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:#5a4f40;
+    font-size:18px;
+    margin-bottom:18px;
+  }
+  .slogan-card .why{
+    font-size:13px;color:#5a4f40;line-height:1.65;
+    border-top:1px solid var(--line);padding-top:14px;
+  }
+  .slogan-card.featured{background:var(--ink);color:var(--paper)}
+  .slogan-card.featured .en,.slogan-card.featured .vi{color:var(--paper)}
+  .slogan-card.featured .why{color:#bdb29c;border-color:rgba(255,255,255,.18)}
+  .slogan-card.featured .badge{color:#d9b985}
+
+  /* color swatches */
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:24px 0}
+  @media(max-width:720px){.palette{grid-template-columns:repeat(2,1fr)}}
+  .swatch{border:1px solid var(--line);background:#fff;overflow:hidden}
+  .swatch .chip{aspect-ratio:1/1.1}
+  .swatch .meta{padding:12px 14px;font-size:12px;line-height:1.55}
+  .swatch .meta b{display:block;font-size:13px;margin-bottom:2px}
+  .swatch .meta code{
+    font-family:ui-monospace,Menlo,monospace;
+    font-size:11px;color:#5a4f40;
+  }
+
+  /* type specimens */
+  .type-spec{padding:32px 0;border-top:1px solid var(--line)}
+  .type-spec:first-of-type{border-top:none}
+  .type-spec .meta{
+    font-family:'Inter',sans-serif;font-size:12px;
+    text-transform:uppercase;letter-spacing:.18em;
+    color:var(--gold-deep);font-weight:600;margin-bottom:8px;
+  }
+  .type-spec .sample{margin:8px 0;line-height:1.05;letter-spacing:-.01em}
+  .type-spec .desc{font-size:13px;color:#5a4f40;max-width:600px}
+
+  /* layout diagram */
+  .wireframe{
+    background:#fff;border:1px solid var(--line);padding:24px;
+    aspect-ratio:16/9;display:flex;flex-direction:column;gap:8px;
+  }
+  .wf-row{background:var(--paper-2);border-radius:2px}
+  .wf-label{
+    font-family:'Inter',sans-serif;font-size:10px;
+    text-transform:uppercase;letter-spacing:.16em;
+    color:#8a7958;padding:6px 8px;
+  }
+
+  /* sample nav inside wireframe */
+  .wf-nav{display:flex;justify-content:space-between;padding:10px 14px;background:#fff;border-bottom:1px solid var(--line)}
+  .wf-nav .logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px}
+  .wf-nav .links{font-size:9px;color:#5a4f40;letter-spacing:.14em;text-transform:uppercase}
+
+  /* checklist */
+  ol.steps{list-style:none;padding:0;counter-reset:step;max-width:760px}
+  ol.steps li{
+    counter-increment:step;
+    padding:18px 0 18px 56px;
+    position:relative;
+    border-bottom:1px solid var(--line);
+  }
+  ol.steps li::before{
+    content:counter(step,decimal-leading-zero);
+    position:absolute;left:0;top:18px;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--gold-deep);
+    font-size:24px;
+  }
+  ol.steps li b{display:block;font-weight:600;font-size:15px;margin-bottom:4px}
+  ol.steps li .note{font-size:13px;color:#5a4f40}
+
+  /* photo direction */
+  .photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+  @media(max-width:720px){.photo-grid{grid-template-columns:repeat(2,1fr)}}
+  .photo-grid figure{margin:0}
+  .photo-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;filter:grayscale(.05)}
+  .photo-grid figcaption{
+    font-family:'Inter',sans-serif;font-size:11px;
+    text-transform:uppercase;letter-spacing:.14em;
+    color:var(--gold-deep);padding-top:8px;font-weight:600;
+  }
+  .photo-grid figcaption span{
+    display:block;font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-size:13px;color:#5a4f40;
+    text-transform:none;letter-spacing:0;font-weight:400;margin-top:2px;
+  }
+
+  /* sitemap */
+  .sitemap{
+    display:grid;grid-template-columns:240px 1fr;gap:0;
+    border:1px solid var(--line);background:#fff;
+  }
+  .sitemap .col{padding:20px 22px;border-right:1px solid var(--line)}
+  .sitemap .col:last-child{border-right:none}
+  .sitemap .col b{
+    display:block;font-family:'Inter';font-weight:600;font-size:11px;
+    text-transform:uppercase;letter-spacing:.18em;color:var(--gold-deep);
+    margin-bottom:14px;
+  }
+  .sitemap .item{
+    padding:10px 0;border-bottom:1px dotted var(--line);
+    font-size:14px;display:flex;justify-content:space-between;align-items:baseline;
+  }
+  .sitemap .item:last-child{border-bottom:none}
+  .sitemap .item .vi{font-family:'Cormorant Garamond',serif;font-style:italic;color:#8a7958;font-size:13px}
+
+  /* tags */
+  .tag{
+    display:inline-block;padding:4px 10px;
+    background:var(--paper-2);border:1px solid var(--line);
+    font-size:11px;text-transform:uppercase;letter-spacing:.14em;
+    margin:2px 4px 2px 0;color:#5a4f40;
+  }
+
+  /* footer */
+  footer.doc-foot{
+    padding:64px 0;background:var(--ink);color:#bdb29c;
+    text-align:center;
+  }
+  footer.doc-foot h3{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:36px;color:var(--paper);margin:0 0 12px;
+  }
+  footer.doc-foot a{color:#d9b985;text-decoration:underline}
+
+  /* deco rule */
+  .ornament{
+    text-align:center;margin:48px 0;
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    color:var(--gold);letter-spacing:.6em;
+  }
+
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .pill{
+    border:1px solid var(--line);padding:6px 12px;border-radius:999px;
+    font-size:12px;color:#5a4f40;background:#fff;
+  }
+</style>
+</head>
+<body>
+
+<header class="doc-head">
+  <div class="container">
+    <div>
+      <div class="mono-eyebrow">Master Blueprint · 2025</div>
+      <h1 class="serif">A Brand Strategy<br><em>for Cindy Lý Thị Nga</em></h1>
+    </div>
+    <div class="meta">
+      <b>Bilingual MC Portfolio</b>
+      Prepared for · Cindy<br>
+      Role · Brand & UI/UX Director<br>
+      Version · 1.0 · Living document<br>
+      Pair file · <code>Portfolio.html</code>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="container">
+    <div class="mono-eyebrow" style="margin-bottom:18px">Mục lục · Table of contents</div>
+    <ol>
+      <li><a href="#brand">Brand DNA · Triết lý thương hiệu</a></li>
+      <li><a href="#audience">Khán giả mục tiêu · Audience</a></li>
+      <li><a href="#slogan">Tagline & Slogan</a></li>
+      <li><a href="#values">Core Values · Giá trị cốt lõi</a></li>
+      <li><a href="#voice">Voice & Tone</a></li>
+      <li><a href="#palette">Color Palette · Bảng màu</a></li>
+      <li><a href="#type">Typography · Kiểu chữ</a></li>
+      <li><a href="#photo">Photography Direction</a></li>
+      <li><a href="#sitemap">Sitemap & Section Logic</a></li>
+      <li><a href="#hero">Hero Section · Trang chủ</a></li>
+      <li><a href="#hall">Hall of Fame · Brand Wall</a></li>
+      <li><a href="#mobile">Mobile First Considerations</a></li>
+      <li><a href="#bilingual">Bilingual System (EN/VI)</a></li>
+      <li><a href="#delivery">Delivery Roadmap</a></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- 1 BRAND -->
+<section class="chap" id="brand">
+  <div class="container">
+    <div class="chap-num">Chapter I</div>
+    <h2 class="serif">Brand DNA — <em>Cindy là ai trên sân khấu</em></h2>
+    <p class="lede">Một MC song ngữ không bán giọng nói. Cô bán <em>khoảnh khắc</em>: cái khoảnh khắc khán giả Việt và khách quốc tế cùng gật đầu, cùng cười, cùng vỗ tay — và cảm thấy được dẫn dắt một cách thanh lịch.</p>
+
+    <h3>One-line positioning</h3>
+    <blockquote>Cindy là người dẫn chương trình song ngữ điềm tĩnh, sang trọng — chuyên cho gala, hội nghị doanh nghiệp và sự kiện thương hiệu cao cấp tại Việt Nam.</blockquote>
+
+    <h3>Brand archetype</h3>
+    <div class="grid-2">
+      <div class="card">
+        <h4>The Sovereign · The Host</h4>
+        <div class="vi-sub">Người chủ tiệc · The one who sets the tone</div>
+        <p>Khi Cindy bước lên sân khấu, không khí phải <em>nâng</em> chứ không <em>nóng</em>. Cô là chủ nhân của khoảnh khắc — sang trọng, có quyền lực mềm, không bao giờ mất kiểm soát.</p>
+      </div>
+      <div class="card">
+        <h4>The Bridge · Cây cầu</h4>
+        <div class="vi-sub">Translator of cultures, not just words</div>
+        <p>Tiếng Anh và tiếng Việt trong miệng Cindy không phải hai ngôn ngữ rời rạc — chúng là một dòng chảy. Cô dịch văn hoá, dịch nhịp điệu, dịch sự tinh tế.</p>
+      </div>
+    </div>
+
+    <h3>Brand essence</h3>
+    <div class="pill-row">
+      <span class="pill">Composed · Điềm tĩnh</span>
+      <span class="pill">Bilingual fluency</span>
+      <span class="pill">Editorial elegance</span>
+      <span class="pill">Warm authority</span>
+      <span class="pill">Quietly confident</span>
+      <span class="pill">Not loud, never small</span>
+    </div>
+  </div>
+</section>
+
+<!-- 2 AUDIENCE -->
+<section class="chap" id="audience">
+  <div class="container">
+    <div class="chap-num">Chapter II</div>
+    <h2 class="serif">Audience — <em>Ai sẽ xem website này</em></h2>
+    <p class="lede">Portfolio không phải để Cindy khoe — nó là công cụ <em>booking</em>. Phải nói chuyện với 3 nhóm người, theo thứ tự ưu tiên.</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="mono-eyebrow">Primary · 60%</div>
+        <h4>Event & Brand Managers</h4>
+        <div class="vi-sub">Trưởng phòng sự kiện thương hiệu</div>
+        <p><b>Họ tìm gì:</b> bằng chứng đã làm cho brand cùng tier (Toyota, Yamaha, LG…), khả năng song ngữ thật, sự tự tin trên sân khấu lớn.</p>
+        <p style="margin-top:10px"><b>Họ quyết định trong:</b> 30 giây đầu của Hero + Brand Wall.</p>
+      </div>
+      <div class="card">
+        <div class="mono-eyebrow">Secondary · 25%</div>
+        <h4>Agency Producers</h4>
+        <div class="vi-sub">Producer agency tổ chức sự kiện</div>
+        <p><b>Họ tìm gì:</b> showreel, profile PDF tải nhanh, contact rõ ràng, lịch trống. Họ là người quay lại nhiều lần.</p>
+        <p style="margin-top:10px"><b>Họ quyết định trong:</b> showreel 60s + tốc độ phản hồi.</p>
+      </div>
+      <div class="card">
+        <div class="mono-eyebrow">Tertiary · 15%</div>
+        <h4>Festival &amp; Activation Producers</h4>
+        <div class="vi-sub">Producer cho lễ hội, brand activation</div>
+        <p><b>Họ tìm gì:</b> năng lượng sân khấu lớn, khả năng giữ đám đông ngoài trời, cách Cindy kết nối với khán giả. Tone hơi ấm hơn corporate.</p>
+        <p style="margin-top:10px"><b>Họ quyết định trong:</b> ảnh festival + showreel sự kiện ngoài trời.</p>
+      </div>
+    </div>
+
+    <h3>Job-to-be-done của website</h3>
+    <ol>
+      <li><b>Trong 5 giây đầu</b> — chứng minh Cindy là MC song ngữ chuyên nghiệp (không phải "biết tiếng Anh").</li>
+      <li><b>Trong 30 giây</b> — cho thấy đẳng cấp brand đã làm việc (Hall of Fame).</li>
+      <li><b>Trong 2 phút</b> — đưa được CTA: gửi inquiry hoặc tải profile PDF.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 3 SLOGAN -->
+<section class="chap" id="slogan">
+  <div class="container">
+    <div class="chap-num">Chapter III</div>
+    <h2 class="serif">Tagline — <em>Câu nói định hình thương hiệu</em></h2>
+    <p class="lede">Đề xuất 5 tagline song ngữ. Hướng <strong>#01</strong> là <em>recommended</em> — vì nó vừa nói được hai ngôn ngữ, vừa có hình ảnh "cây cầu" thanh lịch, lại không tự đề cao.</p>
+
+    <div class="grid-2">
+
+      <div class="slogan-card featured">
+        <div class="badge">★ Recommended · #01</div>
+        <div class="mono-eyebrow" style="color:#d9b985">The Bridge Direction</div>
+        <div class="en serif">Two languages, one stage.</div>
+        <div class="vi serif">Hai ngôn ngữ, một sân khấu.</div>
+        <div class="why">Ngắn — dễ nhớ — chính xác. Đặt cạnh tên Cindy trên hero, dùng làm chữ ký email, in mặt sau card. Không tự đề cao "best/top" mà vẫn nói được USP duy nhất.</div>
+      </div>
+
+      <div class="slogan-card">
+        <div class="badge">#02</div>
+        <div class="mono-eyebrow">The Composed Direction</div>
+        <div class="en serif">Hosting with grace, in two voices.</div>
+        <div class="vi serif">Dẫn dắt thanh lịch, bằng hai giọng nói.</div>
+        <div class="why">Dùng nếu muốn nhấn vào "personality" hơn là "kỹ năng". Hợp với khách wedding, gala gia đình.</div>
+      </div>
+
+      <div class="slogan-card">
+        <div class="badge">#03</div>
+        <div class="mono-eyebrow">The Moment Direction</div>
+        <div class="en serif">Where every word lands — in English &amp; Vietnamese.</div>
+        <div class="vi serif">Mỗi câu nói đều chạm — Anh hay Việt.</div>
+        <div class="why">Dài hơn nhưng giàu hình ảnh. Dùng làm headline section "Why Me", không nên làm tagline chính.</div>
+      </div>
+
+      <div class="slogan-card">
+        <div class="badge">#04</div>
+        <div class="mono-eyebrow">The Confidence Direction</div>
+        <div class="en serif">Composed. Bilingual. On stage.</div>
+        <div class="vi serif">Điềm tĩnh. Song ngữ. Trên sân khấu.</div>
+        <div class="why">Phong cách "three-word stamp" rất modern — hợp brand làm work corporate. Dùng làm hero secondary line.</div>
+      </div>
+    </div>
+
+    <h3>Cách dùng tagline trong portfolio</h3>
+    <ul>
+      <li><b>Hero (PC):</b> Tagline #01 — tiếng Anh là dòng chính lớn (Cormorant 88px), tiếng Việt nằm dưới italic 24px.</li>
+      <li><b>Hero (Mobile):</b> Chỉ tiếng Anh #01, tiếng Việt rút gọn còn 1 dòng.</li>
+      <li><b>Footer:</b> Lặp lại #01 nhỏ, đặt trên contact form.</li>
+      <li><b>Section "Why Me":</b> Dùng #03 làm headline.</li>
+      <li><b>Email signature & business card:</b> #01 cố định.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4 VALUES -->
+<section class="chap" id="values">
+  <div class="container">
+    <div class="chap-num">Chapter IV</div>
+    <h2 class="serif">Core Values — <em>Bốn giá trị Cindy đứng phía sau</em></h2>
+    <p class="lede">Đây không phải khẩu hiệu treo tường. Mỗi giá trị tương ứng với một cam kết khán giả có thể nhìn thấy trên sân khấu.</p>
+
+    <div class="grid-4">
+      <div class="card">
+        <div class="mono-eyebrow">i</div>
+        <h4 class="serif">Composure</h4>
+        <div class="vi-sub">Sự điềm tĩnh</div>
+        <p>Sự cố sân khấu là chuyện thường. Cindy không nói nhanh hơn — cô nói <em>chậm hơn</em>, để người khác bình tĩnh lại.</p>
+      </div>
+      <div class="card">
+        <div class="mono-eyebrow">ii</div>
+        <h4 class="serif">Fluency</h4>
+        <div class="vi-sub">Song ngữ thật</div>
+        <p>Không phải "nói được tiếng Anh" — là chuyển kênh giữa hai ngôn ngữ tự nhiên như thở, không lệch nhịp văn hoá.</p>
+      </div>
+      <div class="card">
+        <div class="mono-eyebrow">iii</div>
+        <h4 class="serif">Presence</h4>
+        <div class="vi-sub">Sự hiện diện</div>
+        <p>Đứng trên sân khấu mà không cần "diễn". Khán giả nhìn vào là tin được đây là người chủ trì, không phải người đọc.</p>
+      </div>
+      <div class="card">
+        <div class="mono-eyebrow">iv</div>
+        <h4 class="serif">Craft</h4>
+        <div class="vi-sub">Sự chuẩn bị</div>
+        <p>Mỗi script được Cindy đọc lại 3 lần trước event. Mỗi tên thương hiệu đều phát âm đúng. Nghề này không có "chắc là được".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 VOICE -->
+<section class="chap" id="voice">
+  <div class="container">
+    <div class="chap-num">Chapter V</div>
+    <h2 class="serif">Voice &amp; Tone — <em>Cindy viết và nói như thế nào</em></h2>
+    <p class="lede">Voice trên website phải nghe giống Cindy trên sân khấu: <em>điềm tĩnh, sang trọng, có chút humor sâu</em>. Không exclamation, không emoji, không "siêu", không "đỉnh".</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4 class="serif">DO · Nên dùng</h4>
+        <ul>
+          <li>Câu ngắn. Đôi khi rất ngắn.</li>
+          <li>Dùng động từ mạnh (host, lead, bridge), tránh tính từ rỗng.</li>
+          <li>Tiếng Anh: Cormorant Garamond cho chữ lớn, Inter cho body.</li>
+          <li>Tiếng Việt italic, font serif — như chú thích bảo tàng.</li>
+          <li>Chấm câu sạch sẽ. Một dấu chấm hơn ba dấu chấm than.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 class="serif">DON'T · Tránh</h4>
+        <ul>
+          <li>Không "MC tài năng", "MC nổi bật", "MC hàng đầu".</li>
+          <li>Không emoji 🌟✨💖 trong body text.</li>
+          <li>Không gradient màu mè trong UI (dùng solid).</li>
+          <li>Không capslock toàn dòng (chỉ dùng cho mono eyebrow size 11px).</li>
+          <li>Không xen tiếng Anh-Việt trong cùng 1 câu kiểu code-switch.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Microcopy mẫu</h3>
+    <div class="grid-3">
+      <div class="card">
+        <div class="mono-eyebrow">CTA Button</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:22px;margin-top:10px"><em>Send a brief</em></p>
+        <p style="font-size:13px;color:#5a4f40">"Gửi brief sự kiện"<br>(không "Liên hệ ngay!")</p>
+      </div>
+      <div class="card">
+        <div class="mono-eyebrow">Form heading</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:22px;margin-top:10px"><em>Tell me about your event</em></p>
+        <p style="font-size:13px;color:#5a4f40">"Kể tôi nghe về sự kiện của bạn"</p>
+      </div>
+      <div class="card">
+        <div class="mono-eyebrow">Empty state</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:22px;margin-top:10px"><em>Currently away on stage.</em></p>
+        <p style="font-size:13px;color:#5a4f40">"Đang ở sân khấu. Sẽ trả lời trong 24h."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 PALETTE -->
+<section class="chap" id="palette">
+  <div class="container">
+    <div class="chap-num">Chapter VI</div>
+    <h2 class="serif">Color Palette — <em>Champagne &amp; Ink</em></h2>
+    <p class="lede">Palette chính lấy cảm hứng từ <em>tạp chí thời trang Việt cao cấp</em>: nền giấy ngà, chữ mực đen ấm, accent vàng champagne. Hai biến thể (Plum &amp; Emerald) cho dịp đặc biệt.</p>
+
+    <h3>Primary palette · Champagne &amp; Ink (mặc định)</h3>
+    <div class="palette">
+      <div class="swatch">
+        <div class="chip" style="background:#15110d"></div>
+        <div class="meta"><b>Ink Black</b><code>#15110D</code><div>Body text · stage</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#f6f1e8"></div>
+        <div class="meta"><b>Champagne Paper</b><code>#F6F1E8</code><div>Background mặc định</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#ede5d4"></div>
+        <div class="meta"><b>Cream Tint</b><code>#EDE5D4</code><div>Section phụ · cards</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#a8895a"></div>
+        <div class="meta"><b>Champagne Gold</b><code>#A8895A</code><div>Accent · italic</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#8a6a3d"></div>
+        <div class="meta"><b>Antique Gold</b><code>#8A6A3D</code><div>Hover · gold deep</div></div>
+      </div>
+    </div>
+
+    <h3>Variant A · Plum Velvet (cho gala buổi tối)</h3>
+    <div class="palette">
+      <div class="swatch"><div class="chip" style="background:#1a0d14"></div><div class="meta"><b>Wine Ink</b><code>#1A0D14</code></div></div>
+      <div class="swatch"><div class="chip" style="background:#f0e6e0"></div><div class="meta"><b>Blush Paper</b><code>#F0E6E0</code></div></div>
+      <div class="swatch"><div class="chip" style="background:#e3cfc7"></div><div class="meta"><b>Dusty Rose</b><code>#E3CFC7</code></div></div>
+      <div class="swatch"><div class="chip" style="background:#8b3a4a"></div><div class="meta"><b>Plum Velvet</b><code>#8B3A4A</code></div></div>
+      <div class="swatch"><div class="chip" style="background:#5a1f2c"></div><div class="meta"><b>Burgundy</b><code>#5A1F2C</code></div></div>
+    </div>
+
+    <h3>Variant B · Emerald Quiet (cho corporate hi-end)</h3>
+    <div class="palette">
+      <div class="swatch"><div class="chip" style="background:#0d1612"></div><div class="meta"><b>Pine Ink</b><code>#0D1612</code></div></div>
+      <div class="swatch"><div class="chip" style="background:#eef0ea"></div><div class="meta"><b>Stone Paper</b><code>#EEF0EA</code></div></div>
+      <div class="swatch"><div class="chip" style="background:#dde2d7"></div><div class="meta"><b>Sage Tint</b><code>#DDE2D7</code></div></div>
+      <div class="swatch"><div class="chip" style="background:#3f6650"></div><div class="meta"><b>Emerald</b><code>#3F6650</code></div></div>
+      <div class="swatch"><div class="chip" style="background:#26443a"></div><div class="meta"><b>Forest</b><code>#26443A</code></div></div>
+    </div>
+
+    <h3>Quy tắc sử dụng · 60-30-10</h3>
+    <ul>
+      <li><b>60% · Champagne Paper</b> — nền, không gian thở.</li>
+      <li><b>30% · Ink Black</b> — chữ, hình ảnh đen trắng portrait.</li>
+      <li><b>10% · Champagne Gold</b> — italic, số chương, divider, hover state. Vàng <em>không bao giờ</em> dùng cho chữ body lớn (không đọc được trên paper).</li>
+    </ul>
+    <p><b>Cảnh báo:</b> Không dùng vàng Gold trên nền Cream Tint — contrast quá thấp. Gold chỉ trên nền Paper trắng nhạt hoặc Ink đen.</p>
+  </div>
+</section>
+
+<!-- 7 TYPE -->
+<section class="chap" id="type">
+  <div class="container">
+    <div class="chap-num">Chapter VII</div>
+    <h2 class="serif">Typography — <em>Hai font, ba vai trò</em></h2>
+    <p class="lede">Typography là vũ khí thanh lịch nhất của portfolio này. Quy tắc: <em>chữ tiếng Anh là nhân vật chính. Chữ tiếng Việt là chú thích thanh lịch dưới nó.</em></p>
+
+    <div class="type-spec">
+      <div class="meta">Display · Cormorant Garamond — Light 300 / Italic 400</div>
+      <div class="sample serif" style="font-size:88px;font-weight:300">Aa Đđ Vv Cc</div>
+      <div class="sample serif" style="font-size:64px;font-weight:300;font-style:italic;color:var(--gold-deep)">Two languages, one stage.</div>
+      <div class="desc">Dùng cho: Hero headline, Section H2, Slogan, tên Brand. Light weight là mặc định — bold rất hiếm khi dùng. Italic luôn dùng màu Gold.</div>
+    </div>
+
+    <div class="type-spec">
+      <div class="meta">Sub-display · Cormorant — Italic 400 (Vietnamese caption)</div>
+      <div class="sample serif" style="font-size:30px;font-style:italic">Hai ngôn ngữ, một sân khấu</div>
+      <div class="desc">Tiếng Việt <em>luôn</em> đặt italic, font serif, kích cỡ ~35-40% so với English headline phía trên. Tạo cảm giác "thì thầm" thanh lịch.</div>
+    </div>
+
+    <div class="type-spec">
+      <div class="meta">Body · Inter — 400 / 500</div>
+      <div class="sample" style="font-family:Inter;font-size:18px;font-weight:400;letter-spacing:-.005em">Cindy là người dẫn chương trình song ngữ Anh – Việt, chuyên cho gala doanh nghiệp, hội nghị thương hiệu và sự kiện văn hoá.</div>
+      <div class="desc">Body 16-18px. Inter chọn vì rendering tiếng Việt sạch, có dấu rõ, không "lạnh" như Helvetica.</div>
+    </div>
+
+    <div class="type-spec">
+      <div class="meta">Mono eyebrow · Inter Uppercase 11px · letter-spacing 0.22em</div>
+      <div class="sample" style="font-family:Inter;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.22em;color:var(--gold-deep)">Selected Works · 2024 — 2025</div>
+      <div class="desc">Dùng cho section labels, chương số, "Featured client", "Available for booking". <strong>Không bao giờ</strong> dùng caps cho text dài hơn 8 chữ.</div>
+    </div>
+
+    <h3>Type pairing rule</h3>
+    <ol>
+      <li>Một trang chỉ dùng <b>2 font</b>: Cormorant + Inter. Không thêm.</li>
+      <li>Tỷ lệ size giữa English headline và Vietnamese caption: <b>2.5 : 1</b>.</li>
+      <li>Line-height cho Cormorant 60px+: <b>0.95-1.05</b>. Cho Inter body: <b>1.55-1.65</b>.</li>
+      <li>Letter-spacing chỉ dùng cho mono eyebrow (caps small). Cormorant <em>không</em> bao giờ tracking dương.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8 PHOTO -->
+<section class="chap" id="photo">
+  <div class="container">
+    <div class="chap-num">Chapter VIII</div>
+    <h2 class="serif">Photography Direction — <em>Ba mảng sự kiện · Three event domains</em></h2>
+    <p class="lede">Cindy có một thư viện ảnh dày dặn. Chiến lược là phân làm <em>3 cluster sự kiện</em> đúng với thực tế công việc — và <em>1 cluster portrait editorial</em> tách riêng để dùng cho hero và about.</p>
+
+    <div class="photo-grid">
+      <figure>
+        <img src="assets/event-conference.jpg" alt="Conference" />
+        <figcaption>Cluster I · Conference<span>Hội nghị doanh nghiệp · partner gathering</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/event-aeon-christmas.jpg" alt="Festival activation" />
+        <figcaption>Cluster II · Festival<span>Lễ hội · activation · brand event</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/event-fujifilm.jpg" alt="Gala dinner" />
+        <figcaption>Cluster III · Gala dinner<span>Tiệc tối · kick-off · award night</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/hero-stairs.jpg" alt="Editorial portrait" />
+        <figcaption>Cluster IV · Editorial<span>Portrait riêng cho Hero &amp; About</span></figcaption>
+      </figure>
+    </div>
+
+    <h3>Định nghĩa từng cluster</h3>
+    <div class="grid-3">
+      <div class="card">
+        <h4 class="serif">I · Conference</h4>
+        <div class="vi-sub">Hội nghị · Partner gathering</div>
+        <p>Bối cảnh ballroom 5★, đèn ấm, khán giả mặc suit. Cindy đứng sân khấu trang trọng, micro cầm tay. Ảnh có cả tổng thể khán phòng + close-up Cindy.</p>
+        <p style="margin-top:8px;font-size:12px;color:#8a7958"><b>Brand examples:</b> Toyota, Yamaha, Hyundai, FLC.</p>
+      </div>
+      <div class="card">
+        <h4 class="serif">II · Festival &amp; Activation</h4>
+        <div class="vi-sub">Lễ hội · brand activation</div>
+        <p>Sân khấu ngoài trời hoặc trung tâm thương mại, light setup nhiều màu, năng lượng cao. Cindy mặc trang phục theo concept (váy đỏ Christmas, áo dài lễ hội, dạ hội màu).</p>
+        <p style="margin-top:8px;font-size:12px;color:#8a7958"><b>Brand examples:</b> AEON Mall, Fujifilm, lễ hội văn hoá.</p>
+      </div>
+      <div class="card">
+        <h4 class="serif">III · Gala dinner</h4>
+        <div class="vi-sub">Tiệc tối · award · kick-off</div>
+        <p>Dạ tiệc tối, ánh sáng vàng ấm, dress code formal. Cindy mặc dạ hội đen / trắng / vàng champagne, MC cầm tablet. Tone trầm, sang.</p>
+        <p style="margin-top:8px;font-size:12px;color:#8a7958"><b>Brand examples:</b> Fujifilm Partner Kick-off, year-end gala doanh nghiệp.</p>
+      </div>
+    </div>
+
+    <h3>Treatment rule · cách xử lý ảnh</h3>
+    <ul>
+      <li><b>Hero portrait</b> — full color, treated subtle (giảm saturation 5-8%, nâng warmth +3). <em>Recommend:</em> ảnh váy trắng cầu thang (HAN03849) — frame thanh lịch, có chiều sâu kiến trúc.</li>
+      <li><b>Brand wall thumbnails</b> — duotone champagne (vàng champagne + ink) để các logo brand thật nổi.</li>
+      <li><b>Gallery sự kiện</b> — full color, không filter chung. Mỗi ảnh giữ context ánh sáng riêng (gala vàng ấm khác activation đèn lạnh).</li>
+      <li><b>Story panels (B&amp;W)</b> — chỉ dùng khi cần một moment "candid" — Cindy đang nói, không pose. Giới hạn 2-3 ảnh trên toàn site.</li>
+    </ul>
+
+    <h3>Cropping rule (quan trọng cho mobile)</h3>
+    <ul>
+      <li><b>Hero PC:</b> ảnh dạng dọc 3:4 hoặc 2:3, mặt Cindy ở 1/3 trên.</li>
+      <li><b>Hero Mobile:</b> dùng ảnh cutout PNG (váy vàng / váy trắng) trên nền paper, không crop từ ảnh sự kiện.</li>
+      <li><b>Cluster thumbnails:</b> 4:5 dọc, mặt &amp; mic cầm tay nằm trong khung. Tránh ảnh wide-shot không có mặt Cindy.</li>
+      <li><b>Story strip:</b> 16:9 ngang, ảnh sân khấu / wide shot dùng làm full-bleed band.</li>
+    </ul>
+
+    <h3>Bạn có thể giúp gì cho phần này?</h3>
+    <p style="background:#fff;border-left:3px solid var(--gold);padding:14px 18px;font-size:14px;color:#3a3328;margin-top:14px">Cindy à — phần ảnh là phần <em>duy nhất</em> tôi cần bạn duyệt thủ công. Sau khi đọc xong Blueprint, bạn sẽ là người chỉ định <b>top 12 ảnh</b> chia đều 3 cluster (mỗi cluster 3-4 ảnh đỉnh nhất). Tiêu chí: (1) thấy rõ mặt + biểu cảm chuyên nghiệp, (2) thấy được brand context (logo backdrop, sân khấu), (3) chất lượng ánh sáng đẹp. Tôi sẽ đặt placeholder ở Portfolio.html — bạn chỉ cần kéo thả ảnh vào.</p>
+  </div>
+</section>
+
+<!-- 9 SITEMAP -->
+<section class="chap" id="sitemap">
+  <div class="container">
+    <div class="chap-num">Chapter IX</div>
+    <h2 class="serif">Sitemap — <em>Logic 7 sections</em></h2>
+    <p class="lede">Portfolio chỉ <em>một trang dài</em> (one-page scroll). Đừng chia nhiều trang — booking decision không cần navigation phức tạp.</p>
+
+    <div class="sitemap">
+      <div class="col">
+        <b>Section</b>
+        <div class="item">01 · Hero <span class="vi">Trang chủ</span></div>
+        <div class="item">02 · Why Me <span class="vi">Tại sao chọn</span></div>
+        <div class="item">03 · Selected Works <span class="vi">Sự kiện tiêu biểu</span></div>
+        <div class="item">04 · Hall of Fame <span class="vi">Brand wall</span></div>
+        <div class="item">05 · Gallery <span class="vi">Khoảnh khắc</span></div>
+        <div class="item">06 · Voice & Range <span class="vi">Showreel</span></div>
+        <div class="item">07 · Inquire <span class="vi">Liên hệ</span></div>
+      </div>
+      <div class="col">
+        <b>Mục đích · Job</b>
+        <div class="item">Hook trong 5 giây — tagline + portrait + CTA</div>
+        <div class="item">3-4 lý do chọn — bilingual, composure, brand-tier, presence</div>
+        <div class="item">5-6 case study (logo + 1 dòng vai trò + ảnh sân khấu)</div>
+        <div class="item">Lưới logo brand đã làm — quiet, monochrome, dày đặc</div>
+        <div class="item">Editorial photo grid — không showreel, là <em>lookbook</em></div>
+        <div class="item">Video clip 60s + downloadable profile PDF</div>
+        <div class="item">Form ngắn (4 trường) + email + IG link</div>
+      </div>
+    </div>
+
+    <h3>Khoảng cách giữa các section</h3>
+    <p>Padding dọc giữa sections: <b>120-160px desktop / 72-96px mobile</b>. Đừng nén — khoảng trắng là phần của thiết kế.</p>
+  </div>
+</section>
+
+<!-- 10 HERO -->
+<section class="chap" id="hero">
+  <div class="container">
+    <div class="chap-num">Chapter X</div>
+    <h2 class="serif">Hero Section — <em>5 giây quyết định</em></h2>
+    <p class="lede">Hero là phần duy nhất khán giả <em>chắc chắn</em> sẽ thấy. Mọi quyết định khác đều đến từ đây.</p>
+
+    <h3>Layout đề xuất (PC) · Editorial Split</h3>
+    <div class="wireframe">
+      <div class="wf-nav">
+        <div class="logo">Cindy <em>· Lý Thị Nga</em></div>
+        <div class="links">WORK · ABOUT · BRANDS · INQUIRE</div>
+      </div>
+      <div style="flex:1;display:grid;grid-template-columns:1.1fr 1fr;gap:24px;padding:24px">
+        <div style="display:flex;flex-direction:column;justify-content:space-between">
+          <div class="wf-label">A — Mono eyebrow</div>
+          <div>
+            <div class="wf-row" style="height:80px;margin-bottom:10px"><div class="wf-label">B — English headline (Cormorant 88px)</div></div>
+            <div class="wf-row" style="height:24px;width:60%"><div class="wf-label">C — Vietnamese italic 24px</div></div>
+          </div>
+          <div class="wf-row" style="height:48px;width:50%"><div class="wf-label">D — CTA pair: Send brief / View showreel</div></div>
+        </div>
+        <div class="wf-row" style="background:#d3c8b0;display:flex;align-items:flex-end;padding:8px"><div class="wf-label" style="color:#5a4f40">E — Portrait full-bleed (3:4 vertical)</div></div>
+      </div>
+    </div>
+
+    <h3>Layout đề xuất (Mobile)</h3>
+    <ul>
+      <li>Portrait ở trên (50vh), text ở dưới (50vh) — KHÔNG overlay text trên ảnh, dễ xấu mặt.</li>
+      <li>Headline scale xuống ~44px, Vietnamese caption 16px italic.</li>
+      <li>Một CTA chính (Send brief), CTA phụ (Showreel) thành text-link nhỏ phía dưới.</li>
+    </ul>
+
+    <h3>3 hero variations để thử (đã build sẵn trong Tweaks panel của Portfolio.html)</h3>
+    <div class="grid-3">
+      <div class="card"><h4 class="serif">A · Editorial Split</h4><div class="vi-sub">Magazine cover style</div><p>Text trái — portrait phải. Mặc định. Phù hợp 80% trường hợp.</p></div>
+      <div class="card"><h4 class="serif">B · Cinematic Center</h4><div class="vi-sub">Portrait nền, text đè giữa</div><p>Dramatic hơn. Cần ảnh portrait có nhiều khoảng trống và tone tối.</p></div>
+      <div class="card"><h4 class="serif">C · Quiet Type</h4><div class="vi-sub">Toàn chữ, ảnh nhỏ góc</div><p>Sang nhất, "boutique" nhất. Hợp khách wedding cao cấp.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 HALL -->
+<section class="chap" id="hall">
+  <div class="container">
+    <div class="chap-num">Chapter XI</div>
+    <h2 class="serif">Hall of Fame — <em>Brand Wall logic</em></h2>
+    <p class="lede">Đây là vũ khí mạnh nhất của portfolio. Người booking nhìn vào logo brand đã làm để định giá Cindy.</p>
+
+    <h3>Nguyên tắc</h3>
+    <ul>
+      <li><b>Logo monochrome</b> — convert tất cả về 1 màu (Ink black 60% opacity trên paper). Lý do: logo gốc nhiều màu sẽ phá brand mood của Cindy.</li>
+      <li><b>Lưới đều</b> — 5×4 hoặc 6×3 grid. Đừng phân tier (top/medium) — tất cả equal, làm dày đặc cho cảm giác "rất nhiều".</li>
+      <li><b>Hover state</b> — khi rê chuột, logo chuyển sang full-color + tooltip hiện tên dự án ("LG · TVC product launch 2024").</li>
+      <li><b>Filter</b> — cho phép lọc theo: All / Corporate / Festival / Gala / Cultural.</li>
+    </ul>
+
+    <h3>Format trình bày</h3>
+    <div class="grid-2">
+      <div class="card">
+        <h4 class="serif">Variant A · Quiet Wall (recommended)</h4>
+        <div class="vi-sub">Brand wall im lặng</div>
+        <p>Lưới 6 cột, logo monochrome, không text. Section heading: "<em>Trusted by</em>" + small caption. Đây là hướng <b>editorial</b>, để brand tự nói.</p>
+      </div>
+      <div class="card">
+        <h4 class="serif">Variant B · Marquee Stripe</h4>
+        <div class="vi-sub">Băng cuộn vô tận</div>
+        <p>Một dải logo cuộn ngang chậm (12s/loop). Dùng cho mobile vì grid 6 cột quá nhỏ. Trên desktop có thể thêm để tạo motion.</p>
+      </div>
+    </div>
+
+    <h3>Brand đã có (từ logo files bạn upload)</h3>
+    <div class="pill-row">
+      <span class="pill">Toyota</span>
+      <span class="pill">Yamaha</span>
+      <span class="pill">LG</span>
+      <span class="pill">Toshiba</span>
+      <span class="pill">AEON Mall</span>
+      <span class="pill">Hyundai</span>
+      <span class="pill">Vingroup</span>
+      <span class="pill">+ thêm từ database</span>
+    </div>
+  </div>
+</section>
+
+<!-- 12 MOBILE -->
+<section class="chap" id="mobile">
+  <div class="container">
+    <div class="chap-num">Chapter XII</div>
+    <h2 class="serif">Mobile First — <em>70% người xem dùng điện thoại</em></h2>
+    <p class="lede">Trên thực tế đa số inquiry đến từ producer xem trên iPhone giữa hai cuộc họp. Mobile <em>không phải</em> bản thu nhỏ — nó là một thiết kế riêng.</p>
+
+    <h3>5 quy tắc mobile</h3>
+    <ol class="steps">
+      <li><b>Hero không overlay</b><div class="note">Tách portrait và text thành 2 stack. Đè text trên ảnh sẽ luôn xấu trên mobile vì face nhỏ.</div></li>
+      <li><b>Headline scale aggressive</b><div class="note">Cormorant 88px → 40px. Không tuyến tính — dùng clamp(40px, 9vw, 88px).</div></li>
+      <li><b>CTA dính đáy (sticky)</b><div class="note">Nút "Send brief" cố định bottom 16px, full width, không scroll mất.</div></li>
+      <li><b>Brand wall thành marquee</b><div class="note">Grid 6 cột không hoạt động dưới 600px — chuyển sang băng cuộn ngang.</div></li>
+      <li><b>Gallery dạng story</b><div class="note">Trên mobile, gallery nên là carousel ngang full-bleed thay vì grid 4 cột nén.</div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 13 BILINGUAL -->
+<section class="chap" id="bilingual">
+  <div class="container">
+    <div class="chap-num">Chapter XIII</div>
+    <h2 class="serif">Bilingual System — <em>EN/VI cùng tồn tại</em></h2>
+    <p class="lede">Đây là USP của Cindy — website phải <em>thể hiện</em> được sự song ngữ chứ không phải có nút "Switch to EN".</p>
+
+    <h3>3 mô hình song ngữ — chọn 1</h3>
+    <div class="grid-3">
+      <div class="card">
+        <div class="mono-eyebrow">★ Recommended</div>
+        <h4 class="serif">A · Layered</h4>
+        <div class="vi-sub">EN lớn, VI italic phía dưới</div>
+        <p>Mỗi headline có 2 dòng: tiếng Anh là dòng chính, tiếng Việt italic nhỏ hơn. Body text mặc định tiếng Anh, có nút toggle cho VI body.</p>
+      </div>
+      <div class="card">
+        <h4 class="serif">B · Toggle</h4>
+        <div class="vi-sub">EN/VI switch ở header</div>
+        <p>Hai phiên bản hoàn chỉnh, switch giữa. An toàn nhưng "ẩn" mất USP — khán giả Anh không thấy tiếng Việt.</p>
+      </div>
+      <div class="card">
+        <h4 class="serif">C · Bilingual prose</h4>
+        <div class="vi-sub">Trộn EN/VI trong cùng đoạn</div>
+        <p>Avant-garde, kiểu poet. Đẹp cho intro section nhưng không scale cho toàn bộ portfolio.</p>
+      </div>
+    </div>
+
+    <h3>Quy tắc Layered (mặc định)</h3>
+    <ul>
+      <li>Headline: EN size lớn (Cormorant 88px) — VI italic 32px ngay dưới, màu Gold deep.</li>
+      <li>Eyebrow: chỉ EN (uppercase mono 11px).</li>
+      <li>Body paragraph: chỉ EN. Có button "Đọc bằng tiếng Việt" cho ai cần.</li>
+      <li>CTA button: EN ("Send a brief").</li>
+      <li>Form labels: EN + VI placeholder ("Your name / Tên của bạn").</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 14 DELIVERY -->
+<section class="chap" id="delivery">
+  <div class="container">
+    <div class="chap-num">Chapter XIV</div>
+    <h2 class="serif">Delivery Roadmap — <em>Từ Blueprint đến Launch</em></h2>
+    <p class="lede">Đây là plan thực thi 4 tuần để Cindy đi từ tài liệu này đến website live.</p>
+
+    <ol class="steps">
+      <li><b>Week 1 — Asset audit</b><div class="note">Chọn 12 ảnh portrait + 30 ảnh sân khấu + 20 logo brand. Retouch chuẩn (color tone, crop). Quay showreel 60s.</div></li>
+      <li><b>Week 2 — Copywriting (bilingual)</b><div class="note">Viết toàn bộ EN copy theo voice ở Chapter V. Thuê translator pro cho bản VI — không Google dịch.</div></li>
+      <li><b>Week 3 — Build (dùng Portfolio.html làm reference)</b><div class="note">Implement design lên Webflow / Framer / Next.js. Đảm bảo Lighthouse score 90+ và load &lt; 2s.</div></li>
+      <li><b>Week 4 — QA &amp; Launch</b><div class="note">Test trên iPhone SE, iPhone 14 Pro Max, Samsung S series. Submit Google Search Console. Email blast tới 50 producer trong contact list.</div></li>
+    </ol>
+
+    <div class="ornament">· · ·</div>
+
+    <h3>Sau launch — 90 ngày đầu</h3>
+    <ul>
+      <li>Cập nhật ảnh sân khấu mới mỗi 2 tuần (KPI: 2 events/tuần).</li>
+      <li>Thêm 1 case study chi tiết mỗi tháng (long-form, 600 chữ + 6 ảnh).</li>
+      <li>Track inquiry conversion rate. Mục tiêu: 5% visitor → form submit.</li>
+      <li>A/B test slogan #01 vs #04 trong 30 ngày, giữ slogan thắng.</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="doc-foot">
+  <div class="container">
+    <div class="mono-eyebrow" style="color:#d9b985">End of blueprint · cảm ơn đã đọc</div>
+    <h3 class="serif"><em>Two languages, one stage.</em></h3>
+    <p style="margin:6px 0 0">Cindy · Lý Thị Nga · Bilingual MC<br>
+    File pair · <a href="Portfolio.html">→ Open live Portfolio prototype</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

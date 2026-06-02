@@ -1,0 +1,13 @@
+.DS_Store
+node_modules/
+uploads/
+opt/
+
+# Raw and working photo archives. Keep only public web assets in assets/.
+ảnh/
+ảnh_webp_profile/
+ảnh/
+ảnh_webp_profile/
+
+# Local screenshots / temporary outputs
+*.log

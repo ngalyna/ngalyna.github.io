@@ -1,0 +1,2155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nga Lyna — Bilingual MC · Hanoi</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* Champagne (default) */
+  --ink:#15110d;
+  --ink-soft:#3a3328;
+  --paper:#f6f1e8;
+  --paper-2:#ede5d4;
+  --gold:#a8895a;
+  --gold-deep:#6f5320;
+  --line:rgba(21,17,13,.18);
+  --line-strong:rgba(21,17,13,.32);
+}
+[data-palette="plum"]{
+  --ink:#1a0d14;--ink-soft:#3d2630;--paper:#f0e6e0;--paper-2:#e3cfc7;
+  --gold:#8b3a4a;--gold-deep:#5a1f2c;--line:rgba(26,13,20,.18);--line-strong:rgba(26,13,20,.34);
+}
+[data-palette="emerald"]{
+  --ink:#0d1612;--ink-soft:#27332d;--paper:#eef0ea;--paper-2:#dde2d7;
+  --gold:#3f6650;--gold-deep:#26443a;--line:rgba(13,22,18,.18);--line-strong:rgba(13,22,18,.34);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Manrope',sans-serif;
+  font-weight:400;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"ss01","kern","liga";
+  transition:background .4s,color .4s;
+}
+img{max-width:100%;display:block}
+
+.serif{font-family:'Newsreader',serif;font-weight:400;letter-spacing:-.012em}
+.italic{font-style:italic}
+.eyebrow{
+  font-family:'Manrope',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.24em;
+  font-size:11px;
+  font-weight:600;
+  color:var(--gold-deep);
+}
+.vi-cap{
+  font-family:'Newsreader',serif;
+  font-style:italic;
+  color:var(--gold-deep);
+  font-weight:400;
+}
+
+.wrap{max-width:1320px;margin:0 auto;padding:0 56px}
+@media(max-width:900px){.wrap{padding:0 28px}}
+@media(max-width:520px){.wrap{padding:0 20px}}
+
+/* ====== TOP NAV ====== */
+nav.topnav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 56px;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  background:color-mix(in oklab, var(--paper) 78%, transparent);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,padding .3s;
+}
+nav.topnav.scrolled{border-bottom-color:var(--line);padding:14px 56px}
+@media(max-width:900px){nav.topnav,nav.topnav.scrolled{padding:14px 24px}}
+.brand-mark{
+  font-family:'Newsreader',serif;
+  font-size:22px;line-height:1;
+  color:var(--ink);
+  text-decoration:none;
+}
+.brand-mark .dot{
+  display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--gold-deep);margin:0 10px 3px;vertical-align:middle;
+}
+.brand-mark em{color:var(--gold-deep);font-weight:400}
+.nav-links{display:flex;gap:30px;font-size:11px;text-transform:uppercase;letter-spacing:.18em;font-weight:600}
+.nav-links a{color:var(--ink);text-decoration:none;opacity:.78;transition:opacity .2s}
+.nav-links a:hover{opacity:1}
+.nav-cta{
+  font-family:'Newsreader',serif;font-style:italic;font-size:18px;
+  border:1px solid var(--ink);padding:8px 18px;border-radius:999px;
+  text-decoration:none;color:var(--ink);
+  transition:background .25s cubic-bezier(.4,0,.2,1), color .25s, transform .25s, box-shadow .25s;
+}
+.nav-cta:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px);box-shadow:0 8px 20px rgba(21,17,13,.18)}
+.nav-cta:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* ====== HERO ====== */
+section.hero{
+  min-height:100vh;
+  padding:120px 0 60px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.05fr 1fr;
+  gap:48px;align-items:center;
+  min-height:calc(100vh - 180px);
+}
+.hero-text .eyebrow{margin-bottom:18px;display:flex;align-items:center;gap:14px;line-height:1.45;flex-wrap:wrap}
+.hero-text .eyebrow::after{content:"";flex:1;height:1px;background:var(--line);max-width:120px}
+.hero-headline{
+  font-size:clamp(48px,8.4vw,128px);
+  line-height:.92;
+  margin:0 0 14px;
+  font-weight:400;
+  letter-spacing:-.018em;
+}
+.hero-headline em{font-style:normal;color:var(--gold-deep);font-weight:400}
+.hero-vi{
+  font-family:'Newsreader',serif;
+  font-style:italic;
+  font-size:clamp(20px,2.4vw,30px);
+  color:var(--gold-deep);
+  margin:0 0 36px;
+  font-weight:400;
+}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:32px;
+  margin-bottom:40px;font-size:13px;
+  border-top:1px solid var(--line);
+  padding-top:22px;
+}
+.hero-meta .item .k{
+  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;margin-bottom:4px;
+}
+.hero-meta .item .v{
+  font-family:'Newsreader',serif;font-size:18px;
+}
+.hero-cta{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 26px;
+  background:var(--ink);color:var(--paper);
+  text-decoration:none;
+  font-family:'Newsreader',serif;font-style:italic;
+  font-size:20px;border-radius:999px;
+  transition:background .25s cubic-bezier(.4,0,.2,1), color .25s, transform .25s, box-shadow .25s;
+  border:1px solid var(--ink);
+}
+.btn-primary:hover{background:transparent;color:var(--ink);transform:translateY(-1px);box-shadow:0 10px 24px rgba(21,17,13,.22)}
+.btn-primary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.btn-primary svg{width:14px;height:14px}
+.btn-text{
+  font-size:13px;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--ink);text-decoration:none;font-weight:600;
+  border-bottom:1px solid var(--gold);padding-bottom:4px;
+  transition:color .25s, border-color .25s;
+}
+.btn-text:hover{color:var(--gold-deep);border-color:var(--gold-deep)}
+.btn-text:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+.hero-image-wrap{
+  position:relative;
+  aspect-ratio:3/4;
+  background:var(--paper-2);
+  overflow:hidden;
+}
+.hero-image-wrap img{
+  width:100%;height:100%;object-fit:cover;object-position:center 22%;
+  filter:saturate(.92) contrast(1.02);
+}
+.hero-image-wrap .frame-tag{
+  position:absolute;top:24px;left:24px;
+  font-family:'Newsreader',serif;font-style:italic;
+  font-size:18px;color:var(--paper);
+  text-shadow:0 2px 16px rgba(0,0,0,.3);
+}
+.hero-image-wrap .frame-num{
+  position:absolute;bottom:24px;right:24px;
+  font-family:'Newsreader',serif;
+  font-size:48px;color:var(--paper);
+  text-shadow:0 2px 16px rgba(0,0,0,.4);
+  letter-spacing:.02em;
+}
+
+/* Hero variant B — Cinematic Center */
+.hero[data-variant="cinematic"]{padding:0}
+.hero[data-variant="cinematic"] .hero-grid{
+  grid-template-columns:1fr;
+  position:relative;
+  min-height:100vh;
+  align-items:end;
+  padding-bottom:80px;
+}
+.hero[data-variant="cinematic"] .hero-image-wrap{
+  position:absolute;inset:0;aspect-ratio:auto;
+  z-index:0;
+}
+.hero[data-variant="cinematic"] .hero-image-wrap::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(21,17,13,.78) 0%, rgba(21,17,13,.2) 50%, rgba(21,17,13,.4) 100%);
+}
+.hero[data-variant="cinematic"] .hero-text{
+  position:relative;z-index:1;color:var(--paper);
+  padding:0 56px;
+}
+.hero[data-variant="cinematic"] .hero-text .eyebrow{color:#d9b985}
+.hero[data-variant="cinematic"] .hero-headline em{color:#e8c98c}
+.hero[data-variant="cinematic"] .hero-vi{color:#e8c98c}
+.hero[data-variant="cinematic"] .hero-meta{border-color:rgba(255,255,255,.2)}
+.hero[data-variant="cinematic"] .hero-meta .item .k{color:#d9b985}
+.hero[data-variant="cinematic"] .btn-primary{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.hero[data-variant="cinematic"] .btn-primary:hover{background:transparent;color:var(--paper)}
+.hero[data-variant="cinematic"] .btn-text{color:var(--paper);border-color:#d9b985}
+.hero[data-variant="cinematic"] .frame-tag,
+.hero[data-variant="cinematic"] .frame-num{display:none}
+
+/* Hero variant C — Quiet Type */
+.hero[data-variant="quiet"] .hero-grid{
+  grid-template-columns:1fr;
+  text-align:center;
+  align-items:center;
+  min-height:calc(100vh - 180px);
+}
+.hero[data-variant="quiet"] .hero-text{max-width:880px;margin:0 auto}
+.hero[data-variant="quiet"] .hero-text .eyebrow{justify-content:center}
+.hero[data-variant="quiet"] .hero-text .eyebrow::before{content:"";flex:1;height:1px;background:var(--line);max-width:120px}
+.hero[data-variant="quiet"] .hero-meta{justify-content:center}
+.hero[data-variant="quiet"] .hero-cta{justify-content:center}
+.hero[data-variant="quiet"] .hero-image-wrap{
+  position:absolute;
+  width:180px;height:240px;aspect-ratio:auto;
+  bottom:60px;right:56px;
+  border:6px solid var(--paper);
+  box-shadow:0 24px 48px rgba(21,17,13,.18);
+}
+@media(max-width:900px){.hero[data-variant="quiet"] .hero-image-wrap{display:none}}
+
+/* Hero wordmark — shown only on mobile, grouped with the headline */
+.hero-name{display:none}
+.hero[data-variant="cinematic"] .hero-name{color:var(--paper);border-color:rgba(255,255,255,.32)}
+
+/* mobile hero */
+@media(max-width:900px){
+  /* on phones the wordmark lives inside the hero, so the bar isn't needed */
+  nav.topnav{display:none}
+  .hero-name{
+    display:block;
+    font-family:'Newsreader',serif;font-weight:400;
+    font-size:21px;letter-spacing:.01em;line-height:1;
+    color:var(--ink);
+    width:max-content;max-width:100%;
+    margin-bottom:26px;padding-bottom:16px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-text .eyebrow{margin-bottom:24px;gap:10px;font-size:10px;letter-spacing:.2em}
+  .hero-headline{margin-bottom:20px}
+  .hero-vi{line-height:1.35}
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero-image-wrap{order:-1;aspect-ratio:4/5;max-height:60vh;margin-left:-28px;margin-right:-28px}
+  section.hero{padding:96px 0 40px}
+  /* Cinematic: full-screen cover, text + name overlaid at the bottom */
+  .hero[data-variant="cinematic"]{padding:0;min-height:100svh}
+  .hero[data-variant="cinematic"] .hero-grid{min-height:100svh}
+  .hero[data-variant="cinematic"] .hero-image-wrap{position:absolute;inset:0;margin:0;aspect-ratio:auto;max-height:none}
+  .hero[data-variant="cinematic"] .hero-text{padding:0 24px 44px}
+}
+
+/* ====== SECTION SHELL ====== */
+section.chap{padding:140px 0;position:relative}
+@media(max-width:900px){section.chap{padding:84px 0}}
+.section-head{
+  display:grid;grid-template-columns:auto 1fr;gap:24px;
+  align-items:end;margin-bottom:64px;
+}
+@media(max-width:900px){.section-head{grid-template-columns:1fr;margin-bottom:40px}}
+.section-num{
+  font-family:'Newsreader',serif;
+  font-style:italic;font-weight:400;
+  font-size:24px;color:var(--gold-deep);
+  white-space:nowrap;
+}
+.section-num::before{content:"§ "}
+.section-title{
+  font-family:'Newsreader',serif;
+  font-weight:400;
+  font-size:clamp(36px,5.6vw,72px);
+  line-height:1;
+  margin:0;
+  letter-spacing:-.012em;
+}
+.section-title em{font-style:normal;color:var(--gold-deep)}
+.section-title .vi{
+  display:block;
+  font-size:.46em;
+  font-style:italic;color:var(--gold-deep);
+  margin-top:8px;
+  letter-spacing:0;
+}
+
+/* ====== WHY ME ====== */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:900px){.why-grid{grid-template-columns:1fr}}
+.why-cell{
+  padding:36px 28px 32px;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.why-cell:last-child{border-right:none}
+@media(max-width:900px){
+  .why-cell{border-right:none;border-bottom:1px solid var(--line)}
+  .why-cell:last-child{border-bottom:none}
+}
+.why-cell .num{
+  font-family:'Newsreader',serif;
+  font-style:italic;font-size:48px;
+  color:var(--gold-deep);line-height:1;margin-bottom:18px;
+  font-weight:400;
+}
+.why-cell h3{
+  font-family:'Newsreader',serif;font-weight:400;
+  font-size:30px;line-height:1.05;margin:0 0 4px;
+}
+.why-cell h3 em{font-style:normal;color:var(--gold-deep)}
+.why-cell .vi-name{
+  font-family:'Newsreader',serif;font-style:italic;
+  color:var(--gold-deep);font-size:16px;margin-bottom:14px;
+}
+.why-cell p{
+  font-size:14px;line-height:1.7;color:var(--ink-soft);margin:0;
+}
+
+/* ====== SELECTED WORKS ====== */
+.works-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.work-row{
+  display:grid;grid-template-columns:80px 1.1fr 1fr 200px 60px;
+  align-items:center;
+  gap:28px;
+  padding:28px 0;
+  border-bottom:1px solid var(--line);
+  cursor:pointer;
+  position:relative;
+  transition:padding .3s;
+}
+.work-row:hover{padding-left:18px}
+.work-row .yr{
+  font-family:'Newsreader',serif;font-style:italic;
+  color:var(--gold-deep);font-size:22px;
+}
+.work-row .name{
+  font-family:'Newsreader',serif;font-weight:400;
+  font-size:30px;line-height:1.1;
+}
+.work-row .name em{font-style:normal;color:var(--gold-deep)}
+.work-row .role{font-size:13px;color:var(--ink-soft);line-height:1.55}
+.work-row .role b{display:block;font-weight:600;color:var(--ink);margin-bottom:2px}
+.work-row .tags{display:flex;flex-wrap:wrap;gap:6px}
+.work-row .tags span{
+  font-size:10px;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--gold-deep);font-weight:600;
+  background:var(--paper-2);padding:4px 10px;border-radius:999px;
+}
+.work-row .arr{
+  font-family:'Newsreader',serif;font-style:italic;
+  font-size:28px;color:var(--gold-deep);
+  text-align:right;transition:transform .3s;
+}
+.work-row:hover .arr{transform:translateX(8px)}
+.work-row .preview{
+  position:absolute;left:42%;top:50%;
+  width:240px;height:140px;
+  transform:translateY(-50%) scale(.92);
+  background-size:cover;background-position:center;
+  pointer-events:none;
+  opacity:0;transition:opacity .3s,transform .3s;
+  box-shadow:0 18px 36px rgba(21,17,13,.24);
+  z-index:5;
+}
+.work-row:hover .preview{opacity:1;transform:translateY(-50%) scale(1)}
+@media(max-width:900px){
+  .work-row{grid-template-columns:60px 1fr 40px;grid-template-rows:auto auto;gap:6px 16px;padding:20px 0}
+  .work-row .role,.work-row .tags{grid-column:2/3}
+  .work-row .preview{display:none}
+  .work-row .name{font-size:22px}
+  .work-row .yr{font-size:18px;grid-row:span 3}
+  .work-row .arr{grid-row:span 3;font-size:22px}
+}
+
+/* ====== HALL OF FAME ====== */
+.hall-band{
+  background:var(--ink);color:var(--paper);
+  padding:120px 0;
+  position:relative;
+}
+.hall-band .section-title{color:var(--paper)}
+.hall-band .section-num{color:#d9b985}
+.hall-band .section-title em{color:#d9b985}
+.hall-band .section-title .vi{color:#d9b985}
+.hall-band .eyebrow{color:#d9b985}
+
+.brand-tail{
+  margin-top:52px;padding-top:28px;
+  border-top:1px solid rgba(255,255,255,.16);
+  display:grid;grid-template-columns:.82fr 1.18fr;
+  gap:42px;align-items:start;
+}
+.brand-tail .tail-kicker{
+  font-size:11px;text-transform:uppercase;letter-spacing:.24em;
+  color:#d9b985;font-weight:700;margin-bottom:14px;
+}
+.brand-tail .tail-title{
+  font-family:'Newsreader',serif;
+  font-size:clamp(28px,3vw,42px);
+  line-height:1.08;letter-spacing:-.012em;
+  color:var(--paper);margin:0;
+}
+.brand-tail .tail-title em{font-style:normal;color:#d9b985}
+.tail-groups{
+  display:grid;gap:18px;
+}
+.tail-group{
+  display:grid;grid-template-columns:160px 1fr;
+  gap:18px;align-items:baseline;
+  padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.12);
+}
+.tail-group:last-child{border-bottom:0;padding-bottom:0}
+.tail-group .tail-label{
+  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
+  color:#d9b985;font-weight:700;
+}
+.tail-chips{
+  display:flex;gap:8px;flex-wrap:wrap;
+}
+.tail-chips span{
+  color:#d8d0c3;
+  border:1px solid rgba(255,255,255,.16);
+  padding:6px 10px;border-radius:999px;
+  font-size:12px;line-height:1;
+}
+@media(max-width:900px){
+  .brand-tail{grid-template-columns:1fr;gap:28px}
+  .tail-group{grid-template-columns:1fr;gap:10px}
+}
+
+
+/* ====== GALLERY — chapters (default) + tabs alt ====== */
+.gallery-intro{
+  display:flex;justify-content:space-between;align-items:end;gap:24px;
+  flex-wrap:wrap;margin-bottom:36px;
+  padding-bottom:18px;border-bottom:1px solid var(--line);
+}
+.gallery-intro .gi-lead{
+  font-size:13px;line-height:1.7;color:var(--ink-soft);max-width:520px;
+}
+.gallery-intro .gi-tag{
+  font-size:11px;text-transform:uppercase;letter-spacing:.24em;
+  color:var(--gold-deep);font-weight:600;white-space:nowrap;
+}
+
+/* Layout switching ───────────────────────────── */
+.gallery-tabs-view,
+.gallery-chapters-view{display:none}
+body[data-gallery="chapters"] .gallery-chapters-view{display:block}
+body[data-gallery="tabs"] .gallery-tabs-view{display:block}
+
+/* ======= CHAPTERS LAYOUT — BIG 2-col images ======= */
+.gchapter{
+  padding:64px 0;
+  border-top:1px solid var(--line);
+}
+.gchapter:first-child{padding-top:0;border-top:0}
+.gchapter-head{
+  display:grid;grid-template-columns:auto 1fr auto;
+  gap:24px;align-items:end;
+  margin-bottom:32px;
+}
+@media(max-width:720px){
+  .gchapter-head{grid-template-columns:auto 1fr;gap:12px 18px}
+  .gchapter-head .gch-count{grid-column:1 / -1;justify-self:start}
+}
+.gchapter-head .gch-num{
+  font-family:'Newsreader',serif;font-style:italic;
+  font-size:36px;font-weight:400;color:var(--gold-deep);
+  line-height:1;letter-spacing:-.005em;
+  font-variant-numeric:tabular-nums;
+}
+.gchapter-head .gch-title{
+  font-family:'Newsreader',serif;font-weight:500;
+  font-size:clamp(28px,3.4vw,42px);line-height:1.02;
+  letter-spacing:-.014em;margin:0;
+}
+.gchapter-head .gch-title em{font-style:normal;color:var(--gold-deep);font-weight:400}
+.gchapter-head .gch-title .vi{
+  display:block;font-size:.45em;font-style:italic;color:var(--gold-deep);
+  font-weight:400;margin-top:4px;letter-spacing:0;
+}
+.gchapter-head .gch-count{
+  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;
+  padding:7px 14px;border:1px solid var(--line);border-radius:999px;
+  white-space:nowrap;
+}
+
+.gchapter-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:28px 22px;
+}
+@media(max-width:720px){.gchapter-grid{grid-template-columns:1fr;gap:24px}}
+
+.gchapter-tile figure{margin:0;display:flex;flex-direction:column;gap:14px}
+.gchapter-tile .img-frame{
+  position:relative;overflow:hidden;background:var(--paper-2);
+  aspect-ratio:4/3;
+}
+.gchapter-tile .img-frame img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 1.2s ease;
+  filter:saturate(.94);
+}
+.gchapter-tile:hover .img-frame img{transform:scale(1.03)}
+.gchapter-tile .cap{display:flex;flex-direction:column;gap:6px;padding:0 4px}
+.gchapter-tile .cap .cap-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  border-bottom:1px solid var(--line);padding-bottom:8px;
+}
+.gchapter-tile .cap .brand{
+  font-family:'Manrope',sans-serif;
+  font-weight:700;font-size:12px;
+  text-transform:uppercase;letter-spacing:.18em;
+  color:var(--ink);
+}
+.gchapter-tile .cap .year{
+  font-family:'Manrope',sans-serif;
+  font-weight:600;font-size:10px;
+  text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);
+}
+.gchapter-tile .cap .event{
+  font-family:'Newsreader',serif;
+  font-style:italic;font-weight:400;
+  font-size:19px;line-height:1.3;
+  color:var(--ink-soft);letter-spacing:-.005em;
+}
+
+/* ======= TABS LAYOUT (existing, larger) ======= */
+.gtabs{
+  display:flex;gap:8px;flex-wrap:wrap;
+  margin-bottom:36px;
+}
+.gtab{
+  background:transparent;border:1px solid var(--line);
+  color:var(--ink);cursor:pointer;
+  padding:12px 22px;border-radius:999px;
+  font-family:'Manrope',sans-serif;
+  font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.18em;
+  transition:.22s cubic-bezier(.4,0,.2,1);
+  display:inline-flex;align-items:baseline;gap:10px;
+}
+.gtab:hover{border-color:var(--line-strong);color:var(--ink);transform:translateY(-1px);box-shadow:0 6px 14px rgba(21,17,13,.08)}
+.gtab.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.gtab .count{
+  font-family:'Newsreader',serif;font-style:italic;
+  font-size:13px;font-weight:400;letter-spacing:0;
+  text-transform:none;opacity:.7;
+}
+.gtab.on .count{color:#d9b985;opacity:1}
+.gtab .vi{
+  display:none;
+  font-family:'Newsreader',serif;font-style:italic;
+  font-weight:400;font-size:12px;letter-spacing:0;
+  text-transform:none;color:var(--gold-deep);
+  margin-left:6px;
+}
+body[data-lang="bilingual"] .gtab .vi{display:inline}
+body[data-lang="bilingual"] .gtab.on .vi{color:#d9b985}
+
+.gallery-panels{position:relative}
+.gallery-panel{display:none}
+.gallery-panel.on{display:block;animation:gfade .4s ease}
+@keyframes gfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.gpanel-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:22px 18px;
+}
+@media(max-width:900px){.gpanel-grid{grid-template-columns:repeat(2,1fr);gap:18px 14px}}
+@media(max-width:520px){.gpanel-grid{grid-template-columns:1fr;gap:22px}}
+
+.gpanel-tile figure{margin:0;display:flex;flex-direction:column;gap:12px}
+.gpanel-tile .img-frame{
+  position:relative;overflow:hidden;background:var(--paper-2);
+  aspect-ratio:4/3;
+}
+.gpanel-tile .img-frame img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 1.2s ease;
+  filter:saturate(.94);
+}
+.gpanel-tile:hover .img-frame img{transform:scale(1.04)}
+.gpanel-tile .cap{display:flex;flex-direction:column;gap:4px;padding:0 2px}
+.gpanel-tile .cap .cap-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  border-bottom:1px solid var(--line);padding-bottom:6px;
+}
+.gpanel-tile .cap .brand{
+  font-family:'Manrope',sans-serif;
+  font-weight:700;font-size:11px;
+  text-transform:uppercase;letter-spacing:.18em;
+  color:var(--ink);
+}
+.gpanel-tile .cap .year{
+  font-family:'Manrope',sans-serif;
+  font-weight:600;font-size:10px;
+  text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);
+}
+.gpanel-tile .cap .event{
+  font-family:'Newsreader',serif;
+  font-style:italic;font-weight:400;
+  font-size:16px;line-height:1.3;
+  color:var(--ink-soft);letter-spacing:-.005em;
+}
+
+.gallery-footnote{
+  margin-top:64px;padding-top:24px;
+  border-top:1px solid var(--line);
+  font-family:'Newsreader',serif;font-style:italic;font-weight:400;
+  font-size:16px;color:var(--ink-soft);
+  max-width:640px;
+}
+
+/* ====== VOICE/SHOWREEL ====== */
+/* (current implementation uses .reels-grid-22 / .reel-card / .reel-lite — see below) */
+
+/* ====== FOOTER ====== */
+footer.foot{
+  background:var(--ink);color:#bdb29c;padding:80px 0 40px;
+}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:60px}
+@media(max-width:900px){.foot-grid{grid-template-columns:1fr;gap:32px}}
+.foot h4{
+  font-family:'Newsreader',serif;font-weight:400;
+  font-size:clamp(40px,6vw,64px);line-height:1.02;color:var(--paper);
+  margin:0 0 14px;letter-spacing:-.02em;
+}
+.foot h4 em{font-style:normal;color:#d9b985}
+.foot .vi{font-style:italic;font-family:'Newsreader',serif;color:#d9b985;font-size:20px}
+.foot .col b{
+  display:block;font-family:'Manrope';font-weight:600;font-size:11px;
+  text-transform:uppercase;letter-spacing:.22em;color:#d9b985;margin-bottom:16px;
+}
+.foot .col a{color:#bdb29c;text-decoration:none;display:block;padding:6px 0;font-size:14px}
+.foot .col a:hover{color:var(--paper)}
+/* Navigate — tidy wrapping link row, consistent on every screen */
+.foot-nav .nav-set{display:flex;flex-direction:column;gap:2px}
+.foot-nav .nav-set a{
+  display:flex;align-items:center;gap:12px;
+  padding:9px 0;font-size:14px;color:#bdb29c;text-decoration:none;
+  border-top:1px solid rgba(255,255,255,.08);transition:color .2s,padding .2s;
+}
+.foot-nav .nav-set a:first-child{border-top:none}
+.foot-nav .nav-set a .idx{
+  font-family:'Newsreader',serif;font-style:italic;font-size:12px;
+  color:#80766a;min-width:22px;
+}
+.foot-nav .nav-set a:hover{color:var(--paper);padding-left:6px}
+.foot-nav .nav-set a:hover .idx{color:#d9b985}
+.foot-base{
+  border-top:1px solid rgba(255,255,255,.14);
+  padding-top:24px;font-size:12px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+  color:#80766a;
+}
+@media(max-width:900px){
+  .foot-grid{gap:44px}
+  .foot-nav .nav-set{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+  .foot-nav .nav-set a:nth-child(2){border-top:none}
+}
+
+/* ===== Mobile sticky CTA ===== */
+.mob-cta{
+  display:none;
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:40;
+  background:var(--ink);color:var(--paper);
+  padding:14px 22px;border-radius:999px;
+  font-family:'Newsreader',serif;font-style:italic;font-size:18px;
+  text-align:center;text-decoration:none;
+  box-shadow:0 10px 30px rgba(21,17,13,.28);
+}
+@media(max-width:900px){.mob-cta{display:block}}
+
+/* ====== CAPABILITIES (replaces Why Me) ====== */
+.cap-grid{
+  display:grid;grid-template-columns:1fr 1.25fr;
+  gap:80px;align-items:start;
+}
+@media(max-width:900px){.cap-grid{grid-template-columns:1fr;gap:40px}}
+.cap-statement .section-num{margin-bottom:14px}
+.cap-statement h2{
+  font-family:'Newsreader',serif;font-weight:400;
+  font-size:clamp(40px,5vw,68px);line-height:1;
+  margin:0 0 22px;letter-spacing:-.015em;
+}
+.cap-statement h2 em{font-style:normal;color:var(--gold-deep)}
+.cap-statement p{
+  font-size:16px;line-height:1.7;color:var(--ink-soft);
+  max-width:460px;margin:0;
+}
+.cap-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.cap-row{
+  display:grid;grid-template-columns:50px 1fr;
+  gap:24px;padding:24px 0;
+  border-bottom:1px solid var(--line);
+  align-items:start;transition:padding .3s;
+}
+.cap-row:hover{padding-left:14px}
+.cap-no{
+  font-family:'Newsreader',serif;font-style:italic;
+  color:var(--gold-deep);font-size:32px;font-weight:400;
+  line-height:1;letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums;
+}
+.cap-title{
+  font-family:'Newsreader',serif;font-weight:400;
+  font-size:30px;line-height:1.1;letter-spacing:-.01em;
+  margin-bottom:6px;
+}
+.cap-title em{font-style:normal;color:var(--gold-deep)}
+.cap-desc{
+  font-size:14px;color:var(--ink-soft);line-height:1.65;
+  max-width:520px;
+}
+
+/* ====== HALL OF FAME — premium logo wall ====== */
+.hall-feature{
+  display:grid;grid-template-columns:1.35fr 1fr;
+  gap:64px;align-items:start;
+  margin-bottom:80px;padding-bottom:80px;
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+@media(max-width:900px){.hall-feature{grid-template-columns:1fr;gap:40px}}
+.hall-quote{position:relative;padding-top:14px}
+.hall-quote .quote-mark{
+  font-family:'Newsreader',serif;
+  color:#d9b985;opacity:.6;
+  font-size:140px;line-height:1;
+  position:absolute;left:-8px;top:-50px;
+  font-style:italic;font-weight:400;
+}
+.hall-quote p{
+  font-family:'Newsreader',serif;
+  font-weight:400;font-style:italic;
+  font-size:clamp(24px,2.6vw,34px);line-height:1.35;
+  color:var(--paper);margin:0 0 20px;
+  position:relative;z-index:1;
+}
+.hall-quote .quote-byline{
+  font-size:11px;text-transform:uppercase;letter-spacing:.22em;
+  color:#bdb29c;font-weight:500;
+}
+.hall-quote .quote-byline em{color:#d9b985;font-weight:600;font-style:normal}
+
+.hall-stats{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border:1px solid rgba(255,255,255,.18);
+}
+.hall-stats .stat{
+  padding:24px 22px;
+  border-bottom:1px solid rgba(255,255,255,.18);
+  border-right:1px solid rgba(255,255,255,.18);
+}
+.hall-stats .stat:nth-child(2n){border-right:none}
+.hall-stats .stat:nth-last-child(-n+2){border-bottom:none}
+.hall-stats .stat .n{
+  font-family:'Newsreader',serif;
+  font-size:56px;font-weight:400;line-height:1;
+  color:var(--paper);letter-spacing:-.02em;
+}
+.hall-stats .stat .n em{font-style:normal;color:#d9b985}
+.hall-stats .stat .l{
+  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
+  color:#bdb29c;margin-top:6px;font-weight:600;
+}
+
+
+.works-feed{display:flex;flex-direction:column;gap:80px}
+@media(max-width:900px){.works-feed{gap:48px}}
+.work-feature{
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  gap:48px;
+  align-items:center;
+}
+.work-feature.reverse{grid-template-columns:1fr 1.15fr}
+.work-feature.reverse .work-img-side{order:2}
+@media(max-width:900px){
+  .work-feature,.work-feature.reverse{grid-template-columns:1fr;gap:24px}
+  .work-feature.reverse .work-img-side{order:0}
+}
+.work-img-side{
+  position:relative;aspect-ratio:4/3;overflow:hidden;
+  background:var(--paper);
+}
+.work-img-side img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 1.2s ease;
+}
+.work-feature:hover .work-img-side img{transform:scale(1.03)}
+
+/* ── §03 multi-photo collage ── */
+.work-img-side.collage-side{aspect-ratio:4/3;overflow:hidden}
+.collage{
+  position:relative;width:100%;height:100%;
+  display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:1fr 1fr;
+  gap:6px;background:var(--paper-2);
+}
+.collage figure{margin:0;overflow:hidden;position:relative;background:var(--paper)}
+.collage figure img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 1.2s ease;
+}
+.work-feature:hover .collage figure img{transform:scale(1.05)}
+.collage .c-main{grid-row:1 / span 2}
+@media(max-width:600px){
+  .work-img-side.collage-side{aspect-ratio:4/3.2}
+  .collage{gap:5px}
+}
+.work-img-side .frame-num{
+  position:absolute;top:18px;left:20px;
+  font-family:'Newsreader',serif;font-style:italic;
+  font-size:36px;color:var(--paper);font-weight:400;
+  text-shadow:0 2px 12px rgba(0,0,0,.35);
+  line-height:1;
+}
+.work-text-side{padding:8px 0}
+.work-text-side .tag-row{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;
+}
+.work-text-side .tag-row span{
+  font-size:10px;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--gold-deep);font-weight:600;
+  padding:5px 12px;border:1px solid var(--line-strong);border-radius:999px;
+}
+.work-text-side h3{
+  font-family:'Newsreader',serif;font-weight:400;
+  font-size:clamp(34px,4.2vw,52px);
+  line-height:1;margin:0 0 10px;letter-spacing:-.015em;
+}
+.work-text-side h3 em{font-style:normal;color:var(--gold-deep)}
+.work-text-side .role-line{
+  font-family:'Newsreader',serif;font-style:italic;
+  font-size:20px;color:var(--gold-deep);margin-bottom:18px;
+}
+.work-text-side p{
+  font-size:14px;line-height:1.75;color:var(--ink-soft);
+  margin:0 0 24px;max-width:480px;
+}
+.work-feature.is-compact .work-text-side p{display:none}
+.work-feature.is-compact .work-text-side .role-line{margin-bottom:0}
+.work-text-side .meta-pills{
+  display:flex;gap:24px;flex-wrap:wrap;
+  padding-top:18px;border-top:1px solid var(--line);
+  font-size:12px;
+}
+.work-text-side .meta-pills .item .k{
+  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;margin-bottom:2px;
+}
+.work-text-side .meta-pills .item .v{
+  font-family:'Newsreader',serif;font-size:17px;
+}
+
+/* §04 portfolio — grouped events, no mixed-case cards */
+.portfolio-intro{
+  display:grid;grid-template-columns:1.05fr .95fr;
+  gap:56px;align-items:end;
+  margin:-18px 0 72px;
+}
+.portfolio-intro .lead{
+  font-family:'Newsreader',serif;
+  font-size:clamp(28px,3.2vw,44px);
+  line-height:1.12;letter-spacing:-.012em;margin:0;
+}
+.portfolio-intro .lead em{font-style:normal;color:var(--gold-deep)}
+.portfolio-intro .note{
+  color:var(--ink-soft);font-size:15px;line-height:1.75;margin:0;
+}
+.portfolio-groups{display:grid;gap:76px}
+.portfolio-group{
+  border-top:1px solid var(--line);
+  padding-top:44px;
+}
+.portfolio-group-head{
+  display:grid;grid-template-columns:74px 1fr .95fr;
+  gap:28px;align-items:start;
+  margin-bottom:30px;
+}
+.portfolio-group-no{
+  font-family:'Newsreader',serif;font-style:italic;
+  color:var(--gold-deep);font-size:34px;line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.portfolio-group-title h3{
+  font-family:'Newsreader',serif;font-weight:400;
+  font-size:clamp(34px,3.7vw,54px);
+  line-height:1;letter-spacing:-.015em;
+  margin:0 0 12px;
+}
+.portfolio-group-title h3 em{font-style:normal;color:var(--gold-deep)}
+.portfolio-group-title .signal{
+  font-size:11px;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:700;
+}
+.portfolio-group-head .group-note{
+  color:var(--ink-soft);font-size:14px;line-height:1.65;
+  margin:0;padding-top:3px;
+}
+.event-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:22px 18px;
+}
+.event-grid.is-four{grid-template-columns:repeat(4,1fr)}
+.event-card{
+  min-width:0;
+}
+.event-card figure{
+  margin:0 0 13px;
+}
+.event-card .event-media{
+  position:relative;overflow:hidden;background:var(--paper);
+  aspect-ratio:4/3;
+}
+.event-card.is-tall .event-media,
+.event-media.is-tall{aspect-ratio:3/4}
+.event-card.is-wide .event-media,
+.event-media.is-wide{aspect-ratio:16/10}
+.event-card .event-media img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(.95);
+  transition:transform 1s ease, filter .3s;
+}
+.event-card:hover .event-media img{transform:scale(1.025);filter:saturate(1)}
+.event-card .event-collage{
+  display:grid;grid-template-columns:1.45fr 1fr;grid-template-rows:1fr 1fr;
+  gap:5px;width:100%;height:100%;
+}
+.event-card .event-collage img:first-child{grid-row:1 / span 2}
+.event-card .event-kicker{
+  font-size:10px;text-transform:uppercase;letter-spacing:.18em;
+  color:var(--gold-deep);font-weight:700;
+  margin-bottom:7px;
+}
+.event-card h4{
+  font-family:'Newsreader',serif;font-weight:400;
+  font-size:clamp(23px,2vw,30px);
+  line-height:1.05;letter-spacing:-.01em;
+  margin:0 0 6px;
+}
+.event-card h4 em{font-style:normal;color:var(--gold-deep)}
+.event-card p{
+  margin:0;color:var(--ink-soft);
+  font-size:13px;line-height:1.55;
+}
+.event-card.featured{grid-column:span 2}
+.event-card.featured h4{font-size:clamp(30px,3vw,42px)}
+.portfolio-note{
+  margin-top:70px;padding-top:24px;
+  border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:28px;
+  color:var(--ink-soft);font-size:13px;line-height:1.7;
+}
+.portfolio-note b{
+  color:var(--gold-deep);text-transform:uppercase;letter-spacing:.22em;
+  font-size:10px;white-space:nowrap;
+}
+@media(max-width:1100px){
+  .event-grid,.event-grid.is-four{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .portfolio-intro{grid-template-columns:1fr;gap:18px;margin-bottom:48px}
+  .portfolio-group{padding-top:38px}
+  .portfolio-group-head{grid-template-columns:46px 1fr;gap:14px 18px}
+  .portfolio-group-head .group-note{grid-column:2}
+  .portfolio-group-title h3{font-size:clamp(32px,9vw,44px)}
+  .event-grid,.event-grid.is-four{grid-template-columns:1fr;gap:28px}
+  .event-card.featured{grid-column:auto}
+  .portfolio-note{display:block}
+  .portfolio-note b{display:block;margin-bottom:12px}
+}
+
+/* compact "also" list under feature works — strengthened */
+.works-compact{
+  margin-top:96px;padding-top:48px;
+  border-top:1px solid var(--line);
+}
+.works-compact .lbl-big{
+  font-family:'Newsreader',serif;font-style:italic;
+  font-weight:400;font-size:32px;color:var(--ink);
+  margin-bottom:6px;letter-spacing:-.005em;
+}
+.works-compact .lbl-big em{color:var(--gold-deep)}
+.works-compact .lbl{
+  font-size:11px;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;margin-bottom:30px;
+}
+.works-compact-list{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border-top:1px solid var(--line);
+}
+@media(max-width:720px){.works-compact-list{grid-template-columns:1fr}}
+.work-compact-row{
+  display:grid;grid-template-columns:60px 1fr auto;
+  gap:20px;align-items:center;
+  padding:20px 22px;border-bottom:1px solid var(--line);
+  transition:background .2s;
+}
+.work-compact-row:hover{background:rgba(168,137,90,.06)}
+.work-compact-row:nth-child(even){border-left:1px solid var(--line)}
+@media(max-width:720px){.work-compact-row:nth-child(even){border-left:none}}
+.work-compact-row .yr{
+  font-family:'Newsreader',serif;font-style:italic;
+  color:var(--gold-deep);font-size:20px;font-weight:400;
+}
+.work-compact-row .nm{
+  font-family:'Newsreader',serif;font-size:22px;
+  line-height:1.1;font-weight:400;letter-spacing:-.008em;
+}
+.work-compact-row .nm em{font-style:normal;color:var(--gold-deep)}
+.work-compact-row .nm .brand-sub{
+  display:block;font-family:'Manrope';font-style:normal;font-weight:500;
+  font-size:10px;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--gold-deep);margin-top:6px;line-height:1;
+}
+.work-compact-row .rl{
+  font-size:10px;color:var(--gold-deep);
+  text-transform:uppercase;letter-spacing:.2em;font-weight:600;
+  padding:5px 11px;border:1px solid var(--line);border-radius:999px;
+  white-space:nowrap;
+}
+
+/* ====== VOICE — 2×2 reels, all 16:9 ====== */
+.reels-meta{
+  margin-bottom:24px;padding-bottom:14px;
+  border-bottom:1px solid var(--line);
+}
+.reels-meta-tag{
+  font-size:11px;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;
+}
+
+.reels-grid-22{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:32px 28px;
+}
+@media(max-width:900px){.reels-grid-22{grid-template-columns:1fr;gap:24px}}
+.reel-card{display:flex;flex-direction:column;gap:14px}
+.reel-card .reel-title-line{
+  display:flex;align-items:baseline;gap:14px;
+  padding-bottom:10px;border-bottom:1px solid var(--line);
+}
+.reel-card .reel-num{
+  font-family:'Newsreader',serif;font-style:italic;
+  font-size:22px;color:var(--gold-deep);font-weight:400;
+}
+.reel-card .reel-cap{
+  font-family:'Newsreader',serif;font-weight:400;
+  font-size:18px;letter-spacing:-.005em;flex:1;
+}
+.reel-card .reel-cap em{font-style:normal;color:var(--gold-deep)}
+.reel-card .reel-tag{
+  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;
+  padding:4px 10px;border:1px solid var(--line);border-radius:999px;
+  margin-left:auto;
+}
+
+.reel-lite{
+  position:relative;overflow:hidden;
+  background:var(--ink);cursor:pointer;
+  border:1px solid var(--line);
+}
+.reel-lite.landscape{aspect-ratio:16/9}
+.reel-lite img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s ease, filter .3s;
+  filter:saturate(.9);
+}
+.reel-lite:hover img{transform:scale(1.03);filter:saturate(1)}
+.reel-lite::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(21,17,13,.45) 0%, rgba(21,17,13,.05) 50%, rgba(21,17,13,.2) 100%);
+  pointer-events:none;
+}
+.reel-play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(246,241,232,.94);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .3s,background .3s;
+  pointer-events:none;border:none;z-index:2;
+  box-shadow:0 6px 24px rgba(21,17,13,.28);
+}
+.reel-play svg{width:22px;height:22px;margin-left:3px;fill:var(--ink);display:block}
+.reel-lite:hover .reel-play{transform:translate(-50%,-50%) scale(1.08);background:var(--paper)}
+.voice-action{
+  display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:space-between;
+  margin-top:56px;padding-top:32px;
+  border-top:1px solid var(--line);
+}
+.voice-action .pdf-link{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:13px 26px;border:1px solid var(--ink);
+  font-family:'Newsreader',serif;font-style:italic;font-size:18px;
+  text-decoration:none;color:var(--ink);
+  border-radius:999px;transition:.2s;
+}
+.voice-action .pdf-link:hover{background:var(--ink);color:var(--paper)}
+.voice-action .note{
+  font-family:'Newsreader',serif;font-style:italic;
+  font-size:15px;color:var(--ink-soft);max-width:380px;
+}
+
+/* ====== HALL OF FAME — BIG LOGO WALL ====== */
+.logo-wall-head{
+  display:flex;align-items:end;justify-content:space-between;gap:24px;
+  margin-bottom:32px;flex-wrap:wrap;
+}
+.logo-wall-eyebrow{
+  font-size:11px;text-transform:uppercase;letter-spacing:.24em;
+  color:#d9b985;font-weight:600;margin-bottom:14px;
+}
+.logo-wall-title{
+  font-family:'Newsreader',serif;font-weight:400;
+  font-size:clamp(28px,3.4vw,44px);line-height:1.1;
+  letter-spacing:-.012em;color:var(--paper);
+  max-width:780px;
+}
+.logo-wall-title em{font-style:normal;color:#d9b985}
+.lw-cats{
+  display:block;margin-top:14px;
+  font-family:'Manrope',sans-serif;font-weight:600;
+  font-size:11px;text-transform:uppercase;letter-spacing:.18em;
+  color:#cbb585;line-height:1.7;
+}
+.lw-cats .vi-cap{text-transform:none;font-style:italic;letter-spacing:0;font-size:13px;color:#b8a37a}
+
+.logo-wall{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:1px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.10);
+}
+@media(max-width:900px){.logo-wall{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.logo-wall{grid-template-columns:repeat(3,1fr)}}
+.logo-cell{
+  aspect-ratio:5/3;
+  background:#fbfaf6;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px 24px;
+  position:relative;
+  min-width:0;
+  overflow:hidden;
+  transition:transform .35s, box-shadow .35s, z-index 0s linear .35s;
+}
+.logo-cell:hover{
+  transform:scale(1.04);
+  box-shadow:0 24px 50px rgba(0,0,0,.45);
+  z-index:2;transition:transform .35s, box-shadow .35s, z-index 0s;
+}
+.logo-cell img{
+  max-width:94%;max-height:84px;
+  width:100%;height:100%;
+  object-fit:contain;
+  transition:filter .3s;
+}
+@media(max-width:900px){.logo-cell{padding:22px 26px}}
+@media(max-width:520px){.logo-cell{padding:14px 12px}}
+
+/* Text-only brand cells (for brands without logo asset) */
+.logo-cell.text-cell{
+  font-family:'Newsreader',serif;
+  font-weight:500;
+  font-size:clamp(20px,2.2vw,26px);
+  line-height:1;letter-spacing:-.008em;
+  color:#15110d;
+  text-align:center;
+}
+.logo-cell.text-cell em{font-style:normal;color:#8a6a3d;font-weight:500}
+
+/* Icon-only logos (square shape) — give them less padding so they fill better */
+.logo-cell.zalo{padding:14px 14px}
+.logo-cell.zalo img{max-height:88%}
+
+.format-intro{
+  display:grid;grid-template-columns:1.15fr .85fr;
+  gap:56px;align-items:end;
+  margin-bottom:64px;
+}
+.format-intro .lead{
+  font-family:'Newsreader',serif;
+  font-size:clamp(27px,3.2vw,44px);
+  line-height:1.12;letter-spacing:-.012em;
+  color:var(--ink);
+  margin:0;
+}
+.format-intro .lead em{font-style:normal;color:var(--gold-deep)}
+.format-intro .note{
+  color:var(--ink-soft);
+  font-size:15px;line-height:1.75;
+  margin:0;
+}
+.coverage-map{
+  display:grid;grid-template-columns:1.25fr .75fr;
+  gap:48px;align-items:start;
+}
+.coverage-list{
+  border-top:1px solid var(--line);
+}
+.coverage-row{
+  display:grid;grid-template-columns:74px 1fr 1.15fr;
+  gap:24px;align-items:start;
+  padding:28px 0;border-bottom:1px solid var(--line);
+}
+.coverage-row .coverage-no{
+  font-family:'Newsreader',serif;
+  font-style:italic;color:var(--gold-deep);
+  font-size:30px;line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.coverage-row h3{
+  font-family:'Newsreader',serif;
+  font-size:clamp(25px,2.4vw,36px);
+  line-height:1.02;font-weight:400;
+  letter-spacing:-.012em;margin:0 0 8px;
+}
+.coverage-row h3 em{font-style:normal;color:var(--gold-deep)}
+.coverage-row .coverage-signal{
+  font-size:11px;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--gold-deep);font-weight:700;
+}
+.coverage-row ul{
+  list-style:none;padding:0;margin:0;
+  display:grid;gap:9px;
+}
+.coverage-row li{
+  color:var(--ink-soft);font-size:13px;line-height:1.5;
+  padding-top:9px;border-top:1px solid rgba(21,17,13,.12);
+}
+.coverage-proof{
+  border:1px solid var(--line);
+  padding:34px 30px;
+  position:sticky;top:96px;
+  background:rgba(244,238,225,.62);
+}
+.coverage-proof .proof-kicker{
+  font-size:11px;text-transform:uppercase;letter-spacing:.24em;
+  color:var(--gold-deep);font-weight:700;margin-bottom:18px;
+}
+.coverage-proof .proof-title{
+  font-family:'Newsreader',serif;
+  font-size:clamp(30px,3vw,42px);
+  line-height:1.04;letter-spacing:-.012em;
+  margin:0 0 20px;
+}
+.coverage-proof .proof-title em{font-style:normal;color:var(--gold-deep)}
+.proof-stack{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
+  margin-top:28px;
+}
+.proof-stat{
+  padding:18px 16px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.proof-stat .n{
+  font-family:'Newsreader',serif;
+  font-size:34px;line-height:1;color:var(--gold-deep);
+}
+.proof-stat .l{
+  margin-top:8px;font-size:10px;text-transform:uppercase;
+  letter-spacing:.2em;color:var(--ink-soft);font-weight:700;
+  line-height:1.35;
+}
+@media(max-width:1100px){
+  .coverage-map{grid-template-columns:1fr}
+  .coverage-proof{position:relative;top:auto}
+}
+@media(max-width:720px){
+  .format-intro{grid-template-columns:1fr;gap:20px;margin-bottom:36px}
+  .coverage-map{gap:32px}
+  .coverage-row{grid-template-columns:46px 1fr;gap:14px 18px;padding:22px 0}
+  .coverage-row ul{grid-column:2}
+  .coverage-row .coverage-no{font-size:24px}
+  .coverage-row h3{font-size:25px}
+  .coverage-proof{padding:26px 20px}
+  .proof-stack{grid-template-columns:1fr 1fr}
+}
+
+/* ====== INDUSTRY FOCUS FILTER ====== */
+.logo-wall-head{position:relative}
+.industry-meta{
+  display:none;
+  margin-top:18px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+.industry-meta.on{display:flex;gap:18px;flex-wrap:wrap;align-items:baseline}
+.industry-meta .focused-on{
+  font-family:'Newsreader',serif;font-style:italic;font-weight:400;
+  font-size:18px;color:var(--paper);
+  letter-spacing:-.005em;
+}
+.industry-meta .focused-on em{font-style:normal;color:#d9b985}
+.industry-meta .focused-count{
+  font-size:11px;text-transform:uppercase;letter-spacing:.22em;
+  color:#d9b985;font-weight:600;
+  padding:5px 12px;border:1px solid rgba(216,185,133,.4);border-radius:999px;
+}
+.industry-meta .reset-focus{
+  margin-left:auto;
+  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
+  color:#bdb29c;font-weight:600;background:none;border:none;
+  cursor:pointer;padding:5px 0;
+  border-bottom:1px solid transparent;transition:.2s;
+}
+.industry-meta .reset-focus:hover{color:var(--paper);border-color:#d9b985}
+
+/* Dim non-matching cells when a focus is active */
+body[data-focus]:not([data-focus="all"]) .logo-cell{
+  opacity:.18;
+  filter:saturate(.3);
+  transition:opacity .35s, filter .35s, transform .35s;
+}
+body[data-focus="auto"]      .logo-cell[data-industry="auto"],
+body[data-focus="tech"]      .logo-cell[data-industry="tech"],
+body[data-focus="bank"]      .logo-cell[data-industry="bank"],
+body[data-focus="retail"]    .logo-cell[data-industry="retail"],
+body[data-focus="corporate"] .logo-cell[data-industry="corporate"]{
+  opacity:1;filter:saturate(1);
+}
+body[data-focus]:not([data-focus="all"]) .logo-cell{transform:scale(.94)}
+body[data-focus="auto"]      .logo-cell[data-industry="auto"],
+body[data-focus="tech"]      .logo-cell[data-industry="tech"],
+body[data-focus="bank"]      .logo-cell[data-industry="bank"],
+body[data-focus="retail"]    .logo-cell[data-industry="retail"],
+body[data-focus="corporate"] .logo-cell[data-industry="corporate"]{
+  transform:scale(1);
+  box-shadow:0 0 0 1px rgba(216,185,133,.5), 0 18px 36px rgba(0,0,0,.45);
+  z-index:2;
+}
+
+/* ====== DENSITY MODE ====== */
+body[data-density="compact"] section.chap{padding:88px 0}
+body[data-density="compact"] .section-head{margin-bottom:36px}
+body[data-density="compact"] .works-feed{gap:48px}
+body[data-density="compact"] .section-title{font-size:clamp(32px,4.4vw,56px)}
+body[data-density="compact"] .hero-headline{font-size:clamp(40px,7vw,96px)}
+body[data-density="compact"] section.hero{min-height:auto;padding:120px 0 80px}
+body[data-density="compact"] .hero-grid{min-height:auto}
+body[data-density="compact"] .hall-band{padding:88px 0}
+@media(max-width:900px){
+  body[data-density="compact"] .hero[data-variant="cinematic"]{
+    padding:0;
+    min-height:100svh;
+  }
+  body[data-density="compact"] .hero[data-variant="cinematic"] .hero-grid{
+    min-height:100svh;
+  }
+}
+
+/* ====== ENGLISH-ONLY MODE ====== */
+/* Hide ANY .vi or .vi-only element when language is English. */
+body[data-lang="en"] .vi,
+body[data-lang="en"] .vi-cap,
+body[data-lang="en"] .vi-name,
+body[data-lang="en"] .vi-only,
+body[data-lang="en"] .vi-line,
+body[data-lang="en"] .hero-vi{display:none !important}
+
+/* Pair of swap spans for proper nouns: .en-only shows in EN, hidden in bilingual */
+.en-only{display:inline}
+body[data-lang="bilingual"] .en-only{display:none}
+
+/* Bilingual supplemental VN line — sits under EN headline */
+.vi-line{
+  display:block;
+  font-family:'Newsreader',serif;
+  font-style:italic;font-weight:400;
+  font-size:13px;letter-spacing:0;
+  color:var(--gold-deep);
+  margin-top:4px;line-height:1.3;
+}
+
+[data-tweaks-panel]{font-family:'Manrope',sans-serif !important}
+
+/* ====== SMALL-SCREEN HARDENING (<=520px / <=400px) ====== */
+@media(max-width:520px){
+  /* Nav — keep brand + CTA tidy */
+  .brand-mark{font-size:18px}
+  .nav-cta{font-size:15px;padding:7px 14px}
+
+  /* Hero — trim vertical length: drop the 3 stats, keep tagline + CTA */
+  section.hero{padding:90px 0 32px;min-height:auto}
+  .hero-grid{min-height:auto}
+  .hero-meta{display:none}
+  .hero-vi{margin-bottom:26px}
+  .hero-image-wrap{max-height:56vh;aspect-ratio:4/5;margin-left:-20px;margin-right:-20px}
+  .hero[data-variant="cinematic"] .hero-image-wrap{max-height:none}
+  .hero-cta{gap:16px}
+  .btn-primary{font-size:18px;padding:12px 22px}
+
+  /* §02 Capabilities */
+  .cap-statement h2{font-size:clamp(34px,9vw,44px)}
+  .cap-row{grid-template-columns:38px 1fr;gap:16px;padding:20px 0}
+  .cap-no{font-size:26px}
+  .cap-title{font-size:20px;line-height:1.15}
+
+  /* §04 Portfolio — shorter images, tighter type */
+  .work-img-side,.work-feature.reverse .work-img-side{aspect-ratio:3/2}
+  .work-text-side h3{font-size:clamp(28px,8vw,36px)}
+  .work-text-side .role-line{font-size:17px;margin-bottom:14px}
+  .work-text-side p{font-size:14px;margin-bottom:18px}
+  .work-text-side .meta-pills{gap:16px 24px}
+
+  /* §03 Trusted by */
+  .hall-band{padding:72px 0}
+  .logo-cell{padding:14px 12px}
+  .logo-cell.text-cell{font-size:18px;overflow-wrap:anywhere}
+  .hall-feature{margin-bottom:48px;padding-bottom:48px}
+  .hall-quote .quote-mark{font-size:96px;top:-34px}
+  .hall-stats .stat{padding:18px 16px}
+  .hall-stats .stat .n{font-size:42px}
+  .logo-wall-title{font-size:clamp(22px,6vw,28px)}
+  /* §05 Showreel */
+  .reel-card .reel-cap{font-size:16px}
+
+  /* Footer */
+  footer.foot h4{font-size:52px}
+  footer.foot{padding:64px 0 90px}
+}
+
+@media(max-width:720px){
+  /* legacy gallery layout */
+  .gchapter-tile .img-frame{aspect-ratio:3/2}
+  .gchapter{padding:48px 0}
+  .gchapter-head .gch-title{font-size:clamp(24px,6.5vw,32px)}
+}
+
+/* ====== GALLERY ON PHONES — 3 dense columns ====== */
+@media(max-width:600px){
+  .gchapter-grid,.gpanel-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:12px 7px;
+    align-items:start;
+  }
+  .gchapter-tile figure,.gpanel-tile figure{gap:6px}
+  .gchapter-tile .img-frame,.gpanel-tile .img-frame{aspect-ratio:3/4}
+  .gchapter-tile .cap,.gpanel-tile .cap{gap:3px}
+  .gchapter-tile .cap .cap-head,.gpanel-tile .cap .cap-head{padding-bottom:4px}
+  .gchapter-tile .cap .brand,.gpanel-tile .cap .brand{font-size:8px;letter-spacing:.1em}
+  .gchapter-tile .cap .year,.gpanel-tile .cap .year{font-size:8px}
+  .gchapter-tile .cap .event,.gpanel-tile .cap .event{
+    font-size:10.5px;line-height:1.25;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .gchapter{padding:28px 0}
+  .gchapter-head{margin-bottom:16px}
+}
+
+@media(max-width:400px){
+  .hero-headline{font-size:clamp(38px,12vw,52px)}
+  .section-title{font-size:clamp(30px,9vw,40px)}
+  footer.foot h4{font-size:44px}
+  .hall-stats .stat .n{font-size:36px}
+}
+
+/* loading reveal */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s}
+.fade-in.in{opacity:1;transform:none}
+</style>
+</head>
+<body data-palette="champagne" data-lang="en" data-gallery="chapters" data-focus="all" data-density="compact">
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="400" fill="#15110d"/>
+    <text x="200" y="232" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="150" fill="#d9b985">NL</text>
+  </svg>
+</template>
+
+<!-- ========== TOP NAV ========== -->
+<nav class="topnav" id="topnav">
+  <a href="#top" class="brand-mark serif">Nga Lyna</a>
+  <div class="nav-links">
+    <a href="#why">Capabilities</a>
+    <a href="#hall">Brands</a>
+    <a href="#works">Portfolio</a>
+    <a href="#voice">Showreel</a>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="top" data-variant="cinematic" data-screen-label="01 Hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-name serif">Nga Lyna</div>
+        <div class="eyebrow">Bilingual MC · <span class="en-only">Hanoi</span><span class="vi-only">Hà Nội</span> · Available 2026</div>
+        <h1 class="hero-headline serif" id="hero-headline">
+          Two languages,<br><em>one stage.</em>
+        </h1>
+        <div class="hero-vi" id="hero-vi">Hai ngôn ngữ, một sân khấu.</div>
+
+        <div class="hero-meta">
+          <div class="item"><div class="k">Languages</div><div class="v serif"><span class="en-only">English &amp; Vietnamese</span><span class="vi-only">English · Tiếng Việt</span></div></div>
+          <div class="item"><div class="k">Domains</div><div class="v serif">Conference · Festival · Gala</div></div>
+          <div class="item"><div class="k">Since</div><div class="v serif">2021 · 120+ events</div></div>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#voice" class="btn-primary serif">
+            Watch showreel
+            <svg viewBox="0 0 14 14" fill="currentColor" stroke="none"><path d="M3 2l9 5-9 5z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrap" id="hero-image">
+        <img src="assets/hero-studio.webp" alt="Nga Lyna" id="hero-img-el" />
+        <div class="frame-tag serif italic">Nga Lyna</div>
+        <div class="frame-num serif">01</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CAPABILITIES (replaces Why Me) ========== -->
+<section class="chap" id="why" data-screen-label="02 Capabilities">
+  <div class="wrap">
+    <div class="cap-grid">
+      <div class="cap-statement">
+        <div class="section-num">02 — Capabilities</div>
+        <h2 class="serif">Poise under lights. <em>Control in motion.</em></h2>
+        <p>A professional MC does more than speak into a microphone. I read the room, protect the timeline, and make each transition feel intentional in Vietnamese, English, or both.</p>
+      </div>
+
+      <div class="cap-list">
+        <div class="cap-row">
+          <div class="cap-no">01</div>
+          <div>
+            <div class="cap-title">Bilingual hosting <em>· EN &amp; VN</em></div>
+            <div class="cap-desc">Natural movement between English and Vietnamese, keeping every guest oriented without making the program feel translated.</div>
+          </div>
+        </div>
+        <div class="cap-row">
+          <div class="cap-no">02</div>
+          <div>
+            <div class="cap-title">Room control <em>&amp; pacing</em></div>
+            <div class="cap-desc">Openings, speaker transitions, awards, lucky draws and unscripted moments handled with calm timing and visible command.</div>
+          </div>
+        </div>
+        <div class="cap-row">
+          <div class="cap-no">03</div>
+          <div>
+            <div class="cap-title">Brand-sensitive <em>presence</em></div>
+            <div class="cap-desc">A stage tone matched to the brief: precise for automotive launches, elegant for luxury retail, warm for gala nights and alive for public crowds.</div>
+          </div>
+        </div>
+        <div class="cap-row">
+          <div class="cap-no">04</div>
+          <div>
+            <div class="cap-title">Voice <em>&amp; on-camera delivery</em></div>
+            <div class="cap-desc">Warm, precise narration for product films, brand videos and stage-to-screen content when the event needs a voice beyond the room.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TRUSTED BY ========== -->
+<section class="hall-band" id="hall" data-screen-label="03 Trusted by">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">03 — Trusted by</div>
+      <h2 class="section-title">
+        Brands that chose <em>composure.</em>
+        <span class="vi vi-only">Những thương hiệu đã chọn sự điềm tĩnh</span>
+      </h2>
+    </div>
+
+    <!-- Featured quote + stats -->
+    <div class="hall-feature">
+      <div class="hall-quote">
+        <div class="quote-mark">“</div>
+        <p>Nga is the rare host who can disappear into the moment and still be in full command of it. Our partners noticed — and asked who she was.</p>
+        <div class="quote-byline"><em>Event Director</em> · Fujifilm Vietnam · Partner Kick-off 2025</div>
+      </div>
+
+      <div class="hall-stats">
+        <div class="stat"><div class="n serif"><em>120</em>+</div><div class="l">Events hosted</div></div>
+        <div class="stat"><div class="n serif"><em>50</em>+</div><div class="l">Brands worked with</div></div>
+        <div class="stat"><div class="n serif"><em>5</em></div><div class="l">Years on stage</div></div>
+        <div class="stat"><div class="n serif"><em>2</em></div><div class="l">Languages fluently</div></div>
+      </div>
+    </div>
+
+    <!-- Brand logo wall — LARGE, the hero of this section -->
+    <div class="logo-wall-head">
+      <div>
+        <div class="logo-wall-eyebrow">Selected partner brands</div>
+        <div class="logo-wall-title serif">
+          <em>25+ brands</em> across diverse industries
+          <span class="lw-cats">Representative experience: Automotive · Finance · Retail &amp; Lifestyle · Tech &amp; Electronics · Corporate &amp; Culture<span class="vi-only vi-cap"> &nbsp;·&nbsp; Kinh nghiệm tiêu biểu: ô tô · tài chính · bán lẻ · công nghệ · doanh nghiệp &amp; văn hoá</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="industry-meta" id="industry-meta">
+      <div class="focused-on" id="industry-focused-text">Focusing on <em>tech</em> brands</div>
+      <div class="focused-count" id="industry-focused-count">8 of 25</div>
+      <button class="reset-focus" type="button" id="industry-reset">↺ Show all brands</button>
+    </div>
+
+    <div class="logo-wall" id="logo-wall">
+      <!-- Row 1 · Automotive -->
+      <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/hyundai.webp" alt="Hyundai"/></div>
+      <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/toyota.webp" alt="Toyota"/></div>
+      <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/nissan.webp" alt="Nissan"/></div>
+      <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/yamaha.webp" alt="Yamaha"/></div>
+      <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/honda.webp" alt="Honda"/></div>
+
+      <!-- Row 2 · Tech & Electronics -->
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/fujifilm.webp" alt="Fujifilm"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/lg.webp" alt="LG"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/sharp.webp" alt="Sharp"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/toshiba.webp" alt="Toshiba"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/samsung.webp" alt="Samsung"/></div>
+
+      <!-- Row 3 · Digital & Retail -->
+      <div class="logo-cell zalo" data-industry="tech"><img src="assets/logo-wall/zalo.webp" alt="Zalo"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/vtcgame.webp" alt="VTC Game"/></div>
+      <div class="logo-cell" data-industry="retail"><img src="assets/logo-wall/aeon.webp" alt="AEON Mall"/></div>
+      <div class="logo-cell" data-industry="retail"><img src="assets/logo-wall/sulwhasoo.webp" alt="Sulwhasoo"/></div>
+      <div class="logo-cell" data-industry="retail"><img src="assets/logo-wall/skii.webp" alt="SK-II"/></div>
+
+      <!-- Row 4 · Banking & Corporate -->
+      <div class="logo-cell" data-industry="bank"><img src="assets/logo-wall/ocb.webp" alt="OCB"/></div>
+      <div class="logo-cell" data-industry="bank"><img src="assets/logo-wall/vpbank.webp" alt="VPBank"/></div>
+      <div class="logo-cell" data-industry="bank"><img src="assets/logo-wall/seabank.webp" alt="SeABank"/></div>
+      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/vingroup.webp" alt="Vingroup"/></div>
+      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/flc.webp" alt="FLC Group"/></div>
+
+      <!-- Row 5 · State, Telecom & Industrial -->
+      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/viettel.webp" alt="Viettel"/></div>
+      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/bocongan.webp" alt="Ministry of Public Security"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/oeg.webp" alt="OEG"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/panasonic.webp" alt="Panasonic"/></div>
+      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/dewalt.webp" alt="DeWalt"/></div>
+    </div>
+
+    <div class="brand-tail" id="hall-display">
+      <div>
+        <div class="tail-kicker">Additional selected names</div>
+        <p class="tail-title">Experience beyond the logo wall, <em>2021 to 2025.</em></p>
+      </div>
+      <div class="tail-groups">
+        <div class="tail-group">
+          <div class="tail-label">Auto &amp; industrial</div>
+          <div class="tail-chips"><span>Mitsubishi</span><span>Bosch</span><span>HD Hyundai</span><span>TC Motor</span><span>DeWalt</span></div>
+        </div>
+        <div class="tail-group">
+          <div class="tail-label">Tech &amp; digital</div>
+          <div class="tail-chips"><span>Zalo Ads</span><span>OEG</span><span>VTC Game</span><span>VSAS</span><span>MEGA</span></div>
+        </div>
+        <div class="tail-group">
+          <div class="tail-label">Lifestyle &amp; culture</div>
+          <div class="tail-chips"><span>Celestetic</span><span>Cosmo Entertainment</span><span>AKA Furniture</span><span>Halong Cream</span><span>VCCA</span></div>
+        </div>
+        <div class="tail-group">
+          <div class="tail-label">Services</div>
+          <div class="tail-chips"><span>Netco Post</span><span>Tokio Marine</span><span>PD Group</span><span>Ministry of Culture</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SELECTED PORTFOLIO ========== -->
+<section class="chap" id="works" data-screen-label="04 Selected portfolio" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">04 — Selected portfolio</div>
+      <h2 class="section-title">
+        Range, <em>without noise.</em>
+        <span class="vi vi-only">Đa dạng — nhưng vẫn chọn lọc</span>
+      </h2>
+    </div>
+
+    <div class="portfolio-intro">
+      <p class="lead">A curated archive by <em>event type</em>, with each case kept in its own context.</p>
+      <p class="note">The page can be a little longer here. What matters is that clients can recognise their event format quickly without seeing unrelated photos mixed into one proof point.</p>
+    </div>
+
+    <div class="portfolio-groups">
+      <section class="portfolio-group">
+        <div class="portfolio-group-head">
+          <div class="portfolio-group-no">01</div>
+          <div class="portfolio-group-title">
+            <h3>Automotive <em>&amp; dealer events</em></h3>
+            <div class="signal">Vehicle launch · dealer conference · brand protocol</div>
+          </div>
+          <p class="group-note">For automotive clients, launch precision and dealer-room control are different needs, so they are shown as separate cases.</p>
+        </div>
+        <div class="event-grid">
+          <article class="event-card featured">
+            <figure>
+              <div class="event-media is-wide"><img src="assets/event-hyundai-santafe.webp" alt="Hyundai Santa Fe launch"/></div>
+            </figure>
+            <div class="event-kicker">Automotive launch</div>
+            <h4>Hyundai <em>Santa Fe Launch</em></h4>
+            <p>Vehicle reveal, stage timing and branded product presence.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/event-nissan-2025-stage.webp" alt="Nissan Dealer Conference stage"/>
+                  <img src="assets/event-nissan-2025-host.webp" alt="Nissan Dealer Conference host"/>
+                  <img src="assets/event-nissan-2025-award.webp" alt="Nissan Dealer Conference award moment"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Dealer conference</div>
+            <h4>Nissan <em>Dealer Conference 2025</em></h4>
+            <p>Conference flow, recognition moments and dealer-facing energy.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="portfolio-group">
+        <div class="portfolio-group-head">
+          <div class="portfolio-group-no">02</div>
+          <div class="portfolio-group-title">
+            <h3>Product launch <em>&amp; brand activation</em></h3>
+            <div class="signal">Product story · retail energy · partner moments</div>
+          </div>
+          <p class="group-note">These are brand-facing events where the MC has to hold attention while protecting the product or campaign message.</p>
+        </div>
+        <div class="event-grid is-four">
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/g-fuji-1.webp" alt="Fujifilm Partner Kick-off host"/>
+                  <img src="assets/g-fuji-3.webp" alt="Fujifilm Partner Kick-off room"/>
+                  <img src="assets/g-fuji-4.webp" alt="Fujifilm Partner Kick-off stage"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Product launch</div>
+            <h4>Fujifilm <em>Partner's Kick-off</em></h4>
+            <p>Partner gathering, product reveal and bilingual stage flow.</p>
+          </article>
+          <article class="event-card">
+            <figure><div class="event-media"><img src="assets/event-toshiba.webp" alt="Toshiba product showcase"/></div></figure>
+            <div class="event-kicker">Product showcase</div>
+            <h4>Toshiba <em>Showroom</em></h4>
+            <p>Product-led hosting for electronics and retail partners.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/ev-skii-1.webp" alt="SK-II Holiday Pop-up host"/>
+                  <img src="assets/ev-skii-2.webp" alt="SK-II Holiday Pop-up guest"/>
+                  <img src="assets/ev-skii-3.webp" alt="SK-II Holiday Pop-up counter"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Beauty retail</div>
+            <h4>SK-II <em>Holiday Pop-up</em></h4>
+            <p>Retail activation with talent moments and live customer traffic.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/g-seabank-1.webp" alt="SeaBank concert brand zone"/>
+                  <img src="assets/g-seabank-5.webp" alt="SeaBank concert crowd"/>
+                  <img src="assets/g-seabank-4.webp" alt="SeaBank concert activation"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Brand zone</div>
+            <h4>SeaBank <em>x My Tam Concert</em></h4>
+            <p>High-traffic brand activation across a concert night.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="portfolio-group">
+        <div class="portfolio-group-head">
+          <div class="portfolio-group-no">03</div>
+          <div class="portfolio-group-title">
+            <h3>Conference <em>&amp; expert forum</em></h3>
+            <div class="signal">Moderation · senior rooms · Q&amp;A control</div>
+          </div>
+          <p class="group-note">The proof here is less about spectacle and more about clarity: keeping speakers, audience and agenda moving cleanly.</p>
+        </div>
+        <div class="event-grid">
+          <article class="event-card featured">
+            <figure><div class="event-media is-wide"><img src="assets/event-vsas-conference.webp" alt="VSAS AI-Powered SEO conference"/></div></figure>
+            <div class="event-kicker">Conference</div>
+            <h4>VSAS <em>AI-Powered SEO</em></h4>
+            <p>Expert-room hosting with structured speaker flow and professional pacing.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/event-netco-tokio.webp" alt="Netco Tokio Marine event"/>
+                  <img src="assets/event-netco-tokio-2.webp" alt="Netco Tokio Marine session"/>
+                  <img src="assets/event-netco-tokio-3.webp" alt="Netco Tokio Marine host"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Partner session</div>
+            <h4>Netco <em>x Tokio Marine</em></h4>
+            <p>Partner-facing session flow for business guests.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="portfolio-group">
+        <div class="portfolio-group-head">
+          <div class="portfolio-group-no">04</div>
+          <div class="portfolio-group-title">
+            <h3>Gala <em>&amp; internal milestones</em></h3>
+            <div class="signal">Awards · leadership moments · emotional pacing</div>
+          </div>
+          <p class="group-note">No cut-out treatment here: gala events look stronger as real stage photographs with proper atmosphere and scale.</p>
+        </div>
+        <div class="event-grid">
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/ev-flc-2.webp" alt="FLC 23rd Anniversary leadership toast"/>
+                  <img src="assets/ev-flc-3.webp" alt="FLC 23rd Anniversary stage"/>
+                  <img src="assets/ev-flc-4.webp" alt="FLC 23rd Anniversary ceremony"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Corporate gala</div>
+            <h4>FLC Group <em>23rd Anniversary</em></h4>
+            <p>Milestone celebration, leadership segments and full-stage gala flow.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/g-meiko-1.webp" alt="Meiko Year End Party stage"/>
+                  <img src="assets/g-meiko-4.webp" alt="Meiko Year End Party moment"/>
+                  <img src="assets/g-meiko-3.webp" alt="Meiko Year End Party crowd"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Year-end party</div>
+            <h4>Meiko <em>Year End Party</em></h4>
+            <p>Dual-MC opening, lucky draw and energetic internal celebration.</p>
+          </article>
+          <article class="event-card">
+            <figure><div class="event-media"><img src="assets/event-zalo-thankyou.webp" alt="Zalo Ads Thank You Party"/></div></figure>
+            <div class="event-kicker">Thank-you party</div>
+            <h4>Zalo Ads <em>Thank You Party</em></h4>
+            <p>Partner appreciation event with a polished corporate tone.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="portfolio-group">
+        <div class="portfolio-group-head">
+          <div class="portfolio-group-no">05</div>
+          <div class="portfolio-group-title">
+            <h3>Festival, game <em>&amp; public crowd</em></h3>
+            <div class="signal">Outdoor energy · fan interaction · public stages</div>
+          </div>
+          <p class="group-note">This group shows a different kind of command: bigger rooms, faster energy and public audience interaction.</p>
+        </div>
+        <div class="event-grid is-four">
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/ev-trayhoi-1.webp" alt="Tray Hoi Festival main stage"/>
+                  <img src="assets/ev-trayhoi-2.webp" alt="Tray Hoi Festival host"/>
+                  <img src="assets/ev-trayhoi-3.webp" alt="Tray Hoi Festival wide stage"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Outdoor festival</div>
+            <h4>Tray Hoi <em>Festival</em></h4>
+            <p>Public crowd, live band energy and full Vietnamese flow.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/ev-thanglong-1.webp" alt="Thang Long Festival stage"/>
+                  <img src="assets/ev-thanglong-2.webp" alt="Thang Long Festival hosts"/>
+                  <img src="assets/ev-thanglong-3.webp" alt="Thang Long Festival yukata"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Cultural festival</div>
+            <h4>Thang Long <em>Festival 2024</em></h4>
+            <p>Japan-Vietnam culture stage with performance and fireworks flow.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/ev-game-2.webp" alt="VTC Audition game stage"/>
+                  <img src="assets/ev-game-1.webp" alt="VTC Audition host"/>
+                  <img src="assets/ev-game-3.webp" alt="VTC Audition audience"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Game stage</div>
+            <h4>VTC Audition <em>Game Stage</em></h4>
+            <p>Large-format game community hosting and fan interaction.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/g-unitour-1.webp" alt="UniTour esports stage"/>
+                  <img src="assets/g-unitour-3.webp" alt="UniTour esports player interview"/>
+                  <img src="assets/g-unitour-2.webp" alt="UniTour esports crowd"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Esports</div>
+            <h4>UniTour <em>Esports</em></h4>
+            <p>Campus esports stage with player interviews and live audience energy.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="portfolio-group">
+        <div class="portfolio-group-head">
+          <div class="portfolio-group-no">06</div>
+          <div class="portfolio-group-title">
+            <h3>VIP opening <em>&amp; hospitality</em></h3>
+            <div class="signal">Premium welcome · ribbon ceremony · refined tone</div>
+          </div>
+          <p class="group-note">These events need less noise and more polish: formal welcome, ceremony timing and guest-facing composure.</p>
+        </div>
+        <div class="event-grid">
+          <article class="event-card featured">
+            <figure>
+              <div class="event-media is-wide">
+                <div class="event-collage">
+                  <img src="assets/ev-sh-1.webp" alt="SH Elite Lounge opening host"/>
+                  <img src="assets/ev-sh-2.webp" alt="SH Elite Lounge ribbon ceremony"/>
+                  <img src="assets/ev-sh-3.webp" alt="SH Elite Lounge welcome moment"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">VIP opening</div>
+            <h4>SH Elite Lounge <em>Hanoi</em></h4>
+            <p>Ribbon ceremony, premium guest welcome and ao dai protocol.</p>
+          </article>
+          <article class="event-card">
+            <figure><div class="event-media"><img src="assets/event-cosmo-opening.webp" alt="Cosmo Entertainment soft opening"/></div></figure>
+            <div class="event-kicker">Soft opening</div>
+            <h4>Cosmo <em>Entertainment</em></h4>
+            <p>Opening moment with a polished hospitality tone.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <div class="portfolio-note">
+      <b>Archive policy</b>
+      <span>Not every image needs to appear on the public page. The selected chapters prove range quickly; the full event archive can be sent privately when a client asks for a matching format.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VOICE / SHOWREEL ========== -->
+<section class="chap" id="voice" data-screen-label="05 Showreel">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">05 — Showreel</div>
+      <h2 class="section-title">
+        See me <em>on stage.</em>
+        <span class="vi vi-only">Xem trực tiếp — trên sân khấu</span>
+      </h2>
+    </div>
+
+    <div class="reels-meta">
+      <span class="reels-meta-tag">4 reels · EN / VN · click to play</span>
+    </div>
+
+    <div class="reels-grid-22">
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">01</span>
+          <span class="reel-cap serif">Conference · <em>bilingual host</em></span>
+          <span class="reel-tag">EN / VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="5yE465v3Rk4" role="button" aria-label="Play reel 1">
+          <img src="assets/reel-conference.webp" alt="Reel 1"/>
+          <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">02</span>
+          <span class="reel-cap serif">Gala dinner · <em>bilingual host</em></span>
+          <span class="reel-tag">EN / VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="z2RWml0nxUU" role="button" aria-label="Play reel 2">
+          <img src="assets/reel-gala.webp" alt="Reel 2"/>
+          <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">03</span>
+          <span class="reel-cap serif">Festival · <em>energy reel</em></span>
+          <span class="reel-tag">VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="5_XNbfQhY2s" role="button" aria-label="Play reel 3">
+          <img src="assets/reel-festival.webp" alt="Reel 3"/>
+          <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">04</span>
+          <span class="reel-cap serif">Stage · <em>moment reel</em></span>
+          <span class="reel-tag">VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="tiTS6f7sxCs" role="button" aria-label="Play reel 4">
+          <img src="assets/reel-moment.webp" alt="Reel 4"/>
+          <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+        </div>
+      </article>
+    </div>
+
+    <div class="voice-action">
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4 class="serif"><em>Two languages,</em><br>one stage.</h4>
+        <p style="font-size:13px;margin-top:22px;max-width:440px;color:#bdb29c;line-height:1.75">Nga Lyna · Bilingual MC. Conference · Festival · Gala dinner. <span class="en-only">Hanoi</span><span class="vi-only">Hà Nội</span>, available nationwide &amp; overseas.</p>
+      </div>
+      <div class="col foot-nav">
+        <b>Navigate</b>
+        <div class="nav-set">
+          <a href="#top"><span class="idx">00</span>Top</a>
+          <a href="#why"><span class="idx">02</span>Capabilities</a>
+          <a href="#hall"><span class="idx">03</span>Trusted by</a>
+          <a href="#works"><span class="idx">04</span>Portfolio</a>
+          <a href="#voice"><span class="idx">05</span>Showreel</a>
+        </div>
+      </div>
+      <div class="col">
+        <b>Bookings</b>
+        <div style="color:#bdb29c;font-family:'Newsreader',serif;font-style:italic;font-size:17px;line-height:1.55;margin-bottom:18px">All engagements arranged through management.</div>
+        <div class="vi-only" style="color:#80766a;font-family:'Newsreader',serif;font-style:italic;font-size:14px;line-height:1.55">Mọi liên hệ vui lòng qua phía quản lý.</div>
+      </div>
+    </div>
+
+    <div class="foot-base">
+      <div>© 2026 Nga Lyna · All rights reserved.</div>
+      <div>Designed with composure.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- (mobile sticky CTA removed — single hero button only) -->
+
+<!-- ========== SCRIPTS ========== -->
+<!-- Vanilla interactivity (works without React) -->
+<script>
+// Sticky nav state
+const nav = document.getElementById('topnav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+// Lazy YouTube embed — loads iframe only on click (keeps page fast)
+document.querySelectorAll('.reel-lite').forEach(el=>{
+  el.style.cursor='pointer';
+  el.addEventListener('click',()=>{
+    const id = el.dataset.yt;
+    if(!id) return;
+    window.open('https://www.youtube.com/watch?v='+id, '_blank', 'noopener');
+  });
+});
+
+const gtabsEl = document.getElementById('gtabs');
+if(gtabsEl){
+  gtabsEl.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.gtab');
+    if(!btn) return;
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('#gtabs .gtab').forEach(b=>b.classList.toggle('on', b===btn));
+    document.querySelectorAll('#gpanels .gallery-panel').forEach(p=>p.classList.toggle('on', p.dataset.cat===cat));
+  });
+}
+
+// Fade in on scroll — with gentle per-group stagger
+const fadeEls = document.querySelectorAll('.section-head, .cap-row, .cap-statement, .hall-quote, .hall-stats, .logo-cell, .brand-tail, .portfolio-intro, .portfolio-group, .event-card, .reel-card');
+fadeEls.forEach(el=>{
+  el.classList.add('fade-in');
+  // stagger: position among fade-in siblings sharing the same parent (capped)
+  const sibs = Array.from(el.parentNode.children).filter(c=>c.classList.contains('fade-in'));
+  const idx = sibs.indexOf(el);
+  if(idx > 0) el.style.transitionDelay = Math.min(idx, 6) * 70 + 'ms';
+});
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+},{threshold:.12});
+fadeEls.forEach(el=>io.observe(el));
+
+// postMessage slide index for speaker notes (not used here but harmless)
+</script>
+
+
+</body>
+</html>

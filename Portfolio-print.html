@@ -1,0 +1,2469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cindy (Nga Lyna) — Bilingual MC · Hanoi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* Champagne (default) */
+  --ink:#15110d;
+  --ink-soft:#3a3328;
+  --paper:#f6f1e8;
+  --paper-2:#ede5d4;
+  --gold:#a8895a;
+  --gold-deep:#8a6a3d;
+  --line:rgba(21,17,13,.18);
+  --line-strong:rgba(21,17,13,.32);
+}
+[data-palette="plum"]{
+  --ink:#1a0d14;--ink-soft:#3d2630;--paper:#f0e6e0;--paper-2:#e3cfc7;
+  --gold:#8b3a4a;--gold-deep:#5a1f2c;--line:rgba(26,13,20,.18);--line-strong:rgba(26,13,20,.34);
+}
+[data-palette="emerald"]{
+  --ink:#0d1612;--ink-soft:#27332d;--paper:#eef0ea;--paper-2:#dde2d7;
+  --gold:#3f6650;--gold-deep:#26443a;--line:rgba(13,22,18,.18);--line-strong:rgba(13,22,18,.34);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Manrope',sans-serif;
+  font-weight:400;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"ss01","kern","liga";
+  transition:background .4s,color .4s;
+}
+img{max-width:100%;display:block}
+
+.serif{font-family:'Bodoni Moda',serif;font-weight:400;letter-spacing:-.012em}
+.italic{font-style:italic}
+.eyebrow{
+  font-family:'Manrope',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.24em;
+  font-size:11px;
+  font-weight:600;
+  color:var(--gold-deep);
+}
+.vi-cap{
+  font-family:'Bodoni Moda',serif;
+  font-style:italic;
+  color:var(--gold-deep);
+  font-weight:400;
+}
+
+.wrap{max-width:1320px;margin:0 auto;padding:0 56px}
+@media(max-width:900px){.wrap{padding:0 28px}}
+@media(max-width:520px){.wrap{padding:0 20px}}
+
+/* ====== TOP NAV ====== */
+nav.topnav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 56px;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  background:color-mix(in oklab, var(--paper) 78%, transparent);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,padding .3s;
+}
+nav.topnav.scrolled{border-bottom-color:var(--line);padding:14px 56px}
+@media(max-width:900px){nav.topnav,nav.topnav.scrolled{padding:14px 24px}}
+.brand-mark{
+  font-family:'Bodoni Moda',serif;
+  font-size:22px;line-height:1;
+}
+.brand-mark .dot{
+  display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--gold-deep);margin:0 10px 3px;vertical-align:middle;
+}
+.brand-mark em{color:var(--gold-deep);font-weight:400}
+.nav-links{display:flex;gap:34px;font-size:12px;text-transform:uppercase;letter-spacing:.18em;font-weight:500}
+.nav-links a{color:var(--ink);text-decoration:none;opacity:.78;transition:opacity .2s}
+.nav-links a:hover{opacity:1}
+.nav-cta{
+  font-family:'Bodoni Moda',serif;font-style:italic;font-size:18px;
+  border:1px solid var(--ink);padding:8px 18px;border-radius:999px;
+  text-decoration:none;color:var(--ink);
+  transition:background .25s cubic-bezier(.4,0,.2,1), color .25s, transform .25s, box-shadow .25s;
+}
+.nav-cta:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px);box-shadow:0 8px 20px rgba(21,17,13,.18)}
+.nav-cta:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* ====== HERO ====== */
+section.hero{
+  min-height:100vh;
+  padding:120px 0 60px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.05fr 1fr;
+  gap:48px;align-items:center;
+  min-height:calc(100vh - 180px);
+}
+.hero-text .eyebrow{margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.hero-text .eyebrow::after{content:"";flex:1;height:1px;background:var(--line);max-width:120px}
+.hero-headline{
+  font-size:clamp(48px,8.4vw,128px);
+  line-height:.92;
+  margin:0 0 14px;
+  font-weight:400;
+  letter-spacing:-.018em;
+}
+.hero-headline em{font-style:italic;color:var(--gold-deep);font-weight:400}
+.hero-vi{
+  font-family:'Bodoni Moda',serif;
+  font-style:italic;
+  font-size:clamp(20px,2.4vw,30px);
+  color:var(--gold-deep);
+  margin:0 0 36px;
+  font-weight:400;
+}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:32px;
+  margin-bottom:40px;font-size:13px;
+  border-top:1px solid var(--line);
+  padding-top:22px;
+}
+.hero-meta .item .k{
+  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;margin-bottom:4px;
+}
+.hero-meta .item .v{
+  font-family:'Bodoni Moda',serif;font-size:18px;
+}
+.hero-cta{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 26px;
+  background:var(--ink);color:var(--paper);
+  text-decoration:none;
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:20px;border-radius:999px;
+  transition:background .25s cubic-bezier(.4,0,.2,1), color .25s, transform .25s, box-shadow .25s;
+  border:1px solid var(--ink);
+}
+.btn-primary:hover{background:transparent;color:var(--ink);transform:translateY(-1px);box-shadow:0 10px 24px rgba(21,17,13,.22)}
+.btn-primary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.btn-primary svg{width:14px;height:14px}
+.btn-text{
+  font-size:13px;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--ink);text-decoration:none;font-weight:600;
+  border-bottom:1px solid var(--gold);padding-bottom:4px;
+  transition:color .25s, border-color .25s;
+}
+.btn-text:hover{color:var(--gold-deep);border-color:var(--gold-deep)}
+.btn-text:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+.hero-image-wrap{
+  position:relative;
+  aspect-ratio:3/4;
+  background:var(--paper-2);
+  overflow:hidden;
+}
+.hero-image-wrap img{
+  width:100%;height:100%;object-fit:cover;object-position:center 22%;
+  filter:saturate(.92) contrast(1.02);
+}
+.hero-image-wrap .frame-tag{
+  position:absolute;top:24px;left:24px;
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:18px;color:var(--paper);
+  text-shadow:0 2px 16px rgba(0,0,0,.3);
+}
+.hero-image-wrap .frame-num{
+  position:absolute;bottom:24px;right:24px;
+  font-family:'Bodoni Moda',serif;
+  font-size:48px;color:var(--paper);
+  text-shadow:0 2px 16px rgba(0,0,0,.4);
+  letter-spacing:.02em;
+}
+
+/* Hero variant B — Cinematic Center */
+.hero[data-variant="cinematic"]{padding:0}
+.hero[data-variant="cinematic"] .hero-grid{
+  grid-template-columns:1fr;
+  position:relative;
+  min-height:100vh;
+  align-items:end;
+  padding-bottom:80px;
+}
+.hero[data-variant="cinematic"] .hero-image-wrap{
+  position:absolute;inset:0;aspect-ratio:auto;
+  z-index:0;
+}
+.hero[data-variant="cinematic"] .hero-image-wrap::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(21,17,13,.78) 0%, rgba(21,17,13,.2) 50%, rgba(21,17,13,.4) 100%);
+}
+.hero[data-variant="cinematic"] .hero-text{
+  position:relative;z-index:1;color:var(--paper);
+  padding:0 56px;
+}
+.hero[data-variant="cinematic"] .hero-text .eyebrow{color:#d9b985}
+.hero[data-variant="cinematic"] .hero-headline em{color:#e8c98c}
+.hero[data-variant="cinematic"] .hero-vi{color:#e8c98c}
+.hero[data-variant="cinematic"] .hero-meta{border-color:rgba(255,255,255,.2)}
+.hero[data-variant="cinematic"] .hero-meta .item .k{color:#d9b985}
+.hero[data-variant="cinematic"] .btn-primary{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.hero[data-variant="cinematic"] .btn-primary:hover{background:transparent;color:var(--paper)}
+.hero[data-variant="cinematic"] .btn-text{color:var(--paper);border-color:#d9b985}
+.hero[data-variant="cinematic"] .frame-tag,
+.hero[data-variant="cinematic"] .frame-num{display:none}
+
+/* Hero variant C — Quiet Type */
+.hero[data-variant="quiet"] .hero-grid{
+  grid-template-columns:1fr;
+  text-align:center;
+  align-items:center;
+  min-height:calc(100vh - 180px);
+}
+.hero[data-variant="quiet"] .hero-text{max-width:880px;margin:0 auto}
+.hero[data-variant="quiet"] .hero-text .eyebrow{justify-content:center}
+.hero[data-variant="quiet"] .hero-text .eyebrow::before{content:"";flex:1;height:1px;background:var(--line);max-width:120px}
+.hero[data-variant="quiet"] .hero-meta{justify-content:center}
+.hero[data-variant="quiet"] .hero-cta{justify-content:center}
+.hero[data-variant="quiet"] .hero-image-wrap{
+  position:absolute;
+  width:180px;height:240px;aspect-ratio:auto;
+  bottom:60px;right:56px;
+  border:6px solid var(--paper);
+  box-shadow:0 24px 48px rgba(21,17,13,.18);
+}
+@media(max-width:900px){.hero[data-variant="quiet"] .hero-image-wrap{display:none}}
+
+/* mobile hero */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero-image-wrap{order:-1;aspect-ratio:4/5;max-height:60vh}
+  section.hero{padding:96px 0 40px}
+  .hero[data-variant="cinematic"] .hero-text{padding:0 24px 40px}
+}
+
+/* ====== SECTION SHELL ====== */
+section.chap{padding:140px 0;position:relative}
+@media(max-width:900px){section.chap{padding:84px 0}}
+.section-head{
+  display:grid;grid-template-columns:auto 1fr;gap:24px;
+  align-items:end;margin-bottom:64px;
+}
+@media(max-width:900px){.section-head{grid-template-columns:1fr;margin-bottom:40px}}
+.section-num{
+  font-family:'Bodoni Moda',serif;
+  font-style:italic;font-weight:400;
+  font-size:24px;color:var(--gold-deep);
+  white-space:nowrap;
+}
+.section-num::before{content:"§ "}
+.section-title{
+  font-family:'Bodoni Moda',serif;
+  font-weight:400;
+  font-size:clamp(36px,5.6vw,72px);
+  line-height:1;
+  margin:0;
+  letter-spacing:-.012em;
+}
+.section-title em{font-style:italic;color:var(--gold-deep)}
+.section-title .vi{
+  display:block;
+  font-size:.46em;
+  font-style:italic;color:var(--gold-deep);
+  margin-top:8px;
+  letter-spacing:0;
+}
+
+/* ====== WHY ME ====== */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:900px){.why-grid{grid-template-columns:1fr}}
+.why-cell{
+  padding:36px 28px 32px;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.why-cell:last-child{border-right:none}
+@media(max-width:900px){
+  .why-cell{border-right:none;border-bottom:1px solid var(--line)}
+  .why-cell:last-child{border-bottom:none}
+}
+.why-cell .num{
+  font-family:'Bodoni Moda',serif;
+  font-style:italic;font-size:48px;
+  color:var(--gold-deep);line-height:1;margin-bottom:18px;
+  font-weight:400;
+}
+.why-cell h3{
+  font-family:'Bodoni Moda',serif;font-weight:400;
+  font-size:30px;line-height:1.05;margin:0 0 4px;
+}
+.why-cell h3 em{font-style:italic}
+.why-cell .vi-name{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  color:var(--gold-deep);font-size:16px;margin-bottom:14px;
+}
+.why-cell p{
+  font-size:14px;line-height:1.7;color:var(--ink-soft);margin:0;
+}
+
+/* ====== SELECTED WORKS ====== */
+.works-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.work-row{
+  display:grid;grid-template-columns:80px 1.1fr 1fr 200px 60px;
+  align-items:center;
+  gap:28px;
+  padding:28px 0;
+  border-bottom:1px solid var(--line);
+  cursor:pointer;
+  position:relative;
+  transition:padding .3s;
+}
+.work-row:hover{padding-left:18px}
+.work-row .yr{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  color:var(--gold-deep);font-size:22px;
+}
+.work-row .name{
+  font-family:'Bodoni Moda',serif;font-weight:400;
+  font-size:30px;line-height:1.1;
+}
+.work-row .name em{font-style:italic}
+.work-row .role{font-size:13px;color:var(--ink-soft);line-height:1.55}
+.work-row .role b{display:block;font-weight:600;color:var(--ink);margin-bottom:2px}
+.work-row .tags{display:flex;flex-wrap:wrap;gap:6px}
+.work-row .tags span{
+  font-size:10px;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--gold-deep);font-weight:600;
+  background:var(--paper-2);padding:4px 10px;border-radius:999px;
+}
+.work-row .arr{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:28px;color:var(--gold-deep);
+  text-align:right;transition:transform .3s;
+}
+.work-row:hover .arr{transform:translateX(8px)}
+.work-row .preview{
+  position:absolute;left:42%;top:50%;
+  width:240px;height:140px;
+  transform:translateY(-50%) scale(.92);
+  background-size:cover;background-position:center;
+  pointer-events:none;
+  opacity:0;transition:opacity .3s,transform .3s;
+  box-shadow:0 18px 36px rgba(21,17,13,.24);
+  z-index:5;
+}
+.work-row:hover .preview{opacity:1;transform:translateY(-50%) scale(1)}
+@media(max-width:900px){
+  .work-row{grid-template-columns:60px 1fr 40px;grid-template-rows:auto auto;gap:6px 16px;padding:20px 0}
+  .work-row .role,.work-row .tags{grid-column:2/3}
+  .work-row .preview{display:none}
+  .work-row .name{font-size:22px}
+  .work-row .yr{font-size:18px;grid-row:span 3}
+  .work-row .arr{grid-row:span 3;font-size:22px}
+}
+
+/* ====== HALL OF FAME ====== */
+.hall-band{
+  background:var(--ink);color:var(--paper);
+  padding:120px 0;
+  position:relative;
+}
+.hall-band .section-title{color:var(--paper)}
+.hall-band .section-num{color:#d9b985}
+.hall-band .section-title em{color:#d9b985}
+.hall-band .section-title .vi{color:#d9b985}
+.hall-band .eyebrow{color:#d9b985}
+
+.hall-marquee{
+  overflow:hidden;
+  border-top:1px solid rgba(255,255,255,.18);
+  border-bottom:1px solid rgba(255,255,255,.18);
+  position:relative;
+  padding:32px 0;
+}
+.hall-marquee::before,.hall-marquee::after{
+  content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;
+}
+.hall-marquee::before{left:0;background:linear-gradient(90deg,var(--ink),transparent)}
+.hall-marquee::after{right:0;background:linear-gradient(-90deg,var(--ink),transparent)}
+.hall-marquee .track{
+  display:flex;gap:80px;
+  animation:scroll 40s linear infinite;
+  white-space:nowrap;
+}
+.hall-marquee .track > span{
+  font-family:'Bodoni Moda',serif;font-size:36px;color:#d9b985;
+  letter-spacing:.04em;
+  flex-shrink:0;
+}
+.hall-marquee .track > span::after{content:" ·";color:rgba(216,185,133,.4);margin-left:80px}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+
+/* ====== GALLERY — chapters (default) + tabs alt ====== */
+.gallery-intro{
+  display:flex;justify-content:space-between;align-items:end;gap:24px;
+  flex-wrap:wrap;margin-bottom:36px;
+  padding-bottom:18px;border-bottom:1px solid var(--line);
+}
+.gallery-intro .gi-lead{
+  font-size:13px;line-height:1.7;color:var(--ink-soft);max-width:520px;
+}
+.gallery-intro .gi-tag{
+  font-size:11px;text-transform:uppercase;letter-spacing:.24em;
+  color:var(--gold-deep);font-weight:600;white-space:nowrap;
+}
+
+/* Layout switching ───────────────────────────── */
+.gallery-tabs-view,
+.gallery-chapters-view{display:none}
+body[data-gallery="chapters"] .gallery-chapters-view{display:block}
+body[data-gallery="tabs"] .gallery-tabs-view{display:block}
+
+/* ======= CHAPTERS LAYOUT — BIG 2-col images ======= */
+.gchapter{
+  padding:64px 0;
+  border-top:1px solid var(--line);
+}
+.gchapter:first-child{padding-top:0;border-top:0}
+.gchapter-head{
+  display:grid;grid-template-columns:auto 1fr auto;
+  gap:24px;align-items:end;
+  margin-bottom:32px;
+}
+@media(max-width:720px){
+  .gchapter-head{grid-template-columns:auto 1fr;gap:12px 18px}
+  .gchapter-head .gch-count{grid-column:1 / -1;justify-self:start}
+}
+.gchapter-head .gch-num{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:36px;font-weight:400;color:var(--gold-deep);
+  line-height:1;letter-spacing:-.005em;
+  font-variant-numeric:tabular-nums;
+}
+.gchapter-head .gch-title{
+  font-family:'Bodoni Moda',serif;font-weight:500;
+  font-size:clamp(28px,3.4vw,42px);line-height:1.02;
+  letter-spacing:-.014em;margin:0;
+}
+.gchapter-head .gch-title em{font-style:italic;color:var(--gold-deep);font-weight:400}
+.gchapter-head .gch-title .vi{
+  display:block;font-size:.45em;font-style:italic;color:var(--gold-deep);
+  font-weight:400;margin-top:4px;letter-spacing:0;
+}
+.gchapter-head .gch-count{
+  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;
+  padding:7px 14px;border:1px solid var(--line);border-radius:999px;
+  white-space:nowrap;
+}
+
+.gchapter-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:28px 22px;
+}
+@media(max-width:720px){.gchapter-grid{grid-template-columns:1fr;gap:24px}}
+
+.gchapter-tile figure{margin:0;display:flex;flex-direction:column;gap:14px}
+.gchapter-tile .img-frame{
+  position:relative;overflow:hidden;background:var(--paper-2);
+  aspect-ratio:4/3;
+}
+.gchapter-tile .img-frame img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 1.2s ease;
+  filter:saturate(.94);
+}
+.gchapter-tile:hover .img-frame img{transform:scale(1.03)}
+.gchapter-tile .cap{display:flex;flex-direction:column;gap:6px;padding:0 4px}
+.gchapter-tile .cap .cap-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  border-bottom:1px solid var(--line);padding-bottom:8px;
+}
+.gchapter-tile .cap .brand{
+  font-family:'Manrope',sans-serif;
+  font-weight:700;font-size:12px;
+  text-transform:uppercase;letter-spacing:.18em;
+  color:var(--ink);
+}
+.gchapter-tile .cap .year{
+  font-family:'Manrope',sans-serif;
+  font-weight:600;font-size:10px;
+  text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);
+}
+.gchapter-tile .cap .event{
+  font-family:'Bodoni Moda',serif;
+  font-style:italic;font-weight:400;
+  font-size:19px;line-height:1.3;
+  color:var(--ink-soft);letter-spacing:-.005em;
+}
+
+/* ======= TABS LAYOUT (existing, larger) ======= */
+.gtabs{
+  display:flex;gap:8px;flex-wrap:wrap;
+  margin-bottom:36px;
+}
+.gtab{
+  background:transparent;border:1px solid var(--line);
+  color:var(--ink);cursor:pointer;
+  padding:12px 22px;border-radius:999px;
+  font-family:'Manrope',sans-serif;
+  font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.18em;
+  transition:.22s cubic-bezier(.4,0,.2,1);
+  display:inline-flex;align-items:baseline;gap:10px;
+}
+.gtab:hover{border-color:var(--line-strong);color:var(--ink);transform:translateY(-1px);box-shadow:0 6px 14px rgba(21,17,13,.08)}
+.gtab.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.gtab .count{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:13px;font-weight:400;letter-spacing:0;
+  text-transform:none;opacity:.7;
+}
+.gtab.on .count{color:#d9b985;opacity:1}
+.gtab .vi{
+  display:none;
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-weight:400;font-size:12px;letter-spacing:0;
+  text-transform:none;color:var(--gold-deep);
+  margin-left:6px;
+}
+body[data-lang="bilingual"] .gtab .vi{display:inline}
+body[data-lang="bilingual"] .gtab.on .vi{color:#d9b985}
+
+.gallery-panels{position:relative}
+.gallery-panel{display:none}
+.gallery-panel.on{display:block;animation:gfade .4s ease}
+@keyframes gfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.gpanel-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:22px 18px;
+}
+@media(max-width:900px){.gpanel-grid{grid-template-columns:repeat(2,1fr);gap:18px 14px}}
+@media(max-width:520px){.gpanel-grid{grid-template-columns:1fr;gap:22px}}
+
+.gpanel-tile figure{margin:0;display:flex;flex-direction:column;gap:12px}
+.gpanel-tile .img-frame{
+  position:relative;overflow:hidden;background:var(--paper-2);
+  aspect-ratio:4/3;
+}
+.gpanel-tile .img-frame img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 1.2s ease;
+  filter:saturate(.94);
+}
+.gpanel-tile:hover .img-frame img{transform:scale(1.04)}
+.gpanel-tile .cap{display:flex;flex-direction:column;gap:4px;padding:0 2px}
+.gpanel-tile .cap .cap-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  border-bottom:1px solid var(--line);padding-bottom:6px;
+}
+.gpanel-tile .cap .brand{
+  font-family:'Manrope',sans-serif;
+  font-weight:700;font-size:11px;
+  text-transform:uppercase;letter-spacing:.18em;
+  color:var(--ink);
+}
+.gpanel-tile .cap .year{
+  font-family:'Manrope',sans-serif;
+  font-weight:600;font-size:10px;
+  text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);
+}
+.gpanel-tile .cap .event{
+  font-family:'Bodoni Moda',serif;
+  font-style:italic;font-weight:400;
+  font-size:16px;line-height:1.3;
+  color:var(--ink-soft);letter-spacing:-.005em;
+}
+
+.gallery-footnote{
+  margin-top:64px;padding-top:24px;
+  border-top:1px solid var(--line);
+  font-family:'Bodoni Moda',serif;font-style:italic;font-weight:400;
+  font-size:16px;color:var(--ink-soft);
+  max-width:640px;
+}
+
+/* ====== VOICE/SHOWREEL ====== */
+/* (current implementation uses .reels-grid-22 / .reel-card / .reel-lite — see below) */
+
+/* ====== FOOTER ====== */
+footer.foot{
+  background:var(--ink);color:#bdb29c;padding:80px 0 40px;
+}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:60px}
+@media(max-width:900px){.foot-grid{grid-template-columns:1fr;gap:32px}}
+.foot h4{
+  font-family:'Bodoni Moda',serif;font-weight:400;
+  font-size:64px;line-height:1;color:var(--paper);
+  margin:0 0 14px;letter-spacing:-.02em;
+}
+.foot h4 em{font-style:italic;color:#d9b985}
+.foot .vi{font-style:italic;font-family:'Bodoni Moda',serif;color:#d9b985;font-size:20px}
+.foot .col b{
+  display:block;font-family:'Manrope';font-weight:600;font-size:11px;
+  text-transform:uppercase;letter-spacing:.22em;color:#d9b985;margin-bottom:14px;
+}
+.foot .col a{color:#bdb29c;text-decoration:none;display:block;padding:6px 0;font-size:14px}
+.foot .col a:hover{color:var(--paper)}
+.foot-base{
+  border-top:1px solid rgba(255,255,255,.14);
+  padding-top:24px;font-size:12px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+  color:#80766a;
+}
+
+/* ===== Mobile sticky CTA ===== */
+.mob-cta{
+  display:none;
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:40;
+  background:var(--ink);color:var(--paper);
+  padding:14px 22px;border-radius:999px;
+  font-family:'Bodoni Moda',serif;font-style:italic;font-size:18px;
+  text-align:center;text-decoration:none;
+  box-shadow:0 10px 30px rgba(21,17,13,.28);
+}
+@media(max-width:900px){.mob-cta{display:block}}
+
+/* ====== CAPABILITIES (replaces Why Me) ====== */
+.cap-grid{
+  display:grid;grid-template-columns:1fr 1.25fr;
+  gap:80px;align-items:start;
+}
+@media(max-width:900px){.cap-grid{grid-template-columns:1fr;gap:40px}}
+.cap-statement .section-num{margin-bottom:14px}
+.cap-statement h2{
+  font-family:'Bodoni Moda',serif;font-weight:400;
+  font-size:clamp(40px,5vw,68px);line-height:1;
+  margin:0 0 22px;letter-spacing:-.015em;
+}
+.cap-statement h2 em{font-style:italic;color:var(--gold-deep)}
+.cap-statement p{
+  font-size:16px;line-height:1.7;color:var(--ink-soft);
+  max-width:460px;margin:0;
+}
+.cap-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.cap-row{
+  display:grid;grid-template-columns:50px 1fr;
+  gap:24px;padding:24px 0;
+  border-bottom:1px solid var(--line);
+  align-items:baseline;transition:padding .3s;
+}
+.cap-row:hover{padding-left:14px}
+.cap-no{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  color:var(--gold-deep);font-size:32px;font-weight:400;
+  line-height:1;letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums;
+}
+.cap-title{
+  font-family:'Bodoni Moda',serif;font-weight:400;
+  font-size:30px;line-height:1.1;letter-spacing:-.01em;
+  margin-bottom:6px;
+}
+.cap-title em{font-style:italic;color:var(--gold-deep)}
+.cap-desc{
+  font-size:14px;color:var(--ink-soft);line-height:1.7;
+  max-width:520px;
+}
+
+/* ====== HALL OF FAME — premium logo wall ====== */
+.hall-feature{
+  display:grid;grid-template-columns:1.35fr 1fr;
+  gap:64px;align-items:start;
+  margin-bottom:80px;padding-bottom:80px;
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+@media(max-width:900px){.hall-feature{grid-template-columns:1fr;gap:40px}}
+.hall-quote{position:relative;padding-top:14px}
+.hall-quote .quote-mark{
+  font-family:'Bodoni Moda',serif;
+  color:#d9b985;opacity:.6;
+  font-size:140px;line-height:1;
+  position:absolute;left:-8px;top:-50px;
+  font-style:italic;font-weight:400;
+}
+.hall-quote p{
+  font-family:'Bodoni Moda',serif;
+  font-weight:400;font-style:italic;
+  font-size:clamp(24px,2.6vw,34px);line-height:1.35;
+  color:var(--paper);margin:0 0 20px;
+  position:relative;z-index:1;
+}
+.hall-quote .quote-byline{
+  font-size:11px;text-transform:uppercase;letter-spacing:.22em;
+  color:#bdb29c;font-weight:500;
+}
+.hall-quote .quote-byline em{color:#d9b985;font-weight:600;font-style:normal}
+
+.hall-stats{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border:1px solid rgba(255,255,255,.18);
+}
+.hall-stats .stat{
+  padding:24px 22px;
+  border-bottom:1px solid rgba(255,255,255,.18);
+  border-right:1px solid rgba(255,255,255,.18);
+}
+.hall-stats .stat:nth-child(2n){border-right:none}
+.hall-stats .stat:nth-last-child(-n+2){border-bottom:none}
+.hall-stats .stat .n{
+  font-family:'Bodoni Moda',serif;
+  font-size:56px;font-weight:400;line-height:1;
+  color:var(--paper);letter-spacing:-.02em;
+}
+.hall-stats .stat .n em{font-style:italic;color:#d9b985}
+.hall-stats .stat .l{
+  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
+  color:#bdb29c;margin-top:6px;font-weight:600;
+}
+
+
+.works-feed{display:flex;flex-direction:column;gap:80px}
+@media(max-width:900px){.works-feed{gap:48px}}
+.work-feature{
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  gap:48px;
+  align-items:center;
+}
+.work-feature.reverse{grid-template-columns:1fr 1.15fr}
+.work-feature.reverse .work-img-side{order:2}
+@media(max-width:900px){
+  .work-feature,.work-feature.reverse{grid-template-columns:1fr;gap:24px}
+  .work-feature.reverse .work-img-side{order:0}
+}
+.work-img-side{
+  position:relative;aspect-ratio:4/3;overflow:hidden;
+  background:var(--paper);
+}
+.work-img-side img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 1.2s ease;
+}
+.work-feature:hover .work-img-side img{transform:scale(1.03)}
+.work-img-side .frame-num{
+  position:absolute;top:18px;left:20px;
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:36px;color:var(--paper);font-weight:400;
+  text-shadow:0 2px 12px rgba(0,0,0,.35);
+  line-height:1;
+}
+.work-img-side .frame-year{
+  position:absolute;bottom:18px;right:20px;
+  font-family:'Manrope';font-size:11px;
+  text-transform:uppercase;letter-spacing:.22em;font-weight:600;
+  color:var(--paper);
+  background:rgba(21,17,13,.5);backdrop-filter:blur(6px);
+  padding:6px 12px;
+}
+.work-text-side{padding:8px 0}
+.work-text-side .tag-row{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;
+}
+.work-text-side .tag-row span{
+  font-size:10px;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--gold-deep);font-weight:600;
+  padding:5px 12px;border:1px solid var(--line-strong);border-radius:999px;
+}
+.work-text-side h3{
+  font-family:'Bodoni Moda',serif;font-weight:400;
+  font-size:clamp(34px,4.2vw,52px);
+  line-height:1;margin:0 0 10px;letter-spacing:-.015em;
+}
+.work-text-side h3 em{font-style:italic;color:var(--gold-deep)}
+.work-text-side .role-line{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:20px;color:var(--gold-deep);margin-bottom:18px;
+}
+.work-text-side p{
+  font-size:14px;line-height:1.75;color:var(--ink-soft);
+  margin:0 0 24px;max-width:480px;
+}
+.work-text-side .meta-pills{
+  display:flex;gap:24px;flex-wrap:wrap;
+  padding-top:18px;border-top:1px solid var(--line);
+  font-size:12px;
+}
+.work-text-side .meta-pills .item .k{
+  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;margin-bottom:2px;
+}
+.work-text-side .meta-pills .item .v{
+  font-family:'Bodoni Moda',serif;font-size:17px;
+}
+
+/* compact "also" list under feature works — strengthened */
+.works-compact{
+  margin-top:96px;padding-top:48px;
+  border-top:1px solid var(--line);
+}
+.works-compact .lbl-big{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-weight:400;font-size:32px;color:var(--ink);
+  margin-bottom:6px;letter-spacing:-.005em;
+}
+.works-compact .lbl-big em{color:var(--gold-deep)}
+.works-compact .lbl{
+  font-size:11px;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;margin-bottom:30px;
+}
+.works-compact-list{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border-top:1px solid var(--line);
+}
+@media(max-width:720px){.works-compact-list{grid-template-columns:1fr}}
+.work-compact-row{
+  display:grid;grid-template-columns:60px 1fr auto;
+  gap:20px;align-items:center;
+  padding:20px 22px;border-bottom:1px solid var(--line);
+  transition:background .2s;
+}
+.work-compact-row:hover{background:rgba(168,137,90,.06)}
+.work-compact-row:nth-child(even){border-left:1px solid var(--line)}
+@media(max-width:720px){.work-compact-row:nth-child(even){border-left:none}}
+.work-compact-row .yr{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  color:var(--gold-deep);font-size:20px;font-weight:400;
+}
+.work-compact-row .nm{
+  font-family:'Bodoni Moda',serif;font-size:22px;
+  line-height:1.1;font-weight:400;letter-spacing:-.008em;
+}
+.work-compact-row .nm em{font-style:italic;color:var(--gold-deep)}
+.work-compact-row .nm .brand-sub{
+  display:block;font-family:'Manrope';font-style:normal;font-weight:500;
+  font-size:10px;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--gold-deep);margin-top:6px;line-height:1;
+}
+.work-compact-row .rl{
+  font-size:10px;color:var(--gold-deep);
+  text-transform:uppercase;letter-spacing:.2em;font-weight:600;
+  padding:5px 11px;border:1px solid var(--line);border-radius:999px;
+  white-space:nowrap;
+}
+
+/* ====== VOICE — 2×2 reels, all 16:9 ====== */
+.reels-meta{
+  margin-bottom:24px;padding-bottom:14px;
+  border-bottom:1px solid var(--line);
+}
+.reels-meta-tag{
+  font-size:11px;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;
+}
+
+.reels-grid-22{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:32px 28px;
+}
+@media(max-width:900px){.reels-grid-22{grid-template-columns:1fr;gap:24px}}
+.reel-card{display:flex;flex-direction:column;gap:14px}
+.reel-card .reel-title-line{
+  display:flex;align-items:baseline;gap:14px;
+  padding-bottom:10px;border-bottom:1px solid var(--line);
+}
+.reel-card .reel-num{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:22px;color:var(--gold-deep);font-weight:400;
+}
+.reel-card .reel-cap{
+  font-family:'Bodoni Moda',serif;font-weight:400;
+  font-size:18px;letter-spacing:-.005em;flex:1;
+}
+.reel-card .reel-cap em{font-style:italic;color:var(--gold-deep)}
+.reel-card .reel-tag{
+  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;
+  padding:4px 10px;border:1px solid var(--line);border-radius:999px;
+  margin-left:auto;
+}
+
+.reel-lite{
+  position:relative;overflow:hidden;
+  background:var(--ink);cursor:pointer;
+  border:1px solid var(--line);
+}
+.reel-lite.landscape{aspect-ratio:16/9}
+.reel-lite img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s ease, filter .3s;
+  filter:saturate(.9);
+}
+.reel-lite:hover img{transform:scale(1.03);filter:saturate(1)}
+.reel-lite::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(21,17,13,.45) 0%, rgba(21,17,13,.05) 50%, rgba(21,17,13,.2) 100%);
+  pointer-events:none;
+}
+.reel-play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:74px;height:74px;border-radius:50%;
+  background:rgba(246,241,232,.94);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink);font-family:'Bodoni Moda',serif;
+  font-size:22px;font-style:italic;font-weight:400;
+  transition:transform .3s,background .3s;
+  pointer-events:none;border:none;z-index:2;padding-left:5px;
+}
+.reel-lite:hover .reel-play{transform:translate(-50%,-50%) scale(1.08);background:var(--paper)}
+.voice-action{
+  display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:space-between;
+  margin-top:56px;padding-top:32px;
+  border-top:1px solid var(--line);
+}
+.voice-action .pdf-link{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:13px 26px;border:1px solid var(--ink);
+  font-family:'Bodoni Moda',serif;font-style:italic;font-size:18px;
+  text-decoration:none;color:var(--ink);
+  border-radius:999px;transition:.2s;
+}
+.voice-action .pdf-link:hover{background:var(--ink);color:var(--paper)}
+.voice-action .note{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:15px;color:var(--ink-soft);max-width:380px;
+}
+
+/* ====== HALL OF FAME — BIG LOGO WALL ====== */
+.logo-wall-head{
+  display:flex;align-items:end;justify-content:space-between;gap:24px;
+  margin-bottom:32px;flex-wrap:wrap;
+}
+.logo-wall-eyebrow{
+  font-size:11px;text-transform:uppercase;letter-spacing:.24em;
+  color:#d9b985;font-weight:600;margin-bottom:14px;
+}
+.logo-wall-title{
+  font-family:'Bodoni Moda',serif;font-weight:400;
+  font-size:clamp(28px,3.4vw,44px);line-height:1.1;
+  letter-spacing:-.012em;color:var(--paper);
+  max-width:780px;
+}
+.logo-wall-title em{font-style:italic;color:#d9b985}
+
+.logo-wall{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:1px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.10);
+}
+@media(max-width:900px){.logo-wall{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.logo-wall{grid-template-columns:repeat(2,1fr)}}
+.logo-cell{
+  aspect-ratio:5/3;
+  background:#fbfaf6;
+  display:flex;align-items:center;justify-content:center;
+  padding:32px 40px;
+  position:relative;
+  transition:transform .35s, box-shadow .35s, z-index 0s linear .35s;
+}
+.logo-cell:hover{
+  transform:scale(1.04);
+  box-shadow:0 24px 50px rgba(0,0,0,.45);
+  z-index:2;transition:transform .35s, box-shadow .35s, z-index 0s;
+}
+.logo-cell img{
+  max-width:100%;max-height:100%;
+  width:auto;height:auto;
+  object-fit:contain;
+  transition:filter .3s;
+}
+@media(max-width:900px){.logo-cell{padding:22px 26px}}
+@media(max-width:520px){.logo-cell{padding:18px 22px}}
+
+/* Text-only brand cells (for brands without logo asset) */
+.logo-cell.text-cell{
+  font-family:'Bodoni Moda',serif;
+  font-weight:500;
+  font-size:clamp(20px,2.2vw,26px);
+  line-height:1;letter-spacing:-.008em;
+  color:#15110d;
+  text-align:center;
+}
+.logo-cell.text-cell em{font-style:italic;color:#8a6a3d;font-weight:500}
+
+/* Icon-only logos (square shape) — give them less padding so they fill better */
+.logo-cell.zalo{padding:14px 14px}
+.logo-cell.zalo img{max-height:88%}
+
+/* ====== INDUSTRY FOCUS FILTER ====== */
+.logo-wall-head{position:relative}
+.industry-meta{
+  display:none;
+  margin-top:18px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+.industry-meta.on{display:flex;gap:18px;flex-wrap:wrap;align-items:baseline}
+.industry-meta .focused-on{
+  font-family:'Bodoni Moda',serif;font-style:italic;font-weight:400;
+  font-size:18px;color:var(--paper);
+  letter-spacing:-.005em;
+}
+.industry-meta .focused-on em{font-style:italic;color:#d9b985}
+.industry-meta .focused-count{
+  font-size:11px;text-transform:uppercase;letter-spacing:.22em;
+  color:#d9b985;font-weight:600;
+  padding:5px 12px;border:1px solid rgba(216,185,133,.4);border-radius:999px;
+}
+.industry-meta .reset-focus{
+  margin-left:auto;
+  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
+  color:#bdb29c;font-weight:600;background:none;border:none;
+  cursor:pointer;padding:5px 0;
+  border-bottom:1px solid transparent;transition:.2s;
+}
+.industry-meta .reset-focus:hover{color:var(--paper);border-color:#d9b985}
+
+/* Dim non-matching cells when a focus is active */
+body[data-focus]:not([data-focus="all"]) .logo-cell{
+  opacity:.18;
+  filter:saturate(.3);
+  transition:opacity .35s, filter .35s, transform .35s;
+}
+body[data-focus="auto"]      .logo-cell[data-industry="auto"],
+body[data-focus="tech"]      .logo-cell[data-industry="tech"],
+body[data-focus="bank"]      .logo-cell[data-industry="bank"],
+body[data-focus="retail"]    .logo-cell[data-industry="retail"],
+body[data-focus="corporate"] .logo-cell[data-industry="corporate"]{
+  opacity:1;filter:saturate(1);
+}
+body[data-focus]:not([data-focus="all"]) .logo-cell{transform:scale(.94)}
+body[data-focus="auto"]      .logo-cell[data-industry="auto"],
+body[data-focus="tech"]      .logo-cell[data-industry="tech"],
+body[data-focus="bank"]      .logo-cell[data-industry="bank"],
+body[data-focus="retail"]    .logo-cell[data-industry="retail"],
+body[data-focus="corporate"] .logo-cell[data-industry="corporate"]{
+  transform:scale(1);
+  box-shadow:0 0 0 1px rgba(216,185,133,.5), 0 18px 36px rgba(0,0,0,.45);
+  z-index:2;
+}
+
+/* ====== FLOATING CUSTOMIZE LAUNCHER ====== */
+#customize-launcher{
+  position:fixed;right:20px;bottom:20px;z-index:60;
+  background:var(--ink);color:var(--paper);
+  border:none;cursor:pointer;
+  padding:12px 18px;border-radius:999px;
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:16px;
+  box-shadow:0 10px 30px rgba(21,17,13,.28);
+  display:flex;align-items:center;gap:8px;
+  transition:transform .2s, background .2s;
+}
+#customize-launcher:hover{transform:translateY(-2px)}
+#customize-launcher svg{width:14px;height:14px}
+#customize-launcher .dot{
+  width:6px;height:6px;border-radius:50%;background:#d9b985;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@media(max-width:900px){
+  #customize-launcher{bottom:80px;right:16px;font-size:14px;padding:10px 14px}
+}
+
+/* ====== DENSITY MODE ====== */
+body[data-density="compact"] section.chap{padding:88px 0}
+body[data-density="compact"] .section-head{margin-bottom:36px}
+body[data-density="compact"] .works-feed{gap:48px}
+body[data-density="compact"] .section-title{font-size:clamp(32px,4.4vw,56px)}
+body[data-density="compact"] .hero-headline{font-size:clamp(40px,7vw,96px)}
+body[data-density="compact"] section.hero{min-height:auto;padding:120px 0 80px}
+body[data-density="compact"] .hero-grid{min-height:auto}
+body[data-density="compact"] .hall-band{padding:88px 0}
+
+/* ====== ENGLISH-ONLY MODE ====== */
+/* Hide ANY .vi or .vi-only element when language is English. */
+body[data-lang="en"] .vi,
+body[data-lang="en"] .vi-cap,
+body[data-lang="en"] .vi-name,
+body[data-lang="en"] .vi-only,
+body[data-lang="en"] .vi-line,
+body[data-lang="en"] .hero-vi{display:none !important}
+
+/* Pair of swap spans for proper nouns: .en-only shows in EN, hidden in bilingual */
+.en-only{display:inline}
+body[data-lang="bilingual"] .en-only{display:none}
+
+/* Bilingual supplemental VN line — sits under EN headline */
+.vi-line{
+  display:block;
+  font-family:'Bodoni Moda',serif;
+  font-style:italic;font-weight:400;
+  font-size:13px;letter-spacing:0;
+  color:var(--gold-deep);
+  margin-top:4px;line-height:1.3;
+}
+
+[data-tweaks-panel]{font-family:'Manrope',sans-serif !important}
+
+/* loading reveal */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s}
+.fade-in.in{opacity:1;transform:none}
+
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 10mm;
+  }
+  html, body {
+    background: #f6f1e8 !important;
+    color: var(--ink) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  /* Hide chrome that doesn't make sense on paper */
+  nav.topnav,
+  .mob-cta,
+  #customize-launcher,
+  [data-tweaks-panel],
+  #__cindy_tweaks_root,
+  .industry-meta,
+  .reel-play{
+    display: none !important;
+  }
+  /* Hero — let it occupy first page only */
+  section.hero{
+    min-height: auto !important;
+    padding: 0 !important;
+    page-break-after: always;
+    break-after: page;
+  }
+  .hero-grid{
+    min-height: auto !important;
+    padding: 0 !important;
+    grid-template-columns: 1.05fr 1fr !important;
+  }
+  .hero[data-variant="cinematic"] .hero-grid{
+    padding: 24mm 12mm !important;
+    min-height: 240mm !important;
+  }
+  .hero-image-wrap{
+    aspect-ratio: 3/4 !important;
+    max-height: 220mm !important;
+  }
+  .hero-image-wrap img{
+    filter: none !important;
+  }
+  /* Each major section starts a new page */
+  section.chap{
+    padding: 12mm 0 !important;
+    page-break-before: always;
+    break-before: page;
+  }
+  section.hall-band{
+    padding: 12mm 0 !important;
+    page-break-before: always;
+    break-before: page;
+    background: var(--ink) !important;
+  }
+  footer.foot{
+    page-break-before: always;
+    break-before: page;
+    padding: 18mm 0 12mm !important;
+    background: var(--ink) !important;
+  }
+  /* Container reset */
+  .wrap{padding: 0 14mm !important; max-width: none !important}
+  /* Avoid breaking content elements across pages */
+  .work-feature,
+  .gchapter,
+  .work-compact-row,
+  .gchapter-tile,
+  .gpanel-tile,
+  .reel-card,
+  .cap-row,
+  .hall-feature,
+  .logo-cell{
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  /* Selected works compact list keeps grouping */
+  .works-compact-list{
+    page-break-inside: auto;
+  }
+  /* Showreel — show all 4 reels paginated, replace cards with poster image only */
+  .reels-grid-22{
+    grid-template-columns: repeat(2,1fr) !important;
+    gap: 6mm !important;
+  }
+  .reel-lite{
+    aspect-ratio: 16/9 !important;
+    border: 1px solid var(--line) !important;
+  }
+  .reel-lite::after{
+    background: linear-gradient(to top, rgba(21,17,13,.35) 0%, rgba(21,17,13,.05) 60%) !important;
+  }
+  /* Brand wall — force the dark band to print colors */
+  .logo-wall{
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(255,255,255,.10) !important;
+  }
+  .logo-cell{background:#fbfaf6 !important; box-shadow:none !important; transform:none !important; opacity:1 !important; filter:none !important}
+  .hall-band .hall-quote .quote-mark{position:static !important;font-size:60px !important;display:block;margin-bottom:6px}
+  /* Footer */
+  .foot, .foot *{color:#bdb29c !important}
+  .foot h4, .foot .col b{color:#f6f1e8 !important}
+  .foot h4 em{color:#d9b985 !important}
+  /* Disable hover transforms */
+  .work-row:hover{padding-left:0 !important}
+  .cap-row:hover{padding-left:0 !important}
+  .gtab:hover{transform:none !important;box-shadow:none !important}
+  /* Don't break headings off from their body */
+  h1,h2,h3,h4{break-after: avoid; page-break-after: avoid}
+  .section-head{break-after: avoid; page-break-after: avoid}
+  .chapter-head, .gchapter-head{break-after: avoid; page-break-after: avoid}
+  img{break-inside: avoid; page-break-inside: avoid}
+  /* Marquee — show as static comma list */
+  .hall-marquee{overflow: visible !important; padding: 12px 0 !important}
+  .hall-marquee::before,
+  .hall-marquee::after{display:none !important}
+  .hall-marquee .track{
+    animation: none !important;
+    flex-wrap: wrap !important;
+    gap: 0 18px !important;
+    white-space: normal !important;
+  }
+  .hall-marquee .track > span{font-size: 18px !important}
+  .hall-marquee .track > span::after{margin-left: 6px !important}
+  /* If gallery is in TABS layout, force chapters for print so all photos appear */
+  .gallery-tabs-view{display: none !important}
+  .gallery-chapters-view{display: block !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== TOP NAV ========== -->
+<nav class="topnav" id="topnav">
+  <a href="#top" class="brand-mark serif"><em><span class="en-only">Cindy</span><span class="vi-only">Nga</span></em><span class="dot"></span>Lyna</a>
+  <div class="nav-links">
+    <a href="#why">Capabilities</a>
+    <a href="#works">Work</a>
+    <a href="#hall">Brands</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#voice">Showreel</a>
+  </div>
+  <a href="#works" class="nav-cta serif">View work ↗</a>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="top" data-variant="editorial" data-screen-label="01 Hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="eyebrow">Bilingual MC · <span class="en-only">Hanoi</span><span class="vi-only">Hà Nội</span> · Available 2026</div>
+        <h1 class="hero-headline serif" id="hero-headline">
+          Two languages,<br><em>one stage.</em>
+        </h1>
+        <div class="hero-vi" id="hero-vi">Hai ngôn ngữ, một sân khấu.</div>
+
+        <div class="hero-meta">
+          <div class="item"><div class="k">Languages</div><div class="v serif"><span class="en-only">English &amp; Vietnamese</span><span class="vi-only">English · Tiếng Việt</span></div></div>
+          <div class="item"><div class="k">Domains</div><div class="v serif">Conference · Festival · Gala</div></div>
+          <div class="item"><div class="k">Since</div><div class="v serif">2021 · 120+ events</div></div>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#works" class="btn-primary serif">
+            View selected work
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          </a>
+          <a href="#voice" class="btn-text">Watch showreel</a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrap" id="hero-image">
+        <img src="assets/hero-stairs.jpg" alt="Cindy (Nga Lyna)" id="hero-img-el" />
+        <div class="frame-tag serif italic"><span class="en-only">Cindy</span><span class="vi-only">Nga Lyna</span></div>
+        <div class="frame-num serif">01</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CAPABILITIES (replaces Why Me) ========== -->
+<section class="chap" id="why" data-screen-label="02 Capabilities">
+  <div class="wrap">
+    <div class="cap-grid">
+      <div class="cap-statement">
+        <div class="section-num">02 — Capabilities</div>
+        <h2 class="serif">One host. <em>Four stages.</em></h2>
+        <p>Each event format calls for a different voice. From a 250-guest gala to a 2,000-person outdoor activation, I bring the same composure — and the kind of preparation event managers don't have to think about.</p>
+      </div>
+
+      <div class="cap-list">
+        <div class="cap-row">
+          <div class="cap-no">01</div>
+          <div>
+            <div class="cap-title">Bilingual MC <em>· EN &amp; VN</em></div>
+            <div class="cap-desc">Seamless code-switching across full programs. No script reading — true bilingual flow that international and Vietnamese guests both feel hosted by.</div>
+          </div>
+        </div>
+        <div class="cap-row">
+          <div class="cap-no">02</div>
+          <div>
+            <div class="cap-title">Conference <em>moderator</em></div>
+            <div class="cap-desc">Keynote framing, panel moderation, Q&amp;A handling. Senior-room composure for board meetings, dealer summits and partner conferences.</div>
+          </div>
+        </div>
+        <div class="cap-row">
+          <div class="cap-no">03</div>
+          <div>
+            <div class="cap-title">Festival <em>&amp; brand activation</em></div>
+            <div class="cap-desc">Outdoor stages, public audiences, lighting ceremonies and brand activations. High energy without losing elegance.</div>
+          </div>
+        </div>
+        <div class="cap-row">
+          <div class="cap-no">04</div>
+          <div>
+            <div class="cap-title">Voice-over <em>&amp; brand ambassador</em></div>
+            <div class="cap-desc">Brand films, internal communications, product narration. The same calm voice, off-stage — in either language.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SELECTED WORKS ========== -->
+<section class="chap" id="works" data-screen-label="03 Works" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">03 — Selected works</div>
+      <h2 class="section-title">
+        Stages, <em>recently.</em>
+        <span class="vi vi-only">Một vài sự kiện tiêu biểu gần đây</span>
+      </h2>
+    </div>
+
+    <div class="works-feed">
+
+      <article class="work-feature">
+        <div class="work-img-side">
+          <img src="assets/event-fujifilm-room.jpg" alt="Fujifilm Partner Kick-off 2025"/>
+          <div class="frame-num">01</div>
+          <div class="frame-year">2025</div>
+        </div>
+        <div class="work-text-side">
+          <div class="tag-row"><span>Gala dinner</span><span>International partner</span></div>
+          <h3 class="serif">Fujifilm <em>· Partner Kick-off</em></h3>
+          <div class="role-line">Bilingual MC · partner gala</div>
+          <p>Hosted Fujifilm Vietnam's annual partner kick-off — opening, awards segment, and live-stream moderation. A premium room of Japanese executives, regional partners and senior dealers. English-led, with Vietnamese threaded for the local audience.</p>
+          <div class="meta-pills">
+            <div class="item"><div class="k">Venue</div><div class="v serif">5-star ballroom</div></div>
+            <div class="item"><div class="k">Audience</div><div class="v serif">Japanese execs · regional partners</div></div>
+            <div class="item"><div class="k">Format</div><div class="v serif">Partner gala</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-feature reverse">
+        <div class="work-img-side">
+          <img src="assets/event-viettel-security.jpg" alt="Viettel Security 10th Anniversary Gala"/>
+          <div class="frame-num">02</div>
+          <div class="frame-year">2024</div>
+        </div>
+        <div class="work-text-side">
+          <div class="tag-row"><span>Milestone gala</span><span>Top tech</span></div>
+          <h3 class="serif">Viettel Security <em>· 10ᵗʰ Anniversary</em></h3>
+          <div class="role-line">Lead MC · anniversary gala dinner</div>
+          <p>Anchored Viettel Cyber Security's 10-year anniversary gala — a milestone night for one of Vietnam's most senior cyber-security teams. Awards, speeches, leadership recognition and a full live-band program, held to the composure expected of a state-backed flagship.</p>
+          <div class="meta-pills">
+            <div class="item"><div class="k">Venue</div><div class="v serif">Grand ballroom</div></div>
+            <div class="item"><div class="k">Audience</div><div class="v serif">Leadership &amp; staff · 500+</div></div>
+            <div class="item"><div class="k">Format</div><div class="v serif">Anniversary gala</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-feature">
+        <div class="work-img-side">
+          <img src="assets/event-hyundai-santafe.jpg" alt="Hyundai Santa Fe Launch"/>
+          <div class="frame-num">03</div>
+          <div class="frame-year">2024</div>
+        </div>
+        <div class="work-text-side">
+          <div class="tag-row"><span>Product launch</span><span>Premium automotive</span></div>
+          <h3 class="serif">Hyundai TC Motor <em>· Santa Fe</em></h3>
+          <div class="role-line">Brand MC · flagship product reveal</div>
+          <p>Hosted Hyundai TC Motor's Santa Fe activation across a flagship floor — walking guests through the SUV's launch story, leading press moments, and bridging the brand's Korean executives with the Vietnamese audience. Full English/Vietnamese coverage end-to-end.</p>
+          <div class="meta-pills">
+            <div class="item"><div class="k">Venue</div><div class="v serif">Flagship mall floor</div></div>
+            <div class="item"><div class="k">Audience</div><div class="v serif">Press · partners · public</div></div>
+            <div class="item"><div class="k">Format</div><div class="v serif">Live activation</div></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="works-compact">
+      <div class="lbl-big">Also <em>on stage</em></div>
+      <div class="lbl">Selected events · 2023 — 2025</div>
+      <div class="works-compact-list">
+        <div class="work-compact-row">
+          <div class="yr">2025</div>
+          <div class="nm serif">Partner <em>Kick-off</em><span class="brand-sub">Fujifilm</span></div>
+          <div class="rl">Gala</div>
+        </div>
+        <div class="work-compact-row">
+          <div class="yr">2025</div>
+          <div class="nm serif">Dealer <em>Awards Night</em><span class="brand-sub">Nissan</span><span class="vi-line vi-only">Lễ Vinh Danh</span></div>
+          <div class="rl">Gala</div>
+        </div>
+        <div class="work-compact-row">
+          <div class="yr">2024</div>
+          <div class="nm serif">10ᵗʰ <em>Anniversary Gala</em><span class="brand-sub">Viettel Security</span></div>
+          <div class="rl">Gala</div>
+        </div>
+        <div class="work-compact-row">
+          <div class="yr">2024</div>
+          <div class="nm serif">23ʳᵈ <em>Anniversary</em><span class="brand-sub">FLC Group</span></div>
+          <div class="rl">Gala</div>
+        </div>
+        <div class="work-compact-row">
+          <div class="yr">2024</div>
+          <div class="nm serif">Elevating <em>Spaces</em><span class="brand-sub">LG × AKA Furniture</span><span class="vi-line vi-only">Nâng Tầm Không Gian</span></div>
+          <div class="rl">Brand talk</div>
+        </div>
+        <div class="work-compact-row">
+          <div class="yr">2024</div>
+          <div class="nm serif">Dealer <em>Conference</em><span class="brand-sub">Toyota</span></div>
+          <div class="rl">Conference</div>
+        </div>
+        <div class="work-compact-row">
+          <div class="yr">2024</div>
+          <div class="nm serif">Young Artists <em>Festival · 7ᵗʰ ed.</em><span class="brand-sub">Ministry of Culture · VCCA</span><span class="vi-line vi-only">Festival Mỹ thuật trẻ lần 7 · Bộ Văn hoá</span></div>
+          <div class="rl">Festival</div>
+        </div>
+        <div class="work-compact-row">
+          <div class="yr">2024</div>
+          <div class="nm serif">Soft <em>Opening</em><span class="brand-sub">Cosmo Entertainment</span></div>
+          <div class="rl">Activation</div>
+        </div>
+        <div class="work-compact-row">
+          <div class="yr">2024</div>
+          <div class="nm serif">Spring <em>Showroom</em><span class="brand-sub">Toshiba</span></div>
+          <div class="rl">Activation</div>
+        </div>
+        <div class="work-compact-row">
+          <div class="yr">2024</div>
+          <div class="nm serif">Strategic <em>Signing Ceremony</em><span class="brand-sub">Netco Post × Tokio Marine</span><span class="vi-line vi-only">Lễ Ký Kết Chiến Lược</span></div>
+          <div class="rl">Corporate</div>
+        </div>
+        <div class="work-compact-row">
+          <div class="yr">2024</div>
+          <div class="nm serif">Expert <em>Forum</em><span class="brand-sub">Celestetic</span><span class="vi-line vi-only">Toạ đàm Chuyên gia</span></div>
+          <div class="rl">Forum</div>
+        </div>
+        <div class="work-compact-row">
+          <div class="yr">2023</div>
+          <div class="nm serif">Year-End <em>Party</em><span class="brand-sub">PD Group</span></div>
+          <div class="rl">Gala</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HALL OF FAME — premium tier'd ========== -->
+<section class="hall-band" id="hall" data-screen-label="04 Trusted by">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">04 — Trusted by</div>
+      <h2 class="section-title">
+        Brands that chose <em>composure.</em>
+        <span class="vi vi-only">Những thương hiệu đã chọn sự điềm tĩnh</span>
+      </h2>
+    </div>
+
+    <!-- Featured quote + stats -->
+    <div class="hall-feature">
+      <div class="hall-quote">
+        <div class="quote-mark">“</div>
+        <p>Nga is the rare host who can disappear into the moment and still be in full command of it. Our partners noticed — and asked who she was.</p>
+        <div class="quote-byline"><em>Event Director</em> · Fujifilm Vietnam · Partner Kick-off 2025</div>
+      </div>
+
+      <div class="hall-stats">
+        <div class="stat"><div class="n serif"><em>120</em>+</div><div class="l">Events hosted</div></div>
+        <div class="stat"><div class="n serif"><em>50</em>+</div><div class="l">Brands worked with</div></div>
+        <div class="stat"><div class="n serif"><em>5</em></div><div class="l">Years on stage</div></div>
+        <div class="stat"><div class="n serif"><em>2</em></div><div class="l">Languages fluently</div></div>
+      </div>
+    </div>
+
+    <!-- Brand logo wall — LARGE, the hero of this section -->
+    <div class="logo-wall-head">
+      <div>
+        <div class="logo-wall-eyebrow">Selected partner brands</div>
+        <div class="logo-wall-title serif">
+          <em>25+ brands</em> · automotive, banking, retail, tech, culture
+          <span class="vi-only vi-cap"> · 25+ thương hiệu · ô tô, ngân hàng, bán lẻ, công nghệ, văn hoá</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="industry-meta" id="industry-meta">
+      <div class="focused-on" id="industry-focused-text">Focusing on <em>tech</em> brands</div>
+      <div class="focused-count" id="industry-focused-count">8 of 25</div>
+      <button class="reset-focus" type="button" id="industry-reset">↺ Show all brands</button>
+    </div>
+
+    <div class="logo-wall" id="logo-wall">
+      <!-- Row 1 · Automotive -->
+      <div class="logo-cell" data-industry="auto"><img src="assets/logo-hyundai.webp" alt="Hyundai"/></div>
+      <div class="logo-cell" data-industry="auto"><img src="assets/logo-toyota.jpg" alt="Toyota"/></div>
+      <div class="logo-cell" data-industry="auto"><img src="assets/logo-nissan.png" alt="Nissan"/></div>
+      <div class="logo-cell" data-industry="auto"><img src="assets/logo-yamaha.jpg" alt="Yamaha"/></div>
+      <div class="logo-cell" data-industry="auto"><img src="assets/logo-honda.png" alt="Honda"/></div>
+
+      <!-- Row 2 · Tech & Electronics -->
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-fujifilm.jpg" alt="Fujifilm"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-lg.png" alt="LG"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-sharp.jpg" alt="Sharp"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-toshiba-red.jpeg" alt="Toshiba"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-samsung.png" alt="Samsung"/></div>
+
+      <!-- Row 3 · Digital & Retail -->
+      <div class="logo-cell zalo" data-industry="tech"><img src="assets/logo-zalo.png" alt="Zalo"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-vtcgame.png" alt="VTC Game"/></div>
+      <div class="logo-cell" data-industry="retail"><img src="assets/logo-aeon.jpg" alt="AEON Mall"/></div>
+      <div class="logo-cell" data-industry="retail"><img src="assets/logo-sulwhasoo.jpeg" alt="Sulwhasoo"/></div>
+      <div class="logo-cell" data-industry="retail"><img src="assets/logo-skii.png" alt="SK-II"/></div>
+
+      <!-- Row 4 · Banking & Corporate -->
+      <div class="logo-cell" data-industry="bank"><img src="assets/logo-ocb.webp" alt="OCB"/></div>
+      <div class="logo-cell" data-industry="bank"><img src="assets/logo-vpbank.png" alt="VPBank"/></div>
+      <div class="logo-cell" data-industry="bank"><img src="assets/logo-seabank.png" alt="SeABank"/></div>
+      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-vingroup.jpg" alt="Vingroup"/></div>
+      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-flc.png" alt="FLC Group"/></div>
+
+      <!-- Row 5 · State, Telecom & Industrial -->
+      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-viettel-full.jpg" alt="Viettel"/></div>
+      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-bocongan.webp" alt="Ministry of Public Security"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-oeg.png" alt="OEG"/></div>
+      <div class="logo-cell text-cell" data-industry="tech">Panasonic</div>
+      <div class="logo-cell text-cell" data-industry="corporate">DeWalt</div>
+    </div>
+
+    <!-- Marquee of other brand names -->
+    <div id="hall-display" style="margin-top:48px">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.24em;color:#d9b985;font-weight:600;margin-bottom:18px">And many more · 2021 — 2025</div>
+      <div class="hall-marquee">
+        <div class="track">
+          <span>Mitsubishi</span><span>Bosch</span><span>Celestetic</span><span>Cosmo Entertainment</span><span>MEGA</span><span>Netco Post</span><span>Tokio Marine</span><span>VSAS</span><span>HD Hyundai</span><span>PD Group</span><span>Ministry of Culture · VCCA</span><span>AKA Furniture</span><span>Halong Cream</span><span>TC Motor</span>
+          <span>Mitsubishi</span><span>Bosch</span><span>Celestetic</span><span>Cosmo Entertainment</span><span>MEGA</span><span>Netco Post</span><span>Tokio Marine</span><span>VSAS</span><span>HD Hyundai</span><span>PD Group</span><span>Ministry of Culture · VCCA</span><span>AKA Furniture</span><span>Halong Cream</span><span>TC Motor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALLERY ========== -->
+<section class="chap" id="gallery" data-screen-label="05 Gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">05 — Gallery</div>
+      <h2 class="section-title">
+        Moments, <em>off-script.</em>
+        <span class="vi vi-only">Những khoảnh khắc — ngoài kịch bản</span>
+      </h2>
+    </div>
+
+    <div class="gallery-intro">
+      <div class="gi-lead">
+        Browse by event type. Each tab shows six carefully chosen moments — drawn from 120+ engagements between 2021 and 2025.
+        <span class="vi-only vi-cap"> · Chọn theo loại hình. Mỗi tab có sáu khoảnh khắc tiêu biểu — từ 120+ chương trình đã thực hiện 2021–2025.</span>
+      </div>
+      <div class="gi-tag">24 of 120+ · 2021 — 2025</div>
+    </div>
+
+    <!-- ═══════════ LAYOUT A · CHAPTERS (default) — BIG 2-col images ═══════════ -->
+    <div class="gallery-chapters-view">
+
+      <div class="gchapter">
+        <div class="gchapter-head">
+          <div class="gch-num">I.</div>
+          <h3 class="gch-title">Gala dinner <em>&amp; awards night</em>
+            <span class="vi vi-only">Dạ tiệc &amp; lễ vinh danh</span>
+          </h3>
+          <div class="gch-count">35+ engagements</div>
+        </div>
+        <div class="gchapter-grid">
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-fujifilm-room.jpg" alt="Fujifilm Partner Kick-off"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Fujifilm</span><span class="year">2025</span></div>
+              <div class="event">Partner Kick-off · bilingual host</div>
+            </figcaption>
+          </figure>
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-nissan-vinhdanh.jpg" alt="Nissan Dealer Awards"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Nissan</span><span class="year">2025</span></div>
+              <div class="event">Dealer Awards Night<span class="vi-only"> · Lễ Vinh Danh</span></div>
+            </figcaption>
+          </figure>
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-viettel-security.jpg" alt="Viettel Security 10th Anniversary"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Viettel Security</span><span class="year">2024</span></div>
+              <div class="event">10ᵗʰ Anniversary Gala Dinner</div>
+            </figcaption>
+          </figure>
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-zalo-thankyou.jpg" alt="Zalo Ads Thank You Party"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Zalo Ads</span><span class="year">2025</span></div>
+              <div class="event">Thank You Party · partner gala</div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="gchapter">
+        <div class="gchapter-head">
+          <div class="gch-num">II.</div>
+          <h3 class="gch-title">Conference <em>&amp; forum</em>
+            <span class="vi vi-only">Hội nghị &amp; toạ đàm</span>
+          </h3>
+          <div class="gch-count">28+ engagements</div>
+        </div>
+        <div class="gchapter-grid">
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-vsas-conference.jpg" alt="VSAS Conference"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">VSAS</span><span class="year">2024</span></div>
+              <div class="event">AI-Powered SEO Conference</div>
+            </figcaption>
+          </figure>
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-toyota.jpg" alt="Toyota Dealer Conference"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Toyota</span><span class="year">2024</span></div>
+              <div class="event">Dealer Conference</div>
+            </figcaption>
+          </figure>
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-nissan-dealer.jpg" alt="Nissan Dealer Conference"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Nissan</span><span class="year">2025</span></div>
+              <div class="event">Dealer Conference</div>
+            </figcaption>
+          </figure>
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-celestetic.jpg" alt="Celestetic Expert Forum"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Celestetic</span><span class="year">2024</span></div>
+              <div class="event">Expert Forum<span class="vi-only"> · Toạ đàm chuyên gia</span></div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="gchapter">
+        <div class="gchapter-head">
+          <div class="gch-num">III.</div>
+          <h3 class="gch-title">Festival <em>&amp; cultural</em>
+            <span class="vi vi-only">Lễ hội &amp; văn hoá</span>
+          </h3>
+          <div class="gch-count">22+ engagements</div>
+        </div>
+        <div class="gchapter-grid">
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-aeon-christmas.jpg" alt="AEON Mall Christmas Lighting"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">AEON Mall</span><span class="year">2024</span></div>
+              <div class="event">Christmas Lighting Ceremony</div>
+            </figcaption>
+          </figure>
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-mythuat-red.jpg" alt="Young Artists Festival"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Ministry of Culture · VCCA</span><span class="year">2024</span></div>
+              <div class="event">Young Artists Festival · 7ᵗʰ edition<span class="vi-only"> · Festival Mỹ thuật trẻ lần 7</span></div>
+            </figcaption>
+          </figure>
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/portrait-kimono.jpg" alt="Ao Dai cultural portrait"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Cultural</span><span class="year">2024</span></div>
+              <div class="event"><span class="en-only">Ao Dai</span><span class="vi-only">Áo dài</span> · ceremonial portrait</div>
+            </figcaption>
+          </figure>
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-aeon-tree.jpg" alt="AEON Christmas Tree"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">AEON Mall</span><span class="year">2023</span></div>
+              <div class="event">Christmas Tree Ceremony · outdoor plaza</div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="gchapter">
+        <div class="gchapter-head">
+          <div class="gch-num">IV.</div>
+          <h3 class="gch-title">Brand activation <em>&amp; launch</em>
+            <span class="vi vi-only">Kích hoạt thương hiệu &amp; ra mắt sản phẩm</span>
+          </h3>
+          <div class="gch-count">30+ engagements</div>
+        </div>
+        <div class="gchapter-grid">
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-hyundai-santafe.jpg" alt="Hyundai Santa Fe Launch"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Hyundai TC Motor</span><span class="year">2024</span></div>
+              <div class="event">Santa Fe Launch · flagship floor</div>
+            </figcaption>
+          </figure>
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-lg-aka.jpg" alt="LG × AKA Furniture"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">LG × AKA Furniture</span><span class="year">2024</span></div>
+              <div class="event">Elevating Spaces · brand talk<span class="vi-only"> · Nâng Tầm Không Gian</span></div>
+            </figcaption>
+          </figure>
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-dewalt.jpg" alt="DeWalt 100 Years Anniversary"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">DeWalt</span><span class="year">2024</span></div>
+              <div class="event">100 Years Anniversary · brand showcase</div>
+            </figcaption>
+          </figure>
+          <figure class="gchapter-tile">
+            <div class="img-frame"><img src="assets/event-toshiba.jpg" alt="Toshiba Spring Showroom"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Toshiba</span><span class="year">2024</span></div>
+              <div class="event">Spring Showroom · seasonal activation</div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ═══════════ LAYOUT B · TABS (alt) — 4 tabs × 6 photos ═══════════ -->
+    <div class="gallery-tabs-view">
+    <div class="gtabs" id="gtabs">
+      <button class="gtab on" data-cat="gala">
+        Gala dinner<span class="vi"> · Dạ tiệc</span><span class="count">6</span>
+      </button>
+      <button class="gtab" data-cat="conference">
+        Conference &amp; Forum<span class="vi"> · Hội nghị</span><span class="count">6</span>
+      </button>
+      <button class="gtab" data-cat="festival">
+        Festival &amp; Cultural<span class="vi"> · Lễ hội &amp; Văn hoá</span><span class="count">6</span>
+      </button>
+      <button class="gtab" data-cat="activation">
+        Brand Activation<span class="vi"> · Kích hoạt thương hiệu</span><span class="count">6</span>
+      </button>
+    </div>
+
+    <div class="gallery-panels" id="gpanels">
+
+      <!-- GALA DINNER -->
+      <div class="gallery-panel on" data-cat="gala">
+        <div class="gpanel-grid">
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-fujifilm-room.jpg" alt="Fujifilm Partner Kick-off"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Fujifilm</span><span class="year">2025</span></div>
+              <div class="event">Partner Kick-off · bilingual host</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-nissan-vinhdanh.jpg" alt="Nissan Dealer Awards Night"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Nissan</span><span class="year">2025</span></div>
+              <div class="event">Dealer Awards Night<span class="vi-only"> · Lễ Vinh Danh</span></div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-viettel-security.jpg" alt="Viettel Security 10th Anniversary"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Viettel Security</span><span class="year">2024</span></div>
+              <div class="event">10ᵗʰ Anniversary Gala Dinner</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-flc-23.jpg" alt="FLC 23rd Anniversary"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">FLC Group</span><span class="year">2024</span></div>
+              <div class="event">23ʳᵈ Anniversary Gala</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-zalo-thankyou.jpg" alt="Zalo Ads Thank You Party"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Zalo Ads</span><span class="year">2025</span></div>
+              <div class="event">Thank You Party · partner gala</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-zalo-ads.jpg" alt="Zalo Ads brand event"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Zalo Ads</span><span class="year">2025</span></div>
+              <div class="event">Brand event · launch night</div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- CONFERENCE & FORUM -->
+      <div class="gallery-panel" data-cat="conference">
+        <div class="gpanel-grid">
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-vsas-conference.jpg" alt="VSAS AI-Powered SEO Conference"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">VSAS</span><span class="year">2024</span></div>
+              <div class="event">AI-Powered SEO Conference</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-toyota.jpg" alt="Toyota Dealer Conference"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Toyota</span><span class="year">2024</span></div>
+              <div class="event">Dealer Conference</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-celestetic.jpg" alt="Celestetic Expert Forum"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Celestetic</span><span class="year">2024</span></div>
+              <div class="event">Expert Forum<span class="vi-only"> · Toạ đàm chuyên gia</span></div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-mega-seminar.jpg" alt="MEGA Scientific Seminar"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">MEGA</span><span class="year">2024</span></div>
+              <div class="event">Scientific Seminar</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-nissan-dealer.jpg" alt="Nissan Dealer Conference"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Nissan</span><span class="year">2025</span></div>
+              <div class="event">Dealer Conference</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-netco-tokio.jpg" alt="Netco × Tokio Marine Strategic Signing"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Netco × Tokio Marine</span><span class="year">2024</span></div>
+              <div class="event">Strategic Signing Ceremony<span class="vi-only"> · Lễ Ký Kết Chiến Lược</span></div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- FESTIVAL & CULTURAL -->
+      <div class="gallery-panel" data-cat="festival">
+        <div class="gpanel-grid">
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-aeon-christmas.jpg" alt="AEON Mall Christmas Lighting"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">AEON Mall</span><span class="year">2024</span></div>
+              <div class="event">Christmas Lighting Ceremony</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-aeon-tree.jpg" alt="AEON Christmas Tree"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">AEON Mall</span><span class="year">2023</span></div>
+              <div class="event">Christmas Tree Ceremony · outdoor plaza</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-mythuat-festival.jpg" alt="Young Artists Festival 7th"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Ministry of Culture · VCCA</span><span class="year">2024</span></div>
+              <div class="event">Young Artists Festival · 7ᵗʰ edition<span class="vi-only"> · Festival Mỹ thuật trẻ lần 7</span></div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-mythuat-red.jpg" alt="Young Artists Festival opening"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Ministry of Culture · VCCA</span><span class="year">2024</span></div>
+              <div class="event">Festival opening · red gown moment</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/portrait-kimono.jpg" alt="Ao Dai cultural portrait"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Cultural</span><span class="year">2024</span></div>
+              <div class="event"><span class="en-only">Ao Dai</span><span class="vi-only">Áo dài</span> · ceremonial portrait</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-halong-cream.jpg" alt="Halong ceremony"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand"><span class="en-only">Halong</span><span class="vi-only">Hạ Long</span></span><span class="year">2024</span></div>
+              <div class="event">Cultural ceremony · cream feather</div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- BRAND ACTIVATION & LAUNCH -->
+      <div class="gallery-panel" data-cat="activation">
+        <div class="gpanel-grid">
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-hyundai-santafe.jpg" alt="Hyundai Santa Fe Launch"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Hyundai TC Motor</span><span class="year">2024</span></div>
+              <div class="event">Santa Fe Launch · flagship floor</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-lg-aka.jpg" alt="LG × AKA Furniture Elevating Spaces"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">LG × AKA Furniture</span><span class="year">2024</span></div>
+              <div class="event">Elevating Spaces · brand talk<span class="vi-only"> · Nâng Tầm Không Gian</span></div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-lg-purifier.jpg" alt="LG Purifier Launch"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">LG</span><span class="year">2024</span></div>
+              <div class="event">Purifier Launch · product reveal</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-toshiba.jpg" alt="Toshiba Spring Showroom"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Toshiba</span><span class="year">2024</span></div>
+              <div class="event">Spring Showroom · seasonal activation</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-dewalt.jpg" alt="DeWalt 100 Years"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">DeWalt</span><span class="year">2024</span></div>
+              <div class="event">100 Years Anniversary · brand showcase</div>
+            </figcaption>
+          </figure>
+          <figure class="gpanel-tile">
+            <div class="img-frame"><img src="assets/event-cosmo-opening.jpg" alt="Cosmo Soft Opening"/></div>
+            <figcaption class="cap">
+              <div class="cap-head"><span class="brand">Cosmo Entertainment</span><span class="year">2024</span></div>
+              <div class="event">Soft Opening Ceremony</div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+    </div>
+    <!-- END LAYOUT B (tabs view) -->
+
+    <div class="gallery-footnote">
+      A curated edit · the full archive runs longer. Available on request.
+      <span class="vi-only vi-cap"> · Bản trích chọn — kho lưu trữ đầy đủ có theo yêu cầu.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VOICE / SHOWREEL ========== -->
+<section class="chap" id="voice" data-screen-label="06 Showreel" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">06 — Showreel</div>
+      <h2 class="section-title">
+        See me <em>on stage.</em>
+        <span class="vi vi-only">Xem trực tiếp — trên sân khấu</span>
+      </h2>
+    </div>
+
+    <div class="reels-meta">
+      <span class="reels-meta-tag">4 reels · EN / VN · click to play</span>
+    </div>
+
+    <div class="reels-grid-22">
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">01</span>
+          <span class="reel-cap serif">Conference · <em>bilingual host</em></span>
+          <span class="reel-tag">EN / VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="5yE465v3Rk4" role="button" aria-label="Play reel 1">
+          <img src="https://img.youtube.com/vi/5yE465v3Rk4/maxresdefault.jpg" alt="Reel 1" loading="lazy"
+               onerror="this.src='https://img.youtube.com/vi/5yE465v3Rk4/hqdefault.jpg'"/>
+          <button class="reel-play" type="button">▶</button>
+        </div>
+      </article>
+
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">02</span>
+          <span class="reel-cap serif">Gala dinner · <em>bilingual host</em></span>
+          <span class="reel-tag">EN / VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="z2RWml0nxUU" role="button" aria-label="Play reel 2">
+          <img src="https://img.youtube.com/vi/z2RWml0nxUU/maxresdefault.jpg" alt="Reel 2" loading="lazy"
+               onerror="this.src='https://img.youtube.com/vi/z2RWml0nxUU/hqdefault.jpg'"/>
+          <button class="reel-play" type="button">▶</button>
+        </div>
+      </article>
+
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">03</span>
+          <span class="reel-cap serif">Festival · <em>energy reel</em></span>
+          <span class="reel-tag">VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="5_XNbfQhY2s" role="button" aria-label="Play reel 3">
+          <img src="https://img.youtube.com/vi/5_XNbfQhY2s/maxresdefault.jpg" alt="Reel 3" loading="lazy"
+               onerror="this.src='https://img.youtube.com/vi/5_XNbfQhY2s/hqdefault.jpg'"/>
+          <button class="reel-play" type="button">▶</button>
+        </div>
+      </article>
+
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">04</span>
+          <span class="reel-cap serif">Stage · <em>moment reel</em></span>
+          <span class="reel-tag">VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="tiTS6f7sxCs" role="button" aria-label="Play reel 4">
+          <img src="https://img.youtube.com/vi/tiTS6f7sxCs/maxresdefault.jpg" alt="Reel 4" loading="lazy"
+               onerror="this.src='https://img.youtube.com/vi/tiTS6f7sxCs/hqdefault.jpg'"/>
+          <button class="reel-play" type="button">▶</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="voice-action">
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4 class="serif"><em>Two languages,</em><br>one stage.</h4>
+        <p style="font-size:13px;margin-top:22px;max-width:440px;color:#bdb29c;line-height:1.75"><span class="en-only">Cindy (Nga Lyna)</span><span class="vi-only">Nga Lyna</span> · Bilingual MC. Conference · Festival · Gala dinner. <span class="en-only">Hanoi</span><span class="vi-only">Hà Nội</span>, available nationwide &amp; overseas.</p>
+      </div>
+      <div class="col">
+        <b>Navigate</b>
+        <a href="#top">Top</a>
+        <a href="#why">Capabilities</a>
+        <a href="#works">Selected works</a>
+        <a href="#hall">Trusted by</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#voice">Showreel</a>
+      </div>
+      <div class="col">
+        <b>Bookings</b>
+        <div style="color:#bdb29c;font-family:'Bodoni Moda',serif;font-style:italic;font-size:17px;line-height:1.55;margin-bottom:18px">All engagements arranged through management.</div>
+        <div class="vi-only" style="color:#80766a;font-family:'Bodoni Moda',serif;font-style:italic;font-size:14px;line-height:1.55">Mọi liên hệ vui lòng qua phía quản lý.</div>
+      </div>
+    </div>
+
+    <div class="foot-base">
+      <div>© 2026 <span class="en-only">Cindy (Nga Lyna)</span><span class="vi-only">Nga Lyna</span> · All rights reserved.</div>
+      <div>Designed with composure.</div>
+    </div>
+  </div>
+</footer>
+
+<a href="#works" class="mob-cta serif italic">See selected work ↗</a>
+
+<!-- Floating customize launcher -->
+<button id="customize-launcher" type="button" aria-label="Open design tweaks">
+  <span class="dot"></span>
+  Customize design
+</button>
+
+<!-- ========== SCRIPTS ========== -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<!-- Vanilla interactivity (works without React) -->
+<script>
+// Sticky nav state
+const nav = document.getElementById('topnav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+// Lazy YouTube embed — loads iframe only on click (keeps page fast)
+document.querySelectorAll('.reel-lite').forEach(el=>{
+  el.addEventListener('click',()=>{
+    const id = el.dataset.yt;
+    if(!id || el.querySelector('iframe')) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.setAttribute('allowfullscreen','');
+    iframe.setAttribute('frameborder','0');
+    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3;';
+    el.appendChild(iframe);
+  });
+});
+
+// (gallery now uses chapters, no tabs)
+const gtabsEl = document.getElementById('gtabs');
+if(gtabsEl){
+  gtabsEl.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.gtab');
+    if(!btn) return;
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('#gtabs .gtab').forEach(b=>b.classList.toggle('on', b===btn));
+    document.querySelectorAll('#gpanels .gallery-panel').forEach(p=>p.classList.toggle('on', p.dataset.cat===cat));
+  });
+}
+
+// Fade in on scroll
+const fadeEls = document.querySelectorAll('.section-head, .cap-row, .cap-statement, .work-feature, .work-compact-row, .hall-quote, .hall-stats, .logo-cell, .gallery-intro, .gtabs, .gpanel-tile, .reel-card');
+fadeEls.forEach(el=>el.classList.add('fade-in'));
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+},{threshold:.12});
+fadeEls.forEach(el=>io.observe(el));
+
+// postMessage slide index for speaker notes (not used here but harmless)
+</script>
+
+<!-- Tweaks panel + state defaults -->
+<script>
+window.__TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "heroImage": "festival",
+  "language": "en",
+  "heroVariant": "cinematic",
+  "galleryLayout": "chapters",
+  "industryFocus": "auto",
+  "palette": [
+    "#15110d",
+    "#f6f1e8",
+    "#a8895a"
+  ],
+  "tagline": "two-langs-one-stage",
+  "density": "compact"
+}/*EDITMODE-END*/;
+</script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+
+<script type="text/babel">
+const { useEffect, useState } = React;
+
+const TAGLINES = {
+  "two-langs-one-stage":   { en:["Two languages,", <em key="x">one stage.</em>], vi:"Hai ngôn ngữ. Một sân khấu." },
+  "hosting-with-grace":    { en:["Hosting with grace,", <em key="x">in two voices.</em>], vi:"Dẫn dắt thanh lịch — bằng hai giọng nói." },
+  "every-word-lands":      { en:["Where every word", <em key="x">lands.</em>], vi:"Mỗi câu nói đều chạm — Anh hay Việt." },
+  "composed-bilingual":    { en:["Composed.", <em key="x">Bilingual.</em>, " On stage."], vi:"Điềm tĩnh. Song ngữ. Trên sân khấu." }
+};
+
+const HERO_IMAGES = {
+  "hyundai":      "assets/event-hyundai-santafe.jpg",
+  "vsas":         "assets/event-vsas-conference.jpg",
+  "stairs":       "assets/hero-stairs.jpg",
+  "pd-gala":      "assets/event-pd-gala-portrait.jpg",
+  "spotlight":    "assets/portrait-spotlight.jpg",
+  "zalo-white":   "assets/event-zalo-thankyou.jpg",
+  "dewalt-gold":  "assets/event-dewalt.jpg",
+  "mythuat-red":  "assets/event-mythuat-red.jpg",
+  "kimono":       "assets/portrait-kimono.jpg",
+  "festival":     "assets/portrait-festival.jpg",
+  "gala":         "assets/portrait-gala.jpg",
+  "elegant":      "assets/portrait-elegant.jpg",
+  "red":          "assets/portrait-red.jpg"
+};
+
+function CindyTweaks(){
+  const [tw, setT] = useTweaks(window.__TWEAK_DEFAULTS);
+
+  // Map palette array (from TweakColor) or string to a palette name
+  const PALETTE_MAP = {
+    '#15110d,#f6f1e8,#a8895a': 'champagne',
+    '#1a0d14,#f0e6e0,#8b3a4a': 'plum',
+    '#0d1612,#eef0ea,#3f6650': 'emerald'
+  };
+  const paletteName = (() => {
+    if(Array.isArray(tw.palette)) return PALETTE_MAP[tw.palette.join(',')] || 'champagne';
+    if(typeof tw.palette === 'string' && tw.palette.includes(',')) return PALETTE_MAP[tw.palette] || 'champagne';
+    return tw.palette || 'champagne';
+  })();
+
+  // Apply palette
+  useEffect(()=>{ document.body.dataset.palette = paletteName; },[paletteName]);
+
+  // Apply hero variant
+  useEffect(()=>{
+    const h = document.querySelector('.hero');
+    if(h) h.dataset.variant = tw.heroVariant;
+  },[tw.heroVariant]);
+
+  // Apply hero image
+  useEffect(()=>{
+    const img = document.getElementById('hero-img-el');
+    if(img && HERO_IMAGES[tw.heroImage]) img.src = HERO_IMAGES[tw.heroImage];
+  },[tw.heroImage]);
+
+  // Apply tagline
+  useEffect(()=>{
+    const head = document.getElementById('hero-headline');
+    const vi = document.getElementById('hero-vi');
+    const tag = TAGLINES[tw.tagline];
+    if(!head || !vi || !tag) return;
+    head.innerHTML = '';
+    const root = ReactDOM.createRoot(head);
+    root.render(<>{tag.en[0]}<br/>{tag.en[1]}{tag.en[2]||null}</>);
+    vi.textContent = tag.vi;
+  },[tw.tagline]);
+
+  // Apply language mode
+  useEffect(()=>{ document.body.dataset.lang = tw.language; },[tw.language]);
+
+  // Apply gallery layout
+  useEffect(()=>{ document.body.dataset.gallery = tw.galleryLayout || 'chapters'; },[tw.galleryLayout]);
+
+  // Apply industry focus
+  useEffect(()=>{
+    const focus = tw.industryFocus || 'all';
+    document.body.dataset.focus = focus;
+    const meta = document.getElementById('industry-meta');
+    const text = document.getElementById('industry-focused-text');
+    const count = document.getElementById('industry-focused-count');
+    if(!meta || !text || !count) return;
+    if(focus === 'all'){ meta.classList.remove('on'); return; }
+    meta.classList.add('on');
+    const labels = {
+      auto:      ['automotive', 'Hyundai, Toyota, Nissan, Yamaha, Honda'],
+      tech:      ['tech &amp; electronics', 'Fujifilm, LG, Samsung, Sharp, Toshiba, Panasonic, Zalo, VTC, OEG'],
+      bank:      ['banking &amp; finance', 'OCB, VPBank, SeABank'],
+      retail:    ['retail &amp; lifestyle', 'AEON Mall, Sulwhasoo, SK-II'],
+      corporate: ['corporate &amp; state', 'Vingroup, FLC, Viettel, Ministry of Public Security, DeWalt']
+    };
+    const matches = document.querySelectorAll(`.logo-cell[data-industry="${focus}"]`).length;
+    text.innerHTML = `Focusing on <em>${labels[focus][0]}</em> · ${labels[focus][1]}`;
+    count.textContent = `${matches} of 25`;
+  },[tw.industryFocus]);
+
+  // Reset focus button
+  useEffect(()=>{
+    const btn = document.getElementById('industry-reset');
+    if(!btn) return;
+    const onClick = ()=> setT('industryFocus','all');
+    btn.addEventListener('click', onClick);
+    return ()=> btn.removeEventListener('click', onClick);
+  },[]);
+
+  // Apply density
+  useEffect(()=>{ document.body.dataset.density = tw.density; },[tw.density]);
+
+  // Wire up floating customize launcher
+  useEffect(()=>{
+    const btn = document.getElementById('customize-launcher');
+    if(!btn) return;
+    const onClick = ()=>{
+      // Activate edit mode via same protocol the host uses
+      window.postMessage({type:'__activate_edit_mode'},'*');
+      btn.style.display = 'none';
+    };
+    btn.addEventListener('click', onClick);
+
+    // When user closes the panel (via X), bring back the launcher
+    const onMsg = (e)=>{
+      const d = e.data;
+      if(d && d.type === '__edit_mode_dismissed'){ btn.style.display='flex'; }
+      if(d && d.type === '__activate_edit_mode'){ btn.style.display='none'; }
+      if(d && d.type === '__deactivate_edit_mode'){ btn.style.display='flex'; }
+    };
+    window.addEventListener('message', onMsg);
+    return ()=>{ btn.removeEventListener('click', onClick); window.removeEventListener('message', onMsg); };
+  },[]);
+
+  return (
+    <TweaksPanel title="Design controls">
+
+      {/* ────── PRIMARY ────── */}
+      <TweakSection title="Hero portrait · primary image">
+        <TweakSelect
+          label=""
+          value={tw.heroImage}
+          onChange={v=>setT('heroImage',v)}
+          options={[
+            {value:'spotlight',label:'Spotlight · cinematic dark ★'},
+            {value:'pd-gala',label:'PD Gala · gold sequin'},
+            {value:'zalo-white',label:'Zalo Ads · white gown (event)'},
+            {value:'dewalt-gold',label:'DeWalt 100 Years · gold gown'},
+            {value:'mythuat-red',label:'Festival · red gown stage'},
+            {value:'stairs',label:'White gown · stairs (editorial)'},
+            {value:'hyundai',label:'Hyundai Santa Fe (event hero)'},
+            {value:'vsas',label:'VSAS Conference (spotlight)'},
+            {value:'gala',label:'Gala portrait · blue dress'},
+            {value:'elegant',label:'Elegant evening'},
+            {value:'kimono',label:'Cultural · kimono'},
+            {value:'festival',label:'Festival energy'},
+            {value:'red',label:'Red dress · bold'}
+          ]}
+        />
+        <div style={{fontSize:11,opacity:.7,marginTop:6,fontStyle:'italic',fontFamily:"'Bodoni Moda',serif"}}>
+          The single most important visual decision · ảnh quyết định nhất
+        </div>
+      </TweakSection>
+
+      <TweakSection title="Language · audience">
+        <TweakRadio
+          label=""
+          value={tw.language}
+          onChange={v=>setT('language',v)}
+          options={[
+            {value:'en',label:'English only'},
+            {value:'bilingual',label:'Bilingual'}
+          ]}
+        />
+        <div style={{fontSize:11,opacity:.7,marginTop:6,fontStyle:'italic',fontFamily:"'Bodoni Moda',serif"}}>
+          {tw.language==='en'?'Cleanest international read · cho khách nước ngoài':'EN + VN layered · song ngữ chồng lớp'}
+        </div>
+      </TweakSection>
+
+      {/* ────── STYLE ────── */}
+      <TweakSection title="Hero composition">
+        <TweakRadio
+          label=""
+          value={tw.heroVariant}
+          onChange={v=>setT('heroVariant',v)}
+          options={[
+            {value:'editorial',label:'Editorial'},
+            {value:'cinematic',label:'Cinematic'},
+            {value:'quiet',label:'Quiet'}
+          ]}
+        />
+      </TweakSection>
+
+      <TweakSection title="Gallery layout · §05">
+        <TweakRadio
+          label=""
+          value={tw.galleryLayout || 'chapters'}
+          onChange={v=>setT('galleryLayout',v)}
+          options={[
+            {value:'chapters',label:'Chapters'},
+            {value:'tabs',label:'Tabs'}
+          ]}
+        />
+        <div style={{fontSize:11,opacity:.7,marginTop:6,fontStyle:'italic',fontFamily:"'Bodoni Moda',serif"}}>
+          {(tw.galleryLayout || 'chapters')==='chapters'?'4 chapters × 4 photos · big 2-col grid':'4 tabs × 6 photos · filter view'}
+        </div>
+      </TweakSection>
+
+      <TweakSection title="Pitch focus · §04 brand wall">
+        <TweakSelect
+          label=""
+          value={tw.industryFocus || 'all'}
+          onChange={v=>setT('industryFocus',v)}
+          options={[
+            {value:'all',       label:'All industries · default'},
+            {value:'auto',      label:'Automotive ★ (5 brands)'},
+            {value:'tech',      label:'Tech & Electronics ★ (9)'},
+            {value:'bank',      label:'Banking & Finance (3)'},
+            {value:'retail',    label:'Retail & Lifestyle (3)'},
+            {value:'corporate', label:'Corporate & State (5)'}
+          ]}
+        />
+        <div style={{fontSize:11,opacity:.7,marginTop:6,fontStyle:'italic',fontFamily:"'Bodoni Moda',serif"}}>
+          {(tw.industryFocus || 'all')==='all'
+            ?'Show every brand · default presentation'
+            :'Spotlight one segment · for industry-targeted pitches · cho buổi pitch theo nhóm khách'}
+        </div>
+      </TweakSection>
+
+      <TweakSection title="Mood · palette">
+        <TweakColor
+          label=""
+          value={tw.palette}
+          onChange={v=>setT('palette',v)}
+          options={[
+            ['#15110d','#f6f1e8','#a8895a'],
+            ['#1a0d14','#f0e6e0','#8b3a4a'],
+            ['#0d1612','#eef0ea','#3f6650']
+          ]}
+        />
+        <div style={{fontSize:11,opacity:.7,marginTop:8,fontStyle:'italic',fontFamily:"'Bodoni Moda',serif"}}>
+          {paletteName==='champagne'?'Champagne & Ink · default editorial':
+           paletteName==='plum'?'Plum velvet · evening gala mood':
+           'Emerald quiet · corporate hi-end'}
+        </div>
+      </TweakSection>
+
+      {/* ────── COPY ────── */}
+      <TweakSection title="Headline copy">
+        <TweakSelect
+          label=""
+          value={tw.tagline}
+          onChange={v=>setT('tagline',v)}
+          options={[
+            {value:'two-langs-one-stage',label:'Two languages, one stage. ★'},
+            {value:'hosting-with-grace',label:'Hosting with grace, in two voices.'},
+            {value:'every-word-lands',label:'Where every word lands.'},
+            {value:'composed-bilingual',label:'Composed. Bilingual. On stage.'}
+          ]}
+        />
+      </TweakSection>
+
+      <TweakSection title="Density">
+        <TweakRadio
+          label=""
+          value={tw.density}
+          onChange={v=>setT('density',v)}
+          options={[
+            {value:'spacious',label:'Spacious'},
+            {value:'compact',label:'Compact'}
+          ]}
+        />
+      </TweakSection>
+    </TweaksPanel>
+  );
+}
+
+// Mount tweaks panel
+const tweaksMount = document.createElement('div');
+tweaksMount.id = '__cindy_tweaks_root';
+document.body.appendChild(tweaksMount);
+ReactDOM.createRoot(tweaksMount).render(<CindyTweaks/>);
+</script>
+
+
+<script type="text/babel" data-presets="env,react">
+(async () => {
+  try {
+    if(document.fonts && document.fonts.ready) await document.fonts.ready;
+  } catch(e){}
+  // Force industry focus to "all" for print regardless of saved value
+  document.body.dataset.focus = 'all';
+  // Force gallery chapters layout for print
+  document.body.dataset.gallery = 'chapters';
+  // Wait extra for React tweaks panel to mount / images to lay out
+  await new Promise(r => setTimeout(r, 900));
+  window.print();
+})();
+</script>
+</body>
+</html>
