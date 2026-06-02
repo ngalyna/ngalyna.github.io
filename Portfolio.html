@@ -409,10 +409,9 @@ section.chap{padding:140px 0;position:relative}
 .hall-band .eyebrow{color:#d9b985}
 
 .brand-tail{
-  margin-top:52px;padding-top:28px;
+  margin-top:52px;padding-top:32px;
   border-top:1px solid rgba(255,255,255,.16);
-  display:grid;grid-template-columns:.82fr 1.18fr;
-  gap:42px;align-items:start;
+  overflow:hidden;
 }
 .brand-tail .tail-kicker{
   font-size:11px;text-transform:uppercase;letter-spacing:.24em;
@@ -425,31 +424,38 @@ section.chap{padding:140px 0;position:relative}
   color:var(--paper);margin:0;
 }
 .brand-tail .tail-title em{font-style:normal;color:#d9b985}
-.tail-groups{
-  display:grid;gap:18px;
+.tail-marquee{
+  margin-top:30px;
+  width:100%;overflow:hidden;
+  border-top:1px solid rgba(255,255,255,.12);
+  border-bottom:1px solid rgba(255,255,255,.12);
 }
-.tail-group{
-  display:grid;grid-template-columns:160px 1fr;
-  gap:18px;align-items:baseline;
-  padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.12);
+.tail-track{
+  display:flex;width:max-content;
+  animation:brandTrack 32s linear infinite;
 }
-.tail-group:last-child{border-bottom:0;padding-bottom:0}
-.tail-group .tail-label{
-  font-size:10px;text-transform:uppercase;letter-spacing:.22em;
-  color:#d9b985;font-weight:700;
+.tail-track span{
+  flex:0 0 auto;
+  font-family:'Newsreader',serif;
+  font-size:clamp(34px,5.6vw,86px);
+  line-height:1;
+  color:rgba(255,255,255,.88);
+  padding:26px 26px 30px 0;
+  white-space:nowrap;
 }
-.tail-chips{
-  display:flex;gap:8px;flex-wrap:wrap;
+.tail-track span::after{
+  content:"/";
+  color:#d9b985;
+  margin-left:26px;
+  font-style:italic;
 }
-.tail-chips span{
-  color:#d8d0c3;
-  border:1px solid rgba(255,255,255,.16);
-  padding:6px 10px;border-radius:999px;
-  font-size:12px;line-height:1;
+@keyframes brandTrack{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
 }
 @media(max-width:900px){
-  .brand-tail{grid-template-columns:1fr;gap:28px}
-  .tail-group{grid-template-columns:1fr;gap:10px}
+  .tail-track{animation-duration:24s}
+  .tail-track span{padding-top:22px;padding-bottom:24px}
 }
 
 
@@ -928,7 +934,9 @@ footer.foot{
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:22px 18px;
 }
-.event-grid.is-four{grid-template-columns:repeat(4,1fr)}
+.event-grid.is-single{grid-template-columns:minmax(0,1fr);max-width:1080px}
+.event-grid.is-single .event-card.featured{grid-column:1}
+.event-grid.is-four{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 28px}
 .event-card{
   min-width:0;
 }
@@ -946,14 +954,22 @@ footer.foot{
 .event-card .event-media img{
   width:100%;height:100%;object-fit:cover;display:block;
   filter:saturate(.95);
+  transform:translate(var(--img-x,0),var(--img-y,0)) scale(var(--img-scale,1));
   transition:transform 1s ease, filter .3s;
 }
-.event-card:hover .event-media img{transform:scale(1.025);filter:saturate(1)}
+.event-card:hover .event-media img{transform:translate(var(--img-x,0),var(--img-y,0)) scale(calc(var(--img-scale,1) * 1.025));filter:saturate(1)}
 .event-card .event-collage{
   display:grid;grid-template-columns:1.45fr 1fr;grid-template-rows:1fr 1fr;
   gap:5px;width:100%;height:100%;
 }
 .event-card .event-collage img:first-child{grid-row:1 / span 2}
+.event-card .event-collage.is-equal{grid-template-columns:1fr 1fr}
+.event-card .event-collage.is-wide-main{grid-template-columns:1.65fr 1fr}
+.event-card img.crop-low{--img-scale:1.38;--img-y:-13%;object-position:center 72%}
+.event-card img.crop-stage{object-position:center 62%}
+.event-card img.crop-face{object-position:center 28%}
+.event-card img.crop-left{object-position:34% center}
+.event-card img.crop-right{object-position:66% center}
 .event-card .event-kicker{
   font-size:10px;text-transform:uppercase;letter-spacing:.18em;
   color:var(--gold-deep);font-weight:700;
@@ -1674,22 +1690,10 @@ body[data-lang="bilingual"] .en-only{display:none}
         <div class="tail-kicker">Additional selected names</div>
         <p class="tail-title">Experience beyond the logo wall, <em>2021 to 2025.</em></p>
       </div>
-      <div class="tail-groups">
-        <div class="tail-group">
-          <div class="tail-label">Auto &amp; industrial</div>
-          <div class="tail-chips"><span>Mitsubishi</span><span>Bosch</span><span>HD Hyundai</span><span>TC Motor</span><span>DeWalt</span></div>
-        </div>
-        <div class="tail-group">
-          <div class="tail-label">Tech &amp; digital</div>
-          <div class="tail-chips"><span>Zalo Ads</span><span>OEG</span><span>VTC Game</span><span>VSAS</span><span>MEGA</span></div>
-        </div>
-        <div class="tail-group">
-          <div class="tail-label">Lifestyle &amp; culture</div>
-          <div class="tail-chips"><span>Celestetic</span><span>Cosmo Entertainment</span><span>AKA Furniture</span><span>Halong Cream</span><span>VCCA</span></div>
-        </div>
-        <div class="tail-group">
-          <div class="tail-label">Services</div>
-          <div class="tail-chips"><span>Netco Post</span><span>Tokio Marine</span><span>PD Group</span><span>Ministry of Culture</span></div>
+      <div class="tail-marquee" aria-label="Additional selected brand names">
+        <div class="tail-track">
+          <span>Mitsubishi</span><span>Bosch</span><span>HD Hyundai</span><span>TC Motor</span><span>Panasonic</span><span>Viettel Security</span><span>DeWalt</span><span>Zalo Ads</span><span>OEG</span><span>VSAS</span><span>MEGA</span><span>Celestetic</span><span>Cosmo Entertainment</span><span>AKA Furniture</span><span>Tokio Marine</span><span>Ministry of Culture</span>
+          <span>Mitsubishi</span><span>Bosch</span><span>HD Hyundai</span><span>TC Motor</span><span>Panasonic</span><span>Viettel Security</span><span>DeWalt</span><span>Zalo Ads</span><span>OEG</span><span>VSAS</span><span>MEGA</span><span>Celestetic</span><span>Cosmo Entertainment</span><span>AKA Furniture</span><span>Tokio Marine</span><span>Ministry of Culture</span>
         </div>
       </div>
     </div>
@@ -1708,8 +1712,8 @@ body[data-lang="bilingual"] .en-only{display:none}
     </div>
 
     <div class="portfolio-intro">
-      <p class="lead">A curated archive by <em>event type</em>, with each case kept in its own context.</p>
-      <p class="note">The page can be a little longer here. What matters is that clients can recognise their event format quickly without seeing unrelated photos mixed into one proof point.</p>
+      <p class="lead">A curated archive by <em>event weight</em>, then by format.</p>
+      <p class="note">Large stages and multi-stakeholder rooms come first. Smaller hospitality moments stay selected and precise, so each client can recognise the format closest to their own event.</p>
     </div>
 
     <div class="portfolio-groups">
@@ -1717,24 +1721,35 @@ body[data-lang="bilingual"] .en-only{display:none}
         <div class="portfolio-group-head">
           <div class="portfolio-group-no">01</div>
           <div class="portfolio-group-title">
-            <h3>Automotive <em>&amp; dealer events</em></h3>
-            <div class="signal">Vehicle launch · dealer conference · brand protocol</div>
+            <h3>Automotive <em>launch</em></h3>
+            <div class="signal">Vehicle reveal · retail traffic · brand precision</div>
           </div>
-          <p class="group-note">For automotive clients, launch precision and dealer-room control are different needs, so they are shown as separate cases.</p>
+          <p class="group-note">Launch work needs product focus, crowd control and clean timing around the reveal, photo moments and guest movement.</p>
+        </div>
+        <div class="event-grid is-single">
+          <article class="event-card featured">
+            <figure><div class="event-media is-wide"><img src="assets/event-hyundai-santafe.webp" alt="Hyundai Santa Fe launch at mall"/></div></figure>
+            <div class="event-kicker">Automotive launch</div>
+            <h4>Hyundai <em>Santa Fe Launch</em></h4>
+            <p>Vehicle reveal, stage timing and branded product presence in a high-traffic mall setting.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="portfolio-group">
+        <div class="portfolio-group-head">
+          <div class="portfolio-group-no">02</div>
+          <div class="portfolio-group-title">
+            <h3>Dealer conference <em>&amp; recognition</em></h3>
+            <div class="signal">Dealer room · award flow · business guests</div>
+          </div>
+          <p class="group-note">This is different from a car launch: the MC has to keep the room formal, clear and energetic across speeches, awards and brand protocol.</p>
         </div>
         <div class="event-grid">
           <article class="event-card featured">
             <figure>
-              <div class="event-media is-wide"><img src="assets/event-hyundai-santafe.webp" alt="Hyundai Santa Fe launch"/></div>
-            </figure>
-            <div class="event-kicker">Automotive launch</div>
-            <h4>Hyundai <em>Santa Fe Launch</em></h4>
-            <p>Vehicle reveal, stage timing and branded product presence.</p>
-          </article>
-          <article class="event-card">
-            <figure>
-              <div class="event-media">
-                <div class="event-collage">
+              <div class="event-media is-wide">
+                <div class="event-collage is-wide-main">
                   <img src="assets/event-nissan-2025-stage.webp" alt="Nissan Dealer Conference stage"/>
                   <img src="assets/event-nissan-2025-host.webp" alt="Nissan Dealer Conference host"/>
                   <img src="assets/event-nissan-2025-award.webp" alt="Nissan Dealer Conference award moment"/>
@@ -1745,17 +1760,68 @@ body[data-lang="bilingual"] .en-only{display:none}
             <h4>Nissan <em>Dealer Conference 2025</em></h4>
             <p>Conference flow, recognition moments and dealer-facing energy.</p>
           </article>
+          <article class="event-card">
+            <figure><div class="event-media"><img src="assets/event-nissan-vinhdanh.webp" alt="Nissan recognition ceremony"/></div></figure>
+            <div class="event-kicker">Recognition</div>
+            <h4>Nissan <em>Award Moment</em></h4>
+            <p>Formal award pacing with executives, partners and photo cues.</p>
+          </article>
         </div>
       </section>
 
       <section class="portfolio-group">
         <div class="portfolio-group-head">
-          <div class="portfolio-group-no">02</div>
+          <div class="portfolio-group-no">03</div>
           <div class="portfolio-group-title">
-            <h3>Product launch <em>&amp; brand activation</em></h3>
-            <div class="signal">Product story · retail energy · partner moments</div>
+            <h3>Conference <em>&amp; expert forum</em></h3>
+            <div class="signal">Moderation · senior rooms · Q&amp;A control</div>
           </div>
-          <p class="group-note">These are brand-facing events where the MC has to hold attention while protecting the product or campaign message.</p>
+          <p class="group-note">The proof here is less about spectacle and more about clarity: keeping speakers, audience and agenda moving cleanly.</p>
+        </div>
+        <div class="event-grid is-four">
+          <article class="event-card">
+            <figure><div class="event-media"><img src="assets/event-vsas-conference.webp" alt="VSAS AI-Powered SEO conference"/></div></figure>
+            <div class="event-kicker">Conference</div>
+            <h4>VSAS <em>AI-Powered SEO</em></h4>
+            <p>Expert-room hosting with structured speaker flow and professional pacing.</p>
+          </article>
+          <article class="event-card">
+            <figure><div class="event-media"><img src="assets/event-celestetic.webp" alt="Celestetic expert talk"/></div></figure>
+            <div class="event-kicker">Expert talk</div>
+            <h4>Celestetic <em>Expert Forum</em></h4>
+            <p>Panel-style healthcare and beauty room with audience attention to protect.</p>
+          </article>
+          <article class="event-card">
+            <figure><div class="event-media"><img src="assets/event-mega-seminar.webp" alt="MEGA scientific seminar"/></div></figure>
+            <div class="event-kicker">Scientific seminar</div>
+            <h4>MEGA <em>Healthcare Seminar</em></h4>
+            <p>Specialist agenda, speaker transitions and formal room discipline.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/event-netco-tokio.webp" alt="Netco Tokio Marine event"/>
+                  <img src="assets/event-netco-tokio-2.webp" alt="Netco Tokio Marine session"/>
+                  <img src="assets/event-netco-tokio-3.webp" alt="Netco Tokio Marine host"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Partner session</div>
+            <h4>Netco <em>x Tokio Marine</em></h4>
+            <p>Partner-facing session flow for business guests.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="portfolio-group">
+        <div class="portfolio-group-head">
+          <div class="portfolio-group-no">04</div>
+          <div class="portfolio-group-title">
+            <h3>Product launch <em>&amp; partner showcase</em></h3>
+            <div class="signal">Product story · partner moments · demo flow</div>
+          </div>
+          <p class="group-note">These events need the MC to hold attention while making the product, partner and campaign message feel central.</p>
         </div>
         <div class="event-grid is-four">
           <article class="event-card">
@@ -1778,6 +1844,31 @@ body[data-lang="bilingual"] .en-only{display:none}
             <h4>Toshiba <em>Showroom</em></h4>
             <p>Product-led hosting for electronics and retail partners.</p>
           </article>
+          <article class="event-card">
+            <figure><div class="event-media"><img src="assets/event-lg-aka.webp" alt="LG and AKA Furniture product talk"/></div></figure>
+            <div class="event-kicker">Partner talk</div>
+            <h4>LG <em>x AKA Furniture</em></h4>
+            <p>Product conversation, guest moderation and premium retail context.</p>
+          </article>
+          <article class="event-card">
+            <figure><div class="event-media"><img src="assets/event-dewalt.webp" alt="DeWalt industrial brand event"/></div></figure>
+            <div class="event-kicker">Industrial brand</div>
+            <h4>DeWalt <em>Brand Event</em></h4>
+            <p>Technical brand presence with a sharp, concise hosting tone.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="portfolio-group">
+        <div class="portfolio-group-head">
+          <div class="portfolio-group-no">05</div>
+          <div class="portfolio-group-title">
+            <h3>Retail activation <em>&amp; consumer brand</em></h3>
+            <div class="signal">Customer traffic · talent moments · brand energy</div>
+          </div>
+          <p class="group-note">Retail activations need fast audience connection without losing polish around the brand, product and guest experience.</p>
+        </div>
+        <div class="event-grid is-four">
           <article class="event-card">
             <figure>
               <div class="event-media">
@@ -1806,52 +1897,39 @@ body[data-lang="bilingual"] .en-only{display:none}
             <h4>SeaBank <em>x My Tam Concert</em></h4>
             <p>High-traffic brand activation across a concert night.</p>
           </article>
-        </div>
-      </section>
-
-      <section class="portfolio-group">
-        <div class="portfolio-group-head">
-          <div class="portfolio-group-no">03</div>
-          <div class="portfolio-group-title">
-            <h3>Conference <em>&amp; expert forum</em></h3>
-            <div class="signal">Moderation · senior rooms · Q&amp;A control</div>
-          </div>
-          <p class="group-note">The proof here is less about spectacle and more about clarity: keeping speakers, audience and agenda moving cleanly.</p>
-        </div>
-        <div class="event-grid">
-          <article class="event-card featured">
-            <figure><div class="event-media is-wide"><img src="assets/event-vsas-conference.webp" alt="VSAS AI-Powered SEO conference"/></div></figure>
-            <div class="event-kicker">Conference</div>
-            <h4>VSAS <em>AI-Powered SEO</em></h4>
-            <p>Expert-room hosting with structured speaker flow and professional pacing.</p>
+          <article class="event-card">
+            <figure><div class="event-media"><img src="assets/g-milo-1.webp" alt="Milo consumer activation"/></div></figure>
+            <div class="event-kicker">Consumer activation</div>
+            <h4>Milo <em>Brand Moment</em></h4>
+            <p>Young audience energy, guest interaction and retail-floor rhythm.</p>
           </article>
           <article class="event-card">
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-netco-tokio.webp" alt="Netco Tokio Marine event"/>
-                  <img src="assets/event-netco-tokio-2.webp" alt="Netco Tokio Marine session"/>
-                  <img src="assets/event-netco-tokio-3.webp" alt="Netco Tokio Marine host"/>
+                  <img src="assets/event-aeon-christmas.webp" alt="AEON Christmas event"/>
+                  <img src="assets/event-aeon-tree.webp" alt="AEON Christmas tree ceremony"/>
+                  <img src="assets/event-aeon-santa.webp" alt="AEON Santa event"/>
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Partner session</div>
-            <h4>Netco <em>x Tokio Marine</em></h4>
-            <p>Partner-facing session flow for business guests.</p>
+            <div class="event-kicker">Mall activation</div>
+            <h4>AEON Mall <em>Seasonal Event</em></h4>
+            <p>Family-facing mall traffic with warm, accessible hosting.</p>
           </article>
         </div>
       </section>
 
       <section class="portfolio-group">
         <div class="portfolio-group-head">
-          <div class="portfolio-group-no">04</div>
+          <div class="portfolio-group-no">06</div>
           <div class="portfolio-group-title">
             <h3>Gala <em>&amp; internal milestones</em></h3>
             <div class="signal">Awards · leadership moments · emotional pacing</div>
           </div>
-          <p class="group-note">No cut-out treatment here: gala events look stronger as real stage photographs with proper atmosphere and scale.</p>
+          <p class="group-note">Gala work looks strongest through real stage photographs: scale, light, leadership moments and audience atmosphere.</p>
         </div>
-        <div class="event-grid">
+        <div class="event-grid is-four">
           <article class="event-card">
             <figure>
               <div class="event-media">
@@ -1886,26 +1964,32 @@ body[data-lang="bilingual"] .en-only{display:none}
             <h4>Zalo Ads <em>Thank You Party</em></h4>
             <p>Partner appreciation event with a polished corporate tone.</p>
           </article>
+          <article class="event-card">
+            <figure><div class="event-media"><img src="assets/event-pd-gala.webp" alt="PD Group gala"/></div></figure>
+            <div class="event-kicker">Corporate night</div>
+            <h4>PD Group <em>Gala Night</em></h4>
+            <p>Internal celebration with stage rhythm and audience connection.</p>
+          </article>
         </div>
       </section>
 
       <section class="portfolio-group">
         <div class="portfolio-group-head">
-          <div class="portfolio-group-no">05</div>
+          <div class="portfolio-group-no">07</div>
           <div class="portfolio-group-title">
-            <h3>Festival, game <em>&amp; public crowd</em></h3>
-            <div class="signal">Outdoor energy · fan interaction · public stages</div>
+            <h3>Festival <em>&amp; outdoor stage</em></h3>
+            <div class="signal">Outdoor energy · public crowd · cultural flow</div>
           </div>
-          <p class="group-note">This group shows a different kind of command: bigger rooms, faster energy and public audience interaction.</p>
+          <p class="group-note">Bigger public stages need stronger projection, quick crowd reading and a flexible Vietnamese flow.</p>
         </div>
         <div class="event-grid is-four">
           <article class="event-card">
             <figure>
               <div class="event-media">
-                <div class="event-collage">
-                  <img src="assets/ev-trayhoi-1.webp" alt="Tray Hoi Festival main stage"/>
+                <div class="event-collage is-wide-main">
+                  <img class="crop-low" src="assets/ev-trayhoi-1.webp" alt="Tray Hoi Festival main stage"/>
                   <img src="assets/ev-trayhoi-2.webp" alt="Tray Hoi Festival host"/>
-                  <img src="assets/ev-trayhoi-3.webp" alt="Tray Hoi Festival wide stage"/>
+                  <img class="crop-stage" src="assets/ev-trayhoi-3.webp" alt="Tray Hoi Festival wide stage"/>
                 </div>
               </div>
             </figure>
@@ -1916,7 +2000,7 @@ body[data-lang="bilingual"] .en-only{display:none}
           <article class="event-card">
             <figure>
               <div class="event-media">
-                <div class="event-collage">
+                <div class="event-collage is-wide-main">
                   <img src="assets/ev-thanglong-1.webp" alt="Thang Long Festival stage"/>
                   <img src="assets/ev-thanglong-2.webp" alt="Thang Long Festival hosts"/>
                   <img src="assets/ev-thanglong-3.webp" alt="Thang Long Festival yukata"/>
@@ -1927,40 +2011,53 @@ body[data-lang="bilingual"] .en-only{display:none}
             <h4>Thang Long <em>Festival 2024</em></h4>
             <p>Japan-Vietnam culture stage with performance and fireworks flow.</p>
           </article>
-          <article class="event-card">
+        </div>
+      </section>
+
+      <section class="portfolio-group">
+        <div class="portfolio-group-head">
+          <div class="portfolio-group-no">08</div>
+          <div class="portfolio-group-title">
+            <h3>Game <em>&amp; esports event</em></h3>
+            <div class="signal">Grand finals · fan crowd · player interaction</div>
+          </div>
+          <p class="group-note">The tone here is faster and louder, but still needs clean sponsor mentions, player interviews and stage control.</p>
+        </div>
+        <div class="event-grid">
+          <article class="event-card featured">
             <figure>
-              <div class="event-media">
-                <div class="event-collage">
-                  <img src="assets/ev-game-2.webp" alt="VTC Audition game stage"/>
-                  <img src="assets/ev-game-1.webp" alt="VTC Audition host"/>
-                  <img src="assets/ev-game-3.webp" alt="VTC Audition audience"/>
+              <div class="event-media is-wide">
+                <div class="event-collage is-wide-main">
+                  <img src="assets/ev-game-3.webp" alt="NSOC Grand Finals 2025 host on stage"/>
+                  <img class="crop-stage" src="assets/ev-game-2.webp" alt="NSOC Grand Finals 2025 stage"/>
+                  <img class="crop-face" src="assets/ev-game-1.webp" alt="NSOC Grand Finals 2025 host portrait"/>
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Game stage</div>
-            <h4>VTC Audition <em>Game Stage</em></h4>
-            <p>Large-format game community hosting and fan interaction.</p>
+            <div class="event-kicker">Grand finals</div>
+            <h4>NSOC <em>Grand Finals 2025</em></h4>
+            <p>Large-format game stage with sponsor flow, fan energy and live hosting.</p>
           </article>
           <article class="event-card">
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/g-unitour-1.webp" alt="UniTour esports stage"/>
-                  <img src="assets/g-unitour-3.webp" alt="UniTour esports player interview"/>
-                  <img src="assets/g-unitour-2.webp" alt="UniTour esports crowd"/>
+                  <img src="assets/g-unitour-1.webp" alt="National Student Open Cup player interview"/>
+                  <img src="assets/g-unitour-3.webp" alt="National Student Open Cup interview moment"/>
+                  <img src="assets/g-unitour-2.webp" alt="National Student Open Cup players"/>
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Esports</div>
-            <h4>UniTour <em>Esports</em></h4>
-            <p>Campus esports stage with player interviews and live audience energy.</p>
+            <div class="event-kicker">Esports activation</div>
+            <h4>National Student <em>Open Cup 2025</em></h4>
+            <p>Player interviews, fan interaction and sponsor-facing live moments.</p>
           </article>
         </div>
       </section>
 
       <section class="portfolio-group">
         <div class="portfolio-group-head">
-          <div class="portfolio-group-no">06</div>
+          <div class="portfolio-group-no">09</div>
           <div class="portfolio-group-title">
             <h3>VIP opening <em>&amp; hospitality</em></h3>
             <div class="signal">Premium welcome · ribbon ceremony · refined tone</div>
@@ -1971,7 +2068,7 @@ body[data-lang="bilingual"] .en-only{display:none}
           <article class="event-card featured">
             <figure>
               <div class="event-media is-wide">
-                <div class="event-collage">
+                <div class="event-collage is-wide-main">
                   <img src="assets/ev-sh-1.webp" alt="SH Elite Lounge opening host"/>
                   <img src="assets/ev-sh-2.webp" alt="SH Elite Lounge ribbon ceremony"/>
                   <img src="assets/ev-sh-3.webp" alt="SH Elite Lounge welcome moment"/>
@@ -1983,10 +2080,18 @@ body[data-lang="bilingual"] .en-only{display:none}
             <p>Ribbon ceremony, premium guest welcome and ao dai protocol.</p>
           </article>
           <article class="event-card">
-            <figure><div class="event-media"><img src="assets/event-cosmo-opening.webp" alt="Cosmo Entertainment soft opening"/></div></figure>
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/event-cosmo-opening.webp" alt="Cosmo Entertainment host on backdrop"/>
+                  <img src="assets/event-cosmo-guests.webp" alt="Cosmo Entertainment guest welcome"/>
+                  <img src="assets/event-cosmo-briefing.webp" alt="Cosmo Entertainment event briefing"/>
+                </div>
+              </div>
+            </figure>
             <div class="event-kicker">Soft opening</div>
             <h4>Cosmo <em>Entertainment</em></h4>
-            <p>Opening moment with a polished hospitality tone.</p>
+            <p>Opening moment with MC, guest welcome and a polished hospitality tone.</p>
           </article>
         </div>
       </section>
