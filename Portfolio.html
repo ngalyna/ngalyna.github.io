@@ -229,7 +229,12 @@ section.hero{
   margin:0 auto;
   padding:0 56px;
 }
-.hero[data-variant="cinematic"] .hero-text .eyebrow{color:#d9b985}
+.hero[data-variant="cinematic"] .hero-text .eyebrow{
+  color:#d9b985;
+  font-size:12px;
+  font-weight:700;
+  text-shadow:0 2px 14px rgba(21,17,13,.34);
+}
 .hero[data-variant="cinematic"] .hero-headline em{color:#e8c98c}
 .hero[data-variant="cinematic"] .hero-vi{color:#e8c98c}
 .hero[data-variant="cinematic"] .hero-meta{border-color:rgba(255,255,255,.2)}
@@ -1027,6 +1032,14 @@ footer.foot{
 }
 .event-card.featured{grid-column:span 2}
 .event-card.featured h4{font-size:clamp(30px,3vw,42px)}
+@media(min-width:901px){
+  .event-card.desktop-featured{
+    grid-column:1 / -1;
+    order:-1;
+  }
+  .event-card.desktop-featured .event-media{aspect-ratio:16/9}
+  .event-card.desktop-featured h4{font-size:clamp(30px,3vw,42px)}
+}
 .portfolio-note{
   margin-top:70px;padding-top:24px;
   border-top:1px solid var(--line);
@@ -1867,9 +1880,9 @@ body[data-lang="bilingual"] .en-only{display:none}
           <div class="portfolio-group-no">01</div>
           <div class="portfolio-group-title">
             <h3>Dealer conference <em>&amp; recognition</em></h3>
-            <div class="signal">Dealer room · award flow · business guests</div>
+            <div class="signal">Dealer conference · recognition · business guests</div>
           </div>
-          <p class="group-note">Dealer conference and recognition flow.</p>
+          <p class="group-note">Formal dealer-room hosting with awards, recognition and business guests.</p>
         </div>
         <div class="event-grid is-single">
           <article class="event-card featured">
@@ -1884,7 +1897,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">Dealer conference</div>
             <h4>Nissan <em>Dealer Conference 2025</em></h4>
-            <p>Conference flow, recognition moments and dealer-facing energy.</p>
+            <p>Dealer-room flow, recognition moments and business-guest pacing.</p>
           </article>
         </div>
       </section>
@@ -1894,9 +1907,9 @@ body[data-lang="bilingual"] .en-only{display:none}
           <div class="portfolio-group-no">02</div>
           <div class="portfolio-group-title">
             <h3>Automotive <em>experience</em></h3>
-            <div class="signal">New vehicle experience · retail traffic · brand precision</div>
+            <div class="signal">Vehicle experience · retail traffic · brand precision</div>
           </div>
-          <p class="group-note">Product reveal and showroom-stage hosting.</p>
+          <p class="group-note">Mall-based vehicle experience and showroom-stage hosting.</p>
         </div>
         <div class="event-grid is-single">
           <article class="event-card featured">
@@ -1911,7 +1924,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">New vehicle experience</div>
             <h4>Hyundai <em>Santa Fe Experience</em></h4>
-            <p>New-vehicle experience, stage timing and branded product presence in a high-traffic mall setting.</p>
+            <p>Mall-based vehicle experience with stage timing, crowd flow and branded product presence.</p>
           </article>
         </div>
       </section>
@@ -1938,7 +1951,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">Esports &amp; music night</div>
             <h4>UNITOUR NSOC <em>2025</em></h4>
-            <p>HUCE outdoor student crowd with esports, artist moments and live stage energy.</p>
+            <p>HUCE outdoor student crowd with esports, artist moments and live-stage energy.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2124,7 +2137,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">Cybersecurity forum</div>
             <h4>Ministry of Public Security <em>Cybersecurity Forum</em></h4>
-            <p>Formal conference hosting for cybersecurity and information-safety stakeholders.</p>
+            <p>Formal conference hosting for cybersecurity, information safety and power-sector stakeholders.</p>
           </article>
           <article class="event-card">
             <figure><div class="event-media"><img src="assets/event-vsas-conference.webp" alt="VSAS AI-Powered SEO conference" loading="lazy" decoding="async" /></div></figure>
@@ -2144,7 +2157,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">Product workshop</div>
             <h4>Samsung <em>West Lake Workshop</em></h4>
-            <p>Guest exchange, product context and speaker interaction in a live showroom room.</p>
+            <p>Product-workshop hosting with guest exchange, speaker interaction and showroom context.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2158,7 +2171,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">University forum</div>
             <h4>Bach Khoa HUST <em>Seminar</em></h4>
-            <p>Green-future discussion with student-facing Q&amp;A, guest flow and formal seminar pacing.</p>
+            <p>Green-future seminar with student-facing Q&amp;A, guest flow and academic room pacing.</p>
           </article>
           <article class="event-card">
             <figure><div class="event-media"><img src="assets/event-celestetic.webp" alt="Celestetic expert talk" loading="lazy" decoding="async" /></div></figure>
@@ -2233,7 +2246,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">Finance &amp; insurance</div>
             <h4>BIDV MetLife <em>Vu Khuc Cham</em></h4>
-            <p>Finance-sector event hosting with brand presence and stage ceremony flow.</p>
+            <p>Finance and insurance event hosting with brand presence and stage ceremony flow.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2280,7 +2293,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">Outdoor festival</div>
             <h4>Tray Hoi <em>Festival</em></h4>
-            <p>Public crowd, live band energy and full Vietnamese flow.</p>
+            <p>Public-stage hosting with live-band energy and Vietnamese crowd flow.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2294,9 +2307,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">Cultural festival</div>
             <h4>Thang Long <em>Festival 2024</em></h4>
-            <p>Japan-Vietnam culture stage with performance and fireworks flow.</p>
+            <p>Vietnam-Japan cultural stage with performance flow and crowd-facing transitions.</p>
           </article>
-          <article class="event-card">
+          <article class="event-card desktop-featured">
             <figure>
               <div class="event-media">
                 <div class="event-collage is-wide-main">
@@ -2308,7 +2321,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">Entertainment stage</div>
             <h4>OEG <em>Wonderland</em></h4>
-            <p>Entertainment-stage hosting with performer moments, crowd rhythm and public audience energy.</p>
+            <p>Large entertainment stage with performer moments, crowd rhythm and public-audience energy.</p>
           </article>
         </div>
       </section>
@@ -2335,7 +2348,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">Consumer activation</div>
             <h4>Comfort <em>Huong Nuoc Hoa</em></h4>
-            <p>High-traffic mall activation with crowd handling and brand energy.</p>
+            <p>High-traffic mall activation with crowd handling, guest interaction and brand energy.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2349,7 +2362,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">Beauty retail</div>
             <h4>SK-II <em>Holiday Pop-up</em></h4>
-            <p>Retail activation with talent moments and live customer traffic.</p>
+            <p>Beauty-retail activation with talent moments and live customer traffic.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2391,7 +2404,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">Brand activation</div>
             <h4>Yamaha Janus <em>Match Your Freak</em></h4>
-            <p>Outdoor brand stage with youth audience energy and guest interaction.</p>
+            <p>Youth-focused scooter activation with outdoor stage energy and guest interaction.</p>
           </article>
           <article class="event-card">
             <figure>
