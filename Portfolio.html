@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Nga Lyna — Bilingual MC · Hanoi</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/hero-audition-clean.webp">
+<link rel="preload" as="image" href="assets/hero-audition-award-2026.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
@@ -285,10 +285,10 @@ section.hero{
   .hero-image-wrap{order:-1;aspect-ratio:4/5;max-height:60vh;margin-left:-28px;margin-right:-28px}
   section.hero{padding:96px 0 40px}
   /* Cinematic: full-screen cover, text + name overlaid at the bottom */
-  .hero[data-variant="cinematic"]{padding:0;min-height:100svh}
-  .hero[data-variant="cinematic"] .hero-grid{min-height:100svh}
+  .hero[data-variant="cinematic"]{padding:0;min-height:100svh;height:100svh}
+  .hero[data-variant="cinematic"] .hero-grid{min-height:100svh;height:100svh}
   .hero[data-variant="cinematic"] .hero-image-wrap{position:absolute;inset:0;margin:0;aspect-ratio:auto;max-height:none}
-  .hero[data-variant="cinematic"] .hero-image-wrap img{object-position:55% center;filter:none;transform:translateZ(0)}
+  .hero[data-variant="cinematic"] .hero-image-wrap img{object-position:55% center;filter:none}
   .hero[data-variant="cinematic"] .hero-text{padding:0 24px 44px}
 }
 
@@ -1499,6 +1499,10 @@ body[data-focus="corporate"] .logo-cell[data-industry="corporate"]{
 
 /* ====== DENSITY MODE ====== */
 body[data-density="compact"] section.chap{padding:88px 0}
+body[data-density="compact"] #works{padding-bottom:64px}
+body[data-density="compact"] #voice{padding-top:64px}
+body[data-density="compact"] #voice .section-head{margin-bottom:28px}
+body[data-density="compact"] #voice .reels-meta{margin-bottom:18px}
 body[data-density="compact"] .section-head{margin-bottom:36px}
 body[data-density="compact"] .works-feed{gap:48px}
 body[data-density="compact"] .section-title{font-size:clamp(32px,4.4vw,56px)}
@@ -1507,12 +1511,18 @@ body[data-density="compact"] section.hero{min-height:auto;padding:120px 0 80px}
 body[data-density="compact"] .hero-grid{min-height:auto}
 body[data-density="compact"] .hall-band{padding:88px 0}
 @media(max-width:900px){
+  body[data-density="compact"] #works{padding-bottom:42px}
+  body[data-density="compact"] #voice{padding-top:52px}
+  body[data-density="compact"] #voice .section-head{gap:18px;margin-bottom:24px}
+  body[data-density="compact"] #voice .section-title{font-size:clamp(34px,8.5vw,44px)}
   body[data-density="compact"] .hero[data-variant="cinematic"]{
     padding:0;
     min-height:100svh;
+    height:100svh;
   }
   body[data-density="compact"] .hero[data-variant="cinematic"] .hero-grid{
     min-height:100svh;
+    height:100svh;
   }
 }
 
@@ -1676,7 +1686,7 @@ body[data-lang="bilingual"] .en-only{display:none}
       </div>
 
       <div class="hero-image-wrap" id="hero-image">
-        <img src="assets/hero-audition-clean.webp" alt="Nga Lyna at Audition event" id="hero-img-el" fetchpriority="high" decoding="async" />
+        <img src="assets/hero-audition-award-2026.webp" alt="Nga Lyna at Audition event" id="hero-img-el" fetchpriority="high" decoding="async" />
         <div class="frame-tag serif italic">Nga Lyna</div>
         <div class="frame-num serif">01</div>
       </div>
@@ -1774,39 +1784,39 @@ body[data-lang="bilingual"] .en-only{display:none}
 
     <div class="logo-wall" id="logo-wall">
       <!-- Row 1 · Automotive -->
-      <div class="logo-cell logo-boost" data-industry="auto"><img src="assets/logo-wall/hyundai.webp" alt="Hyundai"/></div>
-      <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/toyota.webp" alt="Toyota"/></div>
-      <div class="logo-cell logo-boost-lg" data-industry="auto"><img src="assets/logo-wall/nissan.webp" alt="Nissan"/></div>
-      <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/yamaha.webp" alt="Yamaha"/></div>
-      <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/honda.webp" alt="Honda"/></div>
+      <div class="logo-cell logo-boost" data-industry="auto"><img src="assets/logo-wall/hyundai.webp" alt="Hyundai" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/toyota.webp" alt="Toyota" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell logo-boost-lg" data-industry="auto"><img src="assets/logo-wall/nissan.webp" alt="Nissan" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/yamaha.webp" alt="Yamaha" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/honda.webp" alt="Honda" loading="lazy" decoding="async" /></div>
 
       <!-- Row 2 · Tech & Electronics -->
-      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/fujifilm.webp" alt="Fujifilm"/></div>
-      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/lg.webp" alt="LG"/></div>
-      <div class="logo-cell logo-boost" data-industry="tech"><img src="assets/logo-wall/sharp.webp" alt="Sharp"/></div>
-      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/toshiba.webp" alt="Toshiba"/></div>
-      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/samsung.webp" alt="Samsung"/></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/fujifilm.webp" alt="Fujifilm" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/lg.webp" alt="LG" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell logo-boost" data-industry="tech"><img src="assets/logo-wall/sharp.webp" alt="Sharp" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/toshiba.webp" alt="Toshiba" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/samsung.webp" alt="Samsung" loading="lazy" decoding="async" /></div>
 
       <!-- Row 3 · Digital & Retail -->
-      <div class="logo-cell zalo" data-industry="tech"><img src="assets/logo-wall/zalo.webp" alt="Zalo"/></div>
-      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/vtcgame.webp" alt="VTC Game"/></div>
-      <div class="logo-cell logo-boost-lg" data-industry="retail"><img src="assets/logo-wall/aeon.webp" alt="AEON Mall"/></div>
-      <div class="logo-cell logo-boost-lg" data-industry="retail"><img src="assets/logo-wall/sulwhasoo.webp" alt="Sulwhasoo"/></div>
-      <div class="logo-cell" data-industry="retail"><img src="assets/logo-wall/skii.webp" alt="SK-II"/></div>
+      <div class="logo-cell zalo" data-industry="tech"><img src="assets/logo-wall/zalo.webp" alt="Zalo" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/vtcgame.webp" alt="VTC Game" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell logo-boost-lg" data-industry="retail"><img src="assets/logo-wall/aeon.webp" alt="AEON Mall" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell logo-boost-lg" data-industry="retail"><img src="assets/logo-wall/sulwhasoo.webp" alt="Sulwhasoo" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell" data-industry="retail"><img src="assets/logo-wall/skii.webp" alt="SK-II" loading="lazy" decoding="async" /></div>
 
       <!-- Row 4 · Banking & Corporate -->
-      <div class="logo-cell" data-industry="bank"><img src="assets/logo-wall/ocb.webp" alt="OCB"/></div>
-      <div class="logo-cell" data-industry="bank"><img src="assets/logo-wall/vpbank.webp" alt="VPBank"/></div>
-      <div class="logo-cell" data-industry="bank"><img src="assets/logo-wall/seabank.webp" alt="SeABank"/></div>
-      <div class="logo-cell logo-boost" data-industry="corporate"><img src="assets/logo-wall/vingroup.webp" alt="Vingroup"/></div>
-      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/flc.webp" alt="FLC Group"/></div>
+      <div class="logo-cell" data-industry="bank"><img src="assets/logo-wall/ocb.webp" alt="OCB" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell" data-industry="bank"><img src="assets/logo-wall/vpbank.webp" alt="VPBank" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell" data-industry="bank"><img src="assets/logo-wall/seabank.webp" alt="SeABank" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell logo-boost" data-industry="corporate"><img src="assets/logo-wall/vingroup.webp" alt="Vingroup" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/flc.webp" alt="FLC Group" loading="lazy" decoding="async" /></div>
 
       <!-- Row 5 · State, Telecom & Industrial -->
-      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/viettel.webp" alt="Viettel"/></div>
-      <div class="logo-cell logo-boost" data-industry="corporate"><img src="assets/logo-wall/bocongan.webp" alt="Ministry of Public Security"/></div>
-      <div class="logo-cell logo-boost" data-industry="tech"><img src="assets/logo-wall/oeg.webp" alt="OEG"/></div>
-      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/panasonic.webp" alt="Panasonic"/></div>
-      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/dewalt.webp" alt="DeWalt"/></div>
+      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/viettel.webp" alt="Viettel" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell logo-boost" data-industry="corporate"><img src="assets/logo-wall/bocongan.webp" alt="Ministry of Public Security" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell logo-boost" data-industry="tech"><img src="assets/logo-wall/oeg.webp" alt="OEG" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/panasonic.webp" alt="Panasonic" loading="lazy" decoding="async" /></div>
+      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/dewalt.webp" alt="DeWalt" loading="lazy" decoding="async" /></div>
     </div>
 
     <div class="brand-tail" id="hall-display">
@@ -1853,9 +1863,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media is-wide">
                 <div class="event-collage is-wide-main">
-                  <img src="assets/event-nissan-2025-stage.webp" alt="Nissan Dealer Conference stage"/>
-                  <img src="assets/event-nissan-2025-host.webp" alt="Nissan Dealer Conference host"/>
-                  <img src="assets/event-nissan-vinhdanh.webp" alt="Nissan recognition ceremony"/>
+                  <img src="assets/event-nissan-2025-stage.webp" alt="Nissan Dealer Conference stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-nissan-2025-host.webp" alt="Nissan Dealer Conference host" loading="lazy" decoding="async" />
+                  <img src="assets/event-nissan-vinhdanh.webp" alt="Nissan recognition ceremony" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -1880,9 +1890,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media is-wide">
                 <div class="event-collage is-wide-main m-third-main">
-                  <img src="assets/event-hyundai-santafe-wide.webp" alt="Hyundai Santa Fe experience crowd at mall"/>
-                  <img src="assets/event-hyundai-santafe-front.webp" alt="Hyundai Santa Fe experience vehicle front stage"/>
-                  <img class="crop-face" src="assets/event-hyundai-santafe-host.webp" alt="Hyundai Santa Fe experience host"/>
+                  <img src="assets/event-hyundai-santafe-wide.webp" alt="Hyundai Santa Fe experience crowd at mall" loading="lazy" decoding="async" />
+                  <img src="assets/event-hyundai-santafe-front.webp" alt="Hyundai Santa Fe experience vehicle front stage" loading="lazy" decoding="async" />
+                  <img class="crop-face" src="assets/event-hyundai-santafe-host.webp" alt="Hyundai Santa Fe experience host" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -1907,9 +1917,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media is-wide">
                 <div class="event-collage is-wide-main">
-                  <img src="assets/ev-game-3.webp" alt="NSOC Grand Finals 2025 host on stage"/>
-                  <img class="crop-stage" src="assets/ev-game-2.webp" alt="NSOC Grand Finals 2025 stage"/>
-                  <img class="crop-face" src="assets/ev-game-1.webp" alt="NSOC Grand Finals 2025 host portrait"/>
+                  <img src="assets/ev-game-3.webp" alt="NSOC Grand Finals 2025 host on stage" loading="lazy" decoding="async" />
+                  <img class="crop-stage" src="assets/ev-game-2.webp" alt="NSOC Grand Finals 2025 stage" loading="lazy" decoding="async" />
+                  <img class="crop-face" src="assets/ev-game-1.webp" alt="NSOC Grand Finals 2025 host portrait" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -1921,9 +1931,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/g-unitour-1.webp" alt="National Student Open Cup player interview"/>
-                  <img src="assets/g-unitour-3.webp" alt="National Student Open Cup interview moment"/>
-                  <img src="assets/g-unitour-2.webp" alt="National Student Open Cup players"/>
+                  <img src="assets/g-unitour-1.webp" alt="National Student Open Cup player interview" loading="lazy" decoding="async" />
+                  <img src="assets/g-unitour-3.webp" alt="National Student Open Cup interview moment" loading="lazy" decoding="async" />
+                  <img src="assets/g-unitour-2.webp" alt="National Student Open Cup players" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -1935,9 +1945,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage m-third-main">
-                  <img src="assets/event-audition-birthday-stage.webp" alt="Audition Birthday stage"/>
-                  <img src="assets/event-audition-birthday-wide.webp" alt="Audition Birthday audience stage"/>
-                  <img src="assets/event-audition-birthday-award.webp" alt="Audition Birthday award moment"/>
+                  <img src="assets/event-audition-birthday-stage.webp" alt="Audition Birthday stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-audition-birthday-wide.webp" alt="Audition Birthday audience stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-audition-birthday-award.webp" alt="Audition Birthday award moment" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -1962,9 +1972,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/ev-flc-3.webp" alt="FLC 23rd Anniversary host on stage"/>
-                  <img src="assets/ev-flc-4.webp" alt="FLC 23rd Anniversary ceremony"/>
-                  <img src="assets/ev-flc-2.webp" alt="FLC 23rd Anniversary leadership toast"/>
+                  <img src="assets/ev-flc-3.webp" alt="FLC 23rd Anniversary host on stage" loading="lazy" decoding="async" />
+                  <img src="assets/ev-flc-4.webp" alt="FLC 23rd Anniversary ceremony" loading="lazy" decoding="async" />
+                  <img src="assets/ev-flc-2.webp" alt="FLC 23rd Anniversary leadership toast" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -1976,9 +1986,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage is-wide-main">
-                  <img src="assets/event-viettel-security.webp" alt="Viettel Security gala dinner main stage"/>
-                  <img src="assets/logo-viettel-full.jpg" alt="Viettel Security brand"/>
-                  <img class="crop-face" src="assets/event-viettel-security-portrait.webp" alt="Viettel Security gala host portrait"/>
+                  <img src="assets/event-viettel-security.webp" alt="Viettel Security gala dinner main stage" loading="lazy" decoding="async" />
+                  <img src="assets/logo-viettel-full.jpg" alt="Viettel Security brand" loading="lazy" decoding="async" />
+                  <img class="crop-face" src="assets/event-viettel-security-portrait.webp" alt="Viettel Security gala host portrait" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -1990,9 +2000,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/g-meiko-1.webp" alt="Meiko Year End Party stage"/>
-                  <img src="assets/g-meiko-4.webp" alt="Meiko Year End Party moment"/>
-                  <img src="assets/g-meiko-3.webp" alt="Meiko Year End Party crowd"/>
+                  <img src="assets/g-meiko-1.webp" alt="Meiko Year End Party stage" loading="lazy" decoding="async" />
+                  <img src="assets/g-meiko-4.webp" alt="Meiko Year End Party moment" loading="lazy" decoding="async" />
+                  <img src="assets/g-meiko-3.webp" alt="Meiko Year End Party crowd" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2004,9 +2014,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-viglacera-yep.webp" alt="Viglacera Year End Party event room"/>
-                  <img src="assets/event-viglacera-backdrop.webp" alt="Viglacera Year End Party backdrop"/>
-                  <img src="assets/event-viglacera-stage.webp" alt="Viglacera Year End Party stage"/>
+                  <img src="assets/event-viglacera-yep.webp" alt="Viglacera Year End Party event room" loading="lazy" decoding="async" />
+                  <img src="assets/event-viglacera-backdrop.webp" alt="Viglacera Year End Party backdrop" loading="lazy" decoding="async" />
+                  <img src="assets/event-viglacera-stage.webp" alt="Viglacera Year End Party stage" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2015,7 +2025,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             <p>Corporate celebration with formal hosting, audience rhythm and stage transitions.</p>
           </article>
           <article class="event-card">
-            <figure><div class="event-media"><img src="assets/event-zalo-thankyou.webp" alt="Zalo Ads Thank You Party"/></div></figure>
+            <figure><div class="event-media"><img src="assets/event-zalo-thankyou.webp" alt="Zalo Ads Thank You Party" loading="lazy" decoding="async" /></div></figure>
             <div class="event-kicker">Thank-you party</div>
             <h4>Zalo Ads <em>Thank You Party</em></h4>
             <p>Partner appreciation event with a polished corporate tone.</p>
@@ -2037,9 +2047,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-mps-cybersecurity-1.webp" alt="Cybersecurity conference by Ministry of Public Security"/>
-                  <img src="assets/event-mps-cybersecurity-2.webp" alt="Cybersecurity and information safety conference stage"/>
-                  <img class="crop-headroom" src="assets/event-mps-cybersecurity-portrait.webp" alt="Cybersecurity conference portrait"/>
+                  <img src="assets/event-mps-cybersecurity-1.webp" alt="Cybersecurity conference by Ministry of Public Security" loading="lazy" decoding="async" />
+                  <img src="assets/event-mps-cybersecurity-2.webp" alt="Cybersecurity and information safety conference stage" loading="lazy" decoding="async" />
+                  <img class="crop-headroom" src="assets/event-mps-cybersecurity-portrait.webp" alt="Cybersecurity conference portrait" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2048,7 +2058,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             <p>Formal conference hosting for cybersecurity and information-safety stakeholders.</p>
           </article>
           <article class="event-card">
-            <figure><div class="event-media"><img src="assets/event-vsas-conference.webp" alt="VSAS AI-Powered SEO conference"/></div></figure>
+            <figure><div class="event-media"><img src="assets/event-vsas-conference.webp" alt="VSAS AI-Powered SEO conference" loading="lazy" decoding="async" /></div></figure>
             <div class="event-kicker">Conference</div>
             <h4>VSAS <em>AI-Powered SEO</em></h4>
             <p>Expert-room hosting with structured speaker flow and professional pacing.</p>
@@ -2057,9 +2067,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-samsung-workshop-1.webp" alt="Samsung workshop panel"/>
-                  <img src="assets/event-samsung-workshop-2.webp" alt="Samsung workshop host interaction"/>
-                  <img class="crop-headroom" src="assets/event-samsung-workshop-3.webp" alt="Samsung workshop portrait"/>
+                  <img src="assets/event-samsung-workshop-1.webp" alt="Samsung workshop panel" loading="lazy" decoding="async" />
+                  <img src="assets/event-samsung-workshop-2.webp" alt="Samsung workshop host interaction" loading="lazy" decoding="async" />
+                  <img class="crop-headroom" src="assets/event-samsung-workshop-3.webp" alt="Samsung workshop portrait" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2071,9 +2081,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-toyota.webp" alt="Toyota Tuong Lai Xanh discussion at HUST"/>
-                  <img src="assets/event-stage2.webp" alt="Tuong Lai Xanh panel at Hanoi University of Science and Technology"/>
-                  <img src="assets/event-stage3.webp" alt="Tuong Lai Xanh host and speaker"/>
+                  <img src="assets/event-toyota.webp" alt="Toyota Tuong Lai Xanh discussion at HUST" loading="lazy" decoding="async" />
+                  <img src="assets/event-stage2.webp" alt="Tuong Lai Xanh panel at Hanoi University of Science and Technology" loading="lazy" decoding="async" />
+                  <img src="assets/event-stage3.webp" alt="Tuong Lai Xanh host and speaker" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2082,7 +2092,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             <p>Green-future discussion with student-facing Q&amp;A, guest flow and formal seminar pacing.</p>
           </article>
           <article class="event-card">
-            <figure><div class="event-media"><img src="assets/event-celestetic.webp" alt="Celestetic expert talk"/></div></figure>
+            <figure><div class="event-media"><img src="assets/event-celestetic.webp" alt="Celestetic expert talk" loading="lazy" decoding="async" /></div></figure>
             <div class="event-kicker">Expert talk</div>
             <h4>Celestetic <em>Expert Forum</em></h4>
             <p>Panel-style healthcare and beauty room with audience attention to protect.</p>
@@ -2091,9 +2101,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img class="keep-left" src="assets/event-netco-tokio.webp" alt="Netco Tokio Marine event"/>
-                  <img src="assets/event-netco-tokio-2.webp" alt="Netco Tokio Marine session"/>
-                  <img src="assets/event-netco-tokio-3.webp" alt="Netco Tokio Marine host"/>
+                  <img class="keep-left" src="assets/event-netco-tokio.webp" alt="Netco Tokio Marine event" loading="lazy" decoding="async" />
+                  <img src="assets/event-netco-tokio-2.webp" alt="Netco Tokio Marine session" loading="lazy" decoding="async" />
+                  <img src="assets/event-netco-tokio-3.webp" alt="Netco Tokio Marine host" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2118,9 +2128,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/g-fuji-1.webp" alt="Fujifilm Partner Kick-off host"/>
-                  <img src="assets/g-fuji-3.webp" alt="Fujifilm Partner Kick-off room"/>
-                  <img src="assets/g-fuji-4.webp" alt="Fujifilm Partner Kick-off stage"/>
+                  <img src="assets/g-fuji-1.webp" alt="Fujifilm Partner Kick-off host" loading="lazy" decoding="async" />
+                  <img src="assets/g-fuji-3.webp" alt="Fujifilm Partner Kick-off room" loading="lazy" decoding="async" />
+                  <img src="assets/g-fuji-4.webp" alt="Fujifilm Partner Kick-off stage" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2132,9 +2142,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-bidv-metlife-1.webp" alt="BIDV MetLife host on stage"/>
-                  <img src="assets/event-bidv-metlife-2.webp" alt="BIDV MetLife event stage"/>
-                  <img src="assets/event-bidv-metlife-3.webp" alt="BIDV MetLife guest segment"/>
+                  <img src="assets/event-bidv-metlife-1.webp" alt="BIDV MetLife host on stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-bidv-metlife-2.webp" alt="BIDV MetLife event stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-bidv-metlife-3.webp" alt="BIDV MetLife guest segment" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2146,9 +2156,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img class="keep-left" src="assets/event-toshiba-demo.webp" alt="Toshiba product showcase with audience"/>
-                  <img src="assets/event-toshiba-host.webp" alt="Toshiba product showcase host"/>
-                  <img class="crop-face" src="assets/event-toshiba-portrait.webp" alt="Toshiba product showcase portrait"/>
+                  <img class="keep-left" src="assets/event-toshiba-demo.webp" alt="Toshiba product showcase with audience" loading="lazy" decoding="async" />
+                  <img src="assets/event-toshiba-host.webp" alt="Toshiba product showcase host" loading="lazy" decoding="async" />
+                  <img class="crop-face" src="assets/event-toshiba-portrait.webp" alt="Toshiba product showcase portrait" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2157,13 +2167,13 @@ body[data-lang="bilingual"] .en-only{display:none}
             <p>Product-led hosting for electronics and retail partners.</p>
           </article>
           <article class="event-card">
-            <figure><div class="event-media"><img src="assets/event-lg-aka.webp" alt="LG and AKA Furniture product talk"/></div></figure>
+            <figure><div class="event-media"><img src="assets/event-lg-aka.webp" alt="LG and AKA Furniture product talk" loading="lazy" decoding="async" /></div></figure>
             <div class="event-kicker">Partner talk</div>
             <h4>LG <em>x AKA Furniture</em></h4>
             <p>Product conversation, guest moderation and premium retail context.</p>
           </article>
           <article class="event-card">
-            <figure><div class="event-media"><img src="assets/event-dewalt.webp" alt="DeWalt industrial brand event"/></div></figure>
+            <figure><div class="event-media"><img src="assets/event-dewalt.webp" alt="DeWalt industrial brand event" loading="lazy" decoding="async" /></div></figure>
             <div class="event-kicker">Industrial brand</div>
             <h4>DeWalt <em>Brand Event</em></h4>
             <p>Technical brand presence with a sharp, concise hosting tone.</p>
@@ -2185,9 +2195,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage is-wide-main">
-                  <img class="crop-low" src="assets/ev-trayhoi-1.webp" alt="Tray Hoi Festival main stage"/>
-                  <img src="assets/ev-trayhoi-2.webp" alt="Tray Hoi Festival host"/>
-                  <img class="crop-stage" src="assets/ev-trayhoi-3.webp" alt="Tray Hoi Festival wide stage"/>
+                  <img class="crop-low" src="assets/ev-trayhoi-1.webp" alt="Tray Hoi Festival main stage" loading="lazy" decoding="async" />
+                  <img src="assets/ev-trayhoi-2.webp" alt="Tray Hoi Festival host" loading="lazy" decoding="async" />
+                  <img class="crop-stage" src="assets/ev-trayhoi-3.webp" alt="Tray Hoi Festival wide stage" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2199,9 +2209,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage is-wide-main">
-                  <img src="assets/ev-thanglong-1.webp" alt="Thang Long Festival stage"/>
-                  <img src="assets/ev-thanglong-2.webp" alt="Thang Long Festival hosts"/>
-                  <img src="assets/ev-thanglong-3.webp" alt="Thang Long Festival yukata"/>
+                  <img src="assets/ev-thanglong-1.webp" alt="Thang Long Festival stage" loading="lazy" decoding="async" />
+                  <img src="assets/ev-thanglong-2.webp" alt="Thang Long Festival hosts" loading="lazy" decoding="async" />
+                  <img src="assets/ev-thanglong-3.webp" alt="Thang Long Festival yukata" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2226,9 +2236,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage is-wide-main">
-                  <img src="assets/event-comfort-host.webp" alt="Comfort fragrance retail activation host"/>
-                  <img src="assets/event-comfort-crowd.webp" alt="Comfort activation crowd"/>
-                  <img src="assets/event-comfort-guests.webp" alt="Comfort activation guest moment"/>
+                  <img src="assets/event-comfort-host.webp" alt="Comfort fragrance retail activation host" loading="lazy" decoding="async" />
+                  <img src="assets/event-comfort-crowd.webp" alt="Comfort activation crowd" loading="lazy" decoding="async" />
+                  <img src="assets/event-comfort-guests.webp" alt="Comfort activation guest moment" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2240,9 +2250,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/ev-skii-1.webp" alt="SK-II Holiday Pop-up host"/>
-                  <img src="assets/ev-skii-2.webp" alt="SK-II Holiday Pop-up guest"/>
-                  <img src="assets/ev-skii-3.webp" alt="SK-II Holiday Pop-up counter"/>
+                  <img src="assets/ev-skii-1.webp" alt="SK-II Holiday Pop-up host" loading="lazy" decoding="async" />
+                  <img src="assets/ev-skii-2.webp" alt="SK-II Holiday Pop-up guest" loading="lazy" decoding="async" />
+                  <img src="assets/ev-skii-3.webp" alt="SK-II Holiday Pop-up counter" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2254,9 +2264,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/g-seabank-1.webp" alt="SeaBank concert brand zone"/>
-                  <img src="assets/g-seabank-5.webp" alt="SeaBank concert crowd"/>
-                  <img src="assets/g-seabank-4.webp" alt="SeaBank concert activation"/>
+                  <img src="assets/g-seabank-1.webp" alt="SeaBank concert brand zone" loading="lazy" decoding="async" />
+                  <img src="assets/g-seabank-5.webp" alt="SeaBank concert crowd" loading="lazy" decoding="async" />
+                  <img src="assets/g-seabank-4.webp" alt="SeaBank concert activation" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2268,9 +2278,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-milo-talent.webp" alt="Milo brand moment with singer"/>
-                  <img src="assets/event-milo-crowd.webp" alt="Milo retail activation crowd"/>
-                  <img src="assets/event-milo-stage.webp" alt="Milo activation stage interaction"/>
+                  <img src="assets/event-milo-talent.webp" alt="Milo brand moment with singer" loading="lazy" decoding="async" />
+                  <img src="assets/event-milo-crowd.webp" alt="Milo retail activation crowd" loading="lazy" decoding="async" />
+                  <img src="assets/event-milo-stage.webp" alt="Milo activation stage interaction" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2282,9 +2292,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-yamaha-exciter.webp" alt="Yamaha Match Your Freak Janus stage"/>
-                  <img src="assets/event-yamaha-exciter-host.webp" alt="Yamaha Janus host"/>
-                  <img src="assets/event-yamaha-exciter-guest.webp" alt="Yamaha Janus guest interaction"/>
+                  <img src="assets/event-yamaha-exciter.webp" alt="Yamaha Match Your Freak Janus stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-yamaha-exciter-host.webp" alt="Yamaha Janus host" loading="lazy" decoding="async" />
+                  <img src="assets/event-yamaha-exciter-guest.webp" alt="Yamaha Janus guest interaction" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2296,9 +2306,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-aeon-christmas.webp" alt="AEON Christmas event"/>
-                  <img src="assets/event-aeon-tree.webp" alt="AEON Christmas tree ceremony"/>
-                  <img src="assets/event-aeon-santa.webp" alt="AEON Santa event"/>
+                  <img src="assets/event-aeon-christmas.webp" alt="AEON Christmas event" loading="lazy" decoding="async" />
+                  <img src="assets/event-aeon-tree.webp" alt="AEON Christmas tree ceremony" loading="lazy" decoding="async" />
+                  <img src="assets/event-aeon-santa.webp" alt="AEON Santa event" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2323,9 +2333,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media is-wide">
                 <div class="event-collage is-wide-main">
-                  <img src="assets/ev-sh-1.webp" alt="SH Elite Lounge opening host"/>
-                  <img src="assets/ev-sh-2.webp" alt="SH Elite Lounge ribbon ceremony"/>
-                  <img src="assets/ev-sh-3.webp" alt="SH Elite Lounge welcome moment"/>
+                  <img src="assets/ev-sh-1.webp" alt="SH Elite Lounge opening host" loading="lazy" decoding="async" />
+                  <img src="assets/ev-sh-2.webp" alt="SH Elite Lounge ribbon ceremony" loading="lazy" decoding="async" />
+                  <img src="assets/ev-sh-3.webp" alt="SH Elite Lounge welcome moment" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2337,9 +2347,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-cosmo-opening.webp" alt="Cosmo Entertainment host on backdrop"/>
-                  <img src="assets/event-cosmo-guests.webp" alt="Cosmo Entertainment guest welcome"/>
-                  <img src="assets/event-cosmo-briefing.webp" alt="Cosmo Entertainment event briefing"/>
+                  <img src="assets/event-cosmo-opening.webp" alt="Cosmo Entertainment host on backdrop" loading="lazy" decoding="async" />
+                  <img src="assets/event-cosmo-guests.webp" alt="Cosmo Entertainment guest welcome" loading="lazy" decoding="async" />
+                  <img src="assets/event-cosmo-briefing.webp" alt="Cosmo Entertainment event briefing" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -2377,7 +2387,7 @@ body[data-lang="bilingual"] .en-only{display:none}
           <span class="reel-tag">EN / VN</span>
         </div>
         <div class="reel-lite landscape" data-yt="5yE465v3Rk4" role="button" aria-label="Play reel 1">
-          <img src="assets/reel-conference.webp" alt="Reel 1"/>
+          <img src="assets/reel-conference.webp" alt="Reel 1" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -2389,7 +2399,7 @@ body[data-lang="bilingual"] .en-only{display:none}
           <span class="reel-tag">EN / VN</span>
         </div>
         <div class="reel-lite landscape" data-yt="z2RWml0nxUU" role="button" aria-label="Play reel 2">
-          <img src="assets/reel-gala.webp" alt="Reel 2"/>
+          <img src="assets/reel-gala.webp" alt="Reel 2" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -2401,7 +2411,7 @@ body[data-lang="bilingual"] .en-only{display:none}
           <span class="reel-tag">VN</span>
         </div>
         <div class="reel-lite landscape" data-yt="5_XNbfQhY2s" role="button" aria-label="Play reel 3">
-          <img src="assets/reel-festival.webp" alt="Reel 3"/>
+          <img src="assets/reel-festival.webp" alt="Reel 3" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -2413,7 +2423,7 @@ body[data-lang="bilingual"] .en-only{display:none}
           <span class="reel-tag">VN</span>
         </div>
         <div class="reel-lite landscape" data-yt="tiTS6f7sxCs" role="button" aria-label="Play reel 4">
-          <img src="assets/reel-moment.webp" alt="Reel 4"/>
+          <img src="assets/reel-moment.webp" alt="Reel 4" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
