@@ -468,7 +468,7 @@ section.chap{padding:140px 0;position:relative}
 }
 @media(max-width:900px){
   .brand-tail{margin-top:42px;padding-top:26px}
-  .brand-tail .tail-title{font-size:clamp(24px,7vw,31px);max-width:9em}
+  .brand-tail .tail-title{font-size:clamp(24px,6.2vw,30px);max-width:none;white-space:nowrap}
   .hall-marquee{padding:24px 0}
   .hall-marquee .track{animation-duration:78s}
   .hall-marquee .track > span{font-size:23px}
@@ -992,9 +992,11 @@ footer.foot{
 .event-card img.crop-low{--img-scale:1.38;--img-y:-13%;object-position:center 72%}
 .event-card img.crop-stage{object-position:center 62%}
 .event-card img.crop-face{object-position:center 28%}
+.event-card img.crop-headroom{object-position:center 18%}
 .event-card img.crop-left{object-position:34% center}
 .event-card img.crop-right{object-position:66% center}
 .event-card img.keep-left{object-position:0 center}
+.event-card.wide-fill{grid-column:span 2}
 .event-card .event-kicker{
   font-size:10px;text-transform:uppercase;letter-spacing:.18em;
   color:var(--gold-deep);font-weight:700;
@@ -1034,6 +1036,7 @@ footer.foot{
   .portfolio-group-title h3{font-size:clamp(32px,9vw,44px)}
   .event-grid,.event-grid.is-four{grid-template-columns:1fr;gap:28px}
   .event-card.featured{grid-column:auto}
+  .event-card.wide-fill{grid-column:auto}
   .portfolio-note{display:block}
   .portfolio-note b{display:block;margin-bottom:12px}
 }
@@ -1228,8 +1231,11 @@ footer.foot{
   max-width:94%;max-height:84px;
   width:100%;height:100%;
   object-fit:contain;
+  transform:scale(var(--logo-scale,1));
   transition:filter .3s;
 }
+.logo-cell.logo-boost{--logo-scale:1.28}
+.logo-cell.logo-boost-lg{--logo-scale:1.42}
 @media(max-width:900px){.logo-cell{padding:22px 26px}}
 @media(max-width:520px){.logo-cell{padding:14px 12px}}
 @media(max-width:720px){
@@ -1267,6 +1273,8 @@ footer.foot{
     max-width:100%;
     max-height:44px;
   }
+  .logo-cell.logo-boost{--logo-scale:1.22}
+  .logo-cell.logo-boost-lg{--logo-scale:1.32}
   .logo-cell.zalo{padding:9px 12px}
   .logo-cell.zalo img{max-height:48px}
 }
@@ -1612,7 +1620,7 @@ body[data-lang="bilingual"] .en-only{display:none}
         <div class="hero-meta">
           <div class="item"><div class="k">Languages</div><div class="v serif"><span class="en-only">English &amp; Vietnamese</span><span class="vi-only">English · Tiếng Việt</span></div></div>
           <div class="item"><div class="k">Domains</div><div class="v serif">Conference · Festival · Gala</div></div>
-          <div class="item"><div class="k">Since</div><div class="v serif">2021 · 120+ events</div></div>
+          <div class="item"><div class="k">Since</div><div class="v serif">2021 · 300+ events</div></div>
         </div>
 
         <div class="hero-cta">
@@ -1696,7 +1704,7 @@ body[data-lang="bilingual"] .en-only{display:none}
       </div>
 
       <div class="hall-stats">
-        <div class="stat"><div class="n serif"><em>120</em>+</div><div class="l">Events hosted</div></div>
+        <div class="stat"><div class="n serif"><em>300</em>+</div><div class="l">Events hosted</div></div>
         <div class="stat"><div class="n serif"><em>50</em>+</div><div class="l">Brands worked with</div></div>
         <div class="stat"><div class="n serif"><em>5</em></div><div class="l">Years on stage</div></div>
         <div class="stat"><div class="n serif"><em>2</em></div><div class="l">Languages fluently</div></div>
@@ -1724,7 +1732,7 @@ body[data-lang="bilingual"] .en-only{display:none}
       <!-- Row 1 · Automotive -->
       <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/hyundai.webp" alt="Hyundai"/></div>
       <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/toyota.webp" alt="Toyota"/></div>
-      <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/nissan.webp" alt="Nissan"/></div>
+      <div class="logo-cell logo-boost" data-industry="auto"><img src="assets/logo-wall/nissan.webp" alt="Nissan"/></div>
       <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/yamaha.webp" alt="Yamaha"/></div>
       <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/honda.webp" alt="Honda"/></div>
 
@@ -1738,8 +1746,8 @@ body[data-lang="bilingual"] .en-only{display:none}
       <!-- Row 3 · Digital & Retail -->
       <div class="logo-cell zalo" data-industry="tech"><img src="assets/logo-wall/zalo.webp" alt="Zalo"/></div>
       <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/vtcgame.webp" alt="VTC Game"/></div>
-      <div class="logo-cell" data-industry="retail"><img src="assets/logo-wall/aeon.webp" alt="AEON Mall"/></div>
-      <div class="logo-cell" data-industry="retail"><img src="assets/logo-wall/sulwhasoo.webp" alt="Sulwhasoo"/></div>
+      <div class="logo-cell logo-boost-lg" data-industry="retail"><img src="assets/logo-wall/aeon.webp" alt="AEON Mall"/></div>
+      <div class="logo-cell logo-boost-lg" data-industry="retail"><img src="assets/logo-wall/sulwhasoo.webp" alt="Sulwhasoo"/></div>
       <div class="logo-cell" data-industry="retail"><img src="assets/logo-wall/skii.webp" alt="SK-II"/></div>
 
       <!-- Row 4 · Banking & Corporate -->
@@ -1759,12 +1767,12 @@ body[data-lang="bilingual"] .en-only{display:none}
 
     <div class="brand-tail" id="hall-display">
       <div>
-        <p class="tail-title">Additional <em>client experience</em></p>
+        <p class="tail-title">Additional <em>clients</em></p>
       </div>
       <div class="hall-marquee" aria-label="Additional selected brand names">
         <div class="track">
-          <span>Mitsubishi</span><span>Bosch</span><span>Celestetic</span><span>Cosmo Entertainment</span><span>MEGA</span><span>Netco Post</span><span>Tokio Marine</span><span>VSAS</span><span>HD Hyundai</span><span>Ministry of Culture · VCCA</span><span>AKA Furniture</span><span>Halong Cream</span><span>TC Motor</span><span>Viettel Security</span><span>Samsung</span><span>Yamaha</span><span>Viglacera</span><span>DeWalt</span><span>Zalo Ads</span><span>OEG</span>
-          <span>Mitsubishi</span><span>Bosch</span><span>Celestetic</span><span>Cosmo Entertainment</span><span>MEGA</span><span>Netco Post</span><span>Tokio Marine</span><span>VSAS</span><span>HD Hyundai</span><span>Ministry of Culture · VCCA</span><span>AKA Furniture</span><span>Halong Cream</span><span>TC Motor</span><span>Viettel Security</span><span>Samsung</span><span>Yamaha</span><span>Viglacera</span><span>DeWalt</span><span>Zalo Ads</span><span>OEG</span>
+          <span>Mitsubishi</span><span>Bosch</span><span>Celestetic</span><span>Cosmo Entertainment</span><span>Netco Post</span><span>Tokio Marine</span><span>VSAS</span><span>HD Hyundai</span><span>Ministry of Culture · VCCA</span><span>AKA Furniture</span><span>Halong Cream</span><span>TC Motor</span><span>Viettel Security</span><span>Samsung</span><span>Yamaha</span><span>Viglacera</span><span>DeWalt</span><span>Zalo Ads</span><span>OEG</span>
+          <span>Mitsubishi</span><span>Bosch</span><span>Celestetic</span><span>Cosmo Entertainment</span><span>Netco Post</span><span>Tokio Marine</span><span>VSAS</span><span>HD Hyundai</span><span>Ministry of Culture · VCCA</span><span>AKA Furniture</span><span>Halong Cream</span><span>TC Motor</span><span>Viettel Security</span><span>Samsung</span><span>Yamaha</span><span>Viglacera</span><span>DeWalt</span><span>Zalo Ads</span><span>OEG</span>
         </div>
       </div>
     </div>
@@ -1879,7 +1887,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             <h4>National Student <em>Open Cup 2025</em></h4>
             <p>Player interviews, fan interaction and sponsor-facing live moments.</p>
           </article>
-          <article class="event-card">
+          <article class="event-card wide-fill">
             <figure>
               <div class="event-media">
                 <div class="event-collage m-third-main">
@@ -1987,7 +1995,7 @@ body[data-lang="bilingual"] .en-only{display:none}
                 <div class="event-collage">
                   <img src="assets/event-mps-cybersecurity-1.webp" alt="Cybersecurity conference by Ministry of Public Security"/>
                   <img src="assets/event-mps-cybersecurity-2.webp" alt="Cybersecurity and information safety conference stage"/>
-                  <img src="assets/event-mps-cybersecurity-portrait.webp" alt="Cybersecurity conference portrait"/>
+                  <img class="crop-headroom" src="assets/event-mps-cybersecurity-portrait.webp" alt="Cybersecurity conference portrait"/>
                 </div>
               </div>
             </figure>
@@ -2007,7 +2015,7 @@ body[data-lang="bilingual"] .en-only{display:none}
                 <div class="event-collage">
                   <img src="assets/event-samsung-workshop-1.webp" alt="Samsung workshop panel"/>
                   <img src="assets/event-samsung-workshop-2.webp" alt="Samsung workshop host interaction"/>
-                  <img src="assets/event-samsung-workshop-3.webp" alt="Samsung workshop portrait"/>
+                  <img class="crop-headroom" src="assets/event-samsung-workshop-3.webp" alt="Samsung workshop portrait"/>
                 </div>
               </div>
             </figure>
@@ -2034,12 +2042,6 @@ body[data-lang="bilingual"] .en-only{display:none}
             <div class="event-kicker">Expert talk</div>
             <h4>Celestetic <em>Expert Forum</em></h4>
             <p>Panel-style healthcare and beauty room with audience attention to protect.</p>
-          </article>
-          <article class="event-card">
-            <figure><div class="event-media"><img src="assets/event-mega-seminar.webp" alt="MEGA scientific seminar"/></div></figure>
-            <div class="event-kicker">Scientific seminar</div>
-            <h4>MEGA <em>Healthcare Seminar</em></h4>
-            <p>Specialist agenda, speaker transitions and formal room discipline.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2093,14 +2095,14 @@ body[data-lang="bilingual"] .en-only{display:none}
               </div>
             </figure>
             <div class="event-kicker">Finance &amp; insurance</div>
-            <h4>BIDV MetLife <em>Du Khuc Cham</em></h4>
+            <h4>BIDV MetLife <em>Vu Khuc Cham</em></h4>
             <p>Finance-sector event hosting with brand presence and stage ceremony flow.</p>
           </article>
           <article class="event-card">
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-toshiba-demo.webp" alt="Toshiba product showcase with audience"/>
+                  <img class="keep-left" src="assets/event-toshiba-demo.webp" alt="Toshiba product showcase with audience"/>
                   <img src="assets/event-toshiba-host.webp" alt="Toshiba product showcase host"/>
                   <img class="crop-face" src="assets/event-toshiba-portrait.webp" alt="Toshiba product showcase portrait"/>
                 </div>
@@ -2179,16 +2181,16 @@ body[data-lang="bilingual"] .en-only{display:none}
           <article class="event-card">
             <figure>
               <div class="event-media">
-                <div class="event-collage">
-                  <img src="assets/event-milo-talent.webp" alt="Milo brand moment with singer"/>
-                  <img src="assets/event-milo-crowd.webp" alt="Milo retail activation crowd"/>
-                  <img src="assets/event-milo-stage.webp" alt="Milo activation stage interaction"/>
+                <div class="event-collage is-wide-main">
+                  <img src="assets/event-comfort-host.webp" alt="Comfort fragrance retail activation host"/>
+                  <img src="assets/event-comfort-crowd.webp" alt="Comfort activation crowd"/>
+                  <img src="assets/event-comfort-guests.webp" alt="Comfort activation guest moment"/>
                 </div>
               </div>
             </figure>
             <div class="event-kicker">Consumer activation</div>
-            <h4>Milo <em>Brand Moment</em></h4>
-            <p>Retail-floor audience energy with talent interaction and youth-facing brand rhythm.</p>
+            <h4>Comfort <em>Huong Nuoc Hoa</em></h4>
+            <p>High-traffic mall activation with crowd handling and brand energy.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2221,29 +2223,29 @@ body[data-lang="bilingual"] .en-only{display:none}
           <article class="event-card">
             <figure>
               <div class="event-media">
-                <div class="event-collage is-wide-main">
-                  <img src="assets/event-comfort-host.webp" alt="Comfort fragrance retail activation host"/>
-                  <img src="assets/event-comfort-crowd.webp" alt="Comfort activation crowd"/>
-                  <img src="assets/event-comfort-guests.webp" alt="Comfort activation guest moment"/>
+                <div class="event-collage">
+                  <img src="assets/event-milo-talent.webp" alt="Milo brand moment with singer"/>
+                  <img src="assets/event-milo-crowd.webp" alt="Milo retail activation crowd"/>
+                  <img src="assets/event-milo-stage.webp" alt="Milo activation stage interaction"/>
                 </div>
               </div>
             </figure>
             <div class="event-kicker">Consumer activation</div>
-            <h4>Comfort <em>Huong Nuoc Hoa</em></h4>
-            <p>High-traffic mall activation with crowd handling and brand energy.</p>
+            <h4>Milo <em>Brand Moment</em></h4>
+            <p>Retail-floor audience energy with talent interaction and youth-facing brand rhythm.</p>
           </article>
           <article class="event-card">
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-yamaha-exciter.webp" alt="Yamaha Match Your Freak Exciter stage"/>
-                  <img src="assets/event-yamaha-exciter-host.webp" alt="Yamaha Exciter host"/>
-                  <img src="assets/event-yamaha-exciter-guest.webp" alt="Yamaha Exciter guest interaction"/>
+                  <img src="assets/event-yamaha-exciter.webp" alt="Yamaha Match Your Freak Janus stage"/>
+                  <img src="assets/event-yamaha-exciter-host.webp" alt="Yamaha Janus host"/>
+                  <img src="assets/event-yamaha-exciter-guest.webp" alt="Yamaha Janus guest interaction"/>
                 </div>
               </div>
             </figure>
             <div class="event-kicker">Brand activation</div>
-            <h4>Yamaha Exciter <em>Match Your Freak</em></h4>
+            <h4>Yamaha Janus <em>Match Your Freak</em></h4>
             <p>Outdoor brand stage with youth audience energy and guest interaction.</p>
           </article>
           <article class="event-card">
@@ -2256,9 +2258,9 @@ body[data-lang="bilingual"] .en-only{display:none}
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Mall activation</div>
-            <h4>AEON Mall <em>Seasonal Event</em></h4>
-            <p>Family-facing mall traffic with warm, accessible hosting.</p>
+            <div class="event-kicker">Christmas mall event</div>
+            <h4>AEON Mall <em>Christmas Event</em></h4>
+            <p>Noel mall traffic with family-facing moments and warm, accessible hosting.</p>
           </article>
         </div>
       </section>
@@ -2305,10 +2307,6 @@ body[data-lang="bilingual"] .en-only{display:none}
       </section>
     </div>
 
-    <div class="portfolio-note">
-      <b>Archive policy</b>
-      <span>Not every image needs to appear on the public page. The selected chapters prove range quickly; the full event archive can be sent privately when a client asks for a matching format.</span>
-    </div>
   </div>
 </section>
 
