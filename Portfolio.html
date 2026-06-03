@@ -1509,6 +1509,8 @@ body[data-density="compact"] .section-title{font-size:clamp(32px,4.4vw,56px)}
 body[data-density="compact"] .hero-headline{font-size:clamp(40px,7vw,96px)}
 body[data-density="compact"] section.hero{min-height:auto;padding:120px 0 80px}
 body[data-density="compact"] .hero-grid{min-height:auto}
+body[data-density="compact"] .hero[data-variant="cinematic"]{padding:0;min-height:100vh}
+body[data-density="compact"] .hero[data-variant="cinematic"] .hero-grid{min-height:100vh}
 body[data-density="compact"] .hall-band{padding:88px 0}
 @media(max-width:900px){
   body[data-density="compact"] #works{padding-bottom:42px}
@@ -2535,6 +2537,55 @@ const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
 },{threshold:.12});
 fadeEls.forEach(el=>io.observe(el));
+
+// Keep initial load light, then warm the image cache in document order.
+// This preserves the fast hero while making later portfolio sections feel ready.
+function warmLazyImages(){
+  const lazyImages = Array.from(document.querySelectorAll('img[loading="lazy"]'));
+  if(!lazyImages.length) return;
+
+  let index = 0;
+  const isMobile = window.matchMedia('(max-width: 720px)').matches;
+  const batchSize = isMobile ? 2 : 4;
+  const batchDelay = isMobile ? 260 : 140;
+
+  const loadOne = (img) => new Promise(resolve => {
+    if(img.complete && img.naturalWidth > 0) return resolve();
+    const preload = new Image();
+    preload.decoding = 'async';
+    preload.fetchPriority = 'low';
+    preload.onload = preload.onerror = resolve;
+    if(img.sizes) preload.sizes = img.sizes;
+    if(img.srcset) preload.srcset = img.srcset;
+    preload.src = img.currentSrc || img.src;
+  });
+
+  const loadBatch = () => {
+    const batch = lazyImages.slice(index, index + batchSize);
+    index += batchSize;
+    Promise.all(batch.map(loadOne)).finally(() => {
+      if(index < lazyImages.length) window.setTimeout(loadBatch, batchDelay);
+    });
+  };
+
+  const start = () => window.setTimeout(() => {
+    if('requestIdleCallback' in window){
+      requestIdleCallback(loadBatch, {timeout: 700});
+    }else{
+      loadBatch();
+    }
+  }, 250);
+
+  const heroImg = document.getElementById('hero-img-el');
+  if(heroImg && !(heroImg.complete && heroImg.naturalWidth > 0)){
+    heroImg.addEventListener('load', start, {once:true});
+    heroImg.addEventListener('error', start, {once:true});
+  }else{
+    start();
+  }
+}
+
+warmLazyImages();
 
 // postMessage slide index for speaker notes (not used here but harmless)
 </script>
