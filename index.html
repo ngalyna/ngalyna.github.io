@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Nga Lyna — Bilingual MC · Hanoi</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="assets/hero-audition-clean.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
@@ -175,8 +176,12 @@ section.hero{
   background:var(--paper-2);
   overflow:hidden;
 }
+.hero-image-wrap picture,
 .hero-image-wrap img{
-  width:100%;height:100%;object-fit:cover;object-position:center 22%;
+  width:100%;height:100%;display:block;
+}
+.hero-image-wrap img{
+  object-fit:cover;object-position:center 22%;
   filter:saturate(.92) contrast(1.02);
 }
 .hero-image-wrap .frame-tag{
@@ -283,7 +288,7 @@ section.hero{
   .hero[data-variant="cinematic"]{padding:0;min-height:100svh}
   .hero[data-variant="cinematic"] .hero-grid{min-height:100svh}
   .hero[data-variant="cinematic"] .hero-image-wrap{position:absolute;inset:0;margin:0;aspect-ratio:auto;max-height:none}
-  .hero[data-variant="cinematic"] .hero-image-wrap img{object-position:55% center}
+  .hero[data-variant="cinematic"] .hero-image-wrap img{object-position:55% center;filter:none;transform:translateZ(0)}
   .hero[data-variant="cinematic"] .hero-text{padding:0 24px 44px}
 }
 
@@ -1163,6 +1168,42 @@ footer.foot{
 }
 .reel-play svg{width:22px;height:22px;margin-left:3px;fill:var(--ink);display:block}
 .reel-lite:hover .reel-play{transform:translate(-50%,-50%) scale(1.08);background:var(--paper)}
+.video-modal{
+  position:fixed;inset:0;z-index:100;
+  display:none;align-items:center;justify-content:center;
+  padding:28px;background:rgba(13,10,7,.78);
+}
+.video-modal.open{display:flex}
+body.video-open{overflow:hidden}
+.video-modal-backdrop{position:absolute;inset:0}
+.video-modal-dialog{
+  position:relative;z-index:1;width:min(980px,100%);
+  background:#130f0b;color:var(--paper);
+  border:1px solid rgba(246,241,232,.22);
+  box-shadow:0 26px 80px rgba(0,0,0,.45);
+  padding:18px;
+}
+.video-frame{
+  aspect-ratio:16/9;background:#000;overflow:hidden;
+}
+.video-frame iframe{width:100%;height:100%;border:0;display:block}
+.video-modal-close{
+  position:absolute;right:10px;top:10px;z-index:2;
+  width:38px;height:38px;border-radius:50%;
+  border:1px solid rgba(246,241,232,.32);
+  background:rgba(19,15,11,.76);color:var(--paper);
+  font-size:24px;line-height:1;cursor:pointer;
+}
+.video-open-link{
+  display:inline-block;margin-top:14px;color:#d9b985;
+  text-decoration:none;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+}
+@media(max-width:720px){
+  .video-modal{padding:14px}
+  .video-modal-dialog{padding:10px}
+  .video-modal-close{right:14px;top:14px}
+  .video-open-link{font-size:11px}
+}
 .voice-action{
   display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:space-between;
   margin-top:56px;padding-top:32px;
@@ -1614,7 +1655,7 @@ body[data-lang="bilingual"] .en-only{display:none}
     <div class="hero-grid">
       <div class="hero-text">
         <div class="hero-name serif">Nga Lyna</div>
-        <div class="eyebrow">Bilingual MC · <span class="en-only">Hanoi</span><span class="vi-only">Hà Nội</span> · Available 2026</div>
+        <div class="eyebrow">Bilingual MC · <span class="en-only">Hanoi-based</span><span class="vi-only">Hà Nội</span> · Vietnam &amp; international events</div>
         <h1 class="hero-headline serif" id="hero-headline">
           Two languages,<br><em>one stage.</em>
         </h1>
@@ -1635,7 +1676,7 @@ body[data-lang="bilingual"] .en-only{display:none}
       </div>
 
       <div class="hero-image-wrap" id="hero-image">
-        <img src="assets/hero-audition-clean.webp" alt="Nga Lyna at Audition event" id="hero-img-el" />
+        <img src="assets/hero-audition-clean.webp" alt="Nga Lyna at Audition event" id="hero-img-el" fetchpriority="high" decoding="async" />
         <div class="frame-tag serif italic">Nga Lyna</div>
         <div class="frame-num serif">01</div>
       </div>
@@ -1650,7 +1691,7 @@ body[data-lang="bilingual"] .en-only{display:none}
       <div class="cap-statement">
         <div class="section-num">02 — Capabilities</div>
         <h2 class="serif">Poise under lights. <em>Control in motion.</em></h2>
-        <p>A professional MC does more than speak into a microphone. I read the room, protect the timeline, and make each transition feel intentional in Vietnamese, English, or both.</p>
+        <p>A professional MC protects the room as much as the script: reading the audience, keeping the timeline clean, and making every transition feel intentional in Vietnamese, English, or both.</p>
       </div>
 
       <div class="cap-list">
@@ -2084,7 +2125,7 @@ body[data-lang="bilingual"] .en-only{display:none}
               </div>
             </figure>
             <div class="event-kicker">Product launch</div>
-            <h4>Fujifilm <em>Partner's Kick-off</em></h4>
+            <h4>Fujifilm <em>Partner Kick-off</em></h4>
             <p>Partner gathering, product reveal and bilingual stage flow.</p>
           </article>
           <article class="event-card">
@@ -2262,8 +2303,8 @@ body[data-lang="bilingual"] .en-only{display:none}
               </div>
             </figure>
             <div class="event-kicker">Christmas mall event</div>
-            <h4>AEON Mall <em>Christmas Event</em></h4>
-            <p>Noel mall traffic with family-facing moments and warm, accessible hosting.</p>
+            <h4>AEON Mall <em>Christmas Activation</em></h4>
+            <p>Christmas mall traffic with family-facing moments and warm, accessible hosting.</p>
           </article>
         </div>
       </section>
@@ -2304,7 +2345,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             </figure>
             <div class="event-kicker">Soft opening</div>
             <h4>Cosmo <em>Entertainment</em></h4>
-            <p>Opening moment with MC, guest welcome and a polished hospitality tone.</p>
+            <p>Opening ceremony, guest welcome and a polished hospitality tone.</p>
           </article>
         </div>
       </section>
@@ -2325,7 +2366,7 @@ body[data-lang="bilingual"] .en-only{display:none}
     </div>
 
     <div class="reels-meta">
-      <span class="reels-meta-tag">4 reels · EN / VN · click to play</span>
+      <span class="reels-meta-tag">4 reels · EN / VN · click to watch</span>
     </div>
 
     <div class="reels-grid-22">
@@ -2389,7 +2430,7 @@ body[data-lang="bilingual"] .en-only{display:none}
     <div class="foot-grid">
       <div>
         <h4 class="serif"><em>Two languages,</em><br>one stage.</h4>
-        <p style="font-size:13px;margin-top:22px;max-width:440px;color:#bdb29c;line-height:1.75">Nga Lyna · Bilingual MC. Conference · Festival · Gala dinner. <span class="en-only">Hanoi</span><span class="vi-only">Hà Nội</span>, available nationwide &amp; overseas.</p>
+        <p style="font-size:13px;margin-top:22px;max-width:470px;color:#bdb29c;line-height:1.75">Nga Lyna · Bilingual MC for conferences, gala dinners, brand launches and public stages. <span class="en-only">Hanoi-based</span><span class="vi-only">Hà Nội</span>, available across Vietnam and internationally.</p>
       </div>
       <div class="col foot-nav">
         <b>Navigate</b>
@@ -2412,6 +2453,15 @@ body[data-lang="bilingual"] .en-only{display:none}
 
 <!-- (mobile sticky CTA removed — single hero button only) -->
 
+<div class="video-modal" id="video-modal" aria-hidden="true">
+  <div class="video-modal-backdrop" data-close-video></div>
+  <div class="video-modal-dialog" role="dialog" aria-modal="true" aria-label="Showreel video">
+    <button class="video-modal-close" type="button" data-close-video aria-label="Close video">&times;</button>
+    <div class="video-frame" id="video-frame"></div>
+    <a class="video-open-link" id="video-open-link" href="#" target="_blank" rel="noopener">Open on YouTube</a>
+  </div>
+</div>
+
 <!-- ========== SCRIPTS ========== -->
 <!-- Vanilla interactivity (works without React) -->
 <script>
@@ -2421,15 +2471,35 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 30);
 });
 
-// Lazy YouTube embed — loads iframe only on click (keeps page fast)
+// Lazy YouTube modal embed: loads iframe only on click, keeping the first screen light.
+const videoModal = document.getElementById('video-modal');
+const videoFrame = document.getElementById('video-frame');
+const videoOpenLink = document.getElementById('video-open-link');
+function openVideo(id){
+  if(!id || !videoModal || !videoFrame) return;
+  const src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+  videoFrame.innerHTML = `<iframe src="${src}" title="Nga Lyna showreel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+  if(videoOpenLink) videoOpenLink.href = `https://www.youtube.com/watch?v=${id}`;
+  videoModal.classList.add('open');
+  videoModal.setAttribute('aria-hidden','false');
+  document.body.classList.add('video-open');
+}
+function closeVideo(){
+  if(!videoModal || !videoFrame) return;
+  videoModal.classList.remove('open');
+  videoModal.setAttribute('aria-hidden','true');
+  document.body.classList.remove('video-open');
+  videoFrame.innerHTML = '';
+}
 document.querySelectorAll('.reel-lite').forEach(el=>{
   el.style.cursor='pointer';
   el.addEventListener('click',()=>{
     const id = el.dataset.yt;
-    if(!id) return;
-    window.open('https://www.youtube.com/watch?v='+id, '_blank', 'noopener');
+    openVideo(id);
   });
 });
+document.querySelectorAll('[data-close-video]').forEach(el=>el.addEventListener('click', closeVideo));
+document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeVideo(); });
 
 const gtabsEl = document.getElementById('gtabs');
 if(gtabsEl){
