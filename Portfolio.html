@@ -272,8 +272,9 @@ section.hero{
   .hero-name{
     display:block;
     font-family:'Newsreader',serif;font-weight:400;
-    font-size:21px;letter-spacing:.01em;line-height:1;
+    font-size:24px;letter-spacing:.01em;line-height:1;
     color:var(--ink);
+    text-shadow:0 2px 10px rgba(21,17,13,.32);
     width:max-content;max-width:100%;
     margin-bottom:26px;padding-bottom:16px;
     border-bottom:1px solid var(--line);
@@ -964,6 +965,10 @@ footer.foot{
 .event-grid.is-single{grid-template-columns:minmax(0,1fr);max-width:1080px}
 .event-grid.is-single .event-card.featured{grid-column:1}
 .event-grid.is-four{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 28px}
+.event-grid.is-editorial-seven{grid-template-columns:repeat(3,minmax(0,1fr));gap:38px 28px}
+.event-grid.is-editorial-seven .event-card:first-child{grid-column:1 / -1}
+.event-grid.is-editorial-seven .event-card:first-child .event-media{aspect-ratio:16/9}
+.event-grid.is-editorial-seven .event-card:first-child h4{font-size:clamp(30px,3vw,42px)}
 .event-card{
   min-width:0;
 }
@@ -1002,6 +1007,7 @@ footer.foot{
 .event-card img.crop-left{object-position:34% center}
 .event-card img.crop-right{object-position:66% center}
 .event-card img.keep-left{object-position:0 center}
+.event-card img.nudge-left{--img-scale:1.03;--img-x:-2%}
 .event-card.wide-fill{grid-column:span 2}
 .event-card .event-kicker{
   font-size:10px;text-transform:uppercase;letter-spacing:.18em;
@@ -1032,7 +1038,8 @@ footer.foot{
   font-size:10px;white-space:nowrap;
 }
 @media(max-width:1100px){
-  .event-grid,.event-grid.is-four{grid-template-columns:repeat(2,1fr)}
+  .event-grid,.event-grid.is-four,.event-grid.is-editorial-seven{grid-template-columns:repeat(2,1fr)}
+  .event-grid.is-editorial-seven .event-card:first-child{grid-column:1 / -1}
 }
 @media(max-width:900px){
   .portfolio-intro{grid-template-columns:1fr;gap:18px;margin-bottom:48px}
@@ -1040,7 +1047,9 @@ footer.foot{
   .portfolio-group-head{grid-template-columns:46px 1fr;gap:14px 18px}
   .portfolio-group-head .group-note{grid-column:2}
   .portfolio-group-title h3{font-size:clamp(32px,9vw,44px)}
-  .event-grid,.event-grid.is-four{grid-template-columns:1fr;gap:28px}
+  .event-grid,.event-grid.is-four,.event-grid.is-editorial-seven{grid-template-columns:1fr;gap:28px}
+  .event-grid.is-editorial-seven .event-card:first-child{grid-column:auto}
+  .event-grid.is-editorial-seven .event-card:first-child .event-media{aspect-ratio:4/3}
   .event-card.featured{grid-column:auto}
   .event-card.wide-fill{grid-column:auto}
   .portfolio-note{display:block}
@@ -1556,7 +1565,7 @@ body[data-lang="bilingual"] .en-only{display:none}
 /* ====== SMALL-SCREEN HARDENING (<=520px / <=400px) ====== */
 @media(max-width:520px){
   /* Nav — keep brand + CTA tidy */
-  .brand-mark{font-size:18px}
+  .brand-mark{font-size:21px;font-weight:500;text-shadow:0 1px 0 rgba(255,255,255,.35)}
   .nav-cta{font-size:15px;padding:7px 14px}
 
   /* Hero — trim vertical length: drop the 3 stats, keep tagline + CTA */
@@ -1594,6 +1603,8 @@ body[data-lang="bilingual"] .en-only{display:none}
   .lw-cats{font-size:10px;letter-spacing:.14em;line-height:1.75}
   /* §05 Showreel */
   .reel-card .reel-cap{font-size:16px}
+  .reel-card .reel-title-line{gap:10px;align-items:flex-start}
+  .reel-card .reel-tag{margin-top:2px;padding:4px 8px}
 
   /* Footer */
   footer.foot h4{font-size:52px}
@@ -1910,7 +1921,7 @@ body[data-lang="bilingual"] .en-only{display:none}
           <div class="portfolio-group-no">03</div>
           <div class="portfolio-group-title">
             <h3>Game <em>&amp; esports event</em></h3>
-            <div class="signal">Grand finals · fan crowd · player interaction</div>
+            <div class="signal">Esports · fan crowd · live stage</div>
           </div>
           <p class="group-note">The tone here is faster and louder, but still needs clean sponsor mentions, player interviews and stage control.</p>
         </div>
@@ -1919,9 +1930,23 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media is-wide">
                 <div class="event-collage is-wide-main">
-                  <img src="assets/ev-game-3.webp" alt="NSOC Grand Finals 2025 host on stage" loading="lazy" decoding="async" />
-                  <img class="crop-stage" src="assets/ev-game-2.webp" alt="NSOC Grand Finals 2025 stage" loading="lazy" decoding="async" />
-                  <img class="crop-face" src="assets/ev-game-1.webp" alt="NSOC Grand Finals 2025 host portrait" loading="lazy" decoding="async" />
+                  <img src="assets/ev-game-3.webp" alt="UNITOUR NSOC 2025 host on stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-unitour-nsoc-stage.webp" alt="UNITOUR NSOC 2025 stage at University of Civil Engineering" loading="lazy" decoding="async" />
+                  <img class="crop-face" src="assets/ev-game-1.webp" alt="UNITOUR NSOC 2025 host portrait" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Esports &amp; music night</div>
+            <h4>UNITOUR NSOC <em>2025</em></h4>
+            <p>HUCE outdoor student crowd with esports, artist moments and live stage energy.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img src="assets/event-nsoc-grandfinals-stage.webp" alt="NSOC Grand Finals 2025 host on main stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-nsoc-grandfinals-host.webp" alt="NSOC Grand Finals 2025 host portrait" loading="lazy" decoding="async" />
+                  <img class="crop-stage" src="assets/event-nsoc-grandfinals-wide.webp" alt="NSOC Grand Finals 2025 arena stage" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
@@ -1943,7 +1968,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             <h4>National Student <em>Open Cup 2025</em></h4>
             <p>Player interviews, fan interaction and sponsor-facing live moments.</p>
           </article>
-          <article class="event-card wide-fill">
+          <article class="event-card">
             <figure>
               <div class="event-media">
                 <div class="event-collage m-third-main">
@@ -1957,6 +1982,20 @@ body[data-lang="bilingual"] .en-only{display:none}
             <h4>Audition <em>Birthday Stage</em></h4>
             <p>Large game-community stage with performance, awards and audience energy.</p>
           </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img src="assets/event-audition-starlink-2.webp" alt="Audition StarLink 2026 stage host" loading="lazy" decoding="async" />
+                  <img src="assets/event-audition-starlink-1.webp" alt="Audition StarLink 2026 gold stage portrait" loading="lazy" decoding="async" />
+                  <img src="assets/event-audition-starlink-3.webp" alt="Audition StarLink 2026 host portrait" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Game stage</div>
+            <h4>Audition <em>StarLink 2026</em></h4>
+            <p>Game-community stage with performance flow, audience energy and polished host presence.</p>
+          </article>
         </div>
       </section>
 
@@ -1969,7 +2008,7 @@ body[data-lang="bilingual"] .en-only{display:none}
           </div>
           <p class="group-note">Gala work looks strongest through real stage photographs: scale, light, leadership moments and audience atmosphere.</p>
         </div>
-        <div class="event-grid is-four">
+        <div class="event-grid is-editorial-seven">
           <article class="event-card">
             <figure>
               <div class="event-media">
@@ -2032,6 +2071,34 @@ body[data-lang="bilingual"] .en-only{display:none}
             <h4>Zalo Ads <em>Thank You Party</em></h4>
             <p>Partner appreciation event with a polished corporate tone.</p>
           </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img src="assets/event-viettel-store-20-1.webp" alt="Viettel Store 20 years anniversary host on stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-viettel-store-20-2.webp" alt="Viettel Store 20 years anniversary wide stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-viettel-store-20-3.webp" alt="Viettel Store 20 years anniversary host portrait" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Brand anniversary</div>
+            <h4>Viettel Store <em>20 Years</em></h4>
+            <p>Anniversary gala with brand storytelling, leadership rhythm and a high-energy stage.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img src="assets/event-hado-30-1.webp" alt="Ha Do Group 30th Anniversary host portrait" loading="lazy" decoding="async" />
+                  <img class="crop-headroom" src="assets/event-hado-30-2.webp" alt="Ha Do Group 30th Anniversary host on stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-hado-30-3.webp" alt="Ha Do Group 30th Anniversary audience stage" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Corporate milestone</div>
+            <h4>Ha Do Group <em>30th Anniversary</em></h4>
+            <p>Milestone celebration with leadership moments, audience connection and formal stage pacing.</p>
+          </article>
         </div>
       </section>
 
@@ -2044,7 +2111,7 @@ body[data-lang="bilingual"] .en-only{display:none}
           </div>
           <p class="group-note">The proof here is less about spectacle and more about clarity: keeping speakers, audience and agenda moving cleanly.</p>
         </div>
-        <div class="event-grid is-four">
+        <div class="event-grid is-editorial-seven">
           <article class="event-card">
             <figure>
               <div class="event-media">
@@ -2113,6 +2180,20 @@ body[data-lang="bilingual"] .en-only{display:none}
             <h4>Netco <em>x Tokio Marine</em></h4>
             <p>Partner-facing session flow for business guests.</p>
           </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img src="assets/event-xsolla-connect-2.webp" alt="Xsolla Connect Ho Chi Minh City 2026 host portrait" loading="lazy" decoding="async" />
+                  <img src="assets/event-xsolla-connect-3.webp" alt="Xsolla Connect panel moment" loading="lazy" decoding="async" />
+                  <img src="assets/event-xsolla-connect-1.webp" alt="Xsolla Connect audience" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Tech conference</div>
+            <h4>Xsolla <em>Connect HCMC 2026</em></h4>
+            <p>Gaming-industry conference hosting with panel moments, partner guests and business-room focus.</p>
+          </article>
         </div>
       </section>
 
@@ -2158,7 +2239,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img class="keep-left" src="assets/event-toshiba-demo.webp" alt="Toshiba product showcase with audience" loading="lazy" decoding="async" />
+                  <img class="keep-left" src="assets/event-toshiba-crop.webp" alt="Toshiba product showcase with audience" loading="lazy" decoding="async" />
                   <img src="assets/event-toshiba-host.webp" alt="Toshiba product showcase host" loading="lazy" decoding="async" />
                   <img class="crop-face" src="assets/event-toshiba-portrait.webp" alt="Toshiba product showcase portrait" loading="lazy" decoding="async" />
                 </div>
@@ -2173,12 +2254,6 @@ body[data-lang="bilingual"] .en-only{display:none}
             <div class="event-kicker">Partner talk</div>
             <h4>LG <em>x AKA Furniture</em></h4>
             <p>Product conversation, guest moderation and premium retail context.</p>
-          </article>
-          <article class="event-card">
-            <figure><div class="event-media"><img src="assets/event-dewalt.webp" alt="DeWalt industrial brand event" loading="lazy" decoding="async" /></div></figure>
-            <div class="event-kicker">Industrial brand</div>
-            <h4>DeWalt <em>Brand Event</em></h4>
-            <p>Technical brand presence with a sharp, concise hosting tone.</p>
           </article>
         </div>
       </section>
@@ -2220,6 +2295,20 @@ body[data-lang="bilingual"] .en-only{display:none}
             <div class="event-kicker">Cultural festival</div>
             <h4>Thang Long <em>Festival 2024</em></h4>
             <p>Japan-Vietnam culture stage with performance and fireworks flow.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img class="nudge-left" src="assets/event-oeg-wonderland-4.webp" alt="OEG Wonderland wide stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-oeg-wonderland-2.webp" alt="OEG Wonderland host on stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-oeg-wonderland-3.webp" alt="OEG Wonderland audience moment" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Entertainment stage</div>
+            <h4>OEG <em>Wonderland</em></h4>
+            <p>Entertainment-stage hosting with performer moments, crowd rhythm and public audience energy.</p>
           </article>
         </div>
       </section>
@@ -2378,18 +2467,18 @@ body[data-lang="bilingual"] .en-only{display:none}
     </div>
 
     <div class="reels-meta">
-      <span class="reels-meta-tag">4 reels · EN / VN · click to watch</span>
+      <span class="reels-meta-tag">6 reels · stage hosting · click to watch</span>
     </div>
 
     <div class="reels-grid-22">
       <article class="reel-card">
         <div class="reel-title-line">
           <span class="reel-num">01</span>
-          <span class="reel-cap serif">Conference · <em>bilingual host</em></span>
-          <span class="reel-tag">EN / VN</span>
+          <span class="reel-cap serif">OEG Wonderland · <em>Vietnamese host</em></span>
+          <span class="reel-tag">VN</span>
         </div>
-        <div class="reel-lite landscape" data-yt="5yE465v3Rk4" role="button" aria-label="Play reel 1">
-          <img src="assets/reel-conference.webp" alt="Reel 1" loading="lazy" decoding="async" />
+        <div class="reel-lite landscape" data-yt="wfv1HNH2bog" role="button" aria-label="Play OEG Wonderland reel">
+          <img src="assets/reel-oeg-wonderland.webp" alt="OEG Wonderland showreel thumbnail" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -2397,11 +2486,11 @@ body[data-lang="bilingual"] .en-only{display:none}
       <article class="reel-card">
         <div class="reel-title-line">
           <span class="reel-num">02</span>
-          <span class="reel-cap serif">Gala dinner · <em>bilingual host</em></span>
-          <span class="reel-tag">EN / VN</span>
+          <span class="reel-cap serif">Viettel Store 20 Years · <em>Vietnamese host</em></span>
+          <span class="reel-tag">VN</span>
         </div>
-        <div class="reel-lite landscape" data-yt="z2RWml0nxUU" role="button" aria-label="Play reel 2">
-          <img src="assets/reel-gala.webp" alt="Reel 2" loading="lazy" decoding="async" />
+        <div class="reel-lite landscape" data-yt="ldbaxSCFDwE" role="button" aria-label="Play Viettel Store 20 years reel">
+          <img src="assets/reel-viettel-store-20.webp" alt="Viettel Store 20 years showreel thumbnail" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -2409,11 +2498,11 @@ body[data-lang="bilingual"] .en-only{display:none}
       <article class="reel-card">
         <div class="reel-title-line">
           <span class="reel-num">03</span>
-          <span class="reel-cap serif">Festival · <em>energy reel</em></span>
+          <span class="reel-cap serif">Tray Hoi Festival · <em>outdoor stage</em></span>
           <span class="reel-tag">VN</span>
         </div>
-        <div class="reel-lite landscape" data-yt="5_XNbfQhY2s" role="button" aria-label="Play reel 3">
-          <img src="assets/reel-festival.webp" alt="Reel 3" loading="lazy" decoding="async" />
+        <div class="reel-lite landscape" data-yt="5_XNbfQhY2s" role="button" aria-label="Play Tray Hoi Festival reel">
+          <img src="assets/reel-trayhoi.webp" alt="Tray Hoi Festival showreel thumbnail" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -2421,11 +2510,35 @@ body[data-lang="bilingual"] .en-only{display:none}
       <article class="reel-card">
         <div class="reel-title-line">
           <span class="reel-num">04</span>
-          <span class="reel-cap serif">Stage · <em>moment reel</em></span>
+          <span class="reel-cap serif">Game opening · <em>Kiem Ton Origin</em></span>
           <span class="reel-tag">VN</span>
         </div>
-        <div class="reel-lite landscape" data-yt="tiTS6f7sxCs" role="button" aria-label="Play reel 4">
-          <img src="assets/reel-moment.webp" alt="Reel 4" loading="lazy" decoding="async" />
+        <div class="reel-lite landscape" data-yt="tiTS6f7sxCs" role="button" aria-label="Play game opening reel">
+          <img src="assets/reel-kiemton-origin.webp" alt="Kiem Ton Origin game event showreel thumbnail" loading="lazy" decoding="async" />
+          <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">05</span>
+          <span class="reel-cap serif">Netco x Tokio Marine · <em>bilingual session</em></span>
+          <span class="reel-tag">EN / VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="5yE465v3Rk4" role="button" aria-label="Play Netco Tokio Marine reel">
+          <img src="assets/reel-netco.webp" alt="Netco Tokio Marine showreel thumbnail" loading="lazy" decoding="async" />
+          <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">06</span>
+          <span class="reel-cap serif">Gold market talk · <em>bilingual moderation</em></span>
+          <span class="reel-tag">EN / VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="z2RWml0nxUU" role="button" aria-label="Play gold market talk reel">
+          <img src="assets/reel-gold-market-talk.webp" alt="Gold market talk showreel thumbnail" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -2538,16 +2651,31 @@ const io = new IntersectionObserver((entries)=>{
 },{threshold:.12});
 fadeEls.forEach(el=>io.observe(el));
 
-// Keep initial load light, then warm the image cache in document order.
-// This preserves the fast hero while making later portfolio sections feel ready.
+// Keep initial load light, then warm useful below-fold images first.
+// Hero stays first; the first two portfolio groups are warmed before the rest.
 function warmLazyImages(){
-  const lazyImages = Array.from(document.querySelectorAll('img[loading="lazy"]'));
-  if(!lazyImages.length) return;
+  const allLazyImages = Array.from(document.querySelectorAll('img[loading="lazy"]'));
+  if(!allLazyImages.length) return;
 
-  let index = 0;
+  const unique = (images) => {
+    const seen = new Set();
+    return images.filter(img => {
+      if(seen.has(img)) return false;
+      seen.add(img);
+      return true;
+    });
+  };
+  const phaseOne = unique(Array.from(document.querySelectorAll('#hall img[loading="lazy"], #works .portfolio-group:nth-child(-n+2) img[loading="lazy"]')));
+  const phaseTwo = unique(Array.from(document.querySelectorAll('#works .portfolio-group:nth-child(n+3):nth-child(-n+5) img[loading="lazy"], #voice img[loading="lazy"]')));
+  const earlySet = new Set(phaseOne.concat(phaseTwo));
+  const phaseThree = allLazyImages.filter(img => !earlySet.has(img));
+
   const isMobile = window.matchMedia('(max-width: 720px)').matches;
-  const batchSize = isMobile ? 8 : 6;
-  const batchDelay = isMobile ? 140 : 100;
+  const phases = [
+    {images:phaseOne, batch:isMobile ? 6 : 8, delay:isMobile ? 120 : 100, nextDelay:220},
+    {images:phaseTwo, batch:isMobile ? 4 : 6, delay:isMobile ? 260 : 180, nextDelay:520},
+    {images:phaseThree, batch:isMobile ? 3 : 5, delay:isMobile ? 420 : 300, nextDelay:0}
+  ];
 
   const loadOne = (img) => new Promise(resolve => {
     if(img.complete && img.naturalWidth > 0) return resolve();
@@ -2559,21 +2687,44 @@ function warmLazyImages(){
     preload.src = img.currentSrc || img.src;
   });
 
-  const loadBatch = () => {
-    const batch = lazyImages.slice(index, index + batchSize);
-    index += batchSize;
-    Promise.all(batch.map(loadOne)).finally(() => {
-      if(index < lazyImages.length) window.setTimeout(loadBatch, batchDelay);
-    });
+  const loadQueue = (queue, batchSize, delay, done) => {
+    let index = 0;
+    const loadBatch = () => {
+      const batch = queue.slice(index, index + batchSize);
+      index += batchSize;
+      if(!batch.length){
+        if(done) done();
+        return;
+      }
+      Promise.all(batch.map(loadOne)).finally(() => {
+        if(index < queue.length){
+          window.setTimeout(loadBatch, delay);
+        }else if(done){
+          done();
+        }
+      });
+    };
+    loadBatch();
+  };
+
+  const loadPhase = (phaseIndex = 0) => {
+    const phase = phases[phaseIndex];
+    if(!phase) return;
+    const next = () => window.setTimeout(() => loadPhase(phaseIndex + 1), phase.nextDelay);
+    if(phase.images.length){
+      loadQueue(phase.images, phase.batch, phase.delay, next);
+      return;
+    }
+    next();
   };
 
   const start = () => window.setTimeout(() => {
     if('requestIdleCallback' in window){
-      requestIdleCallback(loadBatch, {timeout: 700});
+      requestIdleCallback(() => loadPhase(0), {timeout: 700});
     }else{
-      loadBatch();
+      loadPhase(0);
     }
-  }, 250);
+  }, 200);
 
   const heroImg = document.getElementById('hero-img-el');
   if(heroImg && !(heroImg.complete && heroImg.naturalWidth > 0)){
