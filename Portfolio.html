@@ -667,7 +667,7 @@ body[data-lang="bilingual"] .gtab.on .vi{color:#d9b985}
 footer.foot{
   background:var(--ink);color:#bdb29c;padding:80px 0 40px;
 }
-.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:60px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:48px;margin-bottom:60px}
 @media(max-width:900px){.foot-grid{grid-template-columns:1fr;gap:32px}}
 .foot h4{
   font-family:'Newsreader',serif;font-weight:400;
@@ -903,9 +903,8 @@ footer.foot{
 
 /* §04 portfolio — grouped events, no mixed-case cards */
 .portfolio-intro{
-  display:grid;grid-template-columns:1.05fr .95fr;
-  gap:56px;align-items:end;
-  margin:-18px 0 72px;
+  max-width:760px;
+  margin:-24px 0 58px;
 }
 .portfolio-intro .lead{
   font-family:'Newsreader',serif;
@@ -916,13 +915,20 @@ footer.foot{
 .portfolio-intro .note{
   color:var(--ink-soft);font-size:15px;line-height:1.75;margin:0;
 }
+.portfolio-head{
+  grid-template-columns:1fr;
+  gap:18px;
+  align-items:start;
+}
+.portfolio-head .section-num{font-size:19px}
+.portfolio-head .section-title{max-width:920px}
 .portfolio-groups{display:grid;gap:76px}
 .portfolio-group{
   border-top:1px solid var(--line);
   padding-top:44px;
 }
 .portfolio-group-head{
-  display:grid;grid-template-columns:74px 1fr .95fr;
+  display:grid;grid-template-columns:74px 1fr;
   gap:28px;align-items:start;
   margin-bottom:30px;
 }
@@ -943,8 +949,7 @@ footer.foot{
   color:var(--gold-deep);font-weight:700;
 }
 .portfolio-group-head .group-note{
-  color:var(--ink-soft);font-size:14px;line-height:1.65;
-  margin:0;padding-top:3px;
+  display:none;
 }
 .event-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
@@ -975,12 +980,15 @@ footer.foot{
 }
 .event-card:hover .event-media img{transform:translate(var(--img-x,0),var(--img-y,0)) scale(calc(var(--img-scale,1) * 1.025));filter:saturate(1)}
 .event-card .event-collage{
-  display:grid;grid-template-columns:1.45fr 1fr;grid-template-rows:1fr 1fr;
+  display:grid;grid-template-columns:1.45fr 1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr);
   gap:5px;width:100%;height:100%;
 }
+.event-card .event-collage img{min-width:0;min-height:0}
 .event-card .event-collage img:first-child{grid-row:1 / span 2}
 .event-card .event-collage.is-equal{grid-template-columns:1fr 1fr}
 .event-card .event-collage.is-wide-main{grid-template-columns:1.65fr 1fr}
+.event-card .event-collage.is-two-up{grid-template-columns:1fr 1fr;grid-template-rows:1fr}
+.event-card .event-collage.is-two-up img:first-child{grid-row:auto}
 .event-card img.crop-low{--img-scale:1.38;--img-y:-13%;object-position:center 72%}
 .event-card img.crop-stage{object-position:center 62%}
 .event-card img.crop-face{object-position:center 28%}
@@ -1028,6 +1036,14 @@ footer.foot{
   .event-card.featured{grid-column:auto}
   .portfolio-note{display:block}
   .portfolio-note b{display:block;margin-bottom:12px}
+}
+@media(max-width:520px){
+  .event-card .event-collage.m-second-main img:first-child{grid-row:auto;order:2}
+  .event-card .event-collage.m-second-main img:nth-child(2){grid-row:1 / span 2;order:1}
+  .event-card .event-collage.m-second-main img:nth-child(3){order:3}
+  .event-card .event-collage.m-third-main img:first-child{grid-row:auto;order:2}
+  .event-card .event-collage.m-third-main img:nth-child(2){order:3}
+  .event-card .event-collage.m-third-main img:nth-child(3){grid-row:1 / span 2;order:1}
 }
 
 /* compact "also" list under feature works — strengthened */
@@ -1608,7 +1624,7 @@ body[data-lang="bilingual"] .en-only{display:none}
       </div>
 
       <div class="hero-image-wrap" id="hero-image">
-        <img src="assets/hero-audition.webp" alt="Nga Lyna at Audition VTC event" id="hero-img-el" />
+        <img src="assets/hero-audition-clean.webp" alt="Nga Lyna at Audition event" id="hero-img-el" />
         <div class="frame-tag serif italic">Nga Lyna</div>
         <div class="frame-num serif">01</div>
       </div>
@@ -1743,13 +1759,12 @@ body[data-lang="bilingual"] .en-only{display:none}
 
     <div class="brand-tail" id="hall-display">
       <div>
-        <div class="tail-kicker">Additional selected names</div>
         <p class="tail-title">Additional <em>client experience</em></p>
       </div>
       <div class="hall-marquee" aria-label="Additional selected brand names">
         <div class="track">
-          <span>Mitsubishi</span><span>Bosch</span><span>Celestetic</span><span>Cosmo Entertainment</span><span>MEGA</span><span>Netco Post</span><span>Tokio Marine</span><span>VSAS</span><span>HD Hyundai</span><span>PD Group</span><span>Ministry of Culture · VCCA</span><span>AKA Furniture</span><span>Halong Cream</span><span>TC Motor</span><span>Viettel Security</span><span>Samsung</span><span>Yamaha</span><span>Viglacera</span><span>DeWalt</span><span>Zalo Ads</span><span>OEG</span>
-          <span>Mitsubishi</span><span>Bosch</span><span>Celestetic</span><span>Cosmo Entertainment</span><span>MEGA</span><span>Netco Post</span><span>Tokio Marine</span><span>VSAS</span><span>HD Hyundai</span><span>PD Group</span><span>Ministry of Culture · VCCA</span><span>AKA Furniture</span><span>Halong Cream</span><span>TC Motor</span><span>Viettel Security</span><span>Samsung</span><span>Yamaha</span><span>Viglacera</span><span>DeWalt</span><span>Zalo Ads</span><span>OEG</span>
+          <span>Mitsubishi</span><span>Bosch</span><span>Celestetic</span><span>Cosmo Entertainment</span><span>MEGA</span><span>Netco Post</span><span>Tokio Marine</span><span>VSAS</span><span>HD Hyundai</span><span>Ministry of Culture · VCCA</span><span>AKA Furniture</span><span>Halong Cream</span><span>TC Motor</span><span>Viettel Security</span><span>Samsung</span><span>Yamaha</span><span>Viglacera</span><span>DeWalt</span><span>Zalo Ads</span><span>OEG</span>
+          <span>Mitsubishi</span><span>Bosch</span><span>Celestetic</span><span>Cosmo Entertainment</span><span>MEGA</span><span>Netco Post</span><span>Tokio Marine</span><span>VSAS</span><span>HD Hyundai</span><span>Ministry of Culture · VCCA</span><span>AKA Furniture</span><span>Halong Cream</span><span>TC Motor</span><span>Viettel Security</span><span>Samsung</span><span>Yamaha</span><span>Viglacera</span><span>DeWalt</span><span>Zalo Ads</span><span>OEG</span>
         </div>
       </div>
     </div>
@@ -1759,17 +1774,16 @@ body[data-lang="bilingual"] .en-only{display:none}
 <!-- ========== SELECTED PORTFOLIO ========== -->
 <section class="chap" id="works" data-screen-label="04 Selected portfolio" style="background:var(--paper-2)">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head portfolio-head">
       <div class="section-num">04 — Selected portfolio</div>
       <h2 class="section-title">
-        Range, <em>without noise.</em>
+        Selected <em>stage work.</em>
         <span class="vi vi-only">Đa dạng — nhưng vẫn chọn lọc</span>
       </h2>
     </div>
 
     <div class="portfolio-intro">
-      <p class="lead">A curated archive by <em>event weight</em>, then by format.</p>
-      <p class="note">Large stages and multi-stakeholder rooms come first. Smaller hospitality moments stay selected and precise, so each client can recognise the format closest to their own event.</p>
+      <p class="lead">Grouped by <em>event scale</em> and format, with large-stage work first.</p>
     </div>
 
     <div class="portfolio-groups">
@@ -1777,25 +1791,25 @@ body[data-lang="bilingual"] .en-only{display:none}
         <div class="portfolio-group-head">
           <div class="portfolio-group-no">01</div>
           <div class="portfolio-group-title">
-            <h3>Automotive <em>launch</em></h3>
-            <div class="signal">Vehicle reveal · retail traffic · brand precision</div>
+            <h3>Dealer conference <em>&amp; recognition</em></h3>
+            <div class="signal">Dealer room · award flow · business guests</div>
           </div>
-          <p class="group-note">Launch work needs product focus, crowd control and clean timing around the reveal, photo moments and guest movement.</p>
+          <p class="group-note">Dealer conference and recognition flow.</p>
         </div>
         <div class="event-grid is-single">
           <article class="event-card featured">
             <figure>
               <div class="event-media is-wide">
                 <div class="event-collage is-wide-main">
-                  <img src="assets/event-hyundai-santafe.webp" alt="Hyundai Santa Fe launch at mall"/>
-                  <img src="assets/event-hyundai-santafe-stage.webp" alt="Hyundai Santa Fe stage reveal"/>
-                  <img src="assets/event-hyundai-santafe-portrait.webp" alt="Hyundai Santa Fe host portrait"/>
+                  <img src="assets/event-nissan-2025-stage.webp" alt="Nissan Dealer Conference stage"/>
+                  <img src="assets/event-nissan-2025-host.webp" alt="Nissan Dealer Conference host"/>
+                  <img src="assets/event-nissan-vinhdanh.webp" alt="Nissan recognition ceremony"/>
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Automotive launch</div>
-            <h4>Hyundai <em>Santa Fe Launch</em></h4>
-            <p>Vehicle reveal, stage timing and branded product presence in a high-traffic mall setting.</p>
+            <div class="event-kicker">Dealer conference</div>
+            <h4>Nissan <em>Dealer Conference 2025</em></h4>
+            <p>Conference flow, recognition moments and dealer-facing energy.</p>
           </article>
         </div>
       </section>
@@ -1804,31 +1818,25 @@ body[data-lang="bilingual"] .en-only{display:none}
         <div class="portfolio-group-head">
           <div class="portfolio-group-no">02</div>
           <div class="portfolio-group-title">
-            <h3>Dealer conference <em>&amp; recognition</em></h3>
-            <div class="signal">Dealer room · award flow · business guests</div>
+            <h3>Automotive <em>experience</em></h3>
+            <div class="signal">New vehicle experience · retail traffic · brand precision</div>
           </div>
-          <p class="group-note">This is different from a car launch: the MC has to keep the room formal, clear and energetic across speeches, awards and brand protocol.</p>
+          <p class="group-note">Product reveal and showroom-stage hosting.</p>
         </div>
-        <div class="event-grid">
+        <div class="event-grid is-single">
           <article class="event-card featured">
             <figure>
               <div class="event-media is-wide">
-                <div class="event-collage is-wide-main">
-                  <img src="assets/event-nissan-2025-stage.webp" alt="Nissan Dealer Conference stage"/>
-                  <img src="assets/event-nissan-2025-host.webp" alt="Nissan Dealer Conference host"/>
-                  <img src="assets/event-nissan-2025-interaction.webp" alt="Nissan Dealer Conference guest interaction"/>
+                <div class="event-collage is-wide-main m-third-main">
+                  <img src="assets/event-hyundai-santafe-wide.webp" alt="Hyundai Santa Fe experience crowd at mall"/>
+                  <img src="assets/event-hyundai-santafe-front.webp" alt="Hyundai Santa Fe experience vehicle front stage"/>
+                  <img class="crop-face" src="assets/event-hyundai-santafe-host.webp" alt="Hyundai Santa Fe experience host"/>
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Dealer conference</div>
-            <h4>Nissan <em>Dealer Conference 2025</em></h4>
-            <p>Conference flow, recognition moments and dealer-facing energy.</p>
-          </article>
-          <article class="event-card">
-            <figure><div class="event-media"><img src="assets/event-nissan-vinhdanh.webp" alt="Nissan recognition ceremony"/></div></figure>
-            <div class="event-kicker">Recognition</div>
-            <h4>Nissan <em>Recognition Moment</em></h4>
-            <p>Formal award pacing with executives, partners and photo cues.</p>
+            <div class="event-kicker">New vehicle experience</div>
+            <h4>Hyundai <em>Santa Fe Experience</em></h4>
+            <p>New-vehicle experience, stage timing and branded product presence in a high-traffic mall setting.</p>
           </article>
         </div>
       </section>
@@ -1871,6 +1879,20 @@ body[data-lang="bilingual"] .en-only{display:none}
             <h4>National Student <em>Open Cup 2025</em></h4>
             <p>Player interviews, fan interaction and sponsor-facing live moments.</p>
           </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage m-third-main">
+                  <img src="assets/event-audition-birthday-stage.webp" alt="Audition Birthday stage"/>
+                  <img src="assets/event-audition-birthday-wide.webp" alt="Audition Birthday audience stage"/>
+                  <img src="assets/event-audition-birthday-award.webp" alt="Audition Birthday award moment"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Game stage</div>
+            <h4>Audition <em>Birthday Stage</em></h4>
+            <p>Large game-community stage with performance, awards and audience energy.</p>
+          </article>
         </div>
       </section>
 
@@ -1897,6 +1919,20 @@ body[data-lang="bilingual"] .en-only{display:none}
             <div class="event-kicker">Corporate gala</div>
             <h4>FLC Group <em>23rd Anniversary</em></h4>
             <p>Milestone celebration, leadership segments and full-stage gala flow.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img src="assets/event-viettel-security.webp" alt="Viettel Security gala dinner main stage"/>
+                  <img src="assets/logo-viettel-full.jpg" alt="Viettel Security brand"/>
+                  <img class="crop-face" src="assets/event-viettel-security-portrait.webp" alt="Viettel Security gala host portrait"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Client gala</div>
+            <h4>Viettel Security <em>10th Anniversary</em></h4>
+            <p>Customer appreciation gala with large LED stage and formal brand protocol.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -1932,12 +1968,6 @@ body[data-lang="bilingual"] .en-only{display:none}
             <h4>Zalo Ads <em>Thank You Party</em></h4>
             <p>Partner appreciation event with a polished corporate tone.</p>
           </article>
-          <article class="event-card">
-            <figure><div class="event-media"><img src="assets/event-pd-gala.webp" alt="PD Group gala"/></div></figure>
-            <div class="event-kicker">Corporate night</div>
-            <h4>PD Group <em>Gala Night</em></h4>
-            <p>Internal celebration with stage rhythm and audience connection.</p>
-          </article>
         </div>
       </section>
 
@@ -1952,13 +1982,35 @@ body[data-lang="bilingual"] .en-only{display:none}
         </div>
         <div class="event-grid is-four">
           <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/event-mps-cybersecurity-1.webp" alt="Cybersecurity conference by Ministry of Public Security"/>
+                  <img src="assets/event-mps-cybersecurity-2.webp" alt="Cybersecurity and information safety conference stage"/>
+                  <img src="assets/event-mps-cybersecurity-portrait.webp" alt="Cybersecurity conference portrait"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Cybersecurity forum</div>
+            <h4>Ministry of Public Security <em>Cybersecurity Forum</em></h4>
+            <p>Formal conference hosting for cybersecurity and information-safety stakeholders.</p>
+          </article>
+          <article class="event-card">
             <figure><div class="event-media"><img src="assets/event-vsas-conference.webp" alt="VSAS AI-Powered SEO conference"/></div></figure>
             <div class="event-kicker">Conference</div>
             <h4>VSAS <em>AI-Powered SEO</em></h4>
             <p>Expert-room hosting with structured speaker flow and professional pacing.</p>
           </article>
           <article class="event-card">
-            <figure><div class="event-media"><img src="assets/event-samsung-workshop.webp" alt="Samsung workshop with guest speakers"/></div></figure>
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/event-samsung-workshop-1.webp" alt="Samsung workshop panel"/>
+                  <img src="assets/event-samsung-workshop-2.webp" alt="Samsung workshop host interaction"/>
+                  <img src="assets/event-samsung-workshop-3.webp" alt="Samsung workshop portrait"/>
+                </div>
+              </div>
+            </figure>
             <div class="event-kicker">Product workshop</div>
             <h4>Samsung <em>West Lake Workshop</em></h4>
             <p>Guest exchange, product context and speaker interaction in a live showroom room.</p>
@@ -2031,7 +2083,29 @@ body[data-lang="bilingual"] .en-only{display:none}
             <p>Partner gathering, product reveal and bilingual stage flow.</p>
           </article>
           <article class="event-card">
-            <figure><div class="event-media"><img src="assets/event-toshiba.webp" alt="Toshiba product showcase"/></div></figure>
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/event-bidv-metlife-1.webp" alt="BIDV MetLife host on stage"/>
+                  <img src="assets/event-bidv-metlife-2.webp" alt="BIDV MetLife event stage"/>
+                  <img src="assets/event-bidv-metlife-3.webp" alt="BIDV MetLife guest segment"/>
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Finance &amp; insurance</div>
+            <h4>BIDV MetLife <em>Du Khuc Cham</em></h4>
+            <p>Finance-sector event hosting with brand presence and stage ceremony flow.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/event-toshiba-demo.webp" alt="Toshiba product showcase with audience"/>
+                  <img src="assets/event-toshiba-host.webp" alt="Toshiba product showcase host"/>
+                  <img class="crop-face" src="assets/event-toshiba-portrait.webp" alt="Toshiba product showcase portrait"/>
+                </div>
+              </div>
+            </figure>
             <div class="event-kicker">Product showcase</div>
             <h4>Toshiba <em>Showroom</em></h4>
             <p>Product-led hosting for electronics and retail partners.</p>
@@ -2105,16 +2179,16 @@ body[data-lang="bilingual"] .en-only{display:none}
           <article class="event-card">
             <figure>
               <div class="event-media">
-                <div class="event-collage is-wide-main">
-                  <img src="assets/event-viettel-security.webp" alt="Viettel Security gala dinner main stage"/>
-                  <img src="assets/logo-viettel-full.jpg" alt="Viettel Security brand"/>
-                  <img class="crop-face" src="assets/event-viettel-security-portrait.webp" alt="Viettel Security gala host portrait"/>
+                <div class="event-collage">
+                  <img src="assets/event-milo-talent.webp" alt="Milo brand moment with singer"/>
+                  <img src="assets/event-milo-crowd.webp" alt="Milo retail activation crowd"/>
+                  <img src="assets/event-milo-stage.webp" alt="Milo activation stage interaction"/>
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Client gala</div>
-            <h4>Viettel Security <em>10th Anniversary</em></h4>
-            <p>Customer appreciation gala with large LED stage, brand protocol and formal pacing.</p>
+            <div class="event-kicker">Consumer activation</div>
+            <h4>Milo <em>Brand Moment</em></h4>
+            <p>Retail-floor audience energy with talent interaction and youth-facing brand rhythm.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2148,7 +2222,7 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage is-wide-main">
-                  <img src="assets/event-comfort-activation.webp" alt="Comfort fragrance retail activation"/>
+                  <img src="assets/event-comfort-host.webp" alt="Comfort fragrance retail activation host"/>
                   <img src="assets/event-comfort-crowd.webp" alt="Comfort activation crowd"/>
                   <img src="assets/event-comfort-guests.webp" alt="Comfort activation guest moment"/>
                 </div>
@@ -2325,11 +2399,6 @@ body[data-lang="bilingual"] .en-only{display:none}
           <a href="#works"><span class="idx">04</span>Portfolio</a>
           <a href="#voice"><span class="idx">05</span>Showreel</a>
         </div>
-      </div>
-      <div class="col">
-        <b>Bookings</b>
-        <div style="color:#bdb29c;font-family:'Newsreader',serif;font-style:italic;font-size:17px;line-height:1.55;margin-bottom:18px">All engagements arranged through management.</div>
-        <div class="vi-only" style="color:#80766a;font-family:'Newsreader',serif;font-style:italic;font-size:14px;line-height:1.55">Mọi liên hệ vui lòng qua phía quản lý.</div>
       </div>
     </div>
 
