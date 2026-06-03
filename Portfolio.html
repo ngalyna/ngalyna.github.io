@@ -2553,7 +2553,6 @@ function warmLazyImages(){
     if(img.complete && img.naturalWidth > 0) return resolve();
     const preload = new Image();
     preload.decoding = 'async';
-    preload.fetchPriority = 'low';
     preload.onload = preload.onerror = resolve;
     if(img.sizes) preload.sizes = img.sizes;
     if(img.srcset) preload.srcset = img.srcset;
