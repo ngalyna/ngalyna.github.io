@@ -470,8 +470,9 @@ section.chap{padding:140px 0;position:relative}
   .brand-tail{margin-top:42px;padding-top:26px}
   .brand-tail .tail-title{font-size:clamp(24px,6.2vw,30px);max-width:none;white-space:nowrap}
   .hall-marquee{padding:24px 0}
-  .hall-marquee .track{animation-duration:78s}
+  .hall-marquee .track{gap:36px;animation-duration:44s}
   .hall-marquee .track > span{font-size:23px}
+  .hall-marquee .track > span::after{margin-left:36px}
 }
 
 
@@ -1206,9 +1207,9 @@ footer.foot{
 
 .logo-wall{
   display:grid;grid-template-columns:repeat(5,1fr);
-  gap:1px;
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.10);
+  gap:8px;
+  background:transparent;
+  border:0;
 }
 @media(max-width:900px){.logo-wall{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:520px){.logo-wall{grid-template-columns:repeat(3,1fr)}}
@@ -1217,6 +1218,8 @@ footer.foot{
   background:#fbfaf6;
   display:flex;align-items:center;justify-content:center;
   padding:20px 24px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:5px;
   position:relative;
   min-width:0;
   overflow:hidden;
@@ -1228,14 +1231,14 @@ footer.foot{
   z-index:2;transition:transform .35s, box-shadow .35s, z-index 0s;
 }
 .logo-cell img{
-  max-width:94%;max-height:84px;
+  max-width:98%;max-height:96px;
   width:100%;height:100%;
   object-fit:contain;
   transform:scale(var(--logo-scale,1));
   transition:filter .3s;
 }
-.logo-cell.logo-boost{--logo-scale:1.28}
-.logo-cell.logo-boost-lg{--logo-scale:1.42}
+.logo-cell.logo-boost{--logo-scale:1.34}
+.logo-cell.logo-boost-lg{--logo-scale:1.5}
 @media(max-width:900px){.logo-cell{padding:22px 26px}}
 @media(max-width:520px){.logo-cell{padding:14px 12px}}
 @media(max-width:720px){
@@ -1730,16 +1733,16 @@ body[data-lang="bilingual"] .en-only{display:none}
 
     <div class="logo-wall" id="logo-wall">
       <!-- Row 1 · Automotive -->
-      <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/hyundai.webp" alt="Hyundai"/></div>
+      <div class="logo-cell logo-boost" data-industry="auto"><img src="assets/logo-wall/hyundai.webp" alt="Hyundai"/></div>
       <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/toyota.webp" alt="Toyota"/></div>
-      <div class="logo-cell logo-boost" data-industry="auto"><img src="assets/logo-wall/nissan.webp" alt="Nissan"/></div>
+      <div class="logo-cell logo-boost-lg" data-industry="auto"><img src="assets/logo-wall/nissan.webp" alt="Nissan"/></div>
       <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/yamaha.webp" alt="Yamaha"/></div>
       <div class="logo-cell" data-industry="auto"><img src="assets/logo-wall/honda.webp" alt="Honda"/></div>
 
       <!-- Row 2 · Tech & Electronics -->
       <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/fujifilm.webp" alt="Fujifilm"/></div>
       <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/lg.webp" alt="LG"/></div>
-      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/sharp.webp" alt="Sharp"/></div>
+      <div class="logo-cell logo-boost" data-industry="tech"><img src="assets/logo-wall/sharp.webp" alt="Sharp"/></div>
       <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/toshiba.webp" alt="Toshiba"/></div>
       <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/samsung.webp" alt="Samsung"/></div>
 
@@ -1754,13 +1757,13 @@ body[data-lang="bilingual"] .en-only{display:none}
       <div class="logo-cell" data-industry="bank"><img src="assets/logo-wall/ocb.webp" alt="OCB"/></div>
       <div class="logo-cell" data-industry="bank"><img src="assets/logo-wall/vpbank.webp" alt="VPBank"/></div>
       <div class="logo-cell" data-industry="bank"><img src="assets/logo-wall/seabank.webp" alt="SeABank"/></div>
-      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/vingroup.webp" alt="Vingroup"/></div>
+      <div class="logo-cell logo-boost" data-industry="corporate"><img src="assets/logo-wall/vingroup.webp" alt="Vingroup"/></div>
       <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/flc.webp" alt="FLC Group"/></div>
 
       <!-- Row 5 · State, Telecom & Industrial -->
       <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/viettel.webp" alt="Viettel"/></div>
-      <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/bocongan.webp" alt="Ministry of Public Security"/></div>
-      <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/oeg.webp" alt="OEG"/></div>
+      <div class="logo-cell logo-boost" data-industry="corporate"><img src="assets/logo-wall/bocongan.webp" alt="Ministry of Public Security"/></div>
+      <div class="logo-cell logo-boost" data-industry="tech"><img src="assets/logo-wall/oeg.webp" alt="OEG"/></div>
       <div class="logo-cell" data-industry="tech"><img src="assets/logo-wall/panasonic.webp" alt="Panasonic"/></div>
       <div class="logo-cell" data-industry="corporate"><img src="assets/logo-wall/dewalt.webp" alt="DeWalt"/></div>
     </div>
