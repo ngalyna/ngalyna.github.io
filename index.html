@@ -331,6 +331,7 @@ section.hero{
     transform:translateY(10px);
   }
   .hero-text .eyebrow{margin-bottom:24px;gap:10px;font-size:10px;letter-spacing:.2em}
+  .hero-text .eyebrow .mobile-hero-extra{display:none}
   .hero-headline{margin-bottom:20px}
   .hero-vi{line-height:1.35}
   .hero-grid{grid-template-columns:1fr;gap:32px}
@@ -342,6 +343,8 @@ section.hero{
   .hero[data-variant="cinematic"] .hero-image-wrap{position:absolute;inset:0;margin:0;aspect-ratio:auto;max-height:none}
   .hero[data-variant="cinematic"] .hero-image-wrap img{object-position:55% center;filter:none}
   .hero[data-variant="cinematic"] .hero-text{padding:0 24px 44px}
+  .hero[data-variant="cinematic"] .btn-primary{font-size:18px;padding:12px 22px}
+  .hero[data-variant="cinematic"] .btn-primary svg{width:12px;height:12px}
 }
 
 /* ====== SECTION SHELL ====== */
@@ -527,6 +530,7 @@ section.chap{padding:140px 0;position:relative}
   .brand-tail{margin-top:42px;padding-top:26px}
   .brand-tail .tail-title{font-size:clamp(24px,6.2vw,30px);max-width:none;white-space:nowrap}
   .hall-marquee{padding:24px 0}
+  .hall-marquee::before,.hall-marquee::after{width:34px}
   .hall-marquee .track{gap:28px;animation-duration:36s}
   .hall-marquee .track > span{font-size:23px}
   .hall-marquee .track > span::after{margin-left:28px}
@@ -749,6 +753,26 @@ footer.foot{
 }
 .foot-intro .foot-line{display:block}
 .foot-intro .foot-line + .foot-line{margin-top:8px}
+.booking-note{
+  margin-top:28px;
+  padding-top:22px;
+  border-top:1px solid rgba(255,255,255,.12);
+  max-width:560px;
+}
+.booking-note b{
+  display:block;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  color:#d9b985;
+  margin-bottom:10px;
+}
+.booking-note p{
+  margin:0;
+  color:#bdb29c;
+  font-size:13px;
+  line-height:1.75;
+}
 /* Navigate — tidy wrapping link row, consistent on every screen */
 .foot-nav .nav-set{display:flex;flex-direction:column;gap:2px}
 .foot-nav .nav-set a{
@@ -1077,6 +1101,7 @@ footer.foot{
 .event-card img.crop-right{object-position:66% center}
 .event-card img.keep-left{object-position:0 center}
 .event-card img.nudge-left{--img-scale:1.03;--img-x:-2%}
+.event-card img.oeg-wide{--img-scale:1.02;--img-x:-2%}
 .event-card.wide-fill{grid-column:span 2}
 .event-card .event-kicker{
   font-size:10px;text-transform:uppercase;letter-spacing:.18em;
@@ -1114,6 +1139,25 @@ footer.foot{
   color:var(--gold-deep);text-transform:uppercase;letter-spacing:.22em;
   font-size:10px;white-space:nowrap;
 }
+.mobile-more-toggle{
+  display:none;
+  margin-top:24px;
+  min-height:44px;
+  padding:12px 20px;
+  border:1px solid var(--line-strong);
+  border-radius:999px;
+  background:transparent;
+  color:var(--ink);
+  font-family:'Newsreader',serif;
+  font-style:italic;
+  font-size:18px;
+  cursor:pointer;
+}
+.mobile-more-toggle:hover{background:rgba(168,137,90,.08)}
+.mobile-more-toggle:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.mobile-more-toggle .less-label{display:none}
+.portfolio-group.is-expanded .mobile-more-toggle .more-label{display:none}
+.portfolio-group.is-expanded .mobile-more-toggle .less-label{display:inline}
 @media(max-width:1100px){
   .event-grid,.event-grid.is-four,.event-grid.is-editorial-seven{grid-template-columns:repeat(2,1fr)}
   .event-grid.is-editorial-seven .event-card:first-child{grid-column:1 / -1}
@@ -1130,6 +1174,8 @@ footer.foot{
   .event-card.featured{grid-column:auto}
   .event-card.wide-fill{grid-column:auto}
   .event-card.desktop-featured{order:-1}
+  .portfolio-group.mobile-collapsible:not(.is-expanded) .event-grid > .event-card:nth-child(n+5){display:none}
+  .portfolio-group.mobile-collapsible .mobile-more-toggle{display:inline-flex;align-items:center;justify-content:center}
   .portfolio-note{display:block}
   .portfolio-note b{display:block;margin-bottom:12px}
 }
@@ -1207,6 +1253,10 @@ footer.foot{
 }
 @media(max-width:900px){.reels-grid-22{grid-template-columns:1fr;gap:24px}}
 .reel-card{display:flex;flex-direction:column;gap:14px}
+.reel-card.reel-featured{grid-column:1 / -1}
+.reel-card.reel-featured .reel-title-line{padding-bottom:14px}
+.reel-card.reel-featured .reel-cap{font-size:clamp(24px,2.4vw,34px)}
+.reel-card.reel-featured .reel-lite{max-height:720px}
 .reel-card .reel-title-line{
   display:flex;align-items:baseline;gap:14px;
   padding-bottom:10px;border-bottom:1px solid var(--line);
@@ -1766,7 +1816,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
     <div class="hero-grid">
       <div class="hero-text">
         <div class="hero-name serif">Nga Lyna</div>
-        <div class="eyebrow">Bilingual MC · <span class="en-only">Hanoi-based</span><span class="vi-only">Hà Nội</span> · Vietnam &amp; international events</div>
+        <div class="eyebrow">Bilingual MC · <span class="en-only">Hanoi-based</span><span class="vi-only">Hà Nội</span><span class="mobile-hero-extra"> · Vietnam &amp; international events</span></div>
         <h1 class="hero-headline serif" id="hero-headline">
           Two languages,<br><em>one stage.</em>
         </h1>
@@ -1802,7 +1852,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
       <div class="cap-statement">
         <div class="section-num">02 — Stagecraft</div>
         <h2 class="serif">Poise under lights. <em>Control in motion.</em></h2>
-        <p>Why brands choose Nga Lyna for rooms that need timing, tone and composure: she reads the audience, protects the timeline, and makes every transition feel intentional in Vietnamese, English, or both.</p>
+        <p>A professional MC protects the room as much as the script: reading the audience, keeping the timeline clean and making every transition feel intentional.</p>
       </div>
 
       <div class="cap-list">
@@ -1810,28 +1860,28 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           <div class="cap-no">I</div>
           <div>
             <div class="cap-title">Bilingual hosting <em>· EN &amp; VN</em></div>
-            <div class="cap-desc">Natural movement between English and Vietnamese, keeping every guest oriented without making the program feel translated.</div>
+            <div class="cap-desc">Natural movement between English and Vietnamese without making the program feel translated.</div>
           </div>
         </div>
         <div class="cap-row">
           <div class="cap-no">II</div>
           <div>
             <div class="cap-title">Room control <em>&amp; pacing</em></div>
-            <div class="cap-desc">Openings, speaker transitions, awards, lucky draws and unscripted moments handled with calm timing and visible command.</div>
+            <div class="cap-desc">Openings, speaker transitions, awards and unscripted moments handled with calm timing.</div>
           </div>
         </div>
         <div class="cap-row">
           <div class="cap-no">III</div>
           <div>
             <div class="cap-title">Brand-sensitive <em>presence</em></div>
-            <div class="cap-desc">A stage tone matched to the brief: precise for automotive launches, elegant for luxury retail, warm for gala nights and alive for public crowds.</div>
+            <div class="cap-desc">A stage tone matched to the brief: precise for conferences, elegant for luxury retail and energetic for public crowds.</div>
           </div>
         </div>
         <div class="cap-row">
           <div class="cap-no">IV</div>
           <div>
             <div class="cap-title">Voice <em>&amp; on-camera delivery</em></div>
-            <div class="cap-desc">Warm, precise narration for product films, brand videos and stage-to-screen content when the event needs a voice beyond the room.</div>
+            <div class="cap-desc">Warm, precise narration for product films, brand videos and on-camera delivery.</div>
           </div>
         </div>
       </div>
@@ -1871,8 +1921,8 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
       <div>
         <div class="logo-wall-eyebrow">Selected partner brands</div>
         <div class="logo-wall-title serif">
-          <em>25+ brands</em> across diverse industries
-          <span class="lw-cats">Representative experience: Automotive · Finance · Retail &amp; Lifestyle · Tech &amp; Electronics · Corporate &amp; Culture<span class="vi-only vi-cap"> &nbsp;·&nbsp; Kinh nghiệm tiêu biểu: ô tô · tài chính · bán lẻ · công nghệ · doanh nghiệp &amp; văn hoá</span></span>
+          <em>25+ brands</em> across industries
+          <span class="lw-cats">Automotive · Finance · Retail &amp; Lifestyle · Tech &amp; Electronics · Corporate &amp; Culture<span class="vi-only vi-cap"> &nbsp;·&nbsp; Ô tô · tài chính · bán lẻ · công nghệ · doanh nghiệp &amp; văn hoá</span></span>
         </div>
       </div>
     </div>
@@ -1972,7 +2022,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Dealer conference</div>
             <h4>Nissan <em>Dealer Conference 2025</em></h4>
-            <p>Award timing, recognition cues and a clear business tone.</p>
+            <p>Recognition flow and business-room pacing for dealer guests.</p>
           </article>
         </div>
       </section>
@@ -2004,7 +2054,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
         </div>
       </section>
 
-      <section class="portfolio-group">
+      <section class="portfolio-group mobile-collapsible">
         <div class="portfolio-group-head">
           <div class="portfolio-group-no">03</div>
           <div class="portfolio-group-title">
@@ -2040,7 +2090,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Grand finals</div>
             <h4>NSOC <em>Grand Finals 2025</em></h4>
-            <p>Large-format game stage with sponsor mentions, fan momentum and live hosting.</p>
+            <p>Large-format game stage with sponsor mentions and live crowd momentum.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2054,7 +2104,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Esports activation</div>
             <h4>National Student <em>Open Cup 2025</em></h4>
-            <p>Player interviews, fan interaction and sponsor-facing live segments.</p>
+            <p>Player interviews, fan interaction and sponsor moments in a live crowd setting.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2082,17 +2132,21 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Game stage</div>
             <h4>Audition <em>StarLink 2026</em></h4>
-            <p>Game-community stage with performance segments, crowd lift and polished host presence.</p>
+            <p>Game-community stage with performance segments, audience momentum and polished host presence.</p>
           </article>
         </div>
+        <button class="mobile-more-toggle" type="button" aria-expanded="false" data-more-toggle>
+          <span class="more-label"><span class="en-only">More game &amp; esports work</span><span class="vi-only">Xem thêm sự kiện game &amp; esports</span></span>
+          <span class="less-label"><span class="en-only">Show less</span><span class="vi-only">Thu gọn</span></span>
+        </button>
       </section>
 
-      <section class="portfolio-group">
+      <section class="portfolio-group mobile-collapsible">
         <div class="portfolio-group-head">
           <div class="portfolio-group-no">04</div>
           <div class="portfolio-group-title">
             <h3>Gala <em>&amp; internal milestones</em></h3>
-            <div class="signal">Awards · leadership moments · ceremony control</div>
+            <div class="signal">Awards · leadership moments · ceremony timing</div>
           </div>
           <p class="group-note">Gala work looks strongest through real stage photographs: scale, light, leadership moments and audience atmosphere.</p>
         </div>
@@ -2151,7 +2205,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Year-end party</div>
             <h4>Viglacera <em>Year End Party 2025</em></h4>
-            <p>Corporate celebration with formal hosting, audience attention and clean stage transitions.</p>
+            <p>Corporate celebration with formal hosting and clean stage transitions.</p>
           </article>
           <article class="event-card">
             <figure><div class="event-media"><img src="assets/event-zalo-thankyou.webp" alt="Zalo Ads Thank You Party" loading="lazy" decoding="async" /></div></figure>
@@ -2185,17 +2239,21 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Corporate milestone</div>
             <h4>Ha Do Group <em>30th Anniversary</em></h4>
-            <p>Milestone celebration with leadership moments, audience connection and formal stage control.</p>
+            <p>Milestone celebration with leadership moments, audience connection and formal stage pacing.</p>
           </article>
         </div>
+        <button class="mobile-more-toggle" type="button" aria-expanded="false" data-more-toggle>
+          <span class="more-label"><span class="en-only">More gala work</span><span class="vi-only">Xem thêm sự kiện gala</span></span>
+          <span class="less-label"><span class="en-only">Show less</span><span class="vi-only">Thu gọn</span></span>
+        </button>
       </section>
 
-      <section class="portfolio-group">
+      <section class="portfolio-group mobile-collapsible">
         <div class="portfolio-group-head">
           <div class="portfolio-group-no">05</div>
           <div class="portfolio-group-title">
             <h3>Conference <em>&amp; expert forum</em></h3>
-            <div class="signal">Moderation · senior rooms · Q&amp;A control</div>
+            <div class="signal">Moderation · senior stakeholder rooms · Q&amp;A control</div>
           </div>
           <p class="group-note">The proof here is less about spectacle and more about clarity: keeping speakers, audience and agenda moving cleanly.</p>
         </div>
@@ -2237,6 +2295,20 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           <article class="event-card">
             <figure>
               <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img src="assets/event-xsolla-connect-2.webp" alt="Xsolla Connect Ho Chi Minh City 2026 host portrait" loading="lazy" decoding="async" />
+                  <img src="assets/event-xsolla-connect-3.webp" alt="Xsolla Connect panel moment" loading="lazy" decoding="async" />
+                  <img src="assets/event-xsolla-connect-1.webp" alt="Xsolla Connect audience" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Tech conference</div>
+            <h4>Xsolla <em>Connect HCMC 2026</em></h4>
+            <p>Gaming-industry conference with panel flow, partner guests and business-audience focus.</p>
+          </article>
+          <article class="event-card mobile-extra">
+            <figure>
+              <div class="event-media">
                 <div class="event-collage">
                   <img src="assets/event-toyota.webp" alt="Toyota Tuong Lai Xanh discussion at HUST" loading="lazy" decoding="async" />
                   <img src="assets/event-stage2.webp" alt="Tuong Lai Xanh panel at Hanoi University of Science and Technology" loading="lazy" decoding="async" />
@@ -2246,15 +2318,15 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">University forum</div>
             <h4>Bach Khoa HUST <em>Seminar</em></h4>
-            <p>Green-future seminar with student-facing Q&amp;A, guest transitions and academic room clarity.</p>
+            <p>Green-future seminar with student Q&amp;A, guest transitions and academic pacing.</p>
           </article>
-          <article class="event-card">
+          <article class="event-card mobile-extra">
             <figure><div class="event-media"><img src="assets/event-celestetic.webp" alt="Celestetic expert talk" loading="lazy" decoding="async" /></div></figure>
             <div class="event-kicker">Expert talk</div>
             <h4>Celestetic <em>Expert Forum</em></h4>
-            <p>Panel-style healthcare and beauty room with audience attention to protect.</p>
+            <p>Healthcare and beauty forum moderation with clear pacing and audience focus.</p>
           </article>
-          <article class="event-card">
+          <article class="event-card mobile-extra">
             <figure>
               <div class="event-media">
                 <div class="event-collage">
@@ -2266,23 +2338,13 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Partner session</div>
             <h4>Netco <em>x Tokio Marine</em></h4>
-            <p>Partner-facing session management for business guests.</p>
-          </article>
-          <article class="event-card">
-            <figure>
-              <div class="event-media">
-                <div class="event-collage is-wide-main">
-                  <img src="assets/event-xsolla-connect-2.webp" alt="Xsolla Connect Ho Chi Minh City 2026 host portrait" loading="lazy" decoding="async" />
-                  <img src="assets/event-xsolla-connect-3.webp" alt="Xsolla Connect panel moment" loading="lazy" decoding="async" />
-                  <img src="assets/event-xsolla-connect-1.webp" alt="Xsolla Connect audience" loading="lazy" decoding="async" />
-                </div>
-              </div>
-            </figure>
-            <div class="event-kicker">Tech conference</div>
-            <h4>Xsolla <em>Connect HCMC 2026</em></h4>
-            <p>Gaming-industry conference hosting with panel moments, partner guests and business-audience focus.</p>
+            <p>Partner-facing session with clear handovers for business guests.</p>
           </article>
         </div>
+        <button class="mobile-more-toggle" type="button" aria-expanded="false" data-more-toggle>
+          <span class="more-label"><span class="en-only">More conference work</span><span class="vi-only">Xem thêm sự kiện hội nghị</span></span>
+          <span class="less-label"><span class="en-only">Show less</span><span class="vi-only">Thu gọn</span></span>
+        </button>
       </section>
 
       <section class="portfolio-group">
@@ -2388,7 +2450,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <figure>
               <div class="event-media">
                 <div class="event-collage is-wide-main">
-                  <img class="nudge-left" src="assets/event-oeg-wonderland-4.webp" alt="OEG Wonderland wide stage" loading="lazy" decoding="async" />
+                  <img class="oeg-wide" src="assets/event-oeg-wonderland-4.webp" alt="OEG Wonderland wide stage" loading="lazy" decoding="async" />
                   <img src="assets/event-oeg-wonderland-2.webp" alt="OEG Wonderland host on stage" loading="lazy" decoding="async" />
                   <img src="assets/event-oeg-wonderland-3.webp" alt="OEG Wonderland audience moment" loading="lazy" decoding="async" />
                 </div>
@@ -2396,12 +2458,12 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Entertainment stage</div>
             <h4>OEG <em>Wonderland</em></h4>
-            <p>Large entertainment stage with performer moments, crowd rhythm and public-audience command.</p>
+            <p>Large entertainment stage with performer moments, crowd rhythm and public-stage energy.</p>
           </article>
         </div>
       </section>
 
-      <section class="portfolio-group">
+      <section class="portfolio-group mobile-collapsible">
         <div class="portfolio-group-head">
           <div class="portfolio-group-no">08</div>
           <div class="portfolio-group-title">
@@ -2423,7 +2485,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Consumer activation</div>
             <h4>Comfort <em>Huong Nuoc Hoa</em></h4>
-            <p>High-traffic mall activation with crowd handling, guest interaction and bright brand presence.</p>
+            <p>High-traffic mall activation with crowd handling, guest interaction and brand energy.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2437,7 +2499,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Beauty retail</div>
             <h4>SK-II <em>Holiday Pop-up</em></h4>
-            <p>Beauty-retail activation with talent moments and live customer traffic.</p>
+            <p>Beauty-retail activation with talent moments and live customer interaction.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2465,7 +2527,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Consumer activation</div>
             <h4>Milo <em>Brand Moment</em></h4>
-            <p>Retail-floor hosting with talent interaction and youth-facing brand rhythm.</p>
+            <p>Retail-floor hosting with talent interaction and youth-facing energy.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2496,6 +2558,10 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <p>Christmas mall traffic with family-facing moments and warm, accessible hosting.</p>
           </article>
         </div>
+        <button class="mobile-more-toggle" type="button" aria-expanded="false" data-more-toggle>
+          <span class="more-label"><span class="en-only">More retail work</span><span class="vi-only">Xem thêm sự kiện bán lẻ</span></span>
+          <span class="less-label"><span class="en-only">Show less</span><span class="vi-only">Thu gọn</span></span>
+        </button>
       </section>
 
       <section class="portfolio-group">
@@ -2555,18 +2621,18 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
     </div>
 
     <div class="reels-meta">
-      <span class="reels-meta-tag">6 reels · stage hosting · click to watch</span>
+      <span class="reels-meta-tag">7 reels · bilingual hosting · stage presence · click to watch</span>
     </div>
 
     <div class="reels-grid-22">
-      <article class="reel-card">
+      <article class="reel-card reel-featured">
         <div class="reel-title-line">
           <span class="reel-num">01</span>
-          <span class="reel-cap serif">OEG Wonderland · <em>Vietnamese host</em></span>
-          <span class="reel-tag">VN</span>
+          <span class="reel-cap serif">Bilingual MC Showreel · <em>EN/VN</em></span>
+          <span class="reel-tag">EN / VN</span>
         </div>
-        <div class="reel-lite landscape" data-yt="wfv1HNH2bog" role="button" aria-label="Play OEG Wonderland reel">
-          <img src="assets/reel-oeg-wonderland.webp" alt="OEG Wonderland showreel thumbnail" loading="lazy" decoding="async" />
+        <div class="reel-lite landscape" data-yt="8wh4zaa9g_A" role="button" aria-label="Play bilingual MC showreel">
+          <img src="assets/reel-conference.webp" alt="Bilingual MC showreel thumbnail" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -2574,42 +2640,6 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
       <article class="reel-card">
         <div class="reel-title-line">
           <span class="reel-num">02</span>
-          <span class="reel-cap serif">Viettel Store 20 Years · <em>Vietnamese host</em></span>
-          <span class="reel-tag">VN</span>
-        </div>
-        <div class="reel-lite landscape" data-yt="ldbaxSCFDwE" role="button" aria-label="Play Viettel Store 20 years reel">
-          <img src="assets/reel-viettel-store-20.webp" alt="Viettel Store 20 years showreel thumbnail" loading="lazy" decoding="async" />
-          <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
-        </div>
-      </article>
-
-      <article class="reel-card">
-        <div class="reel-title-line">
-          <span class="reel-num">03</span>
-          <span class="reel-cap serif">Tray Hoi Festival · <em>outdoor stage</em></span>
-          <span class="reel-tag">VN</span>
-        </div>
-        <div class="reel-lite landscape" data-yt="5_XNbfQhY2s" role="button" aria-label="Play Tray Hoi Festival reel">
-          <img src="assets/reel-trayhoi.webp" alt="Tray Hoi Festival showreel thumbnail" loading="lazy" decoding="async" />
-          <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
-        </div>
-      </article>
-
-      <article class="reel-card">
-        <div class="reel-title-line">
-          <span class="reel-num">04</span>
-          <span class="reel-cap serif">Game opening · <em>Kiem Ton Origin</em></span>
-          <span class="reel-tag">VN</span>
-        </div>
-        <div class="reel-lite landscape" data-yt="tiTS6f7sxCs" role="button" aria-label="Play game opening reel">
-          <img src="assets/reel-kiemton-origin.webp" alt="Kiem Ton Origin game event showreel thumbnail" loading="lazy" decoding="async" />
-          <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
-        </div>
-      </article>
-
-      <article class="reel-card">
-        <div class="reel-title-line">
-          <span class="reel-num">05</span>
           <span class="reel-cap serif">Netco x Tokio Marine · <em>bilingual session</em></span>
           <span class="reel-tag">EN / VN</span>
         </div>
@@ -2621,7 +2651,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
 
       <article class="reel-card">
         <div class="reel-title-line">
-          <span class="reel-num">06</span>
+          <span class="reel-num">03</span>
           <span class="reel-cap serif">Gold market talk · <em>bilingual moderation</em></span>
           <span class="reel-tag">EN / VN</span>
         </div>
@@ -2630,6 +2660,55 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
+
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">04</span>
+          <span class="reel-cap serif">OEG Wonderland · <em>Vietnamese host</em></span>
+          <span class="reel-tag">VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="wfv1HNH2bog" role="button" aria-label="Play OEG Wonderland reel">
+          <img src="assets/reel-oeg-wonderland.webp" alt="OEG Wonderland showreel thumbnail" loading="lazy" decoding="async" />
+          <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">05</span>
+          <span class="reel-cap serif">Viettel Store 20 Years · <em>Vietnamese host</em></span>
+          <span class="reel-tag">VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="ldbaxSCFDwE" role="button" aria-label="Play Viettel Store 20 years reel">
+          <img src="assets/reel-viettel-store-20.webp" alt="Viettel Store 20 years showreel thumbnail" loading="lazy" decoding="async" />
+          <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">06</span>
+          <span class="reel-cap serif">Tray Hoi Festival · <em>outdoor stage</em></span>
+          <span class="reel-tag">VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="5_XNbfQhY2s" role="button" aria-label="Play Tray Hoi Festival reel">
+          <img src="assets/reel-trayhoi.webp" alt="Tray Hoi Festival showreel thumbnail" loading="lazy" decoding="async" />
+          <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+        </div>
+      </article>
+
+      <article class="reel-card">
+        <div class="reel-title-line">
+          <span class="reel-num">07</span>
+          <span class="reel-cap serif">Game opening · <em>Kiem Ton Origin</em></span>
+          <span class="reel-tag">VN</span>
+        </div>
+        <div class="reel-lite landscape" data-yt="tiTS6f7sxCs" role="button" aria-label="Play game opening reel">
+          <img src="assets/reel-kiemton-origin.webp" alt="Kiem Ton Origin game event showreel thumbnail" loading="lazy" decoding="async" />
+          <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+        </div>
+      </article>
+
     </div>
 
     <div class="voice-action">
@@ -2647,6 +2726,10 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           <span class="foot-line">Nga Lyna · Bilingual MC for conferences, gala dinners, brand launches and public stages.</span>
           <span class="foot-line"><span class="en-only">Hanoi-based</span><span class="vi-only">Hà Nội</span>, available across Vietnam and internationally.</span>
         </p>
+        <div class="booking-note">
+          <b>Booking handled via management</b>
+          <p>Booking and commercial inquiries are handled through management.</p>
+        </div>
       </div>
       <div class="col foot-nav">
         <b>Navigate</b>
@@ -2708,19 +2791,19 @@ const viCopy = {
   '02 — Stagecraft':'02 — Bản lĩnh sân khấu',
   'Poise under lights.':'Giữ phong thái dưới ánh đèn.',
   'Control in motion.':'Làm chủ từng chuyển động.',
-  'Why brands choose Nga Lyna for rooms that need timing, tone and composure: she reads the audience, protects the timeline, and makes every transition feel intentional in Vietnamese, English, or both.':'Vì sao thương hiệu chọn Nga Lyna cho những chương trình cần nhịp, khí chất và sự kiểm soát: Nga đọc khán phòng, bảo vệ timeline và làm từng chuyển đoạn trở nên tự nhiên bằng tiếng Việt, tiếng Anh hoặc cả hai.',
+  'A professional MC protects the room as much as the script: reading the audience, keeping the timeline clean and making every transition feel intentional.':'Một MC chuyên nghiệp không chỉ giữ kịch bản, mà còn giữ nhịp khán phòng: đọc phản ứng khán giả, bảo vệ timeline và làm từng chuyển đoạn trở nên tự nhiên.',
   'Bilingual hosting':'Dẫn song ngữ',
   '· EN & VN':'· Anh & Việt',
-  'Natural movement between English and Vietnamese, keeping every guest oriented without making the program feel translated.':'Chuyển đổi tự nhiên giữa tiếng Anh và tiếng Việt, giúp khách mời theo kịp chương trình mà không có cảm giác đang nghe bản dịch.',
+  'Natural movement between English and Vietnamese without making the program feel translated.':'Chuyển đổi tự nhiên giữa tiếng Anh và tiếng Việt mà không tạo cảm giác chương trình đang được dịch lại.',
   'Room control':'Làm chủ khán phòng',
   '& pacing':'& nhịp chương trình',
-  'Openings, speaker transitions, awards, lucky draws and unscripted moments handled with calm timing and visible command.':'Mở màn, chuyển diễn giả, trao giải, bốc thăm và tình huống ngoài kịch bản được xử lý bình tĩnh, rõ nhịp và có kiểm soát.',
+  'Openings, speaker transitions, awards and unscripted moments handled with calm timing.':'Mở màn, chuyển diễn giả, trao giải và tình huống ngoài kịch bản được xử lý bình tĩnh, đúng nhịp.',
   'Brand-sensitive':'Tôn trọng tinh thần thương hiệu',
   'presence':'hiện diện',
-  'A stage tone matched to the brief: precise for automotive launches, elegant for luxury retail, warm for gala nights and alive for public crowds.':'Điều chỉnh phong thái theo brief: chính xác cho ô tô, tinh tế cho bán lẻ cao cấp, ấm áp cho gala và giàu kết nối với sân khấu công chúng.',
+  'A stage tone matched to the brief: precise for conferences, elegant for luxury retail and energetic for public crowds.':'Điều chỉnh phong thái theo brief: chính xác cho hội nghị, tinh tế cho bán lẻ cao cấp và giàu năng lượng với sân khấu công chúng.',
   'Voice':'Giọng dẫn',
   '& on-camera delivery':'& dẫn trước ống kính',
-  'Warm, precise narration for product films, brand videos and stage-to-screen content when the event needs a voice beyond the room.':'Giọng đọc ấm và rõ cho video sản phẩm, phim thương hiệu và nội dung sân khấu cần tiếp tục sống sau sự kiện.',
+  'Warm, precise narration for product films, brand videos and on-camera delivery.':'Giọng đọc ấm và rõ cho video sản phẩm, phim thương hiệu và phần dẫn trước ống kính.',
   '03 — Trusted by':'03 — Được tin chọn bởi',
   'Brands that chose':'Những thương hiệu chọn',
   'composure.':'sự điềm tĩnh.',
@@ -2732,8 +2815,8 @@ const viCopy = {
   'Languages fluently':'Ngôn ngữ sử dụng thành thạo',
   'Selected partner brands':'Thương hiệu tiêu biểu',
   '25+ brands':'25+ thương hiệu',
-  'across diverse industries':'trong nhiều lĩnh vực',
-  'Representative experience: Automotive · Finance · Retail & Lifestyle · Tech & Electronics · Corporate & Culture':'Kinh nghiệm tiêu biểu: ô tô · tài chính · bán lẻ & lifestyle · công nghệ & điện tử · doanh nghiệp & văn hoá',
+  'across industries':'trong nhiều lĩnh vực',
+  'Automotive · Finance · Retail & Lifestyle · Tech & Electronics · Corporate & Culture':'Ô tô · tài chính · bán lẻ & lifestyle · công nghệ & điện tử · doanh nghiệp & văn hoá',
   'Additional':'Các khách hàng',
   'clients':'khác',
   '04 — Selected portfolio':'04 — Portfolio chọn lọc',
@@ -2746,7 +2829,7 @@ const viCopy = {
   '& recognition':'& vinh danh',
   'Dealer conference · recognition · business guests':'Hội nghị đại lý · vinh danh · khách doanh nghiệp',
   'Formal dealer-room hosting with awards, recognition and business guests.':'Dẫn hội nghị đại lý với phần trao giải, vinh danh và khách doanh nghiệp.',
-  'Award timing, recognition cues and a clear business tone.':'Giữ nhịp trao giải, tín hiệu vinh danh và sắc thái doanh nghiệp rõ ràng.',
+  'Recognition flow and business-room pacing for dealer guests.':'Giữ nhịp vinh danh và sắc thái phòng doanh nghiệp cho khách đại lý.',
   'Automotive':'Ô tô',
   'experience':'trải nghiệm',
   'Vehicle experience · retail traffic · brand precision':'Trải nghiệm xe · khách tại mall · độ chính xác thương hiệu',
@@ -2760,15 +2843,15 @@ const viCopy = {
   'Esports & music night':'Đêm esports & âm nhạc',
   'Outdoor HUCE stage with esports context, artist moments and live student crowd.':'Sân khấu ngoài trời tại HUCE với bối cảnh esports, nghệ sĩ biểu diễn và đám đông sinh viên.',
   'Grand finals':'Chung kết',
-  'Large-format game stage with sponsor mentions, fan momentum and live hosting.':'Sân khấu game quy mô lớn với nhắc sponsor, giữ nhịp fan và dẫn live.',
+  'Large-format game stage with sponsor mentions and live crowd momentum.':'Sân khấu game quy mô lớn với nhắc sponsor và nhịp khán giả live.',
   'Esports activation':'Hoạt động esports',
-  'Player interviews, fan interaction and sponsor-facing live segments.':'Phỏng vấn người chơi, tương tác fan và các segment live cho sponsor.',
+  'Player interviews, fan interaction and sponsor moments in a live crowd setting.':'Phỏng vấn người chơi, tương tác fan và các khoảnh khắc sponsor trong bối cảnh khán giả trực tiếp.',
   'Game stage':'Sân khấu game',
   'Large game-community stage with performances, awards and audience engagement.':'Sân khấu cộng đồng game với biểu diễn, trao giải và kết nối khán giả.',
-  'Game-community stage with performance segments, crowd lift and polished host presence.':'Sân khấu cộng đồng game với các tiết mục biểu diễn, nâng nhịp khán giả và phong thái dẫn chỉn chu.',
+  'Game-community stage with performance segments, audience momentum and polished host presence.':'Sân khấu cộng đồng game với các tiết mục biểu diễn, nhịp khán giả và phong thái dẫn chỉn chu.',
   'Gala':'Gala',
   '& internal milestones':'& cột mốc nội bộ',
-  'Awards · leadership moments · ceremony control':'Trao giải · khoảnh khắc lãnh đạo · kiểm soát nghi thức',
+  'Awards · leadership moments · ceremony timing':'Trao giải · khoảnh khắc lãnh đạo · nhịp nghi thức',
   'Gala work looks strongest through real stage photographs: scale, light, leadership moments and audience atmosphere.':'Các sự kiện gala thể hiện rõ nhất qua ảnh sân khấu thật: quy mô, ánh sáng, khoảnh khắc lãnh đạo và không khí khán phòng.',
   'Corporate gala':'Gala doanh nghiệp',
   'Milestone celebration with leadership segments and full-stage gala rhythm.':'Lễ kỷ niệm cột mốc với phần lãnh đạo và nhịp gala trọn sân khấu.',
@@ -2776,16 +2859,16 @@ const viCopy = {
   'Customer appreciation gala with large LED stage and formal brand protocol.':'Gala tri ân khách hàng với sân khấu LED lớn và nghi thức thương hiệu trang trọng.',
   'Year-end party':'Year-end party',
   'Dual-MC opening, lucky draw and energetic internal celebration.':'Mở màn dual-MC, bốc thăm may mắn và không khí nội bộ sôi nổi.',
-  'Corporate celebration with formal hosting, audience attention and clean stage transitions.':'Sự kiện doanh nghiệp với phần dẫn trang trọng, giữ sự chú ý và chuyển cảnh gọn.',
+  'Corporate celebration with formal hosting and clean stage transitions.':'Sự kiện doanh nghiệp với phần dẫn trang trọng và chuyển cảnh gọn.',
   'Thank-you party':'Tiệc tri ân',
   'Partner appreciation event with a polished corporate tone.':'Sự kiện tri ân đối tác với sắc thái doanh nghiệp chỉn chu.',
   'Brand anniversary':'Kỷ niệm thương hiệu',
   'Anniversary gala with brand storytelling, leadership cues and a high-tempo stage.':'Gala kỷ niệm với câu chuyện thương hiệu, tín hiệu lãnh đạo và nhịp sân khấu cao.',
   'Corporate milestone':'Cột mốc doanh nghiệp',
-  'Milestone celebration with leadership moments, audience connection and formal stage control.':'Lễ kỷ niệm cột mốc với khoảnh khắc lãnh đạo, kết nối khán giả và kiểm soát sân khấu trang trọng.',
+  'Milestone celebration with leadership moments, audience connection and formal stage pacing.':'Lễ kỷ niệm cột mốc với khoảnh khắc lãnh đạo, kết nối khán giả và nhịp sân khấu trang trọng.',
   'Conference':'Hội nghị',
   '& expert forum':'& diễn đàn chuyên môn',
-  'Moderation · senior rooms · Q&A control':'Điều phối · phòng chuyên môn · kiểm soát Q&A',
+  'Moderation · senior stakeholder rooms · Q&A control':'Điều phối · phòng khách cấp cao · kiểm soát Q&A',
   'The proof here is less about spectacle and more about clarity: keeping speakers, audience and agenda moving cleanly.':'Ở nhóm này, điểm mạnh không nằm ở sự hoành tráng mà ở sự rõ ràng: giữ diễn giả, khán giả và agenda đi đúng nhịp.',
   'Cybersecurity forum':'Diễn đàn an ninh mạng',
   'Formal conference hosting for cybersecurity, information safety and power-sector stakeholders.':'Dẫn hội thảo trang trọng về an ninh mạng, an toàn thông tin và các bên liên quan ngành điện.',
@@ -2793,13 +2876,13 @@ const viCopy = {
   'Product workshop':'Workshop sản phẩm',
   'Product-workshop hosting with guest exchange, speaker interaction and showroom context.':'Dẫn workshop sản phẩm với trao đổi khách mời, tương tác diễn giả và bối cảnh showroom.',
   'University forum':'Diễn đàn đại học',
-  'Green-future seminar with student-facing Q&A, guest transitions and academic room clarity.':'Hội thảo tương lai xanh với Q&A cho sinh viên, chuyển khách mời và sắc thái học thuật rõ ràng.',
+  'Green-future seminar with student Q&A, guest transitions and academic pacing.':'Hội thảo tương lai xanh với Q&A sinh viên, chuyển khách mời và nhịp học thuật rõ ràng.',
   'Expert talk':'Tọa đàm chuyên môn',
-  'Panel-style healthcare and beauty room with audience attention to protect.':'Không gian tọa đàm y tế/làm đẹp cần giữ sự tập trung của khán giả.',
+  'Healthcare and beauty forum moderation with clear pacing and audience focus.':'Điều phối diễn đàn y tế/làm đẹp với nhịp rõ và giữ sự tập trung của khán giả.',
   'Partner session':'Phiên đối tác',
-  'Partner-facing session management for business guests.':'Điều phối phiên làm việc với khách mời doanh nghiệp và đối tác.',
+  'Partner-facing session with clear handovers for business guests.':'Phiên làm việc với đối tác, chuyển phần rõ ràng cho khách mời doanh nghiệp.',
   'Tech conference':'Hội nghị công nghệ',
-  'Gaming-industry conference hosting with panel moments, partner guests and business-audience focus.':'Dẫn hội nghị ngành game với panel, khách đối tác và nhóm khán giả doanh nghiệp.',
+  'Gaming-industry conference with panel flow, partner guests and business-audience focus.':'Hội nghị ngành game với panel, khách đối tác và nhóm khán giả doanh nghiệp.',
   'Product launch':'Ra mắt sản phẩm',
   '& partner showcase':'& showcase đối tác',
   'Product story · partner moments · demo clarity':'Câu chuyện sản phẩm · khoảnh khắc đối tác · demo rõ ràng',
@@ -2820,18 +2903,18 @@ const viCopy = {
   'Cultural festival':'Lễ hội văn hoá',
   'Vietnam-Japan cultural stage with performance handovers and crowd-facing transitions.':'Sân khấu văn hoá Việt-Nhật với chuyển tiết mục và kết nối khán giả.',
   'Entertainment stage':'Sân khấu giải trí',
-  'Large entertainment stage with performer moments, crowd rhythm and public-audience command.':'Sân khấu giải trí lớn với khoảnh khắc nghệ sĩ, nhịp đám đông và khả năng làm chủ khán giả.',
+  'Large entertainment stage with performer moments, crowd rhythm and public-stage energy.':'Sân khấu giải trí lớn với khoảnh khắc nghệ sĩ, nhịp đám đông và năng lượng sân khấu công chúng.',
   'Retail activation':'Kích hoạt bán lẻ',
   '& consumer brand':'& thương hiệu tiêu dùng',
   'Customer traffic · talent moments · brand presence':'Khách tại điểm bán · talent moments · hiện diện thương hiệu',
   'Retail activations need fast audience connection without losing polish around the brand, product and guest experience.':'Activation bán lẻ cần kết nối nhanh với khách nhưng vẫn giữ sự chỉn chu cho thương hiệu, sản phẩm và trải nghiệm khách mời.',
   'Consumer activation':'Consumer activation',
-  'High-traffic mall activation with crowd handling, guest interaction and bright brand presence.':'Activation tại mall đông khách với điều phối đám đông, tương tác khách và hiện diện thương hiệu tươi sáng.',
+  'High-traffic mall activation with crowd handling, guest interaction and brand energy.':'Activation tại mall đông khách với điều phối đám đông, tương tác khách và năng lượng thương hiệu.',
   'Beauty retail':'Bán lẻ làm đẹp',
-  'Beauty-retail activation with talent moments and live customer traffic.':'Activation bán lẻ làm đẹp với talent moments và lượng khách thật tại điểm bán.',
+  'Beauty-retail activation with talent moments and live customer interaction.':'Activation bán lẻ làm đẹp với talent moments và tương tác khách hàng trực tiếp.',
   'Brand zone':'Brand zone',
   'High-traffic brand activation across a concert night.':'Brand activation trong đêm concert có lưu lượng khách lớn.',
-  'Retail-floor hosting with talent interaction and youth-facing brand rhythm.':'Dẫn tại sàn bán lẻ với tương tác talent và nhịp thương hiệu hướng tới giới trẻ.',
+  'Retail-floor hosting with talent interaction and youth-facing energy.':'Dẫn tại sàn bán lẻ với tương tác talent và năng lượng hướng tới giới trẻ.',
   'Brand activation':'Brand activation',
   'Youth-focused scooter activation with outdoor stage presence and guest interaction.':'Activation xe tay ga hướng tới giới trẻ với sân khấu ngoài trời và tương tác khách.',
   'Christmas mall event':'Sự kiện Noel tại mall',
@@ -2846,13 +2929,23 @@ const viCopy = {
   '05 — Showreel':'05 — Video dẫn',
   'See me':'Xem Nga',
   'on stage.':'trên sân khấu.',
-  '6 reels · EN / VN · click to watch':'6 video · EN / VN · bấm để xem',
+  '7 reels · bilingual hosting · stage presence · click to watch':'7 video · dẫn song ngữ · hiện diện sân khấu · bấm để xem',
+  'Bilingual MC Showreel ·':'Showreel MC song ngữ ·',
+  'EN/VN':'EN/VN',
+  'OEG Wonderland ·':'OEG Wonderland ·',
+  'Vietnamese host':'dẫn tiếng Việt',
+  'Viettel Store 20 Years ·':'Viettel Store 20 năm ·',
+  'outdoor stage':'sân khấu ngoài trời',
+  'bilingual session':'phiên song ngữ',
+  'bilingual moderation':'điều phối song ngữ',
   'Conference · bilingual host':'Hội nghị · dẫn song ngữ',
   'Gold market talk · moderation':'Tọa đàm thị trường vàng · điều phối',
   'Netco x Tokio Marine · partner session':'Netco x Tokio Marine · phiên đối tác',
   'Vietnamese host · opening stage':'Dẫn tiếng Việt · mở màn sân khấu',
   'Festival opening · bilingual stage':'Mở màn lễ hội · sân khấu song ngữ',
   'Game opening · bilingual stage':'Mở màn game · sân khấu song ngữ',
+  'Booking handled via management':'Booking qua management',
+  'Booking and commercial inquiries are handled through management.':'Booking và các trao đổi thương mại được xử lý qua management.',
   'Navigate':'Điều hướng',
   'Top':'Đầu trang',
   'Trusted by':'Thương hiệu',
@@ -2935,6 +3028,15 @@ document.querySelectorAll('.reel-lite').forEach(el=>{
 });
 document.querySelectorAll('[data-close-video]').forEach(el=>el.addEventListener('click', closeVideo));
 document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeVideo(); });
+
+document.querySelectorAll('[data-more-toggle]').forEach(button => {
+  const group = button.closest('.portfolio-group');
+  if(!group) return;
+  button.addEventListener('click', () => {
+    const expanded = group.classList.toggle('is-expanded');
+    button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  });
+});
 
 const gtabsEl = document.getElementById('gtabs');
 if(gtabsEl){
