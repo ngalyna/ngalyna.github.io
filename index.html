@@ -1005,10 +1005,22 @@ footer.foot{
   transition:transform 1s ease, filter .3s;
 }
 .event-card:hover .event-media img{transform:translate(var(--img-x,0),var(--img-y,0)) scale(calc(var(--img-scale,1) * 1.025));filter:saturate(1)}
+@media(hover:none){
+  .event-card.in-view .event-media img{
+    transform:translate(var(--img-x,0),var(--img-y,0)) scale(calc(var(--img-scale,1) * 1.018));
+    filter:saturate(1);
+  }
+}
 .event-card .event-collage{
   display:grid;grid-template-columns:1.45fr 1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr);
   gap:5px;width:100%;height:100%;
 }
+.event-card .event-collage .clip-cell{
+  min-width:0;min-height:0;
+  overflow:hidden;
+}
+.event-card .event-collage .clip-cell:first-child{grid-row:1 / span 2}
+.event-card .event-collage .clip-cell img{width:100%;height:100%}
 .event-card .event-collage img{min-width:0;min-height:0}
 .event-card .event-collage img:first-child{grid-row:1 / span 2}
 .event-card .event-collage.is-equal{grid-template-columns:1fr 1fr}
@@ -2296,9 +2308,9 @@ body[data-lang="bilingual"] .en-only{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage is-wide-main">
-                  <img class="crop-low" src="assets/ev-trayhoi-1.webp" alt="Tray Hoi Festival main stage" loading="lazy" decoding="async" />
-                  <img src="assets/ev-trayhoi-2.webp" alt="Tray Hoi Festival host" loading="lazy" decoding="async" />
-                  <img class="crop-stage" src="assets/ev-trayhoi-3.webp" alt="Tray Hoi Festival wide stage" loading="lazy" decoding="async" />
+                  <div class="clip-cell"><img class="crop-low" src="assets/ev-trayhoi-1.webp" alt="Tray Hoi Festival main stage" loading="lazy" decoding="async" /></div>
+                  <div class="clip-cell"><img src="assets/ev-trayhoi-2.webp" alt="Tray Hoi Festival host" loading="lazy" decoding="async" /></div>
+                  <div class="clip-cell"><img class="crop-stage" src="assets/ev-trayhoi-3.webp" alt="Tray Hoi Festival wide stage" loading="lazy" decoding="async" /></div>
                 </div>
               </div>
             </figure>
@@ -2677,6 +2689,13 @@ const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
 },{threshold:.12});
 fadeEls.forEach(el=>io.observe(el));
+
+if(window.matchMedia('(hover: none)').matches){
+  const cardMotion = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>e.target.classList.toggle('in-view', e.isIntersecting));
+  }, {threshold:.42, rootMargin:'0px 0px -12% 0px'});
+  document.querySelectorAll('.event-card').forEach(card=>cardMotion.observe(card));
+}
 
 // Keep initial load light, then warm useful below-fold images first.
 // Hero stays first; the first two portfolio groups are warmed before the rest.
