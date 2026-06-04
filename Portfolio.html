@@ -279,10 +279,11 @@ section.hero{
     font-family:'Newsreader',serif;font-weight:400;
     font-size:24px;letter-spacing:.01em;line-height:1;
     color:var(--ink);
-    text-shadow:0 2px 10px rgba(21,17,13,.32);
+    text-shadow:0 2px 3px rgba(21,17,13,.54),0 8px 24px rgba(21,17,13,.48);
     width:max-content;max-width:100%;
     margin-bottom:26px;padding-bottom:16px;
     border-bottom:1px solid var(--line);
+    transform:translateY(10px);
   }
   .hero-text .eyebrow{margin-bottom:24px;gap:10px;font-size:10px;letter-spacing:.2em}
   .hero-headline{margin-bottom:20px}
@@ -1065,6 +1066,7 @@ footer.foot{
   .event-grid.is-editorial-seven .event-card:first-child .event-media{aspect-ratio:4/3}
   .event-card.featured{grid-column:auto}
   .event-card.wide-fill{grid-column:auto}
+  .event-card.desktop-featured{order:-1}
   .portfolio-note{display:block}
   .portfolio-note b{display:block;margin-bottom:12px}
 }
@@ -1865,13 +1867,13 @@ body[data-lang="bilingual"] .en-only{display:none}
     <div class="section-head portfolio-head">
       <div class="section-num">04 — Selected portfolio</div>
       <h2 class="section-title">
-        Selected <em>stage work.</em>
+        Selected <em>portfolio.</em>
         <span class="vi vi-only">Đa dạng — nhưng vẫn chọn lọc</span>
       </h2>
     </div>
 
     <div class="portfolio-intro">
-      <p class="lead">Grouped by <em>event scale</em> and format, with large-stage work first.</p>
+      <p class="lead">Curated by <em>event scale</em> and format, with major stages first.</p>
     </div>
 
     <div class="portfolio-groups">
