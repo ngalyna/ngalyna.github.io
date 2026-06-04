@@ -310,10 +310,10 @@ section.hero{
   nav.topnav{display:none}
   .lang-toggle-mobile{
     display:inline-flex;
-    position:fixed;
-    z-index:60;
-    top:14px;
-    right:16px;
+    position:absolute;
+    z-index:8;
+    top:16px;
+    right:20px;
     background:rgba(246,241,232,.9);
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
@@ -773,6 +773,18 @@ footer.foot{
   font-size:13px;
   line-height:1.75;
 }
+.lang-toggle-footer{
+  display:none;
+  margin-top:24px;
+  border-color:rgba(255,255,255,.22);
+  background:rgba(246,241,232,.06);
+  color:#f6f1e8;
+}
+body[data-lang="en"] .lang-toggle-footer .en,
+body[data-lang="vi"] .lang-toggle-footer .vn{
+  background:#f6f1e8;
+  color:#15110d;
+}
 /* Navigate — tidy wrapping link row, consistent on every screen */
 .foot-nav .nav-set{display:flex;flex-direction:column;gap:2px}
 .foot-nav .nav-set a{
@@ -795,6 +807,7 @@ footer.foot{
 }
 @media(max-width:900px){
   .foot-grid{gap:44px}
+  .lang-toggle-footer{display:inline-flex}
   .foot-nav .nav-set{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
   .foot-nav .nav-set a:nth-child(2){border-top:none}
 }
@@ -1258,23 +1271,24 @@ footer.foot{
 .reel-card.reel-featured .reel-cap{font-size:clamp(24px,2.4vw,34px)}
 .reel-card.reel-featured .reel-lite{max-height:720px}
 .reel-card .reel-title-line{
-  display:flex;align-items:baseline;gap:14px;
+  display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:baseline;gap:14px;
   padding-bottom:10px;border-bottom:1px solid var(--line);
 }
 .reel-card .reel-num{
   font-family:'Newsreader',serif;font-style:italic;
   font-size:22px;color:var(--gold-deep);font-weight:400;
+  line-height:1;
 }
 .reel-card .reel-cap{
   font-family:'Newsreader',serif;font-weight:400;
-  font-size:18px;letter-spacing:-.005em;flex:1;
+  font-size:18px;letter-spacing:-.005em;line-height:1.18;min-width:0;
 }
 .reel-card .reel-cap em{font-style:normal;color:var(--gold-deep)}
 .reel-card .reel-tag{
   font-size:10px;text-transform:uppercase;letter-spacing:.22em;
   color:var(--gold-deep);font-weight:600;
   padding:4px 10px;border:1px solid var(--line);border-radius:999px;
-  margin-left:auto;
+  justify-self:end;
 }
 
 .reel-lite{
@@ -1733,9 +1747,10 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
   .logo-wall-title{font-size:clamp(22px,6vw,28px)}
   .lw-cats{font-size:10px;letter-spacing:.14em;line-height:1.75}
   /* §05 Showreel */
-  .reel-card .reel-cap{font-size:16px}
-  .reel-card .reel-title-line{gap:10px;align-items:flex-start}
-  .reel-card .reel-tag{margin-top:2px;padding:4px 8px}
+  .reel-card .reel-cap{font-size:17px;line-height:1.12}
+  .reel-card .reel-title-line{grid-template-columns:42px minmax(0,1fr) 52px;gap:10px;align-items:baseline}
+  .reel-card .reel-num{font-size:25px;line-height:1;transform:none}
+  .reel-card .reel-tag{align-self:start;justify-self:end;margin-top:1px;padding:4px 8px}
 
   /* Footer */
   footer.foot h4{font-size:52px}
@@ -1806,12 +1821,11 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
   </button>
 </nav>
 
-<button class="lang-toggle lang-toggle-mobile" type="button" aria-label="Switch language" aria-pressed="false">
-  <span class="en">EN</span><span class="vn">VN</span>
-</button>
-
 <!-- ========== HERO ========== -->
 <section class="hero" id="top" data-variant="cinematic" data-screen-label="01 Hero">
+  <button class="lang-toggle lang-toggle-mobile" type="button" aria-label="Switch language" aria-pressed="false">
+    <span class="en">EN</span><span class="vn">VN</span>
+  </button>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-text">
@@ -1896,7 +1910,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
       <div class="section-num">03 — Trusted by</div>
       <h2 class="section-title">
         Brands that chose <em>composure.</em>
-        <span class="vi vi-only">Những thương hiệu đã chọn sự điềm tĩnh</span>
+        <span class="vi vi-only">Chọn sự chỉn chu</span>
       </h2>
     </div>
 
@@ -2022,7 +2036,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Dealer conference</div>
             <h4>Nissan <em>Dealer Conference 2025</em></h4>
-            <p>Recognition flow and business-room pacing for dealer guests.</p>
+            <p>Award timing, recognition cues and a clear business tone.</p>
           </article>
         </div>
       </section>
@@ -2049,7 +2063,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">New vehicle experience</div>
             <h4>Hyundai <em>Santa Fe Experience</em></h4>
-            <p>Vehicle reveal, guest movement and branded product presence in a high-traffic mall setting.</p>
+            <p>Vehicle reveal and guest flow in a high-traffic branded mall setting.</p>
           </article>
         </div>
       </section>
@@ -2076,7 +2090,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Esports &amp; music night</div>
             <h4>UNITOUR NSOC <em>2025</em></h4>
-            <p>Outdoor HUCE stage with esports context, artist moments and live student crowd.</p>
+            <p>Outdoor HUCE stage blending esports, artist moments and a live student crowd.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2118,7 +2132,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Game stage</div>
             <h4>Audition <em>Birthday Stage</em></h4>
-            <p>Large game-community stage with performances, awards and audience engagement.</p>
+            <p>Game-community stage with performances, award moments and live audience engagement.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2163,7 +2177,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Corporate gala</div>
             <h4>FLC Group <em>23rd Anniversary</em></h4>
-            <p>Milestone celebration with leadership segments and full-stage gala rhythm.</p>
+            <p>Milestone celebration with leadership segments, ceremony cues and gala pacing.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2728,13 +2742,16 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
         </p>
         <div class="booking-note">
           <b>Booking handled via management</b>
-          <p>Booking and commercial inquiries are handled through management.</p>
+          <p>Availability, event fit and booking terms are handled through management.</p>
         </div>
+        <button class="lang-toggle lang-toggle-footer" type="button" aria-label="Switch language" aria-pressed="false">
+          <span class="en">EN</span><span class="vn">VN</span>
+        </button>
       </div>
       <div class="col foot-nav">
         <b>Navigate</b>
         <div class="nav-set">
-          <a href="#top"><span class="idx">00</span>Top</a>
+          <a href="#top"><span class="idx">01</span>Top</a>
           <a href="#why"><span class="idx">02</span>Stagecraft</a>
           <a href="#hall"><span class="idx">03</span>Trusted by</a>
           <a href="#works"><span class="idx">04</span>Portfolio</a>
@@ -2776,12 +2793,12 @@ const viCopy = {
   'Stagecraft':'Bản lĩnh',
   'Brands':'Thương hiệu',
   'Portfolio':'Portfolio',
-  'Showreel':'Video dẫn',
+  'Showreel':'Showreel',
   'Bilingual MC ·':'MC song ngữ ·',
   '· Vietnam & international events':'· sự kiện tại Việt Nam & quốc tế',
   'Two languages,':'Hai ngôn ngữ,',
   'one stage.':'một sân khấu.',
-  'Watch showreel':'Xem video dẫn',
+  'Watch showreel':'Xem showreel',
   'Languages':'Ngôn ngữ',
   'Domains':'Lĩnh vực',
   'Since':'Từ',
@@ -2790,74 +2807,74 @@ const viCopy = {
   '2021 · 300+ events':'2021 · 300+ sự kiện',
   '02 — Stagecraft':'02 — Bản lĩnh sân khấu',
   'Poise under lights.':'Giữ phong thái dưới ánh đèn.',
-  'Control in motion.':'Làm chủ từng chuyển động.',
-  'A professional MC protects the room as much as the script: reading the audience, keeping the timeline clean and making every transition feel intentional.':'Một MC chuyên nghiệp không chỉ giữ kịch bản, mà còn giữ nhịp khán phòng: đọc phản ứng khán giả, bảo vệ timeline và làm từng chuyển đoạn trở nên tự nhiên.',
+  'Control in motion.':'Làm chủ nhịp sân khấu.',
+  'A professional MC protects the room as much as the script: reading the audience, keeping the timeline clean and making every transition feel intentional.':'Một MC chuyên nghiệp không chỉ bám sát kịch bản, mà còn giữ nhịp khán phòng: đọc phản ứng khán giả, kiểm soát tiến độ và khiến từng chuyển đoạn diễn ra tự nhiên.',
   'Bilingual hosting':'Dẫn song ngữ',
-  '· EN & VN':'· Anh & Việt',
-  'Natural movement between English and Vietnamese without making the program feel translated.':'Chuyển đổi tự nhiên giữa tiếng Anh và tiếng Việt mà không tạo cảm giác chương trình đang được dịch lại.',
+  '· EN & VN':'· Việt & Anh',
+  'Natural movement between English and Vietnamese without making the program feel translated.':'Chuyển đổi tự nhiên giữa tiếng Việt và tiếng Anh, không khiến chương trình có cảm giác bị dịch từng đoạn.',
   'Room control':'Làm chủ khán phòng',
   '& pacing':'& nhịp chương trình',
   'Openings, speaker transitions, awards and unscripted moments handled with calm timing.':'Mở màn, chuyển diễn giả, trao giải và tình huống ngoài kịch bản được xử lý bình tĩnh, đúng nhịp.',
-  'Brand-sensitive':'Tôn trọng tinh thần thương hiệu',
-  'presence':'hiện diện',
-  'A stage tone matched to the brief: precise for conferences, elegant for luxury retail and energetic for public crowds.':'Điều chỉnh phong thái theo brief: chính xác cho hội nghị, tinh tế cho bán lẻ cao cấp và giàu năng lượng với sân khấu công chúng.',
+  'Brand-sensitive':'Hiện diện đúng tinh thần',
+  'presence':'thương hiệu',
+  'A stage tone matched to the brief: precise for conferences, elegant for luxury retail and energetic for public crowds.':'Điều chỉnh phong thái theo yêu cầu chương trình: chính xác trong hội nghị, tinh tế ở bán lẻ cao cấp và giàu năng lượng trên sân khấu công chúng.',
   'Voice':'Giọng dẫn',
-  '& on-camera delivery':'& dẫn trước ống kính',
-  'Warm, precise narration for product films, brand videos and on-camera delivery.':'Giọng đọc ấm và rõ cho video sản phẩm, phim thương hiệu và phần dẫn trước ống kính.',
-  '03 — Trusted by':'03 — Được tin chọn bởi',
-  'Brands that chose':'Những thương hiệu chọn',
-  'composure.':'sự điềm tĩnh.',
-  'Nga is the rare host who can disappear into the moment and still be in full command of it. Our partners noticed — and asked who she was.':'Nga là kiểu host hiếm có: hòa vào khoảnh khắc nhưng vẫn kiểm soát toàn bộ sân khấu. Đối tác của chúng tôi đã chú ý và hỏi cô ấy là ai.',
+  '& on-camera delivery':'& hiện diện trước ống kính',
+  'Warm, precise narration for product films, brand videos and on-camera delivery.':'Giọng đọc ấm, rõ cho video sản phẩm, phim thương hiệu và các phần dẫn trước ống kính.',
+  '03 — Trusted by':'03 — Thương hiệu',
+  'Brands that chose':'Chọn',
+  'composure.':'sự chỉn chu.',
+  'Nga is the rare host who can disappear into the moment and still be in full command of it. Our partners noticed — and asked who she was.':'Nga là kiểu người dẫn hiếm có: hòa vào khoảnh khắc mà vẫn giữ nhịp sân khấu trong tầm kiểm soát. Đối tác của chúng tôi nhận ra ngay — và hỏi cô ấy là ai.',
   'Event Director':'Event Director',
   'Events hosted':'Sự kiện đã dẫn',
-  'Brands worked with':'Thương hiệu hợp tác',
-  'Years on stage':'Năm trên sân khấu',
-  'Languages fluently':'Ngôn ngữ sử dụng thành thạo',
+  'Brands worked with':'Thương hiệu từng hợp tác',
+  'Years on stage':'Năm kinh nghiệm sân khấu',
+  'Languages fluently':'Ngôn ngữ thành thạo',
   'Selected partner brands':'Thương hiệu tiêu biểu',
   '25+ brands':'25+ thương hiệu',
   'across industries':'trong nhiều lĩnh vực',
-  'Automotive · Finance · Retail & Lifestyle · Tech & Electronics · Corporate & Culture':'Ô tô · tài chính · bán lẻ & lifestyle · công nghệ & điện tử · doanh nghiệp & văn hoá',
-  'Additional':'Các khách hàng',
+  'Automotive · Finance · Retail & Lifestyle · Tech & Electronics · Corporate & Culture':'Ô tô · tài chính · bán lẻ & phong cách sống · công nghệ & điện tử · doanh nghiệp & văn hoá',
+  'Additional':'Thương hiệu',
   'clients':'khác',
   '04 — Selected portfolio':'04 — Portfolio chọn lọc',
   'Selected':'Portfolio',
   'portfolio.':'chọn lọc.',
   'Curated by':'Sắp xếp theo',
   'event scale':'quy mô sự kiện',
-  'and format, with major stages first.':'và format, ưu tiên các sân khấu lớn trước.',
+  'and format, with major stages first.':'và loại hình sự kiện, ưu tiên các sân khấu lớn trước.',
   'Dealer conference':'Hội nghị đại lý',
   '& recognition':'& vinh danh',
   'Dealer conference · recognition · business guests':'Hội nghị đại lý · vinh danh · khách doanh nghiệp',
   'Formal dealer-room hosting with awards, recognition and business guests.':'Dẫn hội nghị đại lý với phần trao giải, vinh danh và khách doanh nghiệp.',
-  'Recognition flow and business-room pacing for dealer guests.':'Giữ nhịp vinh danh và sắc thái phòng doanh nghiệp cho khách đại lý.',
-  'Automotive':'Ô tô',
-  'experience':'trải nghiệm',
-  'Vehicle experience · retail traffic · brand precision':'Trải nghiệm xe · khách tại mall · độ chính xác thương hiệu',
+  'Award timing, recognition cues and a clear business tone.':'Giữ nhịp vinh danh và không khí trang trọng cho khách đại lý.',
+  'Automotive':'Trải nghiệm',
+  'experience':'ô tô',
+  'Vehicle experience · retail traffic · brand precision':'Trải nghiệm xe · khách tại trung tâm thương mại · độ chính xác thương hiệu',
   'Mall-based vehicle experience and showroom-stage hosting.':'Dẫn trải nghiệm xe mới và sân khấu showroom trong không gian thương mại.',
   'New vehicle experience':'Trải nghiệm xe mới',
-  'Vehicle reveal, guest movement and branded product presence in a high-traffic mall setting.':'Ra mắt/trải nghiệm xe, điều phối khách và giữ hiện diện sản phẩm trong bối cảnh mall đông người.',
+  'Vehicle reveal and guest flow in a high-traffic branded mall setting.':'Ra mắt và trải nghiệm xe tại trung tâm thương mại đông khách, giữ rõ điểm nhấn sản phẩm.',
   'Game':'Game',
   '& esports event':'& esports',
-  'Esports · fan crowd · live stage':'Esports · fan crowd · sân khấu live',
-  'The tone here is faster and louder, but still needs clean sponsor mentions, player interviews and stage control.':'Nhóm này có nhịp nhanh và đông khán giả hơn, nhưng vẫn cần nhắc sponsor rõ, phỏng vấn gọn và kiểm soát sân khấu.',
+  'Esports · fan crowd · live stage':'Esports · đám đông fan · sân khấu trực tiếp',
+  'The tone here is faster and louder, but still needs clean sponsor mentions, player interviews and stage control.':'Nhóm này có nhịp nhanh và đông khán giả hơn, nhưng vẫn cần nhắc nhà tài trợ rõ, phỏng vấn gọn và kiểm soát sân khấu.',
   'Esports & music night':'Đêm esports & âm nhạc',
-  'Outdoor HUCE stage with esports context, artist moments and live student crowd.':'Sân khấu ngoài trời tại HUCE với bối cảnh esports, nghệ sĩ biểu diễn và đám đông sinh viên.',
+  'Outdoor HUCE stage blending esports, artist moments and a live student crowd.':'Sân khấu ngoài trời tại HUCE kết hợp esports, nghệ sĩ biểu diễn và đám đông sinh viên.',
   'Grand finals':'Chung kết',
-  'Large-format game stage with sponsor mentions and live crowd momentum.':'Sân khấu game quy mô lớn với nhắc sponsor và nhịp khán giả live.',
+  'Large-format game stage with sponsor mentions and live crowd momentum.':'Sân khấu game quy mô lớn với quyền lợi nhà tài trợ và nhịp khán giả trực tiếp.',
   'Esports activation':'Hoạt động esports',
-  'Player interviews, fan interaction and sponsor moments in a live crowd setting.':'Phỏng vấn người chơi, tương tác fan và các khoảnh khắc sponsor trong bối cảnh khán giả trực tiếp.',
+  'Player interviews, fan interaction and sponsor moments in a live crowd setting.':'Phỏng vấn người chơi, tương tác fan và xử lý các khoảnh khắc nhà tài trợ trước khán giả trực tiếp.',
   'Game stage':'Sân khấu game',
-  'Large game-community stage with performances, awards and audience engagement.':'Sân khấu cộng đồng game với biểu diễn, trao giải và kết nối khán giả.',
+  'Game-community stage with performances, award moments and live audience engagement.':'Sân khấu cộng đồng game với biểu diễn, trao giải và kết nối khán giả trực tiếp.',
   'Game-community stage with performance segments, audience momentum and polished host presence.':'Sân khấu cộng đồng game với các tiết mục biểu diễn, nhịp khán giả và phong thái dẫn chỉn chu.',
   'Gala':'Gala',
-  '& internal milestones':'& cột mốc nội bộ',
+  '& internal milestones':'& dấu mốc nội bộ',
   'Awards · leadership moments · ceremony timing':'Trao giải · khoảnh khắc lãnh đạo · nhịp nghi thức',
   'Gala work looks strongest through real stage photographs: scale, light, leadership moments and audience atmosphere.':'Các sự kiện gala thể hiện rõ nhất qua ảnh sân khấu thật: quy mô, ánh sáng, khoảnh khắc lãnh đạo và không khí khán phòng.',
   'Corporate gala':'Gala doanh nghiệp',
-  'Milestone celebration with leadership segments and full-stage gala rhythm.':'Lễ kỷ niệm cột mốc với phần lãnh đạo và nhịp gala trọn sân khấu.',
+  'Milestone celebration with leadership segments, ceremony cues and gala pacing.':'Lễ kỷ niệm cột mốc với nghi thức lãnh đạo và nhịp gala trang trọng.',
   'Client gala':'Gala khách hàng',
   'Customer appreciation gala with large LED stage and formal brand protocol.':'Gala tri ân khách hàng với sân khấu LED lớn và nghi thức thương hiệu trang trọng.',
-  'Year-end party':'Year-end party',
+  'Year-end party':'Tiệc cuối năm',
   'Dual-MC opening, lucky draw and energetic internal celebration.':'Mở màn dual-MC, bốc thăm may mắn và không khí nội bộ sôi nổi.',
   'Corporate celebration with formal hosting and clean stage transitions.':'Sự kiện doanh nghiệp với phần dẫn trang trọng và chuyển cảnh gọn.',
   'Thank-you party':'Tiệc tri ân',
@@ -2868,10 +2885,10 @@ const viCopy = {
   'Milestone celebration with leadership moments, audience connection and formal stage pacing.':'Lễ kỷ niệm cột mốc với khoảnh khắc lãnh đạo, kết nối khán giả và nhịp sân khấu trang trọng.',
   'Conference':'Hội nghị',
   '& expert forum':'& diễn đàn chuyên môn',
-  'Moderation · senior stakeholder rooms · Q&A control':'Điều phối · phòng khách cấp cao · kiểm soát Q&A',
+  'Moderation · senior stakeholder rooms · Q&A control':'Điều phối · khán phòng cấp cao · kiểm soát Q&A',
   'The proof here is less about spectacle and more about clarity: keeping speakers, audience and agenda moving cleanly.':'Ở nhóm này, điểm mạnh không nằm ở sự hoành tráng mà ở sự rõ ràng: giữ diễn giả, khán giả và agenda đi đúng nhịp.',
   'Cybersecurity forum':'Diễn đàn an ninh mạng',
-  'Formal conference hosting for cybersecurity, information safety and power-sector stakeholders.':'Dẫn hội thảo trang trọng về an ninh mạng, an toàn thông tin và các bên liên quan ngành điện.',
+  'Formal conference hosting for cybersecurity, information safety and power-sector stakeholders.':'Dẫn hội thảo trang trọng về an ninh mạng, an toàn thông tin và các bên liên quan trong ngành điện.',
   'Expert-room hosting with structured speaker handovers and professional timing.':'Dẫn phòng chuyên môn với chuyển giao diễn giả có cấu trúc và thời lượng chuyên nghiệp.',
   'Product workshop':'Workshop sản phẩm',
   'Product-workshop hosting with guest exchange, speaker interaction and showroom context.':'Dẫn workshop sản phẩm với trao đổi khách mời, tương tác diễn giả và bối cảnh showroom.',
@@ -2890,43 +2907,43 @@ const viCopy = {
   'Partner gathering, product reveal and bilingual stage delivery.':'Gặp gỡ đối tác, giới thiệu sản phẩm và dẫn song ngữ trên sân khấu.',
   'Finance & insurance':'Tài chính & bảo hiểm',
   'Finance and insurance event hosting with brand presence and ceremony cues.':'Dẫn sự kiện tài chính/bảo hiểm với hiện diện thương hiệu và tín hiệu nghi thức rõ.',
-  'Product showcase':'Showcase sản phẩm',
+  'Product showcase':'Trưng bày sản phẩm',
   'Product-led hosting for electronics and retail partners.':'Dẫn showcase điện tử với trọng tâm sản phẩm và đối tác bán lẻ.',
   'Partner talk':'Tọa đàm đối tác',
   'Product conversation, guest moderation and premium retail context.':'Trò chuyện sản phẩm, điều phối khách mời và bối cảnh bán lẻ cao cấp.',
   'Festival':'Lễ hội',
   '& outdoor stage':'& sân khấu ngoài trời',
-  'Outdoor projection · public crowd · cultural rhythm':'Giọng sân khấu ngoài trời · đám đông · nhịp văn hoá',
+  'Outdoor projection · public crowd · cultural rhythm':'Sân khấu ngoài trời · đám đông · nhịp văn hoá',
   'Bigger public stages need stronger projection, quick crowd reading and a flexible Vietnamese delivery.':'Sân khấu công chúng cần giọng dẫn rõ, đọc đám đông nhanh và cách dẫn tiếng Việt linh hoạt.',
   'Outdoor festival':'Lễ hội ngoài trời',
-  'Public-stage hosting with live-band drive and Vietnamese crowd connection.':'Dẫn sân khấu công chúng với live band và kết nối khán giả Việt.',
+  'Public-stage hosting with live-band drive and Vietnamese crowd connection.':'Dẫn sân khấu công chúng với ban nhạc trực tiếp và kết nối khán giả đại chúng.',
   'Cultural festival':'Lễ hội văn hoá',
-  'Vietnam-Japan cultural stage with performance handovers and crowd-facing transitions.':'Sân khấu văn hoá Việt-Nhật với chuyển tiết mục và kết nối khán giả.',
+  'Vietnam-Japan cultural stage with performance handovers and crowd-facing transitions.':'Sân khấu văn hoá Việt-Nhật với chuyển nối tiết mục và kết nối khán giả.',
   'Entertainment stage':'Sân khấu giải trí',
-  'Large entertainment stage with performer moments, crowd rhythm and public-stage energy.':'Sân khấu giải trí lớn với khoảnh khắc nghệ sĩ, nhịp đám đông và năng lượng sân khấu công chúng.',
+  'Large entertainment stage with performer moments, crowd rhythm and public-stage energy.':'Sân khấu giải trí lớn với khoảnh khắc nghệ sĩ, nhịp đám đông và năng lượng công chúng.',
   'Retail activation':'Kích hoạt bán lẻ',
   '& consumer brand':'& thương hiệu tiêu dùng',
-  'Customer traffic · talent moments · brand presence':'Khách tại điểm bán · talent moments · hiện diện thương hiệu',
+  'Customer traffic · talent moments · brand presence':'Khách tại điểm bán · khoảnh khắc KOL/nghệ sĩ · hiện diện thương hiệu',
   'Retail activations need fast audience connection without losing polish around the brand, product and guest experience.':'Activation bán lẻ cần kết nối nhanh với khách nhưng vẫn giữ sự chỉn chu cho thương hiệu, sản phẩm và trải nghiệm khách mời.',
-  'Consumer activation':'Consumer activation',
-  'High-traffic mall activation with crowd handling, guest interaction and brand energy.':'Activation tại mall đông khách với điều phối đám đông, tương tác khách và năng lượng thương hiệu.',
+  'Consumer activation':'Kích hoạt tiêu dùng',
+  'High-traffic mall activation with crowd handling, guest interaction and brand energy.':'Kích hoạt tại trung tâm thương mại đông khách với điều phối đám đông, tương tác khách hàng và năng lượng thương hiệu.',
   'Beauty retail':'Bán lẻ làm đẹp',
-  'Beauty-retail activation with talent moments and live customer interaction.':'Activation bán lẻ làm đẹp với talent moments và tương tác khách hàng trực tiếp.',
-  'Brand zone':'Brand zone',
-  'High-traffic brand activation across a concert night.':'Brand activation trong đêm concert có lưu lượng khách lớn.',
-  'Retail-floor hosting with talent interaction and youth-facing energy.':'Dẫn tại sàn bán lẻ với tương tác talent và năng lượng hướng tới giới trẻ.',
-  'Brand activation':'Brand activation',
-  'Youth-focused scooter activation with outdoor stage presence and guest interaction.':'Activation xe tay ga hướng tới giới trẻ với sân khấu ngoài trời và tương tác khách.',
-  'Christmas mall event':'Sự kiện Noel tại mall',
-  'Christmas mall traffic with family-facing moments and warm, accessible hosting.':'Sự kiện Noel tại mall với khách gia đình và lối dẫn ấm, dễ gần.',
+  'Beauty-retail activation with talent moments and live customer interaction.':'Kích hoạt bán lẻ làm đẹp với khoảnh khắc KOL/khách mời và tương tác khách hàng trực tiếp.',
+  'Brand zone':'Khu vực thương hiệu',
+  'High-traffic brand activation across a concert night.':'Kích hoạt thương hiệu trong đêm concert có lưu lượng khách lớn.',
+  'Retail-floor hosting with talent interaction and youth-facing energy.':'Dẫn tại sàn bán lẻ với tương tác khách mời và năng lượng hướng tới giới trẻ.',
+  'Brand activation':'Kích hoạt thương hiệu',
+  'Youth-focused scooter activation with outdoor stage presence and guest interaction.':'Kích hoạt xe tay ga hướng tới giới trẻ với sân khấu ngoài trời và tương tác khách.',
+  'Christmas mall event':'Sự kiện Noel tại trung tâm thương mại',
+  'Christmas mall traffic with family-facing moments and warm, accessible hosting.':'Sự kiện Noel tại trung tâm thương mại với khách gia đình và lối dẫn ấm, dễ gần.',
   'VIP opening':'Khai trương VIP',
-  '& hospitality':'& hospitality',
+  '& hospitality':'& đón khách',
   'Premium welcome · ribbon ceremony · refined tone':'Đón khách cao cấp · cắt băng · sắc thái tinh tế',
   'These events need less noise and more polish: formal welcome, ceremony timing and guest-facing composure.':'Nhóm này cần ít ồn ào hơn và nhiều sự tinh tế hơn: đón khách trang trọng, đúng nhịp nghi thức và giữ phong thái trước khách mời.',
   'Ribbon ceremony, premium guest welcome and ao dai protocol.':'Cắt băng, đón khách cao cấp và nghi thức áo dài.',
   'Soft opening':'Soft opening',
-  'Opening ceremony, guest welcome and a polished hospitality tone.':'Nghi thức khai trương, đón khách và sắc thái hospitality chỉn chu.',
-  '05 — Showreel':'05 — Video dẫn',
+  'Opening ceremony, guest welcome and a polished hospitality tone.':'Nghi thức khai trương, đón khách và sắc thái chỉn chu.',
+  '05 — Showreel':'05 — Showreel',
   'See me':'Xem Nga',
   'on stage.':'trên sân khấu.',
   '7 reels · bilingual hosting · stage presence · click to watch':'7 video · dẫn song ngữ · hiện diện sân khấu · bấm để xem',
@@ -2936,7 +2953,7 @@ const viCopy = {
   'Vietnamese host':'dẫn tiếng Việt',
   'Viettel Store 20 Years ·':'Viettel Store 20 năm ·',
   'outdoor stage':'sân khấu ngoài trời',
-  'bilingual session':'phiên song ngữ',
+  'bilingual session':'phiên dẫn song ngữ',
   'bilingual moderation':'điều phối song ngữ',
   'Conference · bilingual host':'Hội nghị · dẫn song ngữ',
   'Gold market talk · moderation':'Tọa đàm thị trường vàng · điều phối',
@@ -2944,14 +2961,14 @@ const viCopy = {
   'Vietnamese host · opening stage':'Dẫn tiếng Việt · mở màn sân khấu',
   'Festival opening · bilingual stage':'Mở màn lễ hội · sân khấu song ngữ',
   'Game opening · bilingual stage':'Mở màn game · sân khấu song ngữ',
-  'Booking handled via management':'Booking qua management',
-  'Booking and commercial inquiries are handled through management.':'Booking và các trao đổi thương mại được xử lý qua management.',
+  'Booking handled via management':'Booking qua đơn vị quản lý',
+  'Availability, event fit and booking terms are handled through management.':'Các yêu cầu về lịch dẫn, độ phù hợp chương trình, chi phí và phạm vi hợp tác được xử lý qua đơn vị quản lý.',
   'Navigate':'Điều hướng',
   'Top':'Đầu trang',
   'Trusted by':'Thương hiệu',
   'Nga Lyna · Bilingual MC for conferences, gala dinners, brand launches and public stages.':'Nga Lyna · MC song ngữ cho hội nghị, gala dinner, ra mắt thương hiệu và sân khấu công chúng.',
   ', available across Vietnam and internationally.':', nhận lịch tại Việt Nam và quốc tế.',
-  'Designed with composure.':'Designed with composure.'
+  'Designed with composure.':'Thiết kế với sự điềm tĩnh.'
 };
 
 function setLanguage(lang){
