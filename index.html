@@ -695,6 +695,15 @@ footer.foot{
 }
 .foot .col a{color:#bdb29c;text-decoration:none;display:block;padding:6px 0;font-size:14px}
 .foot .col a:hover{color:var(--paper)}
+.foot-intro{
+  font-size:13px;
+  margin-top:22px;
+  max-width:510px;
+  color:#bdb29c;
+  line-height:1.75;
+}
+.foot-intro .foot-line{display:block}
+.foot-intro .foot-line + .foot-line{margin-top:8px}
 /* Navigate — tidy wrapping link row, consistent on every screen */
 .foot-nav .nav-set{display:flex;flex-direction:column;gap:2px}
 .foot-nav .nav-set a{
@@ -1593,7 +1602,7 @@ body[data-lang="bilingual"] .en-only{display:none}
   .hero-cta{gap:16px}
   .btn-primary{font-size:18px;padding:12px 22px}
 
-  /* §02 Capabilities */
+  /* §02 Stagecraft */
   .cap-statement h2{font-size:clamp(34px,9vw,44px)}
   .cap-row{grid-template-columns:38px 1fr;gap:16px;padding:20px 0}
   .cap-no{font-size:26px}
@@ -1680,7 +1689,7 @@ body[data-lang="bilingual"] .en-only{display:none}
 <nav class="topnav" id="topnav">
   <a href="#top" class="brand-mark serif">Nga Lyna</a>
   <div class="nav-links">
-    <a href="#why">Capabilities</a>
+    <a href="#why">Stagecraft</a>
     <a href="#hall">Brands</a>
     <a href="#works">Portfolio</a>
     <a href="#voice">Showreel</a>
@@ -1723,11 +1732,11 @@ body[data-lang="bilingual"] .en-only{display:none}
 </section>
 
 <!-- ========== CAPABILITIES (replaces Why Me) ========== -->
-<section class="chap" id="why" data-screen-label="02 Capabilities">
+<section class="chap" id="why" data-screen-label="02 Stagecraft">
   <div class="wrap">
     <div class="cap-grid">
       <div class="cap-statement">
-        <div class="section-num">02 — Capabilities</div>
+        <div class="section-num">02 — Stagecraft</div>
         <h2 class="serif">Poise under lights. <em>Control in motion.</em></h2>
         <p>A professional MC protects the room as much as the script: reading the audience, keeping the timeline clean, and making every transition feel intentional in Vietnamese, English, or both.</p>
       </div>
@@ -2570,13 +2579,16 @@ body[data-lang="bilingual"] .en-only{display:none}
     <div class="foot-grid">
       <div>
         <h4 class="serif"><em>Two languages,</em><br>one stage.</h4>
-        <p style="font-size:13px;margin-top:22px;max-width:470px;color:#bdb29c;line-height:1.75">Nga Lyna · Bilingual MC for conferences, gala dinners, brand launches and public stages. <span class="en-only">Hanoi-based</span><span class="vi-only">Hà Nội</span>, available across Vietnam and internationally.</p>
+        <p class="foot-intro">
+          <span class="foot-line">Nga Lyna · Bilingual MC for conferences, gala dinners, brand launches and public stages.</span>
+          <span class="foot-line"><span class="en-only">Hanoi-based</span><span class="vi-only">Hà Nội</span>, available across Vietnam and internationally.</span>
+        </p>
       </div>
       <div class="col foot-nav">
         <b>Navigate</b>
         <div class="nav-set">
           <a href="#top"><span class="idx">00</span>Top</a>
-          <a href="#why"><span class="idx">02</span>Capabilities</a>
+          <a href="#why"><span class="idx">02</span>Stagecraft</a>
           <a href="#hall"><span class="idx">03</span>Trusted by</a>
           <a href="#works"><span class="idx">04</span>Portfolio</a>
           <a href="#voice"><span class="idx">05</span>Showreel</a>
