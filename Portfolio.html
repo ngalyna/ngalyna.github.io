@@ -1168,6 +1168,7 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
 }
 .mobile-more-toggle:hover{background:rgba(168,137,90,.08)}
 .mobile-more-toggle:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.mobile-more-toggle:disabled{cursor:default;opacity:.72}
 .mobile-more-toggle .less-label{display:none}
 .portfolio-group.is-expanded .mobile-more-toggle .more-label{display:none}
 .portfolio-group.is-expanded .mobile-more-toggle .less-label{display:inline}
@@ -1187,10 +1188,30 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   .event-card.featured{grid-column:auto}
   .event-card.wide-fill{grid-column:auto}
   .event-card.desktop-featured{order:-1}
+  .portfolio-group.mobile-collapsible.is-expanded .event-grid > .event-card:nth-child(n+5){
+    animation:mobileMoreIn .46s cubic-bezier(.22,1,.36,1) both;
+  }
+  .portfolio-group.mobile-collapsible.is-collapsing .event-grid > .event-card:nth-child(n+5){
+    animation:mobileMoreOut .24s ease both;
+  }
   .portfolio-group.mobile-collapsible:not(.is-expanded) .event-grid > .event-card:nth-child(n+5){display:none}
   .portfolio-group.mobile-collapsible .mobile-more-toggle{display:inline-flex;align-items:center;justify-content:center}
   .portfolio-note{display:block}
   .portfolio-note b{display:block;margin-bottom:12px}
+}
+@keyframes mobileMoreIn{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes mobileMoreOut{
+  from{opacity:1;transform:translateY(0)}
+  to{opacity:0;transform:translateY(-8px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .portfolio-group.mobile-collapsible.is-expanded .event-grid > .event-card:nth-child(n+5),
+  .portfolio-group.mobile-collapsible.is-collapsing .event-grid > .event-card:nth-child(n+5){
+    animation:none;
+  }
 }
 @media(max-width:520px){
   .event-card .event-collage.m-second-main img:first-child{grid-row:auto;order:2}
@@ -3050,8 +3071,53 @@ document.querySelectorAll('[data-more-toggle]').forEach(button => {
   const group = button.closest('.portfolio-group');
   if(!group) return;
   button.addEventListener('click', () => {
-    const expanded = group.classList.toggle('is-expanded');
-    button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    if(button.disabled) return;
+
+    const isMobile = window.matchMedia('(max-width: 900px)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const expanded = group.classList.contains('is-expanded');
+
+    if(!isMobile || reduceMotion){
+      group.classList.toggle('is-expanded', !expanded);
+      button.setAttribute('aria-expanded', !expanded ? 'true' : 'false');
+      return;
+    }
+
+    if(!expanded){
+      group.classList.add('is-expanded');
+      button.setAttribute('aria-expanded', 'true');
+      button.disabled = true;
+      window.setTimeout(() => {
+        button.disabled = false;
+      }, 480);
+      return;
+    }
+
+    let nextGroup = group.nextElementSibling;
+    while(nextGroup && !nextGroup.classList.contains('portfolio-group')){
+      nextGroup = nextGroup.nextElementSibling;
+    }
+    const target = nextGroup || group;
+    const targetTopBefore = target.getBoundingClientRect().top;
+
+    group.classList.add('is-collapsing');
+    button.disabled = true;
+    button.setAttribute('aria-expanded', 'false');
+
+    window.setTimeout(() => {
+      group.classList.remove('is-expanded', 'is-collapsing');
+      const targetTopAfter = target.getBoundingClientRect().top;
+      window.scrollBy(0, targetTopAfter - targetTopBefore);
+
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY + target.getBoundingClientRect().top - 28;
+        window.scrollTo({top: Math.max(0, y), behavior: 'smooth'});
+      });
+
+      window.setTimeout(() => {
+        button.disabled = false;
+      }, 520);
+    }, 260);
   });
 });
 
