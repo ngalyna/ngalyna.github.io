@@ -96,8 +96,8 @@ nav.topnav.scrolled{border-bottom-color:var(--line);padding:14px 56px}
 .nav-links a:hover{opacity:1}
 .lang-toggle{
   display:inline-flex;align-items:center;gap:0;
-  border:1px solid rgba(21,17,13,.28);
-  background:color-mix(in oklab, var(--paper) 84%, transparent);
+  border:1px solid rgba(168,137,90,.34);
+  background:rgba(246,241,232,.9);
   color:var(--ink);
   border-radius:999px;
   padding:3px;
@@ -490,7 +490,7 @@ section.chap{padding:140px 0;position:relative}
 }
 .brand-tail .tail-title{
   font-family:'Newsreader',serif;
-  font-size:clamp(28px,3vw,42px);
+  font-size:clamp(24px,2.4vw,34px);
   line-height:1.08;letter-spacing:-.012em;
   color:var(--paper);margin:0;
 }
@@ -528,7 +528,7 @@ section.chap{padding:140px 0;position:relative}
 }
 @media(max-width:900px){
   .brand-tail{margin-top:42px;padding-top:26px}
-  .brand-tail .tail-title{font-size:clamp(24px,6.2vw,30px);max-width:none;white-space:nowrap}
+  .brand-tail .tail-title{font-size:clamp(20px,5.4vw,24px);max-width:none;white-space:nowrap}
   .hall-marquee{padding:24px 0}
   .hall-marquee::before,.hall-marquee::after{width:34px}
   .hall-marquee .track{gap:28px;animation-duration:36s}
@@ -1190,10 +1190,10 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   .event-card.desktop-featured{order:-1}
   .event-card img.oeg-wide{object-position:62% center;--img-x:0}
   .portfolio-group.mobile-collapsible.is-expanded .event-grid > .event-card:nth-child(n+5){
-    animation:mobileMoreIn .46s cubic-bezier(.22,1,.36,1) both;
+    animation:mobileMoreIn .62s cubic-bezier(.22,1,.36,1) both;
   }
   .portfolio-group.mobile-collapsible.is-collapsing .event-grid > .event-card:nth-child(n+5){
-    animation:mobileMoreOut .24s ease both;
+    animation:mobileMoreOut .34s cubic-bezier(.4,0,.2,1) both;
   }
   .portfolio-group.mobile-collapsible:not(.is-expanded) .event-grid > .event-card:nth-child(n+5){display:none}
   .portfolio-group.mobile-collapsible .mobile-more-toggle{display:inline-flex;align-items:center;justify-content:center}
@@ -2830,7 +2830,7 @@ window.addEventListener('scroll', () => {
 // EN/VN mode: translate visible interface copy without duplicating page layout.
 const langToggles = Array.from(document.querySelectorAll('.lang-toggle'));
 const viCopy = {
-  'Stagecraft':'Bản lĩnh',
+  'Stagecraft':'Sân khấu',
   'Brands':'Thương hiệu',
   'Portfolio':'Sự kiện',
   'Showreel':'Showreel',
@@ -2864,7 +2864,7 @@ const viCopy = {
   '03 — Trusted by':'03 — Được tin tưởng bởi',
   'Brands that chose':'Những thương hiệu',
   'composure.':'lựa chọn bản lĩnh.',
-  'Nga is the rare host who can disappear into the moment and still be in full command of it. Our partners noticed — and asked who she was.':'Nga là kiểu người dẫn hiếm có: hòa vào khoảnh khắc mà vẫn giữ nhịp sân khấu trong tầm kiểm soát. Đối tác của chúng tôi nhận ra ngay — và hỏi cô ấy là ai.',
+  'Nga is the rare host who can disappear into the moment and still be in full command of it. Our partners noticed — and asked who she was.':'Nga là kiểu người dẫn hiếm có: hòa vào khoảnh khắc mà vẫn giữ nhịp sân khấu trong tầm kiểm soát. Đối tác của chúng tôi chú ý ngay — và hỏi cô ấy là ai.',
   'Event Director':'Đạo diễn sự kiện',
   'Events hosted':'Sự kiện đã dẫn',
   'Brands worked with':'Thương hiệu từng hợp tác',
@@ -3132,15 +3132,10 @@ document.querySelectorAll('[data-more-toggle]').forEach(button => {
       const targetTopAfter = target.getBoundingClientRect().top;
       window.scrollBy(0, targetTopAfter - targetTopBefore);
 
-      window.requestAnimationFrame(() => {
-        const y = window.scrollY + target.getBoundingClientRect().top - 28;
-        window.scrollTo({top: Math.max(0, y), behavior: 'smooth'});
-      });
-
       window.setTimeout(() => {
         button.disabled = false;
-      }, 520);
-    }, 260);
+      }, 620);
+    }, 360);
   });
 });
 
