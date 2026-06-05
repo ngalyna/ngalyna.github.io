@@ -1779,10 +1779,18 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
   .logo-wall-title{font-size:clamp(22px,6vw,28px)}
   .lw-cats{font-size:10px;letter-spacing:.14em;line-height:1.75}
   /* §05 Showreel */
-  .reel-card .reel-cap{font-size:17px;line-height:1.12}
-  .reel-card .reel-title-line{grid-template-columns:42px minmax(0,1fr) 52px;gap:10px;align-items:baseline}
+  .reel-card .reel-cap,
+  .reel-card.reel-featured .reel-cap{font-size:18px;line-height:1.08}
+  .reel-card .reel-title-line{grid-template-columns:38px minmax(0,1fr) auto;gap:8px;align-items:center}
   .reel-card .reel-num{font-size:25px;line-height:1;transform:none}
-  .reel-card .reel-tag{align-self:start;justify-self:end;margin-top:1px;padding:4px 8px}
+  .reel-card.reel-featured .reel-title-line{padding-bottom:10px}
+  .reel-card .reel-tag{
+    display:inline-flex;align-items:center;justify-content:center;
+    align-self:center;justify-self:end;margin-top:0;
+    min-width:48px;height:34px;padding:0 12px;
+    line-height:1;white-space:nowrap;letter-spacing:.18em;
+  }
+  .reel-card .reel-tag.reel-tag-bilingual{min-width:78px}
 
   /* Footer */
   footer.foot h4{font-size:52px}
@@ -2674,8 +2682,8 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
       <article class="reel-card reel-featured">
         <div class="reel-title-line">
           <span class="reel-num">01</span>
-          <span class="reel-cap serif">Bilingual MC Showreel · <em>EN/VN</em></span>
-          <span class="reel-tag">EN / VN</span>
+          <span class="reel-cap serif">Bilingual MC Showreel</span>
+          <span class="reel-tag reel-tag-bilingual">EN / VN</span>
         </div>
         <div class="reel-lite landscape" data-yt="8wh4zaa9g_A" role="button" aria-label="Play bilingual MC showreel">
           <img src="assets/reel-conference.webp" alt="Bilingual MC showreel thumbnail" loading="lazy" decoding="async" />
@@ -2686,8 +2694,8 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
       <article class="reel-card">
         <div class="reel-title-line">
           <span class="reel-num">02</span>
-          <span class="reel-cap serif">Netco x Tokio Marine · <em>bilingual session</em></span>
-          <span class="reel-tag">EN / VN</span>
+          <span class="reel-cap serif">Netco x Tokio Marine</span>
+          <span class="reel-tag reel-tag-bilingual">EN / VN</span>
         </div>
         <div class="reel-lite landscape" data-yt="5yE465v3Rk4" role="button" aria-label="Play Netco Tokio Marine reel">
           <img src="assets/reel-netco.webp" alt="Netco Tokio Marine showreel thumbnail" loading="lazy" decoding="async" />
@@ -2698,8 +2706,8 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
       <article class="reel-card">
         <div class="reel-title-line">
           <span class="reel-num">03</span>
-          <span class="reel-cap serif">Gold market talk · <em>bilingual moderation</em></span>
-          <span class="reel-tag">EN / VN</span>
+          <span class="reel-cap serif">Gold market talk</span>
+          <span class="reel-tag reel-tag-bilingual">EN / VN</span>
         </div>
         <div class="reel-lite landscape" data-yt="z2RWml0nxUU" role="button" aria-label="Play gold market talk reel">
           <img src="assets/reel-gold-market-talk.webp" alt="Gold market talk showreel thumbnail" loading="lazy" decoding="async" />
@@ -2710,7 +2718,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
       <article class="reel-card">
         <div class="reel-title-line">
           <span class="reel-num">04</span>
-          <span class="reel-cap serif">OEG Wonderland · <em>Vietnamese host</em></span>
+          <span class="reel-cap serif">OEG Wonderland · <em>live stage</em></span>
           <span class="reel-tag">VN</span>
         </div>
         <div class="reel-lite landscape" data-yt="wfv1HNH2bog" role="button" aria-label="Play OEG Wonderland reel">
@@ -2722,7 +2730,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
       <article class="reel-card">
         <div class="reel-title-line">
           <span class="reel-num">05</span>
-          <span class="reel-cap serif">Viettel Store 20 Years · <em>Vietnamese host</em></span>
+          <span class="reel-cap serif">Viettel Store 20 Years</span>
           <span class="reel-tag">VN</span>
         </div>
         <div class="reel-lite landscape" data-yt="ldbaxSCFDwE" role="button" aria-label="Play Viettel Store 20 years reel">
@@ -2983,15 +2991,13 @@ const viCopy = {
   'See me':'Xem Nga',
   'on stage.':'trên sân khấu.',
   '7 reels · bilingual hosting · stage presence · click to watch':'7 video · dẫn song ngữ · hiện diện sân khấu · bấm để xem',
-  'Bilingual MC Showreel ·':'Showreel MC song ngữ ·',
-  'EN/VN':'EN/VN',
+  'Bilingual MC Showreel':'Showreel MC song ngữ',
   'OEG Wonderland ·':'OEG Wonderland ·',
-  'Vietnamese host':'dẫn tiếng Việt',
-  'Viettel Store 20 Years ·':'Viettel Store 20 năm ·',
+  'live stage':'sân khấu trực tiếp',
+  'Viettel Store 20 Years':'Viettel Store 20 năm',
   'Tray Hoi Festival ·':'Trẩy Hội Festival ·',
   'outdoor stage':'sân khấu ngoài trời',
-  'bilingual session':'phiên dẫn song ngữ',
-  'bilingual moderation':'điều phối song ngữ',
+  'Gold market talk':'Tọa đàm thị trường vàng',
   'Conference · bilingual host':'Hội nghị · dẫn song ngữ',
   'Gold market talk · moderation':'Tọa đàm thị trường vàng · điều phối',
   'Netco x Tokio Marine · partner session':'Netco x Tokio Marine · phiên đối tác',
