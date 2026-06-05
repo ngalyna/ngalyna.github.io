@@ -343,8 +343,8 @@ section.hero{
   .hero[data-variant="cinematic"] .hero-image-wrap{position:absolute;inset:0;margin:0;aspect-ratio:auto;max-height:none}
   .hero[data-variant="cinematic"] .hero-image-wrap img{object-position:55% center;filter:none}
   .hero[data-variant="cinematic"] .hero-text{padding:0 24px 44px}
-  .hero[data-variant="cinematic"] .btn-primary{font-size:18px;padding:12px 22px}
-  .hero[data-variant="cinematic"] .btn-primary svg{width:12px;height:12px}
+  .hero[data-variant="cinematic"] .btn-primary{font-size:17px;padding:10px 19px;background:rgba(246,241,232,.92)}
+  .hero[data-variant="cinematic"] .btn-primary svg{width:11px;height:11px}
 }
 
 /* ====== SECTION SHELL ====== */
@@ -1057,11 +1057,15 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
 }
 .event-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
-  gap:22px 18px;
+  gap:38px 28px;
 }
 .event-grid.is-single{grid-template-columns:minmax(0,1fr);max-width:1080px}
 .event-grid.is-single .event-card.featured{grid-column:1}
 .event-grid.is-four{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 28px}
+.event-grid.is-featured-five{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 28px}
+.event-grid.is-featured-five .event-card:first-child{grid-column:1 / -1}
+.event-grid.is-featured-five .event-card:first-child .event-media{aspect-ratio:16/9}
+.event-grid.is-featured-five .event-card:first-child h4{font-size:clamp(30px,3vw,42px)}
 .event-grid.is-editorial-seven{grid-template-columns:repeat(3,minmax(0,1fr));gap:38px 28px}
 .event-grid.is-editorial-seven .event-card:first-child{grid-column:1 / -1}
 .event-grid.is-editorial-seven .event-card:first-child .event-media{aspect-ratio:16/9}
@@ -1073,7 +1077,7 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   margin:0 0 13px;
 }
 .event-card .event-media{
-  position:relative;overflow:hidden;background:var(--paper);
+  position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(232,201,140,.14), rgba(255,255,255,.12)), var(--paper);
   aspect-ratio:4/3;
 }
 .event-card.is-tall .event-media,
@@ -1166,15 +1170,18 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   font-style:italic;
   font-size:18px;
   cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  transition:background .24s ease,border-color .24s ease,color .24s ease,opacity .24s ease;
 }
 .mobile-more-toggle:hover{background:rgba(168,137,90,.08)}
 .mobile-more-toggle:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.mobile-more-toggle:disabled{cursor:default;opacity:.72}
+.mobile-more-toggle:disabled{cursor:default;opacity:1}
 .mobile-more-toggle .less-label{display:none}
 .portfolio-group.is-expanded .mobile-more-toggle .more-label{display:none}
 .portfolio-group.is-expanded .mobile-more-toggle .less-label{display:inline}
 @media(max-width:1100px){
-  .event-grid,.event-grid.is-four,.event-grid.is-editorial-seven{grid-template-columns:repeat(2,1fr)}
+  .event-grid,.event-grid.is-four,.event-grid.is-featured-five,.event-grid.is-editorial-seven{grid-template-columns:repeat(2,1fr)}
+  .event-grid.is-featured-five .event-card:first-child{grid-column:1 / -1}
   .event-grid.is-editorial-seven .event-card:first-child{grid-column:1 / -1}
 }
 @media(max-width:900px){
@@ -1183,13 +1190,15 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   .portfolio-group-head{grid-template-columns:46px 1fr;gap:14px 18px}
   .portfolio-group-head .group-note{grid-column:2}
   .portfolio-group-title h3{font-size:clamp(32px,9vw,44px)}
-  .event-grid,.event-grid.is-four,.event-grid.is-editorial-seven{grid-template-columns:1fr;gap:28px}
+  .event-grid,.event-grid.is-four,.event-grid.is-featured-five,.event-grid.is-editorial-seven{grid-template-columns:1fr;gap:28px}
+  .event-grid.is-featured-five .event-card:first-child{grid-column:auto}
+  .event-grid.is-featured-five .event-card:first-child .event-media{aspect-ratio:4/3}
   .event-grid.is-editorial-seven .event-card:first-child{grid-column:auto}
   .event-grid.is-editorial-seven .event-card:first-child .event-media{aspect-ratio:4/3}
   .event-card.featured{grid-column:auto}
   .event-card.wide-fill{grid-column:auto}
   .event-card.desktop-featured{order:-1}
-  .event-card img.oeg-wide{object-position:62% center;--img-x:0}
+  .event-card img.oeg-wide{object-position:56% center;--img-x:-3%}
   .portfolio-group.mobile-collapsible{overflow-anchor:none}
   .portfolio-group.mobile-collapsible.is-expanded .event-grid > .event-card:nth-child(n+5){
     animation:mobileMoreIn .62s cubic-bezier(.22,1,.36,1) both;
@@ -1197,7 +1206,7 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   .portfolio-group.mobile-collapsible.is-collapsing .event-grid > .event-card:nth-child(n+5){
     animation:mobileMoreOut .34s cubic-bezier(.4,0,.2,1) both;
   }
-  .portfolio-group.mobile-collapsible:not(.is-expanded) .event-grid > .event-card:nth-child(n+5){display:none}
+  .portfolio-group.mobile-collapsible:not(.is-expanded):not(.is-collapsing) .event-grid > .event-card:nth-child(n+5){display:none}
   .portfolio-group.mobile-collapsible .mobile-more-toggle{display:inline-flex;align-items:center;justify-content:center}
   .portfolio-note{display:block}
   .portfolio-note b{display:block;margin-bottom:12px}
@@ -2062,7 +2071,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
     </div>
 
     <div class="portfolio-groups">
-      <section class="portfolio-group">
+      <section class="portfolio-group mobile-collapsible">
         <div class="portfolio-group-head">
           <div class="portfolio-group-no">01</div>
           <div class="portfolio-group-title">
@@ -2125,7 +2134,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           </div>
           <p class="group-note">This format is higher-energy, but still needs clean sponsor cues, player interviews and stage control.</p>
         </div>
-        <div class="event-grid">
+        <div class="event-grid is-four">
           <article class="event-card featured">
             <figure>
               <div class="event-media is-wide">
@@ -2287,7 +2296,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Brand anniversary</div>
             <h4>Viettel Store <em>20 Years</em></h4>
-            <p>Anniversary gala with brand storytelling, leadership cues and a high-tempo stage.</p>
+            <p>Anniversary gala with brand storytelling, leadership moments and a high-tempo stage.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2317,7 +2326,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <h3>Conference <em>&amp; expert forum</em></h3>
             <div class="signal">Moderation · senior stakeholder rooms · Q&amp;A control</div>
           </div>
-          <p class="group-note">The proof here is less about spectacle and more about clarity: keeping speakers, audience and agenda moving cleanly.</p>
+          <p class="group-note">The proof here is less about spectacle and more about clarity: keeping the agenda clear, handovers precise and the room attentive.</p>
         </div>
         <div class="event-grid is-editorial-seven">
           <article class="event-card">
@@ -2352,7 +2361,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Product workshop</div>
             <h4>Samsung <em>West Lake Workshop</em></h4>
-            <p>Product-workshop hosting with guest exchange, speaker interaction and showroom context.</p>
+            <p>Product-workshop hosting with guest exchange and speaker connection in a showroom setting.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2366,7 +2375,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Tech conference</div>
             <h4>Xsolla <em>Connect HCMC 2026</em></h4>
-            <p>Gaming-industry conference with panel flow, partner guests and business-audience focus.</p>
+            <p>Gaming-industry conference with panel flow, partner guests and focused business networking.</p>
           </article>
           <article class="event-card mobile-extra">
             <figure>
@@ -2380,7 +2389,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">University forum</div>
             <h4><span class="en-only">Toyota x Bach Khoa <em>HUST Seminar</em></span><span class="vi-only" data-no-translate>Hội thảo Tương lai Xanh <em>HUST</em></span></h4>
-            <p>Green-future seminar with student dialogue and guest transitions in an academic room.</p>
+            <p>Green-future seminar at HUST with student dialogue and a composed academic tone.</p>
           </article>
           <article class="event-card mobile-extra">
             <figure><div class="event-media"><img src="assets/event-celestetic.webp" alt="Celestetic expert talk" loading="lazy" decoding="async" /></div></figure>
@@ -2400,7 +2409,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Strategic signing</div>
             <h4>Netco Post <em>x Tokio Marine</em></h4>
-            <p>Strategic partnership signing with clear handovers for corporate guests.</p>
+            <p>Strategic partnership signing with composed handovers for corporate guests.</p>
           </article>
         </div>
         <button class="mobile-more-toggle" type="button" aria-expanded="false" data-more-toggle>
@@ -2409,30 +2418,16 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
         </button>
       </section>
 
-      <section class="portfolio-group">
+      <section class="portfolio-group mobile-collapsible">
         <div class="portfolio-group-head">
           <div class="portfolio-group-no">06</div>
           <div class="portfolio-group-title">
             <h3>Product launch <em>&amp; partner showcase</em></h3>
             <div class="signal">Product story · partner moments · demo clarity</div>
           </div>
-          <p class="group-note">These events need the MC to hold attention while making the product, partner and campaign message feel central.</p>
+          <p class="group-note">These events need the MC to keep the room engaged while making the product, partner and campaign message feel central.</p>
         </div>
-        <div class="event-grid is-four">
-          <article class="event-card">
-            <figure>
-              <div class="event-media">
-                <div class="event-collage">
-                  <img src="assets/g-fuji-1.webp" alt="Fujifilm Partner Kick-off host" loading="lazy" decoding="async" />
-                  <img src="assets/g-fuji-3.webp" alt="Fujifilm Partner Kick-off room" loading="lazy" decoding="async" />
-                  <img src="assets/g-fuji-4.webp" alt="Fujifilm Partner Kick-off stage" loading="lazy" decoding="async" />
-                </div>
-              </div>
-            </figure>
-            <div class="event-kicker">Product launch</div>
-            <h4>Fujifilm <em>Partner Kick-off</em></h4>
-            <p>Partner gathering, product reveal and bilingual stage delivery.</p>
-          </article>
+        <div class="event-grid is-featured-five">
           <article class="event-card">
             <figure>
               <div class="event-media">
@@ -2446,6 +2441,20 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <div class="event-kicker">Skincare launch</div>
             <h4><span class="en-only">PRX Plus <em>Skin Booster Launch</em></span><span class="vi-only" data-no-translate>PRX Plus <em>Ra mắt Skin Booster</em></span></h4>
             <p>New-product launch with clear presentation flow, demo focus and refined skincare-brand tone.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/g-fuji-1.webp" alt="Fujifilm Partner Kick-off host" loading="lazy" decoding="async" />
+                  <img src="assets/g-fuji-3.webp" alt="Fujifilm Partner Kick-off room" loading="lazy" decoding="async" />
+                  <img src="assets/g-fuji-4.webp" alt="Fujifilm Partner Kick-off stage" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Product launch</div>
+            <h4>Fujifilm <em>Partner Kick-off</em></h4>
+            <p>Partner gathering, product reveal and bilingual stage delivery.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2482,6 +2491,10 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <p>Premium-living workshop with guest moderation, product conversation and a composed showroom tone.</p>
           </article>
         </div>
+        <button class="mobile-more-toggle" type="button" aria-expanded="false" data-more-toggle>
+          <span class="more-label"><span class="en-only">More launch work</span><span class="vi-only">Xem thêm sự kiện ra mắt</span></span>
+          <span class="less-label"><span class="en-only">Show less</span><span class="vi-only">Thu gọn</span></span>
+        </button>
       </section>
 
       <section class="portfolio-group mobile-collapsible">
@@ -2506,7 +2519,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Outdoor festival</div>
             <h4><span class="en-only">Tray Hoi <em>Festival</em></span><span class="vi-only" data-no-translate>Trẩy Hội <em>Festival</em></span></h4>
-            <p>Public-stage hosting with live-band drive and Vietnamese crowd connection.</p>
+            <p>Public-stage hosting with live-band energy and Vietnamese crowd connection.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2534,7 +2547,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Entertainment stage</div>
             <h4>OEG <em>Wonderland</em></h4>
-            <p>Large entertainment stage with performer moments, crowd rhythm and public-stage energy.</p>
+            <p>Large entertainment stage with performer moments, crowd momentum and public-stage energy.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2562,21 +2575,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Appreciation music night</div>
             <h4><span class="en-only">Tasco Mall <em>Chill Station</em></span><span class="vi-only" data-no-translate>Đêm nhạc tri ân <em>Tasco Mall</em></span></h4>
-            <p>Thank-you music night with outdoor-stage hosting, guest energy and soft hospitality tone.</p>
-          </article>
-          <article class="event-card">
-            <figure>
-              <div class="event-media">
-                <div class="event-collage">
-                  <img src="assets/event-vietnam-cuisine-1.webp" alt="Vietnamese culture and cuisine experience host" loading="lazy" decoding="async" />
-                  <img src="assets/event-vietnam-cuisine-2.webp" alt="Vietnamese cuisine guest experience" loading="lazy" decoding="async" />
-                  <img src="assets/event-vietnam-cuisine-3.webp" alt="Vietnamese culture and cuisine experience room" loading="lazy" decoding="async" />
-                </div>
-              </div>
-            </figure>
-            <div class="event-kicker">Cultural experience</div>
-            <h4><span class="en-only">Vietnamese Culture <em>&amp; Cuisine Experience</em></span><span class="vi-only" data-no-translate>Trải nghiệm <em>Văn hoá Ẩm thực Việt</em></span></h4>
-            <p>Guest-facing cultural hosting with food experience, warm narration and attentive room flow.</p>
+            <p>Thank-you music night with outdoor-stage hosting, guest energy and a warm guest-facing tone.</p>
           </article>
         </div>
         <button class="mobile-more-toggle" type="button" aria-expanded="false" data-more-toggle>
@@ -2663,7 +2662,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">Brand activation</div>
             <h4>Yamaha Janus <em>Match Your Freak</em></h4>
-            <p>Youth-focused scooter activation with outdoor stage presence and guest interaction.</p>
+            <p>Youth-focused scooter activation with outdoor-stage hosting and guest engagement.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2695,7 +2694,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           </div>
           <p class="group-note">These events need less noise and more polish: formal welcome, ceremony timing and guest-facing composure.</p>
         </div>
-        <div class="event-grid">
+        <div class="event-grid is-four">
           <article class="event-card featured">
             <figure>
               <div class="event-media is-wide">
@@ -2708,7 +2707,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             </figure>
             <div class="event-kicker">VIP opening</div>
             <h4>SH Elite Lounge <em>Hanoi</em></h4>
-            <p>Ribbon ceremony, premium guest welcome and a polished hospitality tone.</p>
+            <p>Ribbon ceremony, premium guest welcome and polished hospitality flow.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2723,6 +2722,20 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <div class="event-kicker">Soft opening</div>
             <h4>Cosmo <em>Entertainment</em></h4>
             <p>Opening ceremony, guest welcome and a polished hospitality tone.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/event-vietnam-cuisine-1.webp" alt="Vietnamese culture and cuisine experience host" loading="lazy" decoding="async" />
+                  <img src="assets/event-vietnam-cuisine-2.webp" alt="Vietnamese cuisine guest experience" loading="lazy" decoding="async" />
+                  <img src="assets/event-vietnam-cuisine-3.webp" alt="Vietnamese culture and cuisine experience room" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Cultural hospitality</div>
+            <h4><span class="en-only">Vietnamese Culture <em>&amp; Cuisine Experience</em></span><span class="vi-only" data-no-translate>Trải nghiệm <em>Văn hoá Ẩm thực Việt</em></span></h4>
+            <p>Guest-facing cultural experience with warm narration, food moments and attentive hospitality flow.</p>
           </article>
         </div>
       </section>
@@ -2988,24 +3001,24 @@ const viCopy = {
   'Thank-you party':'Tiệc tri ân',
   'Partner appreciation event with a polished corporate tone.':'Sự kiện tri ân đối tác với phong thái doanh nghiệp chỉn chu.',
   'Brand anniversary':'Kỷ niệm thương hiệu',
-  'Anniversary gala with brand storytelling, leadership cues and a high-tempo stage.':'Gala kỷ niệm với câu chuyện thương hiệu, phần lãnh đạo và tiết tấu sân khấu nhiều năng lượng.',
+  'Anniversary gala with brand storytelling, leadership moments and a high-tempo stage.':'Gala kỷ niệm với câu chuyện thương hiệu, phần lãnh đạo và tiết tấu sân khấu nhiều năng lượng.',
   'Corporate milestone':'Cột mốc doanh nghiệp',
   'Milestone celebration with leadership moments, audience connection and formal stage pacing.':'Lễ kỷ niệm cột mốc với phần lãnh đạo, kết nối khán phòng và phong thái dẫn trang trọng.',
   'Conference':'Hội nghị',
   '& expert forum':'& diễn đàn chuyên môn',
   'Moderation · senior stakeholder rooms · Q&A control':'Điều phối · khán phòng chuyên môn · hỏi đáp rõ ràng',
-  'The proof here is less about spectacle and more about clarity: keeping speakers, audience and agenda moving cleanly.':'Ở nhóm này, điểm mạnh nằm ở sự rõ ràng: giữ mạch diễn giả, khán phòng và chương trình đi gọn gàng.',
+  'The proof here is less about spectacle and more about clarity: keeping the agenda clear, handovers precise and the room attentive.':'Điểm mạnh ở nhóm này không nằm ở độ hoành tráng, mà ở khả năng giữ mạch chương trình rõ, chuyển phần gọn và khán phòng tập trung.',
   'Cybersecurity forum':'Diễn đàn an ninh mạng',
   'Ministry of Public Security Cybersecurity Forum':'Hội thảo An ninh mạng - Bộ Công an',
   'Formal conference hosting for cybersecurity, information safety and power-sector representatives.':'Dẫn hội thảo trang trọng về an ninh mạng, an toàn thông tin và đại diện ngành điện.',
   'Expert-room hosting with structured speaker handovers and professional timing.':'Dẫn hội nghị chuyên môn, nối mạch giữa các diễn giả và kiểm soát thời lượng chỉn chu.',
   'Expert-room hosting for The End of Bad Rankings Era, with structured handovers and timing.':'Dẫn hội nghị AI-Powered SEO: The End of Bad Rankings Era, nối mạch diễn giả và kiểm soát thời lượng gọn gàng.',
   'Product workshop':'Workshop sản phẩm',
-  'Product-workshop hosting with guest exchange, speaker interaction and showroom context.':'Dẫn workshop sản phẩm, trao đổi cùng khách mời và kết nối diễn giả trong bối cảnh showroom.',
+  'Product-workshop hosting with guest exchange and speaker connection in a showroom setting.':'Dẫn workshop sản phẩm, trao đổi cùng khách mời và kết nối diễn giả trong bối cảnh showroom.',
   'University forum':'Diễn đàn đại học',
   'Bach Khoa HUST Seminar':'Hội thảo Bách khoa HUST',
   'Green-future seminar with student Q&A, guest transitions and academic pacing.':'Hội thảo về tương lai xanh tại HUST, dẫn dắt phần hỏi đáp và kết nối khách mời trong không khí học thuật.',
-  'Green-future seminar with student dialogue and guest transitions in an academic room.':'Hội thảo Tương lai Xanh tại HUST, dẫn dắt phần trao đổi sinh viên và kết nối khách mời trong không khí học thuật.',
+  'Green-future seminar at HUST with student dialogue and a composed academic tone.':'Hội thảo Tương lai Xanh tại HUST, dẫn dắt phần trao đổi sinh viên và giữ sắc thái học thuật chỉn chu.',
   'Expert talk':'Tọa đàm chuyên môn',
   'Healthcare and beauty forum moderation with clear pacing and audience focus.':'Điều phối diễn đàn y tế/làm đẹp với mạch trao đổi rõ ràng và sự tập trung của khán phòng.',
   'Partner session':'Phiên đối tác',
@@ -3014,11 +3027,11 @@ const viCopy = {
   'Netco Post x Tokio Marine':'Netco Post x Tokio Marine',
   'Strategic partnership signing with clear handovers for corporate guests.':'Lễ ký kết hợp tác chiến lược với phần chuyển mạch rõ ràng cho khách mời doanh nghiệp.',
   'Tech conference':'Hội nghị công nghệ',
-  'Gaming-industry conference with panel flow, partner guests and business-audience focus.':'Hội nghị ngành game với phiên thảo luận, khách đối tác và nhóm người tham dự chuyên ngành.',
+  'Gaming-industry conference with panel flow, partner guests and focused business networking.':'Hội nghị ngành game với phiên thảo luận, khách đối tác và mạch kết nối chuyên ngành rõ ràng.',
   'Product launch':'Ra mắt sản phẩm',
   '& partner showcase':'& showcase đối tác',
   'Product story · partner moments · demo clarity':'Câu chuyện sản phẩm · khoảnh khắc đối tác · phần demo rõ ràng',
-  'These events need the MC to hold attention while making the product, partner and campaign message feel central.':'Nhóm sự kiện này cần MC giữ sự chú ý của khán phòng, đồng thời để sản phẩm, đối tác và thông điệp chiến dịch là trung tâm.',
+  'These events need the MC to keep the room engaged while making the product, partner and campaign message feel central.':'Nhóm sự kiện này cần MC giữ sự tập trung của khán phòng, đồng thời làm nổi bật sản phẩm, đối tác và thông điệp chiến dịch.',
   'Partner gathering, product reveal and bilingual stage delivery.':'Gặp gỡ đối tác, giới thiệu sản phẩm và dẫn song ngữ trên sân khấu.',
   'Skincare launch':'Ra mắt skincare',
   'PRX Plus Skin Booster Launch':'Ra mắt PRX Plus Skin Booster',
@@ -3041,21 +3054,23 @@ const viCopy = {
   'Outdoor projection · public crowd · cultural rhythm':'Sân khấu ngoài trời · khán giả đại chúng · màu sắc văn hoá',
   'Bigger public stages need stronger projection, quick crowd reading and a flexible Vietnamese delivery.':'Sân khấu công chúng cần giọng dẫn rõ, bắt nhịp khán giả nhanh và cách dẫn tiếng Việt linh hoạt.',
   'Outdoor festival':'Lễ hội ngoài trời',
-  'Public-stage hosting with live-band drive and Vietnamese crowd connection.':'Dẫn sân khấu công chúng với ban nhạc trực tiếp và khả năng kết nối khán giả Việt.',
+  'Public-stage hosting with live-band energy and Vietnamese crowd connection.':'Dẫn sân khấu công chúng với năng lượng live band và sự kết nối tự nhiên cùng khán giả Việt.',
   'Cultural festival':'Lễ hội văn hoá',
   'Vietnam-Japan cultural stage with performance handovers and crowd-facing transitions.':'Sân khấu văn hoá Việt-Nhật với phần dẫn dắt tiết mục và giao lưu khán giả.',
   'Thang Long Japan Festival 2024':'Lễ hội Nhật Bản Thăng Long 2024',
   'Major Vietnam-Japan cultural festival at Thang Long Industrial Park, with performance handovers and crowd flow.':'Lễ hội Nhật Bản lớn tại KCN Thăng Long, dẫn dắt tiết mục và giữ nhịp giao lưu khán giả.',
   'Entertainment stage':'Sân khấu giải trí',
-  'Large entertainment stage with performer moments, crowd rhythm and public-stage energy.':'Sân khấu giải trí lớn, kết nối nghệ sĩ với khán giả và giữ năng lượng sự kiện xuyên suốt.',
+  'Large entertainment stage with performer moments, crowd momentum and public-stage energy.':'Sân khấu giải trí lớn với khoảnh khắc nghệ sĩ, sức nóng khán giả và năng lượng sân khấu công chúng.',
   'Mall festival opening':'Khai mạc lễ hội tại mall',
   'Mall-festival opening with family audience, ceremony flow and warm public-stage hosting.':'Khai mạc Lễ hội Cá Chép tại AEON Mall Hải Phòng, giữ nhịp nghi thức và không khí thân thiện với khách gia đình.',
   'Appreciation music night':'Đêm nhạc tri ân',
   'Tasco Mall Chill Station':'Đêm nhạc tri ân Tasco Mall',
-  'Thank-you music night with outdoor-stage hosting, guest energy and soft hospitality tone.':'Đêm nhạc tri ân tại Tasco Mall với lối dẫn ngoài trời, gần gũi và giữ nhịp khách mời.',
+  'Thank-you music night with outdoor-stage hosting, guest energy and a warm guest-facing tone.':'Đêm nhạc tri ân tại Tasco Mall với lối dẫn ngoài trời, gần gũi và giữ kết nối với khách mời.',
   'Cultural experience':'Trải nghiệm văn hoá',
   'Vietnamese Culture & Cuisine Experience':'Trải nghiệm văn hoá ẩm thực Việt',
-  'Guest-facing cultural hosting with food experience, warm narration and attentive room flow.':'Dẫn trải nghiệm văn hoá ẩm thực Việt với lời dẫn ấm, gần gũi và nhịp tiếp đón chỉn chu.',
+  'Cultural hospitality':'Trải nghiệm văn hoá',
+  'Guest-facing cultural experience with warm narration, food moments and attentive hospitality flow.':'Trải nghiệm văn hoá ẩm thực Việt với lời dẫn ấm, phần giao lưu gần gũi và nhịp tiếp đón chỉn chu.',
+  'More launch work':'Xem thêm sự kiện ra mắt',
   'Retail activation':'Activation bán lẻ',
   '& consumer brand':'& thương hiệu tiêu dùng',
   'Customer traffic · talent moments · brand presence':'Khách tại điểm bán · khoảnh khắc KOL/nghệ sĩ · hiện diện thương hiệu',
@@ -3069,14 +3084,14 @@ const viCopy = {
   'High-traffic brand activation across a concert night.':'Activation thương hiệu trong đêm concert đông khách.',
   'Retail-floor hosting with talent interaction and youth-facing energy.':'Dẫn tại điểm bán, kết nối khách mời và tạo năng lượng gần gũi với nhóm khán giả trẻ.',
   'Brand activation':'Activation thương hiệu',
-  'Youth-focused scooter activation with outdoor stage presence and guest interaction.':'Activation xe tay ga hướng tới giới trẻ, dẫn dắt sân khấu ngoài trời và giao lưu cùng khách tham dự.',
+  'Youth-focused scooter activation with outdoor-stage hosting and guest engagement.':'Activation xe tay ga hướng tới giới trẻ với lối dẫn ngoài trời và kết nối cùng khách tham dự.',
   'Christmas lighting':'Thắp sáng Noel',
   'Christmas tree-lighting ceremony with family audience and warm mall hosting.':'Lễ thắp sáng cây thông Noel tại AEON Mall Hà Đông, với lối dẫn ấm và phù hợp nhóm khách gia đình.',
   'VIP opening':'Khai trương VIP',
   '& hospitality':'& đón khách',
   'Premium welcome · ribbon ceremony · refined tone':'Đón khách cao cấp · cắt băng · sắc thái tinh tế',
   'These events need less noise and more polish: formal welcome, ceremony timing and guest-facing composure.':'Nhóm này cần ít ồn ào hơn và nhiều sự tinh tế hơn: đón khách trang trọng, nghi thức đúng nhịp và phong thái chỉn chu trước khách mời.',
-  'Ribbon ceremony, premium guest welcome and a polished hospitality tone.':'Cắt băng, đón khách cao cấp và phong thái tiếp đón chỉn chu.',
+  'Ribbon ceremony, premium guest welcome and polished hospitality flow.':'Nghi thức cắt băng, đón tiếp khách VIP và mạch tiếp đón sang trọng.',
   'Soft opening':'Soft opening',
   'Opening ceremony, guest welcome and a polished hospitality tone.':'Nghi thức khai trương, đón tiếp khách mời và phong thái tiếp đón sang trọng, chỉn chu.',
   '05 — Showreel':'05 — Showreel',
@@ -3240,14 +3255,12 @@ document.querySelectorAll('[data-more-toggle]').forEach(button => {
       return;
     }
 
-    const target = nextPortfolioAnchor();
-    const targetTopBefore = target.getBoundingClientRect().top;
-
     button.disabled = true;
     button.setAttribute('aria-expanded', 'false');
+    const target = nextPortfolioAnchor();
+    const targetTopBefore = target.getBoundingClientRect().top;
     group.classList.remove('is-expanded', 'is-collapsing');
     keepAnchorStill(target, targetTopBefore);
-
     window.setTimeout(() => {
       button.disabled = false;
     }, 180);
