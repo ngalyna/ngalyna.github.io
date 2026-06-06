@@ -344,6 +344,20 @@ section.hero{
   .hero[data-variant="cinematic"] .hero-image-wrap{position:absolute;inset:0;margin:0;aspect-ratio:auto;max-height:none}
   .hero[data-variant="cinematic"] .hero-image-wrap img{object-position:55% center;filter:none}
   .hero[data-variant="cinematic"] .hero-text{padding:0 24px 44px}
+  body[data-lang="vi"] .hero[data-variant="cinematic"] .hero-image-wrap::after{
+    background:
+      radial-gradient(ellipse 92% 56% at 18% 68%, rgba(12,9,6,.74) 0%, rgba(12,9,6,.48) 48%, rgba(12,9,6,0) 76%),
+      linear-gradient(to top, rgba(21,17,13,.82) 0%, rgba(21,17,13,.24) 54%, rgba(21,17,13,.36) 100%);
+  }
+  body[data-lang="vi"] .hero[data-variant="cinematic"] .hero-text{padding-bottom:28px}
+  body[data-lang="vi"] .hero[data-variant="cinematic"] .hero-name{margin-bottom:20px;padding-bottom:13px}
+  body[data-lang="vi"] .hero[data-variant="cinematic"] .hero-text .eyebrow{margin-bottom:18px}
+  body[data-lang="vi"] .hero[data-variant="cinematic"] .hero-headline{margin-bottom:14px}
+  body[data-lang="vi"] .hero[data-variant="cinematic"] .hero-vi{
+    font-size:clamp(21px,6.3vw,25px);
+    line-height:1.3;
+    margin-bottom:20px;
+  }
   .hero[data-variant="cinematic"] .btn-primary{font-size:17px;padding:10px 19px;background:rgba(246,241,232,.92)}
   .hero[data-variant="cinematic"] .btn-primary svg{width:11px;height:11px}
 }
@@ -1209,15 +1223,19 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   .event-card.desktop-featured{order:-1}
   .event-card img.oeg-wide{object-position:63% center;--img-x:-4%}
   .portfolio-group.mobile-collapsible{overflow-anchor:none}
+  .portfolio-group.mobile-collapsible.is-preparing-more .mobile-more-toggle{opacity:.72}
   .portfolio-group.mobile-collapsible.is-expanded .event-grid > .event-card:nth-child(n+5){
-    animation:mobileMoreIn .62s cubic-bezier(.22,1,.36,1) both;
+    overflow:hidden;
+    animation:mobileMoreIn .76s cubic-bezier(.19,1,.22,1) both;
     transform-origin:top center;
+    will-change:opacity, max-height, transform;
   }
   .portfolio-group.mobile-collapsible.is-collapsing .event-grid > .event-card:nth-child(n+5){
     overflow:hidden;
     pointer-events:none;
     transform-origin:top center;
-    animation:mobileMoreOut .46s cubic-bezier(.22,.61,.36,1) both;
+    will-change:opacity, max-height, transform;
+    animation:mobileMoreOut .66s cubic-bezier(.33,0,.2,1) both;
   }
   .portfolio-group.mobile-collapsible:not(.is-expanded):not(.is-collapsing) .event-grid > .event-card:nth-child(n+5){display:none}
   .portfolio-group.mobile-collapsible .mobile-more-toggle{display:inline-flex;align-items:center;justify-content:center}
@@ -1225,12 +1243,14 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   .portfolio-note b{display:block;margin-bottom:12px}
 }
 @keyframes mobileMoreIn{
-  from{opacity:0;transform:translateY(18px)}
-  to{opacity:1;transform:translateY(0)}
+  0%{opacity:0;max-height:0;transform:translateY(12px)}
+  38%{opacity:.18}
+  100%{opacity:1;max-height:1600px;transform:translateY(0)}
 }
 @keyframes mobileMoreOut{
-  from{opacity:1;max-height:1500px;transform:translateY(0) scale(1)}
-  to{opacity:0;max-height:0;transform:translateY(-10px) scale(.985)}
+  0%{opacity:1;max-height:1600px;transform:translateY(0)}
+  54%{opacity:0;transform:translateY(-4px)}
+  100%{opacity:0;max-height:0;transform:translateY(-4px)}
 }
 @media(prefers-reduced-motion:reduce){
   .portfolio-group.mobile-collapsible.is-expanded .event-grid > .event-card:nth-child(n+5),
@@ -2401,9 +2421,9 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Game stage</div>
-            <h4>Audition <em>StarLink 2026</em></h4>
-            <p>Game-community stage with performances, audience momentum and polished host presence.</p>
+            <div class="event-kicker">VIP AU event</div>
+            <h4>Audition <em>Star Link 2026</em></h4>
+            <p>Audition VIP community night with The Golden Era theme, recognition moments and stage entertainment.</p>
           </article>
         </div>
         <button class="mobile-more-toggle" type="button" aria-expanded="false" data-more-toggle>
@@ -3134,6 +3154,8 @@ const viCopy = {
   'Game stage':'Sân khấu game',
   'Game-community stage with performances, award moments and live audience engagement.':'Sân khấu cộng đồng game với biểu diễn, trao giải và giao lưu khán giả.',
   'Game-community stage with performances, audience momentum and polished host presence.':'Sân khấu cộng đồng game với các tiết mục biểu diễn, giao lưu khán giả và phong thái dẫn chỉn chu.',
+  'VIP AU event':'Đêm tiệc VIP AU',
+  'Audition VIP community night with The Golden Era theme, recognition moments and stage entertainment.':'Đêm tiệc VIP Audition chủ đề The Golden Era, có giao lưu cộng đồng, vinh danh TOP VIP và bốc thăm may mắn.',
   'Gala':'Gala',
   '& internal milestones':'& dấu mốc nội bộ',
   'Awards · leadership moments · ceremony timing':'Trao giải · phần lãnh đạo · nhịp nghi lễ',
@@ -3363,6 +3385,7 @@ document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeVideo(); }
 document.querySelectorAll('[data-more-toggle]').forEach(button => {
   const group = button.closest('.portfolio-group');
   if(!group) return;
+  const extraCardSelector = '.event-grid > .event-card:nth-child(n+5)';
 
   function nextPortfolioAnchor(){
     let nextGroup = group.nextElementSibling;
@@ -3392,7 +3415,33 @@ document.querySelectorAll('[data-more-toggle]').forEach(button => {
     });
   }
 
-  button.addEventListener('click', () => {
+  function preloadImage(img){
+    if(!img) return Promise.resolve();
+    try{ img.loading = 'eager'; }catch(e){}
+    if(img.complete && img.naturalWidth > 0) return Promise.resolve();
+
+    const source = img.currentSrc || img.src;
+    const probe = new Image();
+    probe.decoding = 'async';
+    probe.src = source;
+    const decoded = probe.decode ? probe.decode().catch(() => {}) : new Promise(resolve => {
+      probe.onload = resolve;
+      probe.onerror = resolve;
+    });
+    return decoded.then(() => img.decode ? img.decode().catch(() => {}) : undefined);
+  }
+
+  function preloadExtraCards(){
+    const cards = Array.from(group.querySelectorAll(extraCardSelector));
+    const images = cards.flatMap(card => Array.from(card.querySelectorAll('img')));
+    if(!images.length) return Promise.resolve();
+    return Promise.race([
+      Promise.all(images.map(preloadImage)),
+      new Promise(resolve => window.setTimeout(resolve, 850))
+    ]);
+  }
+
+  button.addEventListener('click', async () => {
     if(button.disabled) return;
 
     const isMobile = window.matchMedia('(max-width: 900px)').matches;
@@ -3406,12 +3455,15 @@ document.querySelectorAll('[data-more-toggle]').forEach(button => {
     }
 
     if(!expanded){
+      group.classList.add('is-preparing-more');
+      button.disabled = true;
+      await preloadExtraCards();
+      group.classList.remove('is-preparing-more');
       group.classList.add('is-expanded');
       button.setAttribute('aria-expanded', 'true');
-      button.disabled = true;
       window.setTimeout(() => {
         button.disabled = false;
-      }, 640);
+      }, 780);
       return;
     }
 
@@ -3435,7 +3487,7 @@ document.querySelectorAll('[data-more-toggle]').forEach(button => {
       group.classList.remove('is-collapsing');
       keepAnchorStill(target, targetTopBefore);
       button.disabled = false;
-    }, 580);
+    }, 700);
   });
 });
 
