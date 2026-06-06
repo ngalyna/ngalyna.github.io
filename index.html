@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Nga Lyna — Bilingual MC · Hanoi</title>
+<meta name="description" content="Nga Lyna is a Hanoi-based bilingual MC hosting Vietnamese and English programs for conferences, gala dinners, product launches, brand activations, festivals and esports stages." />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -268,6 +269,11 @@ body{
   transition:background .4s,color .4s;
 }
 img{max-width:100%;display:block}
+.sr-only{
+  position:absolute;width:1px;height:1px;
+  padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
 
 .serif{font-family:'Newsreader',serif;font-weight:400;letter-spacing:-.012em}
 .italic{font-style:italic}
@@ -2203,6 +2209,13 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
   </div>
 </section>
 
+<section class="sr-only" id="booking-profile" aria-labelledby="booking-profile-title">
+  <h2 id="booking-profile-title">Booking profile</h2>
+  <p>Nga Lyna is a Hanoi-based bilingual MC hosting Vietnamese and English programs for conferences, gala dinners, product launches, brand activations, festivals and esports stages.</p>
+  <p>Her portfolio includes public-sector forums, corporate milestones, luxury retail events, game and esports stages, outdoor festivals and large-scale entertainment programs.</p>
+  <p>Booking inquiries are handled through management, including availability, event fit and booking details for events in Vietnam and internationally.</p>
+</section>
+
 <!-- ========== CAPABILITIES (replaces Why Me) ========== -->
 <section class="chap" id="why" data-screen-label="02 Stagecraft">
   <div class="wrap">
@@ -2284,8 +2297,8 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
     </div>
 
     <div class="industry-meta" id="industry-meta">
-      <div class="focused-on" id="industry-focused-text">Focusing on <em>tech</em> brands</div>
-      <div class="focused-count" id="industry-focused-count">8 of 30</div>
+      <div class="focused-on" id="industry-focused-text">Selected <em>brand clients</em></div>
+      <div class="focused-count" id="industry-focused-count">30 logos shown</div>
       <button class="reset-focus" type="button" id="industry-reset">↺ Show all brands</button>
     </div>
 
@@ -3548,6 +3561,12 @@ function setLanguage(lang){
   const nextLang = lang === 'vi' ? 'vi' : 'en';
   document.body.dataset.lang = nextLang;
   document.documentElement.lang = nextLang === 'vi' ? 'vi' : 'en';
+  document.querySelectorAll('.en-only').forEach(el => {
+    el.setAttribute('aria-hidden', nextLang === 'vi' ? 'true' : 'false');
+  });
+  document.querySelectorAll('.vi, .vi-only, .vi-cap, .vi-name, .vi-line, .hero-vi').forEach(el => {
+    el.setAttribute('aria-hidden', nextLang === 'en' ? 'true' : 'false');
+  });
   langToggles.forEach(toggle => {
     toggle.setAttribute('aria-pressed', nextLang === 'vi' ? 'true' : 'false');
   });
@@ -3589,6 +3608,14 @@ if(langToggles.length){
   try{ savedLang = localStorage.getItem('ngalyna-lang') || 'en'; }catch(e){}
   setLanguage(savedLang);
 }
+
+document.querySelectorAll('.hall-marquee .track').forEach(track => {
+  const items = Array.from(track.children);
+  const midpoint = Math.floor(items.length / 2);
+  items.forEach((item, index) => {
+    if(index >= midpoint) item.setAttribute('aria-hidden', 'true');
+  });
+});
 
 // Lazy YouTube modal embed: loads iframe only on click, keeping the first screen light.
 const videoModal = document.getElementById('video-modal');
