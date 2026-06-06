@@ -346,13 +346,17 @@ section.hero{
   .hero[data-variant="cinematic"] .hero-text{padding:0 24px 44px}
   body[data-lang="vi"] .hero[data-variant="cinematic"] .hero-image-wrap::after{
     background:
-      radial-gradient(ellipse 92% 56% at 18% 68%, rgba(12,9,6,.74) 0%, rgba(12,9,6,.48) 48%, rgba(12,9,6,0) 76%),
-      linear-gradient(to top, rgba(21,17,13,.82) 0%, rgba(21,17,13,.24) 54%, rgba(21,17,13,.36) 100%);
+      radial-gradient(ellipse 92% 56% at 18% 68%, rgba(12,9,6,.50) 0%, rgba(12,9,6,.30) 48%, rgba(12,9,6,0) 76%),
+      linear-gradient(to top, rgba(21,17,13,.60) 0%, rgba(21,17,13,.14) 54%, rgba(21,17,13,.24) 100%);
   }
   body[data-lang="vi"] .hero[data-variant="cinematic"] .hero-text{padding-bottom:28px}
   body[data-lang="vi"] .hero[data-variant="cinematic"] .hero-name{margin-bottom:20px;padding-bottom:13px}
   body[data-lang="vi"] .hero[data-variant="cinematic"] .hero-text .eyebrow{margin-bottom:18px}
-  body[data-lang="vi"] .hero[data-variant="cinematic"] .hero-headline{margin-bottom:14px}
+  body[data-lang="vi"] .hero[data-variant="cinematic"] .hero-headline{
+    font-size:clamp(42px,12vw,52px);
+    line-height:1.04;
+    margin-bottom:16px;
+  }
   body[data-lang="vi"] .hero[data-variant="cinematic"] .hero-vi{
     font-size:clamp(21px,6.3vw,25px);
     line-height:1.3;
@@ -1081,6 +1085,10 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
 .event-grid.is-featured-five .event-card:first-child{grid-column:1 / -1}
 .event-grid.is-featured-five .event-card:first-child .event-media{aspect-ratio:16/9}
 .event-grid.is-featured-five .event-card:first-child h4{font-size:clamp(30px,3vw,42px)}
+.event-grid.is-featured-six{grid-template-columns:repeat(3,minmax(0,1fr));gap:38px 28px}
+.event-grid.is-featured-six .event-card:first-child{grid-column:1 / -1}
+.event-grid.is-featured-six .event-card:first-child .event-media{aspect-ratio:16/9}
+.event-grid.is-featured-six .event-card:first-child h4{font-size:clamp(30px,3vw,42px)}
 .event-grid.is-editorial-seven{grid-template-columns:repeat(3,minmax(0,1fr));gap:38px 28px}
 .event-grid.is-editorial-seven .event-card:first-child{grid-column:1 / -1}
 .event-grid.is-editorial-seven .event-card:first-child .event-media{aspect-ratio:16/9}
@@ -1201,9 +1209,10 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
 .portfolio-group.is-collapsing .mobile-more-toggle .more-label{display:none}
 .portfolio-group.is-collapsing .mobile-more-toggle .less-label{display:inline}
 @media(max-width:1100px){
-      .event-grid,.event-grid.is-four,.event-grid.is-featured-five,.event-grid.is-editorial-seven{grid-template-columns:repeat(2,1fr)}
+      .event-grid,.event-grid.is-four,.event-grid.is-featured-five,.event-grid.is-featured-six,.event-grid.is-editorial-seven{grid-template-columns:repeat(2,1fr)}
       .event-grid.is-editorial-seven.center-last-desktop .event-card:last-child:nth-child(3n + 2){grid-column:auto}
   .event-grid.is-featured-five .event-card:first-child{grid-column:1 / -1}
+  .event-grid.is-featured-six .event-card:first-child{grid-column:1 / -1}
   .event-grid.is-editorial-seven .event-card:first-child{grid-column:1 / -1}
 }
 @media(max-width:900px){
@@ -1212,10 +1221,12 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   .portfolio-group-head{grid-template-columns:46px 1fr;gap:14px 18px}
   .portfolio-group-head .group-note{grid-column:2}
   .portfolio-group-title h3{font-size:clamp(32px,9vw,44px)}
-  .event-grid,.event-grid.is-four,.event-grid.is-featured-five,.event-grid.is-editorial-seven{grid-template-columns:1fr;gap:28px}
+  .event-grid,.event-grid.is-four,.event-grid.is-featured-five,.event-grid.is-featured-six,.event-grid.is-editorial-seven{grid-template-columns:1fr;gap:28px}
   .event-grid.is-editorial-seven.center-last-desktop .event-card:last-child:nth-child(3n + 2){grid-column:auto}
   .event-grid.is-featured-five .event-card:first-child{grid-column:auto}
   .event-grid.is-featured-five .event-card:first-child .event-media{aspect-ratio:4/3}
+  .event-grid.is-featured-six .event-card:first-child{grid-column:auto}
+  .event-grid.is-featured-six .event-card:first-child .event-media{aspect-ratio:4/3}
   .event-grid.is-editorial-seven .event-card:first-child{grid-column:auto}
   .event-grid.is-editorial-seven .event-card:first-child .event-media{aspect-ratio:4/3}
   .event-card.featured{grid-column:auto}
@@ -1365,6 +1376,7 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
 .reel-lite.landscape{aspect-ratio:16/9}
 .reel-lite img{
   width:100%;height:100%;object-fit:cover;
+  transform:scale(var(--reel-scale,1));
   transition:transform .6s ease, filter .3s;
   filter:saturate(.9);
 }
@@ -1373,7 +1385,8 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
 .reel-lite img.reel-focus-stage{object-position:center 58%}
 .reel-lite img.reel-focus-top{object-position:center 35%}
 .reel-lite img.reel-focus-low{object-position:center 70%}
-.reel-lite:hover img{transform:scale(1.03);filter:saturate(1)}
+.reel-lite img.reel-viettel-security{object-position:center 88%;--reel-scale:1.48}
+.reel-lite:hover img{transform:scale(calc(var(--reel-scale,1) * 1.03));filter:saturate(1)}
 .reel-lite::after{
   content:"";position:absolute;inset:0;
   background:linear-gradient(to top, rgba(21,17,13,.45) 0%, rgba(21,17,13,.05) 50%, rgba(21,17,13,.2) 100%);
@@ -1388,7 +1401,6 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   pointer-events:none;border:none;z-index:2;
   box-shadow:0 6px 24px rgba(21,17,13,.28);
 }
-.reel-lite.play-left .reel-play{left:32%}
 .reel-play svg{width:22px;height:22px;margin-left:3px;fill:var(--ink);display:block}
 .reel-lite:hover .reel-play{transform:translate(-50%,-50%) scale(1.08);background:var(--paper)}
 .video-modal{
@@ -1976,7 +1988,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
       <div class="cap-statement">
         <div class="section-num">02 — Stagecraft</div>
         <h2 class="serif">Poise under lights. <em>Control in motion.</em></h2>
-        <p>A professional MC protects the room as much as the script: reading the audience, keeping the timeline clean and making every transition feel intentional.</p>
+        <p>A strong MC keeps more than the script moving: reading the room, protecting the timeline and making each transition feel intentional.</p>
       </div>
 
       <div class="cap-list">
@@ -1991,7 +2003,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           <div class="cap-no">II</div>
           <div>
             <div class="cap-title">Room control <em>&amp; pacing</em></div>
-            <div class="cap-desc">Opening remarks, speaker handovers, awards and unscripted moments handled with calm, professional timing.</div>
+            <div class="cap-desc">Opening remarks, speaker transitions, awards and unexpected moments handled calmly, professionally and on cue.</div>
           </div>
         </div>
         <div class="cap-row">
@@ -2019,7 +2031,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
     <div class="section-head">
       <div class="section-num">03 — Trusted by</div>
       <h2 class="section-title">
-        Brands that chose <em>composure.</em>
+        Brands that trust <em>her stagecraft.</em>
         <span class="vi vi-only">Lựa chọn bản lĩnh</span>
       </h2>
     </div>
@@ -2036,7 +2048,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
         <div class="stat"><div class="n serif"><em>300</em>+</div><div class="l">Events hosted</div></div>
         <div class="stat"><div class="n serif"><em>50</em>+</div><div class="l">Brands worked with</div></div>
         <div class="stat"><div class="n serif"><em>5</em></div><div class="l">Years on stage</div></div>
-        <div class="stat"><div class="n serif"><em>2</em></div><div class="l">Languages fluently</div></div>
+        <div class="stat"><div class="n serif"><em>2</em></div><div class="l">Fluent languages</div></div>
       </div>
     </div>
 
@@ -2264,7 +2276,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Corporate gala</div>
+            <div class="event-kicker">Corporate anniversary</div>
             <h4>FLC Group <em>23rd Anniversary</em></h4>
             <p>23rd-anniversary gala with FLC leadership, ceremony cues and a formal stage rhythm.</p>
           </article>
@@ -2447,7 +2459,21 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           </div>
           <p class="group-note">Outdoor stages need strong projection, quick crowd reading and flexible Vietnamese delivery.</p>
         </div>
-        <div class="event-grid is-four">
+        <div class="event-grid is-featured-six">
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img class="oeg-wide" src="assets/event-oeg-wonderland-4.webp" alt="OEG Wonderland wide stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-oeg-wonderland-5.webp" alt="OEG Wonderland host with rapper on stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-oeg-wonderland-3.webp" alt="OEG Wonderland audience moment" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Entertainment stage</div>
+            <h4><span class="en-only">OEG Wonderland - <em>Vietnam GameVerse</em></span><span class="vi-only" data-no-translate>OEG Wonderland - <em>Vietnam GameVerse</em></span></h4>
+            <p>Artist interaction and live-stage hosting for Vietnam GameVerse.</p>
+          </article>
           <article class="event-card">
             <figure>
               <div class="event-media">
@@ -2476,20 +2502,6 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <h4><span class="en-only">Tray Hoi <em>Festival</em></span><span class="vi-only" data-no-translate>Trẩy Hội <em>Festival</em></span></h4>
             <p>Public-stage hosting with live-band energy and strong Vietnamese crowd connection.</p>
           </article>
-          <article class="event-card desktop-featured">
-            <figure>
-              <div class="event-media">
-                <div class="event-collage is-wide-main">
-                  <img class="oeg-wide" src="assets/event-oeg-wonderland-4.webp" alt="OEG Wonderland wide stage" loading="lazy" decoding="async" />
-                  <img src="assets/event-oeg-wonderland-5.webp" alt="OEG Wonderland host with rapper on stage" loading="lazy" decoding="async" />
-                  <img src="assets/event-oeg-wonderland-3.webp" alt="OEG Wonderland audience moment" loading="lazy" decoding="async" />
-                </div>
-              </div>
-            </figure>
-            <div class="event-kicker">Entertainment stage</div>
-            <h4><span class="en-only">OEG Wonderland - <em>Vietnam GameVerse 2026</em></span><span class="vi-only" data-no-translate>OEG Wonderland - <em>Vietnam GameVerse</em></span></h4>
-            <p>Artist interaction and live-stage hosting for Vietnam GameVerse.</p>
-          </article>
           <article class="event-card">
             <figure>
               <div class="event-media">
@@ -2503,6 +2515,20 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <div class="event-kicker">Mall festival opening</div>
             <h4><span class="en-only">AEON Mall Hai Phong <em>Carp Festival</em></span><span class="vi-only" data-no-translate>AEON Mall Hải Phòng <em>Lễ hội Cá Chép</em></span></h4>
             <p>Mall festival opening with family audience, ceremony flow and warm public-stage hosting.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage">
+                  <img src="assets/event-aeon-christmas.webp" alt="AEON Christmas event" loading="lazy" decoding="async" />
+                  <img src="assets/event-aeon-tree.webp" alt="AEON Christmas tree ceremony" loading="lazy" decoding="async" />
+                  <img src="assets/event-aeon-santa.webp" alt="AEON Santa event" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Mall ceremony</div>
+            <h4><span class="en-only">AEON Mall Ha Dong <em>Christmas Tree Lighting</em></span><span class="vi-only" data-no-translate>AEON Mall Hà Đông <em>Thắp sáng cây thông Noel</em></span></h4>
+            <p>Christmas tree-lighting ceremony with family audience and warm mall hosting.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2599,9 +2625,9 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Skincare launch</div>
+            <div class="event-kicker">Product launch</div>
             <h4><span class="en-only">PRX Plus <em>Skin Booster Launch</em></span><span class="vi-only" data-no-translate>PRX Plus <em>Ra mắt sản phẩm</em></span></h4>
-            <p>New product launch with clear presentation flow, demo focus and a refined skincare tone.</p>
+            <p>New product launch with clear presentation flow, demo focus and a refined beauty-industry tone.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2667,7 +2693,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           </div>
           <p class="group-note">Retail activations need quick audience connection without losing polish around the brand, product and guest experience.</p>
         </div>
-        <div class="event-grid is-four">
+        <div class="event-grid is-featured-five">
           <article class="event-card">
             <figure>
               <div class="event-media">
@@ -2692,9 +2718,9 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Brand zone</div>
+            <div class="event-kicker">Concert activation</div>
             <h4><span class="en-only">SeABank <em>x My Tam Concert</em></span><span class="vi-only" data-no-translate>SeABank <em>x Mỹ Tâm Concert</em></span></h4>
-            <p>High-traffic brand zone across a concert night.</p>
+            <p>Concert-side brand activation with guest interaction and clear sponsor presence.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2734,23 +2760,9 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Brand activation</div>
+            <div class="event-kicker">New scooter launch</div>
             <h4>Yamaha Janus <em>Match Your Freak</em></h4>
-            <p>Youth-focused scooter activation with outdoor-stage hosting and guest engagement.</p>
-          </article>
-          <article class="event-card">
-            <figure>
-              <div class="event-media">
-                <div class="event-collage">
-                  <img src="assets/event-aeon-christmas.webp" alt="AEON Christmas event" loading="lazy" decoding="async" />
-                  <img src="assets/event-aeon-tree.webp" alt="AEON Christmas tree ceremony" loading="lazy" decoding="async" />
-                  <img src="assets/event-aeon-santa.webp" alt="AEON Santa event" loading="lazy" decoding="async" />
-                </div>
-              </div>
-            </figure>
-            <div class="event-kicker">Christmas tree lighting</div>
-            <h4><span class="en-only">AEON Mall Ha Dong <em>Christmas Tree Lighting</em></span><span class="vi-only" data-no-translate>AEON Mall Hà Đông <em>Thắp sáng cây thông Noel</em></span></h4>
-            <p>Christmas tree-lighting ceremony with family audience and warm mall hosting.</p>
+            <p>New Janus line introduction with outdoor-stage hosting and audience engagement.</p>
           </article>
         </div>
         <button class="mobile-more-toggle" type="button" aria-expanded="false" data-more-toggle>
@@ -2793,9 +2805,9 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Property experience</div>
-            <h4><span class="en-only">Miyabi <em>Real Estate Experience</em></span><span class="vi-only" data-no-translate>Miyabi <em>Mở bán dự án</em></span></h4>
-            <p>Miyabi real estate launch with Japanese-inspired hospitality.</p>
+            <div class="event-kicker">Property launch</div>
+            <h4><span class="en-only">Miyabi <em>Property Launch</em></span><span class="vi-only" data-no-translate>Miyabi <em>Mở bán dự án</em></span></h4>
+            <p>Miyabi real estate sales event with a Japanese-inspired tone.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -3010,8 +3022,8 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           <span class="reel-cap serif">Viettel Security · <em>client gala</em></span>
           <span class="reel-tag">VN</span>
         </div>
-        <div class="reel-lite landscape play-left" data-yt="sJRCWfinaWY" role="button" aria-label="Play Viettel Security gala reel">
-          <img class="reel-focus-stage" src="assets/event-viettel-security.webp" alt="Viettel Security showreel thumbnail" loading="lazy" decoding="async" />
+        <div class="reel-lite landscape" data-yt="sJRCWfinaWY" role="button" aria-label="Play Viettel Security gala reel">
+          <img class="reel-viettel-security" src="assets/event-viettel-security.webp" alt="Viettel Security showreel thumbnail" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -3101,13 +3113,13 @@ const viCopy = {
   '02 — Stagecraft':'02 — Bản lĩnh sân khấu',
   'Poise under lights.':'Giữ phong thái dưới ánh đèn.',
   'Control in motion.':'Làm chủ nhịp sân khấu.',
-  'A professional MC protects the room as much as the script: reading the audience, keeping the timeline clean and making every transition feel intentional.':'Một MC chuyên nghiệp không chỉ bám sát kịch bản, mà còn làm chủ sân khấu: đọc phản ứng người nghe, giữ mạch chương trình gọn gàng và khiến từng chuyển đoạn diễn ra tự nhiên.',
+  'A strong MC keeps more than the script moving: reading the room, protecting the timeline and making each transition feel intentional.':'Một MC chuyên nghiệp không chỉ bám sát kịch bản, mà còn làm chủ sân khấu: đọc phản ứng người nghe, giữ mạch chương trình gọn gàng và khiến từng chuyển đoạn diễn ra tự nhiên.',
   'Bilingual hosting':'Dẫn song ngữ',
   '· EN & VN':'· Việt & Anh',
   'Natural movement between English and Vietnamese without making the program feel translated.':'Chuyển đổi tự nhiên giữa tiếng Việt và tiếng Anh, không tạo cảm giác đang dịch lại từng phần.',
   'Room control':'Làm chủ sân khấu',
   '& pacing':'& nhịp chương trình',
-  'Opening remarks, speaker handovers, awards and unscripted moments handled with calm, professional timing.':'Mở màn, dẫn chuyển giữa các phần phát biểu, trao giải và những tình huống ngoài kịch bản đều được xử lý bình tĩnh, chuyên nghiệp và đúng nhịp.',
+  'Opening remarks, speaker transitions, awards and unexpected moments handled calmly, professionally and on cue.':'Mở màn, dẫn chuyển giữa các phần phát biểu, trao giải và những tình huống ngoài kịch bản đều được xử lý bình tĩnh, chuyên nghiệp và đúng nhịp.',
   'Brand-sensitive':'Thể hiện đúng tinh thần',
   'presence':'thương hiệu',
   'Stage presence shaped to the brief: precise for conferences, refined for luxury retail and energetic for outdoor stages.':'Điều chỉnh phong thái theo yêu cầu chương trình: chuẩn xác trong hội nghị, tinh tế tại sự kiện nhãn hàng cao cấp và giàu năng lượng trên sân khấu ngoài trời.',
@@ -3115,14 +3127,14 @@ const viCopy = {
   '& on-camera delivery':'& hiện diện trước ống kính',
   'Warm, precise voice work for product films, brand videos and on-camera segments.':'Giọng đọc ấm, rõ cho video sản phẩm, video thương hiệu và các phần dẫn trước ống kính.',
   '03 — Trusted by':'03 — Thương hiệu',
-  'Brands that chose':'Những thương hiệu',
-  'composure.':'từng đồng hành.',
+  'Brands that trust':'Những thương hiệu',
+  'her stagecraft.':'từng đồng hành.',
   'Nga is the rare host who can disappear into the moment and still be in full command of it. Our partners noticed — and asked who she was.':'Nga is the rare host who can disappear into the moment and still be in full command of it. Our partners noticed — and asked who she was.',
   'Event Director':'Đạo diễn sự kiện',
   'Events hosted':'Sự kiện đã dẫn',
   'Brands worked with':'Thương hiệu từng hợp tác',
   'Years on stage':'Năm kinh nghiệm sân khấu',
-  'Languages fluently':'Ngôn ngữ thành thạo',
+  'Fluent languages':'Ngôn ngữ thành thạo',
   'Selected partner brands':'Thương hiệu tiêu biểu',
   '30+ brands':'30+ thương hiệu',
   'across industries':'trong nhiều lĩnh vực',
@@ -3212,7 +3224,7 @@ const viCopy = {
   'Partner gathering with product reveal and bilingual stage delivery.':'Gặp gỡ đối tác, giới thiệu sản phẩm và dẫn song ngữ.',
   'Skincare launch':'Ra mắt sản phẩm',
   'PRX Plus Skin Booster Launch':'PRX Plus Skin Booster',
-  'New product launch with clear presentation flow, demo focus and a refined skincare tone.':'Ra mắt sản phẩm mới PRX Plus Skin Booster.',
+  'New product launch with clear presentation flow, demo focus and a refined beauty-industry tone.':'Ra mắt sản phẩm mới PRX Plus Skin Booster.',
   'Finance & insurance':'Tài chính & bảo hiểm',
   'BIDV MetLife Vu Khuc Cham':'BIDV MetLife Vũ Khúc Chạm',
   'Finance and insurance event with clear ceremony cues and visible brand presence.':'Sự kiện tài chính/bảo hiểm giới thiệu sản phẩm mang đậm câu chuyện thương hiệu.',
@@ -3240,6 +3252,7 @@ const viCopy = {
   'Artist interaction and live-stage hosting for Vietnam GameVerse.':'Giao lưu nghệ sĩ trong khuôn khổ Vietnam GameVerse.',
   'Mall festival opening':'Khai mạc lễ hội tại mall',
   'Mall festival opening with family audience, ceremony flow and warm public-stage hosting.':'Khai mạc Lễ hội Cá Chép tại AEON Mall Hải Phòng.',
+  'Mall ceremony':'Nghi lễ tại mall',
   'Appreciation music night':'Đêm nhạc tri ân',
   'Tasco Mall Chill Station':'Đêm nhạc tri ân Tasco Mall',
   'Thank-you music night with outdoor-stage hosting, guest energy and a warm guest-facing tone.':'Đêm nhạc tri ân tại Tasco Mall.',
@@ -3257,11 +3270,11 @@ const viCopy = {
   'High-traffic mall activation with crowd handling, guest interaction and brand energy.':'Giới thiệu sản phẩm mới và giao lưu cùng nữ ca sĩ Changg.',
   'Beauty retail':'Bán lẻ làm đẹp',
   'Beauty retail activation with talent moments and live customer interaction.':'Giới thiệu dòng sản phẩm mới và giao lưu cùng Tân Binh Toàn Năng.',
-  'Brand zone':'Đồng hành concert',
-  'High-traffic brand zone across a concert night.':'Dẫn dắt sự kiện của SeABank trong khuôn khổ Mỹ Tâm concert.',
+  'Concert activation':'Đồng hành concert',
+  'Concert-side brand activation with guest interaction and clear sponsor presence.':'Dẫn dắt sự kiện của SeABank trong khuôn khổ Mỹ Tâm concert.',
   'Retail-floor hosting with talent interaction and youth-facing energy.':'Giao lưu cùng ca sĩ Anh Tú.',
-  'Brand activation':'Giới thiệu xe mới',
-  'Youth-focused scooter activation with outdoor-stage hosting and guest engagement.':'Giới thiệu dòng xe mới Janus và giao lưu cùng khán giả.',
+  'New scooter launch':'Giới thiệu xe mới',
+  'New Janus line introduction with outdoor-stage hosting and audience engagement.':'Giới thiệu dòng xe mới Janus và giao lưu cùng khán giả.',
   'Christmas tree lighting':'Thắp sáng cây thông Noel',
   'Christmas tree-lighting ceremony with family audience and warm mall hosting.':'Lễ thắp sáng cây thông Noel tại AEON Mall Hà Đông, có sự tham gia của Giám đốc AEON Mall.',
   'VIP opening':'Khai trương VIP',
@@ -3271,9 +3284,9 @@ const viCopy = {
   'Ribbon ceremony with premium guest welcome and polished hospitality flow.':'Khai trương phòng chờ thương gia tại sân bay Nội Bài.',
   'Soft opening':'Soft opening',
   'Opening ceremony with guest welcome and a polished hospitality tone.':'Khai trương công ty tổ chức sự kiện Cosmo Entertainment.',
-  'Property experience':'Mở bán dự án',
-  'Miyabi Real Estate Experience':'Miyabi - Mở bán dự án',
-  'Miyabi real estate launch with Japanese-inspired hospitality.':'Sự kiện mở bán bất động sản Miyabi với tinh thần Nhật Bản.',
+  'Property launch':'Mở bán dự án',
+  'Miyabi Property Launch':'Miyabi - Mở bán dự án',
+  'Miyabi real estate sales event with a Japanese-inspired tone.':'Sự kiện mở bán bất động sản Miyabi với tinh thần Nhật Bản.',
   '05 — Showreel':'05 — Showreel',
   'See me':'Xem Nga',
   'on stage.':'trên sân khấu.',
