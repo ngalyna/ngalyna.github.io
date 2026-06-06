@@ -331,6 +331,7 @@ section.hero{
     transform:translateY(10px);
   }
   .hero-text .eyebrow{margin-bottom:24px;gap:10px;font-size:10px;letter-spacing:.2em}
+  .hero-text .eyebrow::after{display:none}
   .hero-text .eyebrow .mobile-hero-extra{display:none}
   .hero-headline{margin-bottom:20px}
   .hero-vi{line-height:1.35}
@@ -1059,7 +1060,7 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:38px 28px;
 }
-.event-grid.is-single{grid-template-columns:minmax(0,1fr);max-width:1080px}
+.event-grid.is-single{grid-template-columns:minmax(0,1fr);max-width:none}
 .event-grid.is-single .event-card.featured{grid-column:1}
 .event-grid.is-four{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 28px}
 .event-grid.is-featured-five{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 28px}
@@ -1481,16 +1482,16 @@ body.video-open{overflow:hidden}
 .logo-cell.logo-hyundai{--logo-scale:1.55}
 .logo-cell.logo-honda{--logo-scale:1.58}
 .logo-cell.logo-viettel{--logo-scale:1.92}
-.logo-cell.logo-seabank{--logo-scale:2.02}
-.logo-cell.logo-sulwhasoo{--logo-scale:2.52}
-.logo-cell.logo-sharp{--logo-scale:2.05;--logo-y:0%}
+.logo-cell.logo-seabank{--logo-scale:1.78}
+.logo-cell.logo-sulwhasoo{--logo-scale:2.18}
+.logo-cell.logo-sharp{--logo-scale:1.9;--logo-y:4%}
 .logo-cell.logo-zalo{--logo-scale:2.02;--logo-y:0%}
-.logo-cell.logo-tasco{--logo-scale:1.32}
-.logo-cell.logo-pnj{--logo-scale:.86}
-.logo-cell.logo-doji{--logo-scale:.92}
-.logo-cell.logo-dreame{--logo-scale:1.6}
-.logo-cell.logo-erke{--logo-scale:1.5}
-.logo-cell.logo-btmh{--logo-scale:1.72}
+.logo-cell.logo-tasco{--logo-scale:.96}
+.logo-cell.logo-pnj{--logo-scale:.78}
+.logo-cell.logo-doji{--logo-scale:.82}
+.logo-cell.logo-dreame{--logo-scale:.98}
+.logo-cell.logo-erke{--logo-scale:.88}
+.logo-cell.logo-btmh{--logo-scale:1.08}
 @media(max-width:900px){.logo-cell{padding:22px 26px}}
 @media(max-width:520px){.logo-cell{padding:14px 12px}}
 @media(max-width:720px){
@@ -1535,16 +1536,16 @@ body.video-open{overflow:hidden}
 	  .logo-cell.logo-hyundai{--logo-scale:1.42}
 	  .logo-cell.logo-honda{--logo-scale:1.48}
 	  .logo-cell.logo-viettel{--logo-scale:1.62}
-	  .logo-cell.logo-seabank{--logo-scale:1.7}
-	  .logo-cell.logo-sulwhasoo{--logo-scale:2.1}
-	  .logo-cell.logo-sharp{--logo-scale:1.84;--logo-y:0%}
+	  .logo-cell.logo-seabank{--logo-scale:1.5}
+	  .logo-cell.logo-sulwhasoo{--logo-scale:1.86}
+	  .logo-cell.logo-sharp{--logo-scale:1.65;--logo-y:3%}
 	  .logo-cell.logo-zalo{--logo-scale:1.84;--logo-y:0%}
-	  .logo-cell.logo-tasco{--logo-scale:1.2}
-	  .logo-cell.logo-pnj{--logo-scale:.82}
-	  .logo-cell.logo-doji{--logo-scale:.86}
-	  .logo-cell.logo-dreame{--logo-scale:1.42}
-	  .logo-cell.logo-erke{--logo-scale:1.34}
-	  .logo-cell.logo-btmh{--logo-scale:1.52}
+	  .logo-cell.logo-tasco{--logo-scale:.86}
+	  .logo-cell.logo-pnj{--logo-scale:.72}
+	  .logo-cell.logo-doji{--logo-scale:.76}
+	  .logo-cell.logo-dreame{--logo-scale:.88}
+	  .logo-cell.logo-erke{--logo-scale:.78}
+	  .logo-cell.logo-btmh{--logo-scale:.98}
 	}
 
 /* Text-only brand cells (for brands without logo asset) */
