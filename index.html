@@ -1368,6 +1368,11 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   transition:transform .6s ease, filter .3s;
   filter:saturate(.9);
 }
+.reel-lite img.reel-focus-left{object-position:32% center}
+.reel-lite img.reel-focus-right{object-position:72% center}
+.reel-lite img.reel-focus-stage{object-position:center 58%}
+.reel-lite img.reel-focus-top{object-position:center 35%}
+.reel-lite img.reel-focus-low{object-position:center 70%}
 .reel-lite:hover img{transform:scale(1.03);filter:saturate(1)}
 .reel-lite::after{
   content:"";position:absolute;inset:0;
@@ -1383,6 +1388,7 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   pointer-events:none;border:none;z-index:2;
   box-shadow:0 6px 24px rgba(21,17,13,.28);
 }
+.reel-lite.play-left .reel-play{left:32%}
 .reel-play svg{width:22px;height:22px;margin-left:3px;fill:var(--ink);display:block}
 .reel-lite:hover .reel-play{transform:translate(-50%,-50%) scale(1.08);background:var(--paper)}
 .video-modal{
@@ -2279,6 +2285,34 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           <article class="event-card">
             <figure>
               <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img src="assets/event-viettel-store-20-1.webp" alt="Viettel Store 20 years anniversary host on stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-viettel-store-20-2.webp" alt="Viettel Store 20 years anniversary wide stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-viettel-store-20-3.webp" alt="Viettel Store 20 years anniversary host portrait" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Corporate anniversary</div>
+            <h4>Viettel Store <em>20 Years</em></h4>
+            <p>Anniversary gala with brand storytelling, leadership moments and a high-tempo stage program.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img src="assets/event-hado-30-1.webp" alt="Ha Do Group 30th Anniversary host portrait" loading="lazy" decoding="async" />
+                  <img class="crop-headroom" src="assets/event-hado-30-2.webp" alt="Ha Do Group 30th Anniversary host on stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-hado-30-3.webp" alt="Ha Do Group 30th Anniversary audience stage" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Corporate anniversary</div>
+            <h4><span class="en-only">Ha Do Group <em>30th Anniversary</em></span><span class="vi-only" data-no-translate>Ha Do Group <em>30 Years</em></span></h4>
+            <p>30th-anniversary milestone with leadership moments, audience connection and formal stage pacing.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
                 <div class="event-collage">
                   <img src="assets/g-meiko-1.webp" alt="Meiko Year End Party stage" loading="lazy" decoding="async" />
                   <img src="assets/g-meiko-4.webp" alt="Meiko Year End Party moment" loading="lazy" decoding="async" />
@@ -2309,34 +2343,6 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <div class="event-kicker">Thank-you party</div>
             <h4>Zalo Ads <em>Thank You Party</em></h4>
             <p>Partner appreciation night with a polished corporate tone.</p>
-          </article>
-          <article class="event-card">
-            <figure>
-              <div class="event-media">
-                <div class="event-collage is-wide-main">
-                  <img src="assets/event-viettel-store-20-1.webp" alt="Viettel Store 20 years anniversary host on stage" loading="lazy" decoding="async" />
-                  <img src="assets/event-viettel-store-20-2.webp" alt="Viettel Store 20 years anniversary wide stage" loading="lazy" decoding="async" />
-                  <img src="assets/event-viettel-store-20-3.webp" alt="Viettel Store 20 years anniversary host portrait" loading="lazy" decoding="async" />
-                </div>
-              </div>
-            </figure>
-            <div class="event-kicker">Corporate anniversary</div>
-            <h4>Viettel Store <em>20 Years</em></h4>
-            <p>Anniversary gala with brand storytelling, leadership moments and a high-tempo stage program.</p>
-          </article>
-          <article class="event-card">
-            <figure>
-              <div class="event-media">
-                <div class="event-collage is-wide-main">
-                  <img src="assets/event-hado-30-1.webp" alt="Ha Do Group 30th Anniversary host portrait" loading="lazy" decoding="async" />
-                  <img class="crop-headroom" src="assets/event-hado-30-2.webp" alt="Ha Do Group 30th Anniversary host on stage" loading="lazy" decoding="async" />
-                  <img src="assets/event-hado-30-3.webp" alt="Ha Do Group 30th Anniversary audience stage" loading="lazy" decoding="async" />
-                </div>
-              </div>
-            </figure>
-            <div class="event-kicker">Corporate anniversary</div>
-            <h4><span class="en-only">Ha Do Group <em>30th Anniversary</em></span><span class="vi-only" data-no-translate>Ha Do Group <em>30 Years</em></span></h4>
-            <p>30th-anniversary milestone with leadership moments, audience connection and formal stage pacing.</p>
           </article>
         </div>
         <button class="mobile-more-toggle" type="button" aria-expanded="false" data-more-toggle>
@@ -2446,20 +2452,6 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <figure>
               <div class="event-media">
                 <div class="event-collage is-wide-main">
-                  <img class="crop-low" src="assets/ev-trayhoi-1.webp" alt="Tray Hoi Festival main stage" loading="lazy" decoding="async" />
-                  <img src="assets/ev-trayhoi-2.webp" alt="Tray Hoi Festival host" loading="lazy" decoding="async" />
-                  <img class="crop-stage" src="assets/ev-trayhoi-crowd.webp" alt="Tray Hoi Festival crowd and outdoor stage" loading="lazy" decoding="async" />
-                </div>
-              </div>
-            </figure>
-            <div class="event-kicker">Outdoor festival</div>
-            <h4><span class="en-only">Tray Hoi <em>Festival</em></span><span class="vi-only" data-no-translate>Trẩy Hội <em>Festival</em></span></h4>
-            <p>Public-stage hosting with live-band energy and strong Vietnamese crowd connection.</p>
-          </article>
-          <article class="event-card">
-            <figure>
-              <div class="event-media">
-                <div class="event-collage is-wide-main">
                   <img src="assets/ev-thanglong-1.webp" alt="Thang Long Festival stage" loading="lazy" decoding="async" />
                   <img src="assets/ev-thanglong-2.webp" alt="Thang Long Festival hosts" loading="lazy" decoding="async" />
                   <img src="assets/ev-thanglong-3.webp" alt="Thang Long Festival yukata" loading="lazy" decoding="async" />
@@ -2469,6 +2461,20 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <div class="event-kicker">Cultural festival</div>
             <h4><span class="en-only">Thang Long <em>Japan Festival 2024</em></span><span class="vi-only" data-no-translate>Lễ hội Nhật Bản <em>Thăng Long 2024</em></span></h4>
             <p>Major Vietnam-Japan cultural festival at Thang Long Industrial Park, with performance handovers and crowd flow.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img class="crop-low" src="assets/ev-trayhoi-1.webp" alt="Tray Hoi Festival main stage" loading="lazy" decoding="async" />
+                  <img src="assets/ev-trayhoi-2.webp" alt="Tray Hoi Festival host" loading="lazy" decoding="async" />
+                  <img class="crop-stage" src="assets/ev-trayhoi-crowd.webp" alt="Tray Hoi Festival crowd and outdoor stage" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Outdoor festival</div>
+            <h4><span class="en-only">Tray Hoi <em>Festival</em></span><span class="vi-only" data-no-translate>Trẩy Hội <em>Festival</em></span></h4>
+            <p>Public-stage hosting with live-band energy and strong Vietnamese crowd connection.</p>
           </article>
           <article class="event-card desktop-featured">
             <figure>
@@ -2665,20 +2671,6 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           <article class="event-card">
             <figure>
               <div class="event-media">
-                <div class="event-collage is-wide-main">
-                  <img src="assets/event-comfort-host.webp" alt="Comfort fragrance retail activation host" loading="lazy" decoding="async" />
-                  <img src="assets/event-comfort-crowd.webp" alt="Comfort activation crowd" loading="lazy" decoding="async" />
-                  <img src="assets/event-comfort-guests.webp" alt="Comfort activation guest moment" loading="lazy" decoding="async" />
-                </div>
-              </div>
-            </figure>
-            <div class="event-kicker">Consumer activation</div>
-            <h4><span class="en-only">Comfort <em>Huong Nuoc Hoa</em></span><span class="vi-only" data-no-translate>Comfort <em>Hương Nước Hoa</em></span></h4>
-            <p>High-traffic mall activation with crowd handling, guest interaction and brand energy.</p>
-          </article>
-          <article class="event-card">
-            <figure>
-              <div class="event-media">
                 <div class="event-collage">
                   <img src="assets/ev-skii-1.webp" alt="SK-II Holiday Pop-up host" loading="lazy" decoding="async" />
                   <img src="assets/ev-skii-2.webp" alt="SK-II Holiday Pop-up guest" loading="lazy" decoding="async" />
@@ -2703,6 +2695,20 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <div class="event-kicker">Brand zone</div>
             <h4><span class="en-only">SeABank <em>x My Tam Concert</em></span><span class="vi-only" data-no-translate>SeABank <em>x Mỹ Tâm Concert</em></span></h4>
             <p>High-traffic brand zone across a concert night.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img src="assets/event-comfort-host.webp" alt="Comfort fragrance retail activation host" loading="lazy" decoding="async" />
+                  <img src="assets/event-comfort-crowd.webp" alt="Comfort activation crowd" loading="lazy" decoding="async" />
+                  <img src="assets/event-comfort-guests.webp" alt="Comfort activation guest moment" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Consumer activation</div>
+            <h4><span class="en-only">Comfort <em>Huong Nuoc Hoa</em></span><span class="vi-only" data-no-translate>Comfort <em>Hương Nước Hoa</em></span></h4>
+            <p>High-traffic mall activation with crowd handling, guest interaction and brand energy.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2781,15 +2787,15 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-cosmo-opening.webp" alt="Cosmo Entertainment host on backdrop" loading="lazy" decoding="async" />
-                  <img src="assets/event-cosmo-guests.webp" alt="Cosmo Entertainment guest welcome" loading="lazy" decoding="async" />
-                  <img src="assets/event-cosmo-briefing.webp" alt="Cosmo Entertainment event briefing" loading="lazy" decoding="async" />
+                  <img src="assets/event-miyabi-realestate-4.webp" alt="Miyabi real estate Japanese-inspired guest experience" loading="lazy" decoding="async" />
+                  <img src="assets/event-miyabi-realestate-1.webp" alt="Miyabi real estate guest hospitality" loading="lazy" decoding="async" />
+                  <img src="assets/event-miyabi-realestate-2.webp" alt="Miyabi real estate event host" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Soft opening</div>
-            <h4>Cosmo <em>Entertainment</em></h4>
-            <p>Opening ceremony with guest welcome and a polished hospitality tone.</p>
+            <div class="event-kicker">Property experience</div>
+            <h4><span class="en-only">Miyabi <em>Real Estate Experience</em></span><span class="vi-only" data-no-translate>Miyabi <em>Mở bán dự án</em></span></h4>
+            <p>Miyabi real estate launch with Japanese-inspired hospitality.</p>
           </article>
           <article class="event-card">
             <figure>
@@ -2809,15 +2815,15 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
             <figure>
               <div class="event-media">
                 <div class="event-collage">
-                  <img src="assets/event-miyabi-realestate-4.webp" alt="Miyabi real estate Japanese-inspired guest experience" loading="lazy" decoding="async" />
-                  <img src="assets/event-miyabi-realestate-1.webp" alt="Miyabi real estate guest hospitality" loading="lazy" decoding="async" />
-                  <img src="assets/event-miyabi-realestate-2.webp" alt="Miyabi real estate event host" loading="lazy" decoding="async" />
+                  <img src="assets/event-cosmo-opening.webp" alt="Cosmo Entertainment host on backdrop" loading="lazy" decoding="async" />
+                  <img src="assets/event-cosmo-guests.webp" alt="Cosmo Entertainment guest welcome" loading="lazy" decoding="async" />
+                  <img src="assets/event-cosmo-briefing.webp" alt="Cosmo Entertainment event briefing" loading="lazy" decoding="async" />
                 </div>
               </div>
             </figure>
-            <div class="event-kicker">Property experience</div>
-            <h4><span class="en-only">Miyabi <em>Real Estate Experience</em></span><span class="vi-only" data-no-translate>Miyabi <em>Mở bán dự án</em></span></h4>
-            <p>Miyabi real estate launch with Japanese-inspired hospitality.</p>
+            <div class="event-kicker">Soft opening</div>
+            <h4>Cosmo <em>Entertainment</em></h4>
+            <p>Opening ceremony with guest welcome and a polished hospitality tone.</p>
           </article>
         </div>
       </section>
@@ -2849,7 +2855,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           <span class="reel-tag reel-tag-bilingual">EN/VN</span>
         </div>
         <div class="reel-lite landscape" data-yt="oubVY8ss7Hs" role="button" aria-label="Play bilingual MC showreel">
-          <img src="assets/reel-bilingual-kiniem.webp" alt="Bilingual MC showreel thumbnail" loading="lazy" decoding="async" />
+          <img class="reel-focus-right" src="assets/reel-nga.webp" alt="Nga Lyna bilingual MC showreel thumbnail" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -2969,7 +2975,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           <span class="reel-tag">VN</span>
         </div>
         <div class="reel-lite landscape" data-yt="Gu5RjSMlR8Y" role="button" aria-label="Play Ha Do Group gala moment reel">
-          <img src="assets/reel-hado-30-2.webp" alt="Ha Do Group gala moment showreel thumbnail" loading="lazy" decoding="async" />
+          <img class="reel-focus-stage" src="assets/event-hado-30-3.webp" alt="Ha Do Group gala stage showreel thumbnail" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -2977,11 +2983,11 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
       <article class="reel-card">
         <div class="reel-title-line">
           <span class="reel-num">12</span>
-          <span class="reel-cap serif">Audition StarLink · <em>live host</em></span>
+          <span class="reel-cap serif">Zalo Ads · <em>Connect Night</em></span>
           <span class="reel-tag">VN</span>
         </div>
-        <div class="reel-lite landscape" data-yt="G_1suN54ohU" role="button" aria-label="Play Audition StarLink reel">
-          <img src="assets/event-audition-starlink-2.webp" alt="Audition StarLink showreel thumbnail" loading="lazy" decoding="async" />
+        <div class="reel-lite landscape" data-yt="G_1suN54ohU" role="button" aria-label="Play Zalo Ads Connect Night reel">
+          <img class="reel-focus-right" src="assets/event-zalo-ads.webp" alt="Zalo Ads Connect Night showreel thumbnail" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -2989,11 +2995,11 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
       <article class="reel-card">
         <div class="reel-title-line">
           <span class="reel-num">13</span>
-          <span class="reel-cap serif">Zalo Ads · <em>thank-you party</em></span>
+          <span class="reel-cap serif">Audition 19th Birthday · <em>anniversary stage</em></span>
           <span class="reel-tag">VN</span>
         </div>
-        <div class="reel-lite landscape" data-yt="2PIDZQ4WTwI" role="button" aria-label="Play Zalo Ads thank-you party reel">
-          <img src="assets/event-zalo-thankyou.webp" alt="Zalo Ads showreel thumbnail" loading="lazy" decoding="async" />
+        <div class="reel-lite landscape" data-yt="2PIDZQ4WTwI" role="button" aria-label="Play Audition 19th Birthday reel">
+          <img class="reel-focus-low" src="assets/event-audition-birthday-stage.webp" alt="Audition 19th Birthday showreel thumbnail" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -3001,11 +3007,11 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
       <article class="reel-card">
         <div class="reel-title-line">
           <span class="reel-num">14</span>
-          <span class="reel-cap serif">Viettel · <em>gala stage</em></span>
+          <span class="reel-cap serif">Viettel Security · <em>client gala</em></span>
           <span class="reel-tag">VN</span>
         </div>
-        <div class="reel-lite landscape" data-yt="sJRCWfinaWY" role="button" aria-label="Play Viettel gala stage reel">
-          <img src="assets/reel-viettel-store-20.webp" alt="Viettel showreel thumbnail" loading="lazy" decoding="async" />
+        <div class="reel-lite landscape play-left" data-yt="sJRCWfinaWY" role="button" aria-label="Play Viettel Security gala reel">
+          <img class="reel-focus-stage" src="assets/event-viettel-security.webp" alt="Viettel Security showreel thumbnail" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
       </article>
@@ -3284,12 +3290,12 @@ const viCopy = {
   'Ha Do Group ·':'Ha Do Group ·',
   '30th Anniversary':'30 Years',
   'gala moment':'khoảnh khắc gala',
-  'Audition StarLink ·':'Audition StarLink ·',
-  'live host':'dẫn live',
+  'Audition 19th Birthday ·':'Audition sinh nhật 19 năm ·',
+  'anniversary stage':'sân khấu kỷ niệm',
   'Zalo Ads ·':'Zalo Ads ·',
-  'thank-you party':'tiệc tri ân',
-  'Viettel ·':'Viettel ·',
-  'gala stage':'sân khấu gala',
+  'Connect Night':'Connect Night',
+  'Viettel Security ·':'Viettel Security ·',
+  'client gala':'gala khách hàng',
   'Gold market talk':'Tọa đàm thị trường vàng',
   'Conference · bilingual host':'Hội nghị · dẫn song ngữ',
   'Gold market talk · moderation':'Tọa đàm thị trường vàng · điều phối',
