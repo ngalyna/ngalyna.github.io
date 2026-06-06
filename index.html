@@ -766,7 +766,7 @@ footer.foot{
 .foot-intro{
   font-size:13px;
   margin-top:22px;
-  max-width:510px;
+  max-width:600px;
   color:#bdb29c;
   line-height:1.75;
 }
@@ -828,7 +828,12 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   .foot-grid{gap:44px}
   .lang-toggle-footer{display:inline-flex}
   .foot-nav .nav-set{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
-  .foot-nav .nav-set a:nth-child(2){border-top:none}
+  .foot-nav .nav-set a{border-top:1px solid rgba(255,255,255,.08)}
+  .foot-nav .nav-set a:nth-child(-n+2){border-top:none}
+}
+@media(max-width:640px){
+  .foot-nav .nav-set{grid-template-columns:1fr;gap:0}
+  .foot-nav .nav-set a:nth-child(2){border-top:1px solid rgba(255,255,255,.08)}
 }
 
 /* ===== Mobile sticky CTA ===== */
@@ -2152,7 +2157,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           </div>
           <p class="group-note">This section is about clarity over spectacle: a clean agenda, precise handovers and a room that stays with the program.</p>
         </div>
-        <div class="event-grid is-editorial-seven center-last-desktop">
+        <div class="event-grid is-editorial-seven">
           <article class="event-card">
             <figure>
               <div class="event-media">
@@ -2766,7 +2771,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           </article>
         </div>
         <button class="mobile-more-toggle" type="button" aria-expanded="false" data-more-toggle>
-          <span class="more-label"><span class="en-only">More retail work</span><span class="vi-only">Xem thêm sự kiện bán lẻ</span></span>
+          <span class="more-label"><span class="en-only">More retail work</span><span class="vi-only">Xem thêm sự kiện nhãn hàng</span></span>
           <span class="less-label"><span class="en-only">Show less</span><span class="vi-only">Thu gọn</span></span>
         </button>
       </section>
@@ -3261,11 +3266,11 @@ const viCopy = {
   'Cultural hospitality':'Trải nghiệm văn hoá',
   'Cultural hospitality experience with warm narration, food moments and attentive guest flow.':'Hướng dẫn lãnh đạo cấp cao của Unilever trải nghiệm văn hoá ẩm thực Việt Nam.',
   'More launch work':'Xem thêm sự kiện ra mắt',
-  'Retail activation':'Activation',
-  '& consumer brand':'tiêu dùng',
-  'Customer traffic · talent moments · brand presence':'Khoảnh khắc KOL/nghệ sĩ · hiện diện thương hiệu',
-  'Retail activations need quick audience connection without losing polish around the brand, product and guest experience.':'Activation tiêu dùng cần tạo kết nối nhanh với khách tại điểm bán, đồng thời giữ sự chỉn chu cho thương hiệu, sản phẩm và trải nghiệm khách mời.',
-  'Consumer activation':'Activation tiêu dùng',
+  'Retail activation':'Sự kiện',
+  '& consumer brand':'nhãn hàng',
+  'Customer traffic · talent moments · brand presence':'Tương tác khách hàng · khoảnh khắc KOL/nghệ sĩ · hiện diện thương hiệu',
+  'Retail activations need quick audience connection without losing polish around the brand, product and guest experience.':'Sự kiện nhãn hàng cần tạo kết nối nhanh với khách tại điểm bán, đồng thời giữ sự chỉn chu cho thương hiệu, sản phẩm và trải nghiệm khách mời.',
+  'Consumer activation':'Hoạt động nhãn hàng',
   'Comfort Huong Nuoc Hoa':'Comfort Hương Nước Hoa',
   'High-traffic mall activation with crowd handling, guest interaction and brand energy.':'Giới thiệu sản phẩm mới và giao lưu cùng nữ ca sĩ Changg.',
   'Beauty retail':'Bán lẻ làm đẹp',
@@ -3321,7 +3326,7 @@ const viCopy = {
   'Navigate':'Điều hướng',
   'Top':'Đầu trang',
   'Trusted by':'Thương hiệu',
-  'Nga Lyna · Bilingual MC for conferences, gala dinners, brand launches and outdoor stages.':'Nga Lyna · MC song ngữ cho hội nghị, tiệc gala, ra mắt thương hiệu và sự kiện ngoài trời.',
+  'Nga Lyna · Bilingual MC for conferences, gala dinners, brand launches and outdoor stages.':'Nga Lyna · MC song ngữ cho hội nghị, gala, ra\u00a0mắt\u00a0thương\u00a0hiệu và sân khấu ngoài\u00a0trời.',
   'Designed with composure.':'Chỉn chu trong từng chi tiết.'
 };
 
