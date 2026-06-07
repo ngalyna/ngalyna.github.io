@@ -178,8 +178,8 @@
       "name": "Dreame Product Stage",
       "description": "Product stage and launch-style hosting reel.",
       "thumbnailUrl": "https://ngalyna.github.io/assets/reel-dreame-2.webp",
-      "url": "https://www.youtube.com/watch?v=lBZrAl4qTJc",
-      "embedUrl": "https://www.youtube.com/embed/lBZrAl4qTJc",
+      "url": "https://www.youtube.com/watch?v=Gu5RjSMlR8Y",
+      "embedUrl": "https://www.youtube.com/embed/Gu5RjSMlR8Y",
       "inLanguage": "vi",
       "creator": {"@id": "https://ngalyna.github.io/#person"}
     },
@@ -200,8 +200,8 @@
       "name": "Ha Do Group Gala Moment",
       "description": "Gala stage hosting reel.",
       "thumbnailUrl": "https://ngalyna.github.io/assets/event-hado-30-3.webp",
-      "url": "https://www.youtube.com/watch?v=Gu5RjSMlR8Y",
-      "embedUrl": "https://www.youtube.com/embed/Gu5RjSMlR8Y",
+      "url": "https://www.youtube.com/watch?v=lBZrAl4qTJc",
+      "embedUrl": "https://www.youtube.com/embed/lBZrAl4qTJc",
       "inLanguage": "vi",
       "creator": {"@id": "https://ngalyna.github.io/#person"}
     },
@@ -3208,7 +3208,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           <span class="reel-cap serif">Dreame · <em>product stage</em></span>
           <span class="reel-tag">VN</span>
         </div>
-        <div class="reel-lite landscape" data-yt="lBZrAl4qTJc" role="button" aria-label="Play Dreame product stage reel">
+        <div class="reel-lite landscape" data-yt="Gu5RjSMlR8Y" role="button" aria-label="Play Dreame product stage reel">
           <img src="assets/reel-dreame-2.webp" alt="Dreame product stage showreel thumbnail" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
@@ -3232,7 +3232,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           <span class="reel-cap serif">Ha Do Group · <em>gala moment</em></span>
           <span class="reel-tag">VN</span>
         </div>
-        <div class="reel-lite landscape" data-yt="Gu5RjSMlR8Y" role="button" aria-label="Play Ha Do Group gala moment reel">
+        <div class="reel-lite landscape" data-yt="lBZrAl4qTJc" role="button" aria-label="Play Ha Do Group gala moment reel">
           <img class="reel-focus-stage" src="assets/event-hado-30-3.webp" alt="Ha Do Group gala stage showreel thumbnail" loading="lazy" decoding="async" />
           <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
         </div>
@@ -3323,7 +3323,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
   <div class="video-modal-backdrop" data-close-video></div>
   <div class="video-modal-dialog" role="dialog" aria-modal="true" aria-label="Showreel video">
     <button class="video-modal-close" type="button" data-close-video aria-label="Close video">&times;</button>
-    <div class="video-frame" id="video-frame"></div>
+    <div class="video-frame" id="video-frame"><div id="youtube-player"></div></div>
     <a class="video-open-link" id="video-open-link" href="#" target="_blank" rel="noopener">Open on YouTube</a>
   </div>
 </div>
@@ -3630,28 +3630,69 @@ document.querySelectorAll('.hall-marquee .track').forEach(track => {
   });
 });
 
-// Lazy YouTube modal embed: loads iframe only on click, keeping the first screen light.
+// YouTube modal embed: prepares the player early so mobile taps can start playback inside the page.
 const videoModal = document.getElementById('video-modal');
 const videoFrame = document.getElementById('video-frame');
 const videoOpenLink = document.getElementById('video-open-link');
+let ytPlayer = null;
+let ytPlayerReady = false;
+let fallbackVideoActive = false;
 function youtubeWatchUrl(id){
   return `https://www.youtube.com/watch?v=${id}`;
 }
-function shouldOpenYouTubeDirectly(){
-  return window.matchMedia('(hover: none)').matches || window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 720;
+
+function ensureYoutubePlayerNode(){
+  let playerNode = document.getElementById('youtube-player');
+  if(!playerNode && videoFrame){
+    videoFrame.innerHTML = '<div id="youtube-player"></div>';
+    playerNode = document.getElementById('youtube-player');
+  }
+  return playerNode;
 }
-function openYouTubeDirectly(id){
-  const opened = window.open(youtubeWatchUrl(id), '_blank', 'noopener');
-  if(!opened) window.location.href = youtubeWatchUrl(id);
+
+function loadYouTubeApi(){
+  if(window.YT && window.YT.Player){
+    initYouTubePlayer();
+    return;
+  }
+  if(document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) return;
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  tag.async = true;
+  document.head.appendChild(tag);
 }
-function openVideo(id){
-  if(!id || !videoModal || !videoFrame) return;
-  if(videoOpenLink) videoOpenLink.href = youtubeWatchUrl(id);
-  videoModal.classList.add('open');
-  videoModal.setAttribute('aria-hidden','false');
-  document.body.classList.add('video-open');
-  // Make the modal visible before attaching the iframe so mobile browsers keep the tap gesture for autoplay.
-  void videoModal.offsetHeight;
+
+function initYouTubePlayer(){
+  if(fallbackVideoActive || ytPlayer || !videoFrame || !window.YT || !window.YT.Player) return;
+  const playerNode = ensureYoutubePlayerNode();
+  if(!playerNode) return;
+  const firstReelId = document.querySelector('.reel-lite')?.dataset.yt || 'oubVY8ss7Hs';
+  ytPlayer = new YT.Player(playerNode, {
+    width:'100%',
+    height:'100%',
+    videoId:firstReelId,
+    playerVars:{
+      autoplay:0,
+      playsinline:1,
+      rel:0,
+      modestbranding:1,
+      controls:1,
+      enablejsapi:1,
+      origin:window.location.origin
+    },
+    events:{
+      onReady(){
+        ytPlayerReady = true;
+      }
+    }
+  });
+}
+
+window.onYouTubeIframeAPIReady = initYouTubePlayer;
+loadYouTubeApi();
+
+function openFallbackVideo(id){
+  fallbackVideoActive = true;
   const params = new URLSearchParams({
     autoplay:'1',
     playsinline:'1',
@@ -3664,22 +3705,59 @@ function openVideo(id){
   const src = `https://www.youtube.com/embed/${id}?${params.toString()}`;
   videoFrame.innerHTML = `<iframe src="${src}" title="Nga Lyna showreel" allow="autoplay; fullscreen; encrypted-media; picture-in-picture; clipboard-write; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
 }
+
+function openVideo(id){
+  if(!id || !videoModal || !videoFrame) return;
+  if(videoOpenLink) videoOpenLink.href = youtubeWatchUrl(id);
+  videoModal.classList.add('open');
+  videoModal.setAttribute('aria-hidden','false');
+  document.body.classList.add('video-open');
+  if(ytPlayer && ytPlayerReady && !fallbackVideoActive){
+    ytPlayer.loadVideoById(id);
+    ytPlayer.playVideo();
+    return;
+  }
+  openFallbackVideo(id);
+}
 function closeVideo(){
   if(!videoModal || !videoFrame) return;
   videoModal.classList.remove('open');
   videoModal.setAttribute('aria-hidden','true');
   document.body.classList.remove('video-open');
-  videoFrame.innerHTML = '';
+  if(ytPlayer && ytPlayerReady && !fallbackVideoActive){
+    ytPlayer.stopVideo();
+    return;
+  }
+  if(fallbackVideoActive){
+    videoFrame.innerHTML = '<div id="youtube-player"></div>';
+    fallbackVideoActive = false;
+    ytPlayer = null;
+    ytPlayerReady = false;
+    initYouTubePlayer();
+  }
 }
 document.querySelectorAll('.reel-lite').forEach(el=>{
   el.style.cursor='pointer';
-  el.addEventListener('click',()=>{
+  let pointerHandled = false;
+  const activateReel = () => {
     const id = el.dataset.yt;
-    if(shouldOpenYouTubeDirectly()){
-      openYouTubeDirectly(id);
+    openVideo(id);
+  };
+  el.addEventListener('pointerup', e => {
+    if(e.pointerType === 'mouse') return;
+    pointerHandled = true;
+    window.setTimeout(() => {
+      pointerHandled = false;
+    }, 500);
+    e.preventDefault();
+    activateReel();
+  });
+  el.addEventListener('click', e => {
+    if(pointerHandled){
+      e.preventDefault();
       return;
     }
-    openVideo(id);
+    activateReel();
   });
 });
 document.querySelectorAll('[data-close-video]').forEach(el=>el.addEventListener('click', closeVideo));
