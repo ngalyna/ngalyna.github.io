@@ -199,6 +199,36 @@ Nga Lyna MC
 MC song ngữ Nga Lyna
 ```
 
+## Optional Google Analytics
+
+Google Analytics is optional for this portfolio, but useful if you want to know whether partners actually open the link and which channels bring serious booking interest.
+
+Use Google Analytics only after creating a GA4 property and getting a Measurement ID like:
+
+```text
+G-XXXXXXXXXX
+```
+
+Then add the official GA4 snippet in the `<head>` of `index.html`.
+
+What to track:
+
+- Total visits to the portfolio.
+- Traffic source: direct link, Facebook, Instagram, YouTube, TikTok, email, Zalo, proposal PDF.
+- Device type: mobile or desktop.
+- Clicks on showreel videos.
+- Language mode usage: EN or VN.
+
+Use UTM links when sending proposals, for example:
+
+```text
+https://ngalyna.id.vn/?utm_source=zalo&utm_medium=proposal&utm_campaign=client_pitch
+https://ngalyna.id.vn/?utm_source=email&utm_medium=proposal&utm_campaign=agency_pitch
+https://ngalyna.id.vn/?utm_source=facebook&utm_medium=bio&utm_campaign=profile_link
+```
+
+Do not use GA to collect private client data. The goal is only to understand whether the profile is being opened and which source sends better leads.
+
 ## Backlink and Social Signals
 
 After the domain is live, update the website link in:

@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /Blueprint.html
+Disallow: /Portfolio.html
+Disallow: /Portfolio-print.html
+Disallow: /Portfolio-standalone.html
 
 Sitemap: https://ngalyna.github.io/sitemap.xml
