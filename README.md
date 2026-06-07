@@ -1,6 +1,10 @@
 # MC Nga Lyna Profile
 
-Static profile website for Nga Lyna, a Vietnamese-English bilingual MC based in Hanoi.
+Private portfolio and booking profile website for Nga Lyna, a Vietnamese-English bilingual MC based in Hanoi.
+
+This is not a reusable template or commercial starter project. All source code,
+copy, layout decisions, images, video thumbnails, brand presentation, and
+portfolio materials are reserved for Nga Lyna. See [LICENSE](LICENSE).
 
 ## Current State
 
@@ -41,6 +45,7 @@ Then preview the page on desktop and mobile widths. Key areas to re-check:
 - Prefer concrete event labels over generic wording. Avoid phrases that feel AI-written, especially in Vietnamese.
 - Logo and event assets used on the live page should generally be `.webp`.
 - `Portfolio.html`, `Portfolio-print.html`, `Portfolio-standalone.html`, `Blueprint.html`, and `tweaks-panel.jsx` are supporting/legacy files. The public site currently runs from `index.html`.
+- This project should be described as a `portfolio website`, `digital booking profile`, or `bilingual MC profile website`, not a generic landing page.
 
 ## Recent Positioning
 
