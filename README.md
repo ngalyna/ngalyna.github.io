@@ -39,6 +39,9 @@ Then preview the page on desktop and mobile widths. Key areas to re-check:
 - Footer navigation lines and footer copy in both languages.
 - JSON-LD still parses as valid JSON after metadata edits.
 
+For detailed instructions on adding images, logos, showreel videos, metadata,
+and QA steps, read [MAINTENANCE_GUIDE.md](MAINTENANCE_GUIDE.md).
+
 ## Content Notes
 
 - Keep the English and Vietnamese copy natural independently; they do not need to be literal translations.

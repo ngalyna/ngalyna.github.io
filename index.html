@@ -1481,7 +1481,7 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
     pointer-events:none;
     transform-origin:top center;
     will-change:opacity, max-height, transform;
-    animation:mobileMoreOut .66s cubic-bezier(.33,0,.2,1) both;
+    animation:mobileMoreOut .72s cubic-bezier(.33,0,.2,1) both;
   }
   .portfolio-group.mobile-collapsible:not(.is-expanded):not(.is-collapsing) .event-grid > .event-card:nth-child(n+5){display:none}
   .portfolio-group.mobile-collapsible .mobile-more-toggle{display:inline-flex;align-items:center;justify-content:center}
@@ -1491,11 +1491,11 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
 @keyframes mobileMoreIn{
   0%{opacity:0;max-height:0;transform:translateY(12px)}
   38%{opacity:.18}
-  100%{opacity:1;max-height:1600px;transform:translateY(0)}
+  100%{opacity:1;max-height:1200px;transform:translateY(0)}
 }
 @keyframes mobileMoreOut{
-  0%{opacity:1;max-height:1600px;transform:translateY(0)}
-  54%{opacity:0;transform:translateY(-4px)}
+  0%{opacity:1;max-height:var(--mobile-card-height,1200px);transform:translateY(0)}
+  50%{opacity:.08;transform:translateY(-3px)}
   100%{opacity:0;max-height:0;transform:translateY(-4px)}
 }
 @media(prefers-reduced-motion:reduce){
@@ -3719,6 +3719,14 @@ document.querySelectorAll('[data-more-toggle]').forEach(button => {
     ]);
   }
 
+  function syncCollapseCardHeights(){
+    if(!window.matchMedia('(max-width: 900px)').matches) return;
+    group.querySelectorAll(extraCardSelector).forEach(card => {
+      const visibleHeight = Math.max(card.offsetHeight, card.scrollHeight);
+      card.style.setProperty('--mobile-card-height', `${Math.ceil(visibleHeight)}px`);
+    });
+  }
+
   button.addEventListener('click', async () => {
     if(button.disabled) return;
 
@@ -3747,6 +3755,7 @@ document.querySelectorAll('[data-more-toggle]').forEach(button => {
 
     button.disabled = true;
     button.setAttribute('aria-expanded', 'false');
+    syncCollapseCardHeights();
     const target = nextPortfolioAnchor();
     const targetTopBefore = target.getBoundingClientRect().top;
     group.classList.add('is-collapsing');
@@ -3755,7 +3764,7 @@ document.querySelectorAll('[data-more-toggle]').forEach(button => {
     const collapseStartedAt = performance.now();
     const holdAnchor = () => {
       keepAnchorStill(target, targetTopBefore);
-      if(performance.now() - collapseStartedAt < 560){
+      if(performance.now() - collapseStartedAt < 920){
         requestAnimationFrame(holdAnchor);
       }
     };
@@ -3764,8 +3773,10 @@ document.querySelectorAll('[data-more-toggle]').forEach(button => {
     window.setTimeout(() => {
       group.classList.remove('is-collapsing');
       keepAnchorStill(target, targetTopBefore);
+      requestAnimationFrame(() => keepAnchorStill(target, targetTopBefore));
+      window.setTimeout(() => keepAnchorStill(target, targetTopBefore), 80);
       button.disabled = false;
-    }, 700);
+    }, 760);
   });
 });
 
