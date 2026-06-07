@@ -3634,9 +3634,19 @@ document.querySelectorAll('.hall-marquee .track').forEach(track => {
 const videoModal = document.getElementById('video-modal');
 const videoFrame = document.getElementById('video-frame');
 const videoOpenLink = document.getElementById('video-open-link');
+function youtubeWatchUrl(id){
+  return `https://www.youtube.com/watch?v=${id}`;
+}
+function shouldOpenYouTubeDirectly(){
+  return window.matchMedia('(hover: none)').matches || window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 720;
+}
+function openYouTubeDirectly(id){
+  const opened = window.open(youtubeWatchUrl(id), '_blank', 'noopener');
+  if(!opened) window.location.href = youtubeWatchUrl(id);
+}
 function openVideo(id){
   if(!id || !videoModal || !videoFrame) return;
-  if(videoOpenLink) videoOpenLink.href = `https://www.youtube.com/watch?v=${id}`;
+  if(videoOpenLink) videoOpenLink.href = youtubeWatchUrl(id);
   videoModal.classList.add('open');
   videoModal.setAttribute('aria-hidden','false');
   document.body.classList.add('video-open');
@@ -3665,6 +3675,10 @@ document.querySelectorAll('.reel-lite').forEach(el=>{
   el.style.cursor='pointer';
   el.addEventListener('click',()=>{
     const id = el.dataset.yt;
+    if(shouldOpenYouTubeDirectly()){
+      openYouTubeDirectly(id);
+      return;
+    }
     openVideo(id);
   });
 });
