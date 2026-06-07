@@ -355,7 +355,7 @@ nav.topnav.scrolled{border-bottom-color:var(--line);padding:14px 56px}
   min-width:34px;
   padding:9px 9px;
   border-radius:999px;
-  opacity:.58;
+  opacity:.64;
   text-align:center;
   transition:background .25s,color .25s,opacity .25s;
 }
@@ -992,12 +992,12 @@ footer.foot{
 }
 .foot-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:48px;margin-bottom:60px}
 @media(max-width:900px){.foot-grid{grid-template-columns:1fr;gap:32px}}
-.foot h4{
+.foot .foot-heading{
   font-family:'Newsreader',serif;font-weight:400;
   font-size:clamp(40px,6vw,64px);line-height:1.02;color:var(--paper);
   margin:0 0 14px;letter-spacing:-.02em;
 }
-.foot h4 em{font-style:normal;color:#d9b985}
+.foot .foot-heading em{font-style:normal;color:#d9b985}
 .foot .vi{font-style:italic;font-family:'Newsreader',serif;color:#d9b985;font-size:20px}
 .foot .col b{
   display:block;font-family:'Manrope';font-weight:600;font-size:11px;
@@ -1056,7 +1056,7 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
 .foot-nav .nav-set a:first-child{border-top:none}
 .foot-nav .nav-set a .idx{
   font-family:'Newsreader',serif;font-style:italic;font-size:12px;
-  color:#80766a;min-width:22px;
+  color:#8a8174;min-width:22px;
 }
 .foot-nav .nav-set a:hover{color:var(--paper);padding-left:6px}
 .foot-nav .nav-set a:hover .idx{color:#d9b985}
@@ -1064,7 +1064,7 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   border-top:1px solid rgba(255,255,255,.14);
   padding-top:24px;font-size:12px;
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
-  color:#80766a;
+  color:#8a8174;
 }
 @media(max-width:900px){
   .foot-grid{gap:44px}
@@ -2116,7 +2116,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
   .reel-card .reel-tag.reel-tag-bilingual{min-width:58px}
 
   /* Footer */
-  footer.foot h4{font-size:52px}
+  footer.foot .foot-heading{font-size:52px}
   footer.foot{padding:64px 0 90px}
 }
 
@@ -2152,7 +2152,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
 @media(max-width:400px){
   .hero-headline{font-size:clamp(38px,12vw,52px)}
   .section-title{font-size:clamp(30px,9vw,40px)}
-  footer.foot h4{font-size:44px}
+  footer.foot .foot-heading{font-size:44px}
   .hall-stats .stat .n{font-size:36px}
 }
 
@@ -2179,14 +2179,14 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
     <a href="#works">Portfolio</a>
     <a href="#voice">Showreel</a>
   </div>
-  <button class="lang-toggle" type="button" aria-label="Switch language" aria-pressed="false">
+  <button class="lang-toggle" type="button" title="Switch language" aria-pressed="false">
     <span class="en">EN</span><span class="vn">VN</span>
   </button>
 </nav>
 
 <!-- ========== HERO ========== -->
 <section class="hero" id="top" data-variant="cinematic" data-screen-label="01 Hero">
-  <button class="lang-toggle lang-toggle-mobile" type="button" aria-label="Switch language" aria-pressed="false">
+  <button class="lang-toggle lang-toggle-mobile" type="button" title="Switch language" aria-pressed="false">
     <span class="en">EN</span><span class="vn">VN</span>
   </button>
   <div class="wrap">
@@ -3286,7 +3286,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <h4 class="serif"><em>Two languages,</em><br>one stage.</h4>
+        <div class="foot-heading serif"><em>Two languages,</em><br>one stage.</div>
         <p class="foot-intro">
           <span class="foot-line">Nga Lyna · Bilingual MC for conferences, gala dinners, brand launches and outdoor stages.</span>
         </p>
@@ -3294,7 +3294,7 @@ body[data-lang="vi"] .lw-cats .vi-only{display:none !important}
           <b>Booking handled via management</b>
           <p>Availability, event fit and commercial inquiries are handled through management.</p>
         </div>
-        <button class="lang-toggle lang-toggle-footer" type="button" aria-label="Switch language" aria-pressed="false">
+        <button class="lang-toggle lang-toggle-footer" type="button" title="Switch language" aria-pressed="false">
           <span class="en">EN</span><span class="vn">VN</span>
         </button>
       </div>

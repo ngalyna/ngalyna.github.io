@@ -11,3 +11,4 @@ ảnh_webp_profile/
 
 # Local screenshots / temporary outputs
 *.log
+.qa/
