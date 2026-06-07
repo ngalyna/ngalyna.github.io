@@ -3636,12 +3636,23 @@ const videoFrame = document.getElementById('video-frame');
 const videoOpenLink = document.getElementById('video-open-link');
 function openVideo(id){
   if(!id || !videoModal || !videoFrame) return;
-  const src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
-  videoFrame.innerHTML = `<iframe src="${src}" title="Nga Lyna showreel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
   if(videoOpenLink) videoOpenLink.href = `https://www.youtube.com/watch?v=${id}`;
   videoModal.classList.add('open');
   videoModal.setAttribute('aria-hidden','false');
   document.body.classList.add('video-open');
+  // Make the modal visible before attaching the iframe so mobile browsers keep the tap gesture for autoplay.
+  void videoModal.offsetHeight;
+  const params = new URLSearchParams({
+    autoplay:'1',
+    playsinline:'1',
+    rel:'0',
+    modestbranding:'1',
+    controls:'1',
+    enablejsapi:'1',
+    origin:window.location.origin
+  });
+  const src = `https://www.youtube.com/embed/${id}?${params.toString()}`;
+  videoFrame.innerHTML = `<iframe src="${src}" title="Nga Lyna showreel" allow="autoplay; fullscreen; encrypted-media; picture-in-picture; clipboard-write; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
 }
 function closeVideo(){
   if(!videoModal || !videoFrame) return;
