@@ -1,22 +1,16 @@
-# ngalyna.id.vn Go-Live Card
+# mcngalyna.id.vn Go-Live Card
 
 Use this file on the day the domain is purchased. The current live site should stay on `ngalyna.github.io` until the custom domain is configured.
 
-## 1. Buy
+## 1. Purchased
 
-Buy:
-
-```text
-ngalyna.id.vn
-```
-
-Optional defensive domain:
+Purchased primary domain:
 
 ```text
 mcngalyna.id.vn
 ```
 
-Do not use `mcngalyna.id.vn` as the main site. Redirect it later if purchased.
+Use this as the canonical domain for the site.
 
 ## 2. GitHub First
 
@@ -30,7 +24,7 @@ Settings -> Pages -> Custom domain
 Enter:
 
 ```text
-ngalyna.id.vn
+mcngalyna.id.vn
 ```
 
 If GitHub offers domain verification, add the TXT record it provides in the DNS panel.
@@ -56,23 +50,23 @@ For `www`:
 www  CNAME  ngalyna.github.io
 ```
 
-Do not add wildcard DNS such as `*.ngalyna.id.vn`.
+Do not add wildcard DNS such as `*.mcngalyna.id.vn`.
 
 ## 4. Verify DNS
 
 Run:
 
 ```bash
-dig ngalyna.id.vn +noall +answer -t A
-dig ngalyna.id.vn +noall +answer -t AAAA
-dig www.ngalyna.id.vn +noall +answer
+dig mcngalyna.id.vn +noall +answer -t A
+dig mcngalyna.id.vn +noall +answer -t AAAA
+dig www.mcngalyna.id.vn +noall +answer
 ```
 
 Then open:
 
 ```text
-https://ngalyna.id.vn/
-https://www.ngalyna.id.vn/
+https://mcngalyna.id.vn/
+https://www.mcngalyna.id.vn/
 ```
 
 When GitHub allows it, enable:
@@ -81,12 +75,17 @@ When GitHub allows it, enable:
 Enforce HTTPS
 ```
 
-## 5. Switch Repo Metadata
+## 5. Repo Metadata
 
-Only after the custom domain opens correctly:
+Already switched in this repo:
+
+- `CNAME` -> `mcngalyna.id.vn`
+- canonical / Open Graph / Twitter image / JSON-LD -> `https://mcngalyna.id.vn/`
+- `robots.txt` and `sitemap.xml` -> `mcngalyna.id.vn`
+
+To verify locally:
 
 ```bash
-npm run domain:switch
 git diff --check
 python3 -m http.server 5177 --bind 127.0.0.1
 ```
@@ -97,11 +96,11 @@ Preview:
 http://127.0.0.1:5177/index.html
 ```
 
-Then commit:
+Commit command if needed:
 
 ```bash
 git add index.html robots.txt sitemap.xml CNAME package.json scripts/switch-domain.cjs DOMAIN_AND_SEO_LAUNCH.md DOMAIN_GO_LIVE_CARD.md
-git commit -m "Launch custom ngalyna.id.vn domain"
+git commit -m "Launch custom mcngalyna.id.vn domain"
 git push
 ```
 
@@ -110,19 +109,19 @@ git push
 Add a Domain property:
 
 ```text
-ngalyna.id.vn
+mcngalyna.id.vn
 ```
 
 Verify with DNS TXT, then submit:
 
 ```text
-https://ngalyna.id.vn/sitemap.xml
+https://mcngalyna.id.vn/sitemap.xml
 ```
 
 Request indexing for:
 
 ```text
-https://ngalyna.id.vn/
+https://mcngalyna.id.vn/
 ```
 
 ## 7. Social Links

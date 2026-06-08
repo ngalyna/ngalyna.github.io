@@ -5,7 +5,7 @@
   "description": "Private portfolio and booking profile website for MC Nga Lyna.",
   "main": "index.js",
   "scripts": {
-    "domain:switch": "node scripts/switch-domain.cjs ngalyna.id.vn",
+    "domain:switch": "node scripts/switch-domain.cjs mcngalyna.id.vn",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

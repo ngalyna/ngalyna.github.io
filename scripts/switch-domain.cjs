@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const domain = (process.argv[2] || 'ngalyna.id.vn').replace(/^https?:\/\//, '').replace(/\/$/, '');
+const domain = (process.argv[2] || 'mcngalyna.id.vn').replace(/^https?:\/\//, '').replace(/\/$/, '');
 const root = path.resolve(__dirname, '..');
 const oldOrigin = 'https://ngalyna.github.io';
 const newOrigin = `https://${domain}`;
