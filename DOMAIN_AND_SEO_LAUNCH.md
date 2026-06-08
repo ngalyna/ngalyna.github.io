@@ -52,12 +52,56 @@ Sources to re-check when buying:
 5. Enable auto-renew if the registrar supports it.
 6. Keep registrar login, DNS login, and renewal email in a safe place.
 
+## Prepared In This Repo
+
+Do not run this before buying and configuring the domain:
+
+```bash
+npm run domain:switch
+```
+
+That command runs `scripts/switch-domain.cjs` and will:
+
+- replace canonical, Open Graph, Twitter image, JSON-LD, sitemap, and robots URLs from `https://ngalyna.github.io` to `https://ngalyna.id.vn`;
+- create the root `CNAME` file containing `ngalyna.id.vn`;
+- refresh the `sitemap.xml` `<lastmod>` date.
+
+Keep the current live repo on `ngalyna.github.io` until DNS and GitHub Pages are ready. The script is only for the go-live step.
+
+## Five-Hour Preflight
+
+Before buying the domain, have these tabs/accounts ready:
+
+1. Domain registrar account for `.id.vn`.
+2. GitHub repository: `ngalyna/ngalyna.github.io`.
+3. GitHub Pages settings: `Settings -> Pages`.
+4. Domain DNS management panel.
+5. Google Search Console.
+6. This file open locally.
+
+Copy these values somewhere easy to paste:
+
+```text
+Primary domain: ngalyna.id.vn
+Canonical URL: https://ngalyna.id.vn/
+GitHub Pages target: ngalyna.github.io
+Repository: ngalyna/ngalyna.github.io
+```
+
 ## GitHub Pages Setup
 
 Do this only after the domain is bought.
 
-1. In GitHub repository settings, open `Settings -> Pages`.
-2. Add the custom domain:
+1. In GitHub account/domain settings, verify `ngalyna.id.vn` if GitHub offers domain verification. GitHub usually gives a TXT record such as:
+
+```text
+_github-pages-challenge-OWNER  TXT  provided-token
+```
+
+Add the exact TXT record GitHub gives you in the registrar DNS panel.
+
+2. In GitHub repository settings, open `Settings -> Pages`.
+3. Add the custom domain:
 
 ```text
 ngalyna.id.vn
@@ -65,13 +109,15 @@ ngalyna.id.vn
 
 GitHub recommends adding the domain in Pages settings before configuring DNS, to reduce takeover risk.
 
-3. Let GitHub create or accept a `CNAME` file in the repo root containing:
+4. Let GitHub create or accept a `CNAME` file in the repo root containing:
 
 ```text
 ngalyna.id.vn
 ```
 
-4. In the domain DNS panel, configure the apex domain `ngalyna.id.vn`.
+Do not worry if the repo does not have `CNAME` yet. The prepared `npm run domain:switch` command will create it during the go-live commit.
+
+5. In the domain DNS panel, configure the apex domain `ngalyna.id.vn`.
 
 Current GitHub Pages apex `A` records:
 
@@ -91,24 +137,48 @@ Optional IPv6 `AAAA` records:
 @  AAAA  2606:50c0:8003::153
 ```
 
-5. Configure `www.ngalyna.id.vn`:
+6. Configure `www.ngalyna.id.vn`:
 
 ```text
 www  CNAME  ngalyna.github.io
 ```
 
-6. Wait for DNS propagation. GitHub notes DNS changes can take up to 24 hours.
-7. In GitHub Pages settings, enable `Enforce HTTPS` when available.
-8. Verify:
+7. Wait for DNS propagation. GitHub notes DNS changes can take up to 24 hours.
+8. In GitHub Pages settings, enable `Enforce HTTPS` when available.
+9. Verify:
 
 ```bash
 dig ngalyna.id.vn +noall +answer -t A
 dig www.ngalyna.id.vn +noall +answer
+dig ngalyna.id.vn +noall +answer -t AAAA
 ```
+
+Expected A records:
+
+```text
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+```
+
+Expected `www` result should eventually point to `ngalyna.github.io`.
 
 ## Repo Updates After Domain Works
 
-After `https://ngalyna.id.vn/` opens correctly, update the repo:
+After `https://ngalyna.id.vn/` opens correctly, update the repo.
+
+Fast path:
+
+```bash
+npm run domain:switch
+git diff --check
+python3 -m http.server 5177 --bind 127.0.0.1
+```
+
+Then preview `http://127.0.0.1:5177/index.html`, stop the server, commit, and push.
+
+Manual details if needed:
 
 1. Add or confirm `CNAME`:
 
@@ -166,6 +236,14 @@ Sitemap: https://ngalyna.id.vn/sitemap.xml
 ```
 
 7. Commit and push.
+
+Suggested commit message:
+
+```bash
+git add index.html robots.txt sitemap.xml CNAME package.json scripts/switch-domain.cjs DOMAIN_AND_SEO_LAUNCH.md
+git commit -m "Launch custom ngalyna.id.vn domain"
+git push
+```
 
 ## Search Console
 

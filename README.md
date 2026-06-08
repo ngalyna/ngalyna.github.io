@@ -42,6 +42,10 @@ Then preview the page on desktop and mobile widths. Key areas to re-check:
 For detailed instructions on adding images, logos, showreel videos, metadata,
 and QA steps, read [MAINTENANCE_GUIDE.md](MAINTENANCE_GUIDE.md).
 
+For the future custom domain launch, use
+[DOMAIN_GO_LIVE_CARD.md](DOMAIN_GO_LIVE_CARD.md) first, then
+[DOMAIN_AND_SEO_LAUNCH.md](DOMAIN_AND_SEO_LAUNCH.md) for the detailed rationale.
+
 ## Content Notes
 
 - Keep the English and Vietnamese copy natural independently; they do not need to be literal translations.
