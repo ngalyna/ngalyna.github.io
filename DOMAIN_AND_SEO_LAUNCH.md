@@ -37,6 +37,15 @@ Sources to re-check when buying:
 
 `mcngalyna.id.vn` has been purchased through iNET / OnePortal.
 
+Launch status on `2026-06-08`:
+
+- DNS records point to GitHub Pages.
+- GitHub Pages DNS check is successful.
+- `Enforce HTTPS` is enabled.
+- `https://mcngalyna.id.vn/` returns `200 OK`.
+- `www.mcngalyna.id.vn` redirects to `mcngalyna.id.vn`.
+- Live page metadata, `robots.txt`, and `sitemap.xml` use `https://mcngalyna.id.vn/`.
+
 Keep these safe:
 
 1. Registrar login.
@@ -83,7 +92,7 @@ Repository: ngalyna/ngalyna.github.io
 
 ## GitHub Pages Setup
 
-Do this only after the domain is bought.
+This setup is complete. Keep these details for future audits or if the domain ever needs to be reconnected.
 
 1. In GitHub account/domain settings, verify `mcngalyna.id.vn` if GitHub offers domain verification. GitHub usually gives a TXT record such as:
 
@@ -94,7 +103,7 @@ _github-pages-challenge-OWNER  TXT  provided-token
 Add the exact TXT record GitHub gives you in the registrar DNS panel.
 
 2. In GitHub repository settings, open `Settings -> Pages`.
-3. Add the custom domain:
+3. Custom domain:
 
 ```text
 mcngalyna.id.vn
@@ -102,13 +111,13 @@ mcngalyna.id.vn
 
 GitHub recommends adding the domain in Pages settings before configuring DNS, to reduce takeover risk.
 
-4. Let GitHub create or accept a `CNAME` file in the repo root containing:
+4. The repo root contains `CNAME`:
 
 ```text
 mcngalyna.id.vn
 ```
 
-The repo now has a prepared `CNAME` file containing `mcngalyna.id.vn`.
+The repo now has a `CNAME` file containing `mcngalyna.id.vn`.
 
 5. In the domain DNS panel, configure the apex domain `mcngalyna.id.vn`.
 

@@ -1,6 +1,17 @@
-# mcngalyna.id.vn Go-Live Card
+# mcngalyna.id.vn Launch Status
 
-Use this file on the day the domain is purchased. The current live site should stay on `ngalyna.github.io` until the custom domain is configured.
+The custom domain is live. Keep this file as the short operational reference for DNS, HTTPS, and search setup.
+
+## Live Status
+
+Checked on `2026-06-08`:
+
+- `https://mcngalyna.id.vn/` returns `200 OK`.
+- `http://mcngalyna.id.vn/` redirects to `https://mcngalyna.id.vn/`.
+- `https://www.mcngalyna.id.vn/` redirects to `https://mcngalyna.id.vn/`.
+- GitHub Pages DNS check is successful.
+- `Enforce HTTPS` is enabled.
+- SSL certificate covers both `mcngalyna.id.vn` and `www.mcngalyna.id.vn`.
 
 ## 1. Purchased
 
@@ -52,7 +63,7 @@ www  CNAME  ngalyna.github.io
 
 Do not add wildcard DNS such as `*.mcngalyna.id.vn`.
 
-## 4. Verify DNS
+## 4. Verify DNS And HTTPS
 
 Run:
 
@@ -69,10 +80,12 @@ https://mcngalyna.id.vn/
 https://www.mcngalyna.id.vn/
 ```
 
-When GitHub allows it, enable:
+Expected live behavior:
 
 ```text
-Enforce HTTPS
+http://mcngalyna.id.vn/       -> 301 -> https://mcngalyna.id.vn/
+https://mcngalyna.id.vn/      -> 200
+https://www.mcngalyna.id.vn/  -> 301 -> https://mcngalyna.id.vn/
 ```
 
 ## 5. Repo Metadata
