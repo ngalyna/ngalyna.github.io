@@ -213,13 +213,21 @@ https://mcngalyna.id.vn/
 ```
 
 6. Request indexing.
-7. After indexing, test:
+7. Use URL Inspection for the Vietnamese SEO support page:
+
+```text
+https://mcngalyna.id.vn/mc-song-ngu-ha-noi/
+```
+
+8. Request indexing for that URL too.
+9. After indexing, test:
 
 ```text
 site:mcngalyna.id.vn
 MC Nga Lyna
 Nga Lyna MC
 MC song ngữ Nga Lyna
+MC song ngữ Hà Nội
 ```
 
 ## Optional Google Analytics

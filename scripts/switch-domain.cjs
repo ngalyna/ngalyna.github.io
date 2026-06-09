@@ -9,7 +9,7 @@ const oldOrigin = 'https://ngalyna.github.io';
 const newOrigin = `https://${domain}`;
 const today = new Date().toISOString().slice(0, 10);
 
-const files = ['index.html', 'robots.txt', 'sitemap.xml'];
+const files = ['index.html', 'mc-song-ngu-ha-noi/index.html', 'robots.txt', 'sitemap.xml'];
 
 function read(file){
   return fs.readFileSync(path.join(root, file), 'utf8');
@@ -30,6 +30,11 @@ index = index.split(`${oldOrigin}/`).join(`${newOrigin}/`);
 index = index.split(oldOrigin).join(newOrigin);
 write('index.html', index);
 
+let vietnameseSeoPage = read('mc-song-ngu-ha-noi/index.html');
+vietnameseSeoPage = vietnameseSeoPage.split(`${oldOrigin}/`).join(`${newOrigin}/`);
+vietnameseSeoPage = vietnameseSeoPage.split(oldOrigin).join(newOrigin);
+write('mc-song-ngu-ha-noi/index.html', vietnameseSeoPage);
+
 let robots = read('robots.txt');
 robots = robots.split(`${oldOrigin}/sitemap.xml`).join(`${newOrigin}/sitemap.xml`);
 write('robots.txt', robots);
@@ -42,5 +47,5 @@ write('sitemap.xml', sitemap);
 write('CNAME', `${domain}\n`);
 
 console.log(`Prepared custom domain: ${domain}`);
-console.log('Updated: index.html, robots.txt, sitemap.xml, CNAME');
+console.log('Updated: index.html, mc-song-ngu-ha-noi/index.html, robots.txt, sitemap.xml, CNAME');
 console.log('Next: git diff, test locally, commit, push, then enforce HTTPS in GitHub Pages.');

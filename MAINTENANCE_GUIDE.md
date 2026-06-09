@@ -7,7 +7,8 @@ Use this guide when adding or replacing images, logos, portfolio entries, showre
 ## Project Structure
 
 - `index.html` is the live production page.
-- `assets/` contains public image and logo assets used by `index.html`.
+- `mc-song-ngu-ha-noi/index.html` is the Vietnamese SEO/booking profile page for searches like `MC song ngữ Hà Nội`.
+- `assets/` contains public image and logo assets used by the live pages.
 - `assets/logo-wall/` contains the logo wall images.
 - `sitemap.xml` and `robots.txt` are used for search indexing.
 - `Portfolio.html`, `Portfolio-print.html`, `Portfolio-standalone.html`, and `Blueprint.html` are legacy/support files. They are intentionally `noindex,nofollow`.
@@ -111,6 +112,7 @@ After changing key content, check:
 - `<meta name="description">`
 - Open Graph and Twitter metadata.
 - JSON-LD `Person`, `ProfessionalService`, and `VideoObject`.
+- The Vietnamese SEO page at `mc-song-ngu-ha-noi/index.html` if the change affects Vietnamese search intent.
 - `sitemap.xml` if the canonical domain changes.
 - `robots.txt` if new legacy/support files are added.
 
@@ -167,4 +169,3 @@ git status --short
 ```
 
 Do not commit `.qa/`, raw photo folders, or local system files.
-
