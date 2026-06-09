@@ -62,3 +62,4 @@ For domain and Search Console notes, use
 - Portfolio is organized by event format and scale.
 - Section 08 is currently positioned as `Branding & nhãn hàng`.
 - Booking details are intentionally handled via management rather than publishing direct terms on-page.
+- Pending for section 03: consider replacing the generic editorial line with a real-but-paraphrased Fujifilm Partner Kick-off client feedback note. Do not use quotation marks unless the exact Vietnamese wording is confirmed.
