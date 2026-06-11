@@ -89,7 +89,11 @@ Do not use a low-resolution logo if a cleaner source is available.
 2. Use a strong thumbnail where the play button does not cover the face.
 3. Update the reel title and language tag.
 4. Update the JSON-LD `VideoObject` list in the `<head>` of `index.html`.
+   - Include the real YouTube `uploadDate`; Google Search Console marks videos invalid when this is missing.
+   - Keep `url` as the public YouTube watch link.
+   - Keep `embedUrl` on `https://www.youtube-nocookie.com/embed/YOUTUBE_ID`.
 5. If the total number of reels changes, update related copy and QA expectations.
+6. After deploy, run Search Console URL inspection and validate any VideoObject fixes.
 
 ## Updating Copy
 
