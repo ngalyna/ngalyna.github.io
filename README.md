@@ -16,6 +16,33 @@ portfolio materials are reserved for Nga Lyna. See [LICENSE](LICENSE).
 - Language modes are handled in `index.html` through the `viCopy` translation map and `body[data-lang]` CSS states.
 - Structured profile metadata is embedded in the `<head>` as JSON-LD for `Person`, `ProfessionalService`, `WebSite`, and 19 `VideoObject` showreels (14 landscape reels plus 5 vertical short clips). This is invisible to users but helps crawlers and AI systems understand the booking profile.
 
+## Health Snapshot
+
+Measured 2026-08-04 with Lighthouse against the local preview server.
+
+| | Mobile | Desktop |
+| --- | --- | --- |
+| Performance | 63 | 97 |
+| Accessibility | 100 | 96 |
+| Best Practices | 100 | 100 |
+| SEO | 100 | 100 |
+| Largest Contentful Paint | 7.7 s | 1.0 s |
+| Cumulative Layout Shift | 0 | 0.002 |
+
+Reading the numbers:
+
+- Desktop is in good shape. Mobile is held back by one thing only: the hero
+  image. It is a 2560 px full-bleed photo, about 1.4 MB, and it is the LCP
+  element, so a phone downloads all of it before the page counts as painted.
+  Everything else on the page is lazy-loaded and does not affect LCP.
+- The desktop Accessibility 96 is a **false positive**. Its only finding is
+  colour contrast in the hero, where light text sits on a photo behind a dark
+  gradient. The audit tool cannot read through images, so it compares the text
+  against the page background instead. There is no real contrast problem.
+- Layout shift is effectively zero even though no `<img>` carries `width`/
+  `height`, because every image sits in a container with a fixed
+  `aspect-ratio`. Do not "fix" the missing attributes; nothing is broken.
+
 ## Local Preview
 
 ```bash
@@ -63,3 +90,31 @@ For domain and Search Console notes, use
 - Section 08 is currently positioned as `Branding & nhãn hàng`.
 - Booking details are intentionally handled via management rather than publishing direct terms on-page.
 - Pending for section 03: consider replacing the generic editorial line with a real-but-paraphrased Fujifilm Partner Kick-off client feedback note. Do not use quotation marks unless the exact Vietnamese wording is confirmed.
+
+## Known Issues And Open Items
+
+Ordered by impact. None of these break the live site; they are the honest
+backlog as of 2026-08-04.
+
+1. **Hero image is the mobile bottleneck.** `assets/hero-audition-award-2026.webp`
+   is 2560 x 1713 and about 1.4 MB, served identically to a 390 px phone. A
+   `srcset` on the hero with a ~1200 px variant (~380 KB) is the single change
+   that would move mobile Performance meaningfully. It needs a markup edit to
+   the hero `<picture>`, so it has not been done.
+2. **`assets/` carries files the site does not use.** Around 136 of the ~310
+   tracked files are unreferenced (roughly 37 MB), including 56 leftover
+   `.jpg` originals. Before deleting anything, check `Portfolio.html` and the
+   other legacy pages — they reference their own assets.
+3. **All CSS and JS are inline in `index.html`** (about 69 KB and 47 KB of a
+   199 KB file). Splitting them into cached files would help repeat visitors.
+   Deliberately not done: the site works well and the change is invasive.
+4. **Reel tiles announce poorly to screen readers.** Each `.reel-lite` is a
+   `role="button"` `<div>` that cannot be focused, while the focusable
+   `.reel-play` button inside it is only labelled "Play". Keyboard playback
+   does work (Enter on the inner button), but 19 buttons share one name. Moving
+   the descriptive `aria-label` onto the button would fix it.
+5. **`assets/event-lavie-tram-yen-stage.webp` is slightly under retina size.**
+   The source photo is only 1366 px wide and the slot wants about 1500 px at 2x.
+   Nothing to do unless a higher-resolution original turns up.
+6. **The repository is heavy.** `.git` is around 165 MB, partly from
+   `Portfolio-standalone.html` (9 MB) and image history. Clones are slow.

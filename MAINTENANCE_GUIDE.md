@@ -33,15 +33,55 @@ assets/logo-wall/brand-name.webp
 
 Use `.webp` for public web assets unless there is a strong reason not to.
 
-Recommended image sizes:
+### The sizing rule
 
-- Hero image: 1600-2200 px on the long edge.
-- Featured portfolio image: 1400-1800 px wide.
-- Normal portfolio image: 1000-1600 px wide.
-- Showreel thumbnail: 1400-1800 px wide, 16:9 preferred.
+Every image on the page is displayed through `object-fit: cover` inside a
+container with a fixed `aspect-ratio`. So the file only needs to be large
+enough that the browser never has to enlarge it — anything beyond that is
+bytes the visitor pays for and cannot see.
+
+The rule applied across `assets/` on 2026-08-04:
+
+> **file long edge = 2.5 x the largest size the image is ever displayed at**,
+> with a floor of 1600 px, a ceiling of 2560 px, quality 92, and never
+> upscaling past the original.
+
+2.5x is deliberately generous. A retina screen resolves 2x, so this leaves
+headroom for a future layout change without another pass. Phones need less
+than desktop, because the same card is physically smaller there.
+
+Practical targets, if you are adding one image and not re-running the sweep:
+
+- Hero image: 2400-2560 px on the long edge.
+- Featured / full-width portfolio image: 1800-2200 px on the long edge.
+- Normal portfolio image inside a collage: 1600-1800 px on the long edge.
+- Landscape showreel thumbnail: 1600 px wide, 16:9.
+- Vertical clip thumbnail: 720 x 1280.
 - Logo wall image: transparent or cleaned background, usually 720 x 320 px.
 
-Keep image quality high. Do not aggressively compress important stage and portrait images just to chase a perfect Lighthouse score.
+Quality 92 is the floor for anything with a face in it. Quality 82 is
+visually identical in side-by-side tests, but 92 costs little and leaves room
+for the image to be re-cropped later without compounding compression.
+
+Do not aggressively compress important stage and portrait images just to chase
+a Lighthouse score. The 2026-08-04 sweep cut the page from 44.5 MB to 32.3 MB
+without any visible change; that is the kind of saving worth taking. Going
+further would start costing real detail.
+
+### Checking whether an image is oversized
+
+Open the page, then in the browser console:
+
+```js
+[...document.querySelectorAll('img[src*="assets/"]')].map(i => ({
+  src: i.getAttribute('src'),
+  shown: Math.round(i.getBoundingClientRect().width),
+  file: i.naturalWidth
+}))
+```
+
+If `file` is more than about 3x `shown`, the image is bigger than it needs to
+be. Measure on a wide desktop window — that is where images render largest.
 
 ## Adding Portfolio Images
 
@@ -130,7 +170,7 @@ After changing key content, check:
 - Open Graph and Twitter metadata.
 - JSON-LD `Person`, `ProfessionalService`, and `VideoObject`.
 - The Vietnamese SEO page at `mc-song-ngu-ha-noi/index.html` if the change affects Vietnamese search intent.
-- `sitemap.xml` if the canonical domain changes.
+- `sitemap.xml` — bump `lastmod` on every content change, not only when the domain changes. Google uses it to decide when to re-crawl.
 - `robots.txt` if new legacy/support files are added.
 
 When the custom domain is active, update canonical URLs from:
@@ -172,9 +212,15 @@ Target scores:
 
 - SEO: 90-100.
 - Best Practices: 90-100.
-- Accessibility: 90-100.
-- Desktop Performance: 80+.
-- Mobile Performance: 60-85 is acceptable for a high-image portfolio if image quality is intentionally preserved.
+- Accessibility: 90-100 on mobile. Desktop reports 96 because of a hero
+  contrast finding that is a false positive — see `README.md`. Do not chase it.
+- Desktop Performance: 90+.
+- Mobile Performance: 60-85 is acceptable for a high-image portfolio if image
+  quality is intentionally preserved. It will stay near the bottom of that band
+  until the hero image gets a `srcset`; the rest of the page is lazy-loaded and
+  does not affect the score.
+
+Last measured 2026-08-04: mobile 63, desktop 97.
 
 ## Git Notes
 
