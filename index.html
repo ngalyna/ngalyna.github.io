@@ -60,7 +60,12 @@
         {"@id": "https://mcngalyna.id.vn/#video-11"},
         {"@id": "https://mcngalyna.id.vn/#video-12"},
         {"@id": "https://mcngalyna.id.vn/#video-13"},
-        {"@id": "https://mcngalyna.id.vn/#video-14"}
+        {"@id": "https://mcngalyna.id.vn/#video-14"},
+        {"@id": "https://mcngalyna.id.vn/#video-15"},
+        {"@id": "https://mcngalyna.id.vn/#video-16"},
+        {"@id": "https://mcngalyna.id.vn/#video-17"},
+        {"@id": "https://mcngalyna.id.vn/#video-18"},
+        {"@id": "https://mcngalyna.id.vn/#video-19"}
       ]
     },
     {
@@ -253,6 +258,71 @@
       "embedUrl": "https://www.youtube-nocookie.com/embed/sJRCWfinaWY",
       "uploadDate": "2025-05-07T01:27:25-07:00",
       "inLanguage": "vi",
+      "creator": {"@id": "https://mcngalyna.id.vn/#person"}
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://mcngalyna.id.vn/#video-15",
+      "name": "English-led Bilingual Hosting Clip",
+      "description": "Short vertical clip of English-led bilingual event hosting.",
+      "thumbnailUrl": "https://mcngalyna.id.vn/assets/reel-song-ngu-live.webp",
+      "url": "https://www.youtube.com/watch?v=IdKsXEGXh6o",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/IdKsXEGXh6o",
+      "uploadDate": "2026-08-01T10:20:39-07:00",
+      "duration": "PT1M22S",
+      "inLanguage": ["en", "vi"],
+      "creator": {"@id": "https://mcngalyna.id.vn/#person"}
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://mcngalyna.id.vn/#video-16",
+      "name": "Medical Event Hosting Clip",
+      "description": "Short vertical clip of hosting for a medical and healthcare event.",
+      "thumbnailUrl": "https://mcngalyna.id.vn/assets/reel-y-khoa.webp",
+      "url": "https://www.youtube.com/watch?v=4Xd0qqvz4Mg",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/4Xd0qqvz4Mg",
+      "uploadDate": "2026-08-01T10:21:52-07:00",
+      "duration": "PT2M15S",
+      "inLanguage": "vi",
+      "creator": {"@id": "https://mcngalyna.id.vn/#person"}
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://mcngalyna.id.vn/#video-17",
+      "name": "Sulwhasoo Brand Event Clip",
+      "description": "Short vertical clip of brand event hosting for Sulwhasoo.",
+      "thumbnailUrl": "https://mcngalyna.id.vn/assets/reel-sulwhasoo.webp",
+      "url": "https://www.youtube.com/watch?v=tBz9elg3fFM",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/tBz9elg3fFM",
+      "uploadDate": "2026-08-01T10:22:38-07:00",
+      "duration": "PT46S",
+      "inLanguage": "vi",
+      "creator": {"@id": "https://mcngalyna.id.vn/#person"}
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://mcngalyna.id.vn/#video-18",
+      "name": "Seminar Moderation Clip",
+      "description": "Short vertical clip of seminar and workshop moderation.",
+      "thumbnailUrl": "https://mcngalyna.id.vn/assets/reel-hoi-thao.webp",
+      "url": "https://www.youtube.com/watch?v=Uo4_HoHwDos",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/Uo4_HoHwDos",
+      "uploadDate": "2026-08-01T10:24:24-07:00",
+      "duration": "PT2M50S",
+      "inLanguage": "vi",
+      "creator": {"@id": "https://mcngalyna.id.vn/#person"}
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://mcngalyna.id.vn/#video-19",
+      "name": "Bilingual Audience Interaction Clip",
+      "description": "Short vertical clip of bilingual audience interaction on stage.",
+      "thumbnailUrl": "https://mcngalyna.id.vn/assets/reel-giao-luu-song-ngu.webp",
+      "url": "https://www.youtube.com/watch?v=gbImftePuT4",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/gbImftePuT4",
+      "uploadDate": "2026-08-01T10:26:10-07:00",
+      "duration": "PT1M29S",
+      "inLanguage": ["en", "vi"],
       "creator": {"@id": "https://mcngalyna.id.vn/#person"}
     }
   ]
@@ -1594,6 +1664,26 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   display:grid;grid-template-columns:repeat(2,1fr);gap:32px 28px;
 }
 @media(max-width:900px){.reels-grid-22{grid-template-columns:1fr;gap:24px}}
+
+/* Vertical shorts row — 9:16 clips kept apart from the 16:9 showreel grid */
+.reels-shorts{margin-top:64px;padding-top:34px;border-top:1px solid var(--line)}
+.reels-shorts-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;margin-bottom:26px;
+}
+.reels-shorts-head h3{
+  font-family:'Newsreader',serif;font-weight:400;
+  font-size:clamp(22px,2.2vw,30px);letter-spacing:-.012em;line-height:1.12;
+}
+.reels-shorts-head h3 em{font-style:normal;color:var(--gold-deep)}
+.reels-shorts-head .shorts-note{
+  font-size:11px;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--ink-soft);font-weight:600;
+}
+.reels-grid-shorts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px 22px}
+@media(max-width:1100px){.reels-grid-shorts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){.reels-grid-shorts{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px}}
+
 .reel-card{display:flex;flex-direction:column;gap:14px}
 .reel-card.reel-featured{grid-column:1 / -1}
 .reel-card.reel-featured .reel-title-line{padding-bottom:14px}
@@ -1619,6 +1709,12 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   padding:4px 10px;border:1px solid var(--line);border-radius:999px;
   justify-self:end;white-space:nowrap;
 }
+.reel-card.reel-short .reel-title-line{grid-template-columns:24px minmax(0,1fr);gap:9px;padding-bottom:9px}
+.reel-card.reel-short .reel-num{font-size:17px}
+.reel-card.reel-short .reel-cap{font-size:15px}
+.reel-card.reel-short .reel-tag{grid-column:1 / -1;justify-self:start;margin-top:8px}
+.reel-card.reel-short .reel-play{width:54px;height:54px}
+.reel-card.reel-short .reel-play svg{width:17px;height:17px}
 
 .reel-lite{
   position:relative;overflow:hidden;
@@ -1626,6 +1722,7 @@ body[data-lang="vi"] .lang-toggle-footer .vn{
   border:1px solid var(--line);
 }
 .reel-lite.landscape{aspect-ratio:16/9}
+.reel-lite.portrait{aspect-ratio:9/16}
 .reel-lite img{
   width:100%;height:100%;object-fit:cover;
   transform:scale(var(--reel-scale,1));
@@ -1673,6 +1770,8 @@ body.video-open{overflow:hidden}
 .video-frame{
   aspect-ratio:16/9;background:#000;overflow:hidden;
 }
+.video-modal-dialog.is-portrait{width:min(420px,100%)}
+.video-modal-dialog.is-portrait .video-frame{aspect-ratio:9/16;max-height:calc(100vh - 150px)}
 .video-frame iframe{width:100%;height:100%;border:0;display:block}
 .video-modal-close{
   position:absolute;right:10px;top:10px;z-index:2;
@@ -2728,6 +2827,20 @@ body[data-lang="vi"] #works .portfolio-intro{display:none}
             <figure>
               <div class="event-media">
                 <div class="event-collage is-wide-main">
+                  <img src="assets/event-vnggames-glp-host.webp" alt="Gamers Lead The Play host with cue card on the VNGGames stage" loading="lazy" decoding="async" />
+                  <img src="assets/event-vnggames-glp-artists.webp" alt="Gamers Lead The Play artist moment with Quan A.P and Mason Nguyen" loading="lazy" decoding="async" />
+                  <img src="assets/event-vnggames-glp-stage.webp" alt="Gamers Lead The Play main stage performance" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Game community festival</div>
+            <h4><span class="en-only">Gamers Lead The Play <em>· VNGGames</em></span><span class="vi-only" data-no-translate>Gamers Lead The Play <em>· VNGGames</em></span></h4>
+            <p>Nearly 3,000 attendees at NECC Hanoi across five experience zones, with showmatch handovers and artist segments alongside Quan A.P, Ngo Lan Huong and Mason Nguyen.</p>
+          </article>
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage is-wide-main">
                   <img class="oeg-wide" src="assets/event-oeg-wonderland-4.webp" alt="OEG Wonderland wide stage" loading="lazy" decoding="async" />
                   <img src="assets/event-oeg-wonderland-5.webp" alt="OEG Wonderland host with rapper on stage" loading="lazy" decoding="async" />
                   <img src="assets/event-oeg-wonderland-3.webp" alt="OEG Wonderland audience moment" loading="lazy" decoding="async" />
@@ -2957,7 +3070,21 @@ body[data-lang="vi"] #works .portfolio-intro{display:none}
           </div>
           <p class="group-note">Retail activations need quick audience connection without losing polish around the brand, product and guest experience.</p>
         </div>
-        <div class="event-grid is-featured-five">
+        <div class="event-grid is-featured-six">
+          <article class="event-card">
+            <figure>
+              <div class="event-media">
+                <div class="event-collage is-wide-main">
+                  <img src="assets/event-lavie-tram-yen-stage.webp" alt="Tram Yen Dau Ngay La Vie talkshow stage at Thong Nhat Park Hanoi" loading="lazy" decoding="async" />
+                  <img src="assets/event-lavie-tram-yen-bus.webp" alt="Tram Yen Dau Ngay La Vie open-top bus segment around Hanoi" loading="lazy" decoding="async" />
+                  <img src="assets/event-lavie-tram-yen-fans.webp" alt="Tram Yen Dau Ngay La Vie audience meet with 14 Casper" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </figure>
+            <div class="event-kicker">Brand activation</div>
+            <h4><span class="en-only">Tram Yen Dau Ngay <em>· La Vie</em></span><span class="vi-only" data-no-translate>Trạm Yên Đầu Ngày <em>· La Vie</em></span></h4>
+            <p>Morning activation at Thong Nhat Park with the Yen Dau Ngay bus route through Hanoi, an audience meet with 14 Casper, mineral-tasting and personalised-bottle stations.</p>
+          </article>
           <article class="event-card">
             <figure>
               <div class="event-media">
@@ -3120,7 +3247,7 @@ body[data-lang="vi"] #works .portfolio-intro{display:none}
     </div>
 
     <div class="reels-meta">
-      <span class="reels-meta-tag">14 selected videos · bilingual hosting · stage presence</span>
+      <span class="reels-meta-tag">19 selected videos · bilingual hosting · stage presence</span>
     </div>
 
     <div class="reels-grid-22">
@@ -3292,6 +3419,75 @@ body[data-lang="vi"] #works .portfolio-intro{display:none}
         </div>
       </article>
 
+    </div>
+
+    <div class="reels-shorts">
+      <div class="reels-shorts-head">
+        <h3><span class="en-only">Short clips <em>from the floor</em></span><span class="vi-only" data-no-translate>Clip ngắn <em>quay tại sự kiện</em></span></h3>
+        <span class="shorts-note">5 vertical clips · on-stage sound</span>
+      </div>
+
+      <div class="reels-grid-shorts">
+        <article class="reel-card reel-short">
+          <div class="reel-title-line">
+            <span class="reel-num">15</span>
+            <span class="reel-cap serif"><span class="en-only">English-led <em>hosting</em></span><span class="vi-only" data-no-translate>Dẫn <em>tiếng Anh</em></span></span>
+            <span class="reel-tag reel-tag-bilingual">EN/VN</span>
+          </div>
+          <div class="reel-lite portrait" data-yt="IdKsXEGXh6o" data-orientation="portrait" role="button" aria-label="Play English-led hosting clip">
+            <img src="assets/reel-song-ngu-live.webp" alt="English-led bilingual hosting clip thumbnail" loading="lazy" decoding="async" />
+            <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+          </div>
+        </article>
+
+        <article class="reel-card reel-short">
+          <div class="reel-title-line">
+            <span class="reel-num">16</span>
+            <span class="reel-cap serif"><span class="en-only">Medical <em>event</em></span><span class="vi-only" data-no-translate>Sự kiện <em>y khoa</em></span></span>
+            <span class="reel-tag">VN</span>
+          </div>
+          <div class="reel-lite portrait" data-yt="4Xd0qqvz4Mg" data-orientation="portrait" role="button" aria-label="Play medical event hosting clip">
+            <img src="assets/reel-y-khoa.webp" alt="Medical event hosting clip thumbnail" loading="lazy" decoding="async" />
+            <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+          </div>
+        </article>
+
+        <article class="reel-card reel-short">
+          <div class="reel-title-line">
+            <span class="reel-num">17</span>
+            <span class="reel-cap serif"><span class="en-only">Sulwhasoo <em>brand event</em></span><span class="vi-only" data-no-translate>Sulwhasoo <em>nhãn hàng</em></span></span>
+            <span class="reel-tag">VN</span>
+          </div>
+          <div class="reel-lite portrait" data-yt="tBz9elg3fFM" data-orientation="portrait" role="button" aria-label="Play Sulwhasoo brand event clip">
+            <img src="assets/reel-sulwhasoo.webp" alt="Sulwhasoo brand event hosting clip thumbnail" loading="lazy" decoding="async" />
+            <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+          </div>
+        </article>
+
+        <article class="reel-card reel-short">
+          <div class="reel-title-line">
+            <span class="reel-num">18</span>
+            <span class="reel-cap serif"><span class="en-only">Seminar <em>moderation</em></span><span class="vi-only" data-no-translate>Dẫn <em>hội thảo</em></span></span>
+            <span class="reel-tag">VN</span>
+          </div>
+          <div class="reel-lite portrait" data-yt="Uo4_HoHwDos" data-orientation="portrait" role="button" aria-label="Play seminar moderation clip">
+            <img src="assets/reel-hoi-thao.webp" alt="Seminar moderation clip thumbnail" loading="lazy" decoding="async" />
+            <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+          </div>
+        </article>
+
+        <article class="reel-card reel-short">
+          <div class="reel-title-line">
+            <span class="reel-num">19</span>
+            <span class="reel-cap serif"><span class="en-only">Audience <em>interaction</em></span><span class="vi-only" data-no-translate>Giao lưu <em>khán giả</em></span></span>
+            <span class="reel-tag reel-tag-bilingual">EN/VN</span>
+          </div>
+          <div class="reel-lite portrait" data-yt="gbImftePuT4" data-orientation="portrait" role="button" aria-label="Play bilingual audience interaction clip">
+            <img src="assets/reel-giao-luu-song-ngu.webp" alt="Bilingual audience interaction clip thumbnail" loading="lazy" decoding="async" />
+            <button class="reel-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l16 9-16 9z"/></svg></button>
+          </div>
+        </article>
+      </div>
     </div>
 
     <div class="voice-action">
@@ -3510,6 +3706,8 @@ const viCopy = {
   'Vietnam-Japan cultural stage with performance handovers and crowd-facing transitions.':'Sân khấu văn hoá Việt-Nhật với phần dẫn dắt tiết mục.',
   'Thang Long Japan Festival 2024':'Lễ hội Nhật Bản Thăng Long 2024',
   'Major Vietnam-Japan cultural festival at Thang Long Industrial Park, with performance handovers and crowd flow.':'Lễ hội Nhật Bản lớn nhất trong năm tại KCN Thăng Long.',
+  'Game community festival':'Ngày hội cộng đồng game',
+  'Nearly 3,000 attendees at NECC Hanoi across five experience zones, with showmatch handovers and artist segments alongside Quan A.P, Ngo Lan Huong and Mason Nguyen.':'Gần 3.000 người tham dự tại NECC Hà Nội với 5 khu trải nghiệm, dẫn chuyển cảnh showmatch và giao lưu cùng Quân A.P, Ngô Lan Hương, Mason Nguyễn.',
   'Entertainment stage':'Sân khấu giải trí',
   'Artist interaction and live-stage hosting for Vietnam GameVerse.':'Giao lưu nghệ sĩ trong khuôn khổ Vietnam GameVerse.',
   'Mall festival opening':'Khai mạc lễ hội tại mall',
@@ -3530,6 +3728,8 @@ const viCopy = {
   'Consumer activation':'Hoạt động nhãn hàng',
   'Comfort Huong Nuoc Hoa':'Comfort Hương Nước Hoa',
   'High-traffic mall activation with crowd handling, guest interaction and brand energy.':'Giới thiệu sản phẩm mới và giao lưu cùng nữ ca sĩ Changg.',
+  'Brand activation':'Activation thương hiệu',
+  'Morning activation at Thong Nhat Park with the Yen Dau Ngay bus route through Hanoi, an audience meet with 14 Casper, mineral-tasting and personalised-bottle stations.':'Chuỗi hoạt động buổi sáng tại Công viên Thống Nhất: chuyến xe buýt “Yên Đầu Ngày” khám phá Hà Nội, giao lưu cùng 14 Casper, trải nghiệm nạp khoáng và chai La Vie cá nhân hoá.',
   'Beauty retail':'Bán lẻ làm đẹp',
   'Beauty retail activation with talent moments and live customer interaction.':'Giới thiệu dòng sản phẩm mới và giao lưu cùng Tân Binh Toàn Năng.',
   'Concert activation':'Đồng hành concert',
@@ -3552,7 +3752,8 @@ const viCopy = {
   '05 — Showreel':'05 — Showreel',
   'See Nga':'Xem Nga',
   'on stage.':'trên sân khấu.',
-  '14 selected videos · bilingual hosting · stage presence':'14 video chọn lọc · dẫn song ngữ · hiện diện sân khấu',
+  '19 selected videos · bilingual hosting · stage presence':'19 video chọn lọc · dẫn song ngữ · hiện diện sân khấu',
+  '5 vertical clips · on-stage sound':'5 clip dọc · tiếng thu tại sân khấu',
   'Bilingual MC Showreel':'Showreel MC song ngữ',
   'OEG Wonderland ·':'OEG Wonderland ·',
   'live stage':'sân khấu sự kiện',
@@ -3652,6 +3853,7 @@ document.querySelectorAll('.hall-marquee .track').forEach(track => {
 const videoModal = document.getElementById('video-modal');
 const videoFrame = document.getElementById('video-frame');
 const videoOpenLink = document.getElementById('video-open-link');
+const videoDialog = videoModal ? videoModal.querySelector('.video-modal-dialog') : null;
 function youtubeWatchUrl(id){
   return `https://www.youtube.com/watch?v=${id}`;
 }
@@ -3668,9 +3870,10 @@ function openEmbeddedVideo(id){
   videoFrame.innerHTML = `<iframe src="${src}" title="Nga Lyna showreel" allow="autoplay; fullscreen; encrypted-media; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
 }
 
-function openVideo(id){
+function openVideo(id, orientation){
   if(!id || !videoModal || !videoFrame) return;
   if(videoOpenLink) videoOpenLink.href = youtubeWatchUrl(id);
+  if(videoDialog) videoDialog.classList.toggle('is-portrait', orientation === 'portrait');
   videoModal.classList.add('open');
   videoModal.setAttribute('aria-hidden','false');
   document.body.classList.add('video-open');
@@ -3688,7 +3891,7 @@ document.querySelectorAll('.reel-lite').forEach(el=>{
   let pointerHandled = false;
   const activateReel = () => {
     const id = el.dataset.yt;
-    openVideo(id);
+    openVideo(id, el.dataset.orientation);
   };
   el.addEventListener('pointerup', e => {
     if(e.pointerType === 'mouse') return;

@@ -92,8 +92,21 @@ Do not use a low-resolution logo if a cleaner source is available.
    - Include the real YouTube `uploadDate`; Google Search Console marks videos invalid when this is missing.
    - Keep `url` as the public YouTube watch link.
    - Keep `embedUrl` on `https://www.youtube-nocookie.com/embed/YOUTUBE_ID`.
-5. If the total number of reels changes, update related copy and QA expectations.
+5. If the total number of reels changes, update the `reels-meta-tag` count in `index.html` and its `viCopy` key, then update related copy and QA expectations.
 6. After deploy, run Search Console URL inspection and validate any VideoObject fixes.
+
+### Vertical clips (YouTube Shorts)
+
+Vertical clips live in their own row under `.reels-shorts`, below the 16:9 grid. Do not mix them into `.reels-grid-22`.
+
+```html
+<div class="reel-lite portrait" data-yt="YOUTUBE_ID" data-orientation="portrait">
+```
+
+- `.reel-card.reel-short` gives the smaller title line and play button.
+- `data-orientation="portrait"` is what switches the video modal to a 9:16 frame; without it the clip opens letterboxed in the 16:9 dialog.
+- Thumbnails are 720 x 1280 `.webp`. YouTube's own vertical still is at `https://i.ytimg.com/vi/YOUTUBE_ID/oar2.jpg` when no better frame is available.
+- The shorts row is 5 columns on desktop, 3 from 1100px down, 2 from 640px down.
 
 ## Updating Copy
 
