@@ -137,16 +137,15 @@ Do not use a low-resolution logo if a cleaner source is available.
 
 ### Vertical clips (YouTube Shorts)
 
-Vertical clips live in their own row under `.reels-shorts`, below the 16:9 grid. Do not mix them into `.reels-grid-22`.
+The showreel is one curated vertical library under `.reels-grid-vertical`: 4 columns on desktop, 3 on tablet and 2 on mobile. Keep English-led and bilingual proof first, then order the remaining clips by relevance and event scale.
 
 ```html
 <div class="reel-lite portrait" data-yt="YOUTUBE_ID" data-orientation="portrait">
 ```
 
-- `.reel-card.reel-short` gives the smaller title line and play button.
 - `data-orientation="portrait"` is what switches the video modal to a 9:16 frame; without it the clip opens letterboxed in the 16:9 dialog.
 - Thumbnails are 720 x 1280 `.webp`. YouTube's own vertical still is at `https://i.ytimg.com/vi/YOUTUBE_ID/oar2.jpg` when no better frame is available.
-- The shorts row is 5 columns on desktop, 3 from 1100px down, 2 from 640px down.
+- If YouTube does not expose `oar2.jpg`, create a considered 720 x 1280 crop from a strong original event photograph. Keep the MC's face and event identity clear of the centered play button.
 
 ## Updating Copy
 

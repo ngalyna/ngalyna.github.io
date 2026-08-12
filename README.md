@@ -14,7 +14,7 @@ portfolio materials are reserved for Nga Lyna. See [LICENSE](LICENSE).
 - Canonical production domain: `https://mcngalyna.id.vn/`.
 - The site is intentionally static: HTML, CSS, vanilla JavaScript, and local assets.
 - Language modes are handled in `index.html` through the `viCopy` translation map and `body[data-lang]` CSS states.
-- Structured profile metadata is embedded in the `<head>` as JSON-LD for `Person`, `ProfessionalService`, `WebSite`, and 19 `VideoObject` showreels (14 landscape reels plus 5 vertical short clips). This is invisible to users but helps crawlers and AI systems understand the booking profile.
+- Structured profile metadata is embedded in the `<head>` as JSON-LD for `Person`, `ProfessionalService`, `WebSite`, and 16 curated vertical `VideoObject` showreels. This is invisible to users but helps crawlers and AI systems understand the booking profile.
 
 ## Health Snapshot
 
