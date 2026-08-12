@@ -97,6 +97,13 @@ be. Measure on a wide desktop window — that is where images render largest.
 5. Use `loading="lazy"` and `decoding="async"` for below-fold images.
 6. Check mobile crops after editing.
 
+For a three-image `.event-collage`, the first image spans both rows and the
+second and third images sit in shorter side cells. Choose the files for those
+actual shapes: a portrait or full-body frame can work as the main image, while
+the side cells usually need landscape frames with deliberate headroom. Never
+assume a good source portrait will remain well composed after `object-fit:
+cover`; inspect every cell in the rendered collage.
+
 Useful crop classes:
 
 - `crop-face`: keeps the host face higher in the frame.
@@ -104,6 +111,10 @@ Useful crop classes:
 - `crop-stage`: favors stage composition.
 - `crop-low`: favors lower stage/body framing.
 - `crop-left` / `crop-right`: shifts the focal point.
+
+Event-specific crop classes are acceptable when the shared crop helpers do not
+protect the subject. Keep them next to the existing event image crop rules in
+`index.html`, name them after the event, and set `object-position` explicitly.
 
 If a play button covers the host face, change the crop or thumbnail instead of moving the button off-center.
 
