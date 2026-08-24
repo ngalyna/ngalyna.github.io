@@ -15,6 +15,7 @@ portfolio materials are reserved for Nga Lyna. See [LICENSE](LICENSE).
 - The site is intentionally static: HTML, CSS, vanilla JavaScript, and local assets.
 - Language modes are handled in `index.html` through the `viCopy` translation map and `body[data-lang]` CSS states.
 - Structured profile metadata is embedded in the `<head>` as JSON-LD for `Person`, `ProfessionalService`, `WebSite`, and 16 curated vertical `VideoObject` showreels. This is invisible to users but helps crawlers and AI systems understand the booking profile.
+- The showreel currently contains 16 vertical videos, each with a descriptive play-button label.
 
 ## Health Snapshot
 
@@ -94,7 +95,7 @@ For domain and Search Console notes, use
 ## Known Issues And Open Items
 
 Ordered by impact. None of these break the live site; they are the honest
-backlog as of 2026-08-04.
+backlog as of 2026-08-24.
 
 1. **Hero image is the mobile bottleneck.** `assets/hero-audition-award-2026.webp`
    is 2560 x 1713 and about 1.4 MB, served identically to a 390 px phone. A
@@ -108,13 +109,8 @@ backlog as of 2026-08-04.
 3. **All CSS and JS are inline in `index.html`** (about 69 KB and 47 KB of a
    199 KB file). Splitting them into cached files would help repeat visitors.
    Deliberately not done: the site works well and the change is invasive.
-4. **Reel tiles announce poorly to screen readers.** Each `.reel-lite` is a
-   `role="button"` `<div>` that cannot be focused, while the focusable
-   `.reel-play` button inside it is only labelled "Play". Keyboard playback
-   does work (Enter on the inner button), but 19 buttons share one name. Moving
-   the descriptive `aria-label` onto the button would fix it.
-5. **`assets/event-lavie-tram-yen-stage.webp` is slightly under retina size.**
+4. **`assets/event-lavie-tram-yen-stage.webp` is slightly under retina size.**
    The source photo is only 1366 px wide and the slot wants about 1500 px at 2x.
    Nothing to do unless a higher-resolution original turns up.
-6. **The repository is heavy.** `.git` is around 165 MB, partly from
+5. **The repository is heavy.** `.git` is around 187 MB, partly from
    `Portfolio-standalone.html` (9 MB) and image history. Clones are slow.
