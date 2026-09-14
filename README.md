@@ -10,6 +10,14 @@ portfolio materials are reserved for Nga Lyna. See [LICENSE](LICENSE).
 
 - Production entry file: `index.html`.
 - Vietnamese SEO profile page: `mc-song-ngu-ha-noi/index.html`.
+- Gaming-specific booking profile: `gaming/index.html`, publicly shared as
+  `https://mcngalyna.id.vn/gaming/`. The main Game & Esports group links to it
+  in both languages; its footer links back to the complete MC profile.
+- `gaming/` and `gaming.rsc` are generated from the separate Nga Lyna gaming
+  React/Vinext source project. Do not hand-edit bundled JavaScript. Rebuild
+  with its `scripts/build-github-pages.mjs`, then stage with
+  `scripts/stage-github-pages.mjs /absolute/path/to/this-checkout`.
+- Keep `.nojekyll` at the root: the gaming profile requires `_next` assets.
 - Deployed through GitHub Pages from the `main` branch root.
 - Canonical production domain: `https://mcngalyna.id.vn/`.
 - The site is intentionally static: HTML, CSS, vanilla JavaScript, and local assets.
