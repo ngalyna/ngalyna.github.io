@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src 'self'; form-action 'self'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
 <title>MC Nga Lyna — MC song ngữ Hà Nội | Bilingual MC</title>
 <meta name="description" content="MC Nga Lyna là MC song ngữ Việt-Anh tại Hà Nội, dẫn hội nghị, gala dinner, ra mắt thương hiệu, activation, lễ hội và các sân khấu sự kiện tại Việt Nam." />
 <link rel="canonical" href="https://mcngalyna.id.vn/" />
@@ -3749,11 +3751,18 @@ const videoModal = document.getElementById('video-modal');
 const videoFrame = document.getElementById('video-frame');
 const videoOpenLink = document.getElementById('video-open-link');
 const videoDialog = videoModal ? videoModal.querySelector('.video-modal-dialog') : null;
+function normalizeYoutubeId(id){
+  const value = String(id || '');
+  return /^[A-Za-z0-9_-]{11}$/.test(value) ? value : null;
+}
 function youtubeWatchUrl(id){
-  return `https://www.youtube.com/watch?v=${id}`;
+  const safeId = normalizeYoutubeId(id);
+  return safeId ? `https://www.youtube.com/watch?v=${encodeURIComponent(safeId)}` : '#';
 }
 
 function openEmbeddedVideo(id){
+  const safeId = normalizeYoutubeId(id);
+  if(!safeId || !videoFrame) return;
   const params = new URLSearchParams({
     autoplay:'1',
     playsinline:'1',
@@ -3761,25 +3770,32 @@ function openEmbeddedVideo(id){
     modestbranding:'1',
     controls:'1'
   });
-  const src = `https://www.youtube-nocookie.com/embed/${id}?${params.toString()}`;
-  videoFrame.innerHTML = `<iframe src="${src}" title="Nga Lyna showreel" allow="autoplay; fullscreen; encrypted-media; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+  const src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(safeId)}?${params.toString()}`;
+  const iframe = document.createElement('iframe');
+  iframe.src = src;
+  iframe.title = 'Nga Lyna showreel';
+  iframe.allow = 'autoplay; fullscreen; encrypted-media; picture-in-picture; web-share';
+  iframe.allowFullscreen = true;
+  iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+  videoFrame.replaceChildren(iframe);
 }
 
 function openVideo(id, orientation){
-  if(!id || !videoModal || !videoFrame) return;
-  if(videoOpenLink) videoOpenLink.href = youtubeWatchUrl(id);
+  const safeId = normalizeYoutubeId(id);
+  if(!safeId || !videoModal || !videoFrame) return;
+  if(videoOpenLink) videoOpenLink.href = youtubeWatchUrl(safeId);
   if(videoDialog) videoDialog.classList.toggle('is-portrait', orientation === 'portrait');
   videoModal.classList.add('open');
   videoModal.setAttribute('aria-hidden','false');
   document.body.classList.add('video-open');
-  openEmbeddedVideo(id);
+  openEmbeddedVideo(safeId);
 }
 function closeVideo(){
   if(!videoModal || !videoFrame) return;
   videoModal.classList.remove('open');
   videoModal.setAttribute('aria-hidden','true');
   document.body.classList.remove('video-open');
-  videoFrame.innerHTML = '<div id="youtube-player"></div>';
+  videoFrame.replaceChildren(Object.assign(document.createElement('div'), {id:'youtube-player'}));
 }
 document.querySelectorAll('.reel-lite').forEach(el=>{
   el.style.cursor='pointer';
